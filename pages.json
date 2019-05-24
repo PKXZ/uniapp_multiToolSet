@@ -5,18 +5,14 @@
 			"style": {
 				"navigationBarTitleText": "工具集"
 			}
-		}
-	    ,{
-            "path" : "pages/myself/myself",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/message/message",
-            "style" : {}
-        }
-        ,{
-            "path" : "pages/find/find",
-            "style" : {}
+		},{
+            "path" : "pages/myself/myself"
+        },{
+            "path" : "pages/message/message"
+        },{
+            "path" : "pages/find/find"
+        },{
+            "path" : "views/wetherForecast"
         }
     ],
 	"globalStyle": {

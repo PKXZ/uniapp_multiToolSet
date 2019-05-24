@@ -21,11 +21,10 @@
 				<li class="toolsCols" v-for="(item,index) in toolData" :key="index">
 					<view
 						class="toolSingel"
-						style="background: linear-gradient(to right, ${item.color[0]}, ${item.color[1]})">
+						:style="'background: linear-gradient(to right,' + item.color[0] +','+ item.color[1] +')'"
+						@click="toTool"
+						:data-items="JSON.stringify(item)">
 						<i class="iconfont" :class="item.icon"></i>
-						<!--
-						:style="background: `linear-gradient(to right, ${item.color[0]}, ${item.color[1]})`"
-						:style="background: linear-gradient(to right, item.color[0], item.color[1])"-->
 					</view>
 					<text>{{item.label}}</text>
 				</li>
@@ -224,7 +223,7 @@ export default {
 				]
 			  }
 			]
-        }
+      }
     },
     methods: {
         changeIndicatorDots(e) {
@@ -238,7 +237,15 @@ export default {
         },
         durationChange(e) {
             this.duration = e.target.value
-        }
+        },
+				toTool(event){
+					const item = JSON.parse(event.currentTarget.dataset.items);
+					const label = item.label;
+					const type = item.type;
+					wx.navigateTo({
+						url: '/views/' + type + '?label=' + label,
+					})
+				}
     }
 }
 </script>

@@ -15,6 +15,7 @@
 .toolsCols{
 	width: calc(100% / 4);
 	float: left;
+	text-align: center;
 }
 .toolsRows:after{
   clear:both;
