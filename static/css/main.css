@@ -16,6 +16,7 @@
 	width: calc(100% / 4);
 	float: left;
 	text-align: center;
+	margin: 10upx 0;
 }
 .toolsRows:after{
   clear:both;
