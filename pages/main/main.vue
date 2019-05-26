@@ -242,7 +242,7 @@ export default {
 					const item = JSON.parse(event.currentTarget.dataset.items);
 					const label = item.label;
 					const type = item.type;
-					wx.navigateTo({
+					uni.navigateTo({
 						url: '/views/' + type + '?label=' + label,
 					})
 				}
