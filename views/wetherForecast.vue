@@ -4,37 +4,37 @@
 	  <view class="wetherTop">
 		  <!--更多按钮-->
 		  <view class='wetherGengduo' @click='gengduoFun'>
-			<i class="iconfont icon-dingwei3 fl"></i>
-			<span class="fl">{{currentCity}}</span>
-			<i class='iconfont icon-gengduo fr'></i>
+				<i class="iconfont icon-dizhidingwei fl"></i>
+				<span class="fl">{{currentCity}}</span>
+				<i class='iconfont icon-gengduo fr'></i>
 		  </view>
 		  <view class="wetherInfo">
-			<i class="iconfont currentIcon" :class="currentIcon"></i>
-			<text class="currentType">{{currentType}}</text>
-			<view class="tag">
-			  <view>
-				<i class="iconfont icon-temp" />
-				<view>
-				  <text>温度</text>
-				  <text>23℃</text>
+				<i class="iconfont currentIcon" :class="currentIcon"></i>
+				<text class="currentType">{{currentType}}</text>
+				<view class="tag">
+					<view>
+						<i class="iconfont icon-temp" />
+						<view>
+							<text>温度</text>
+							<text>23℃</text>
+						</view>
+					</view>
+					<view>
+						<i class="iconfont icon-fengli" />
+						<view>
+							<text>风力</text>
+							<text>3级</text>
+						</view>
+					</view>
+					<view>
+						<i class="iconfont icon-shidu" />
+						<view>
+							<text>湿度</text>
+							<text>50%</text>
+						</view>
+					</view>
 				</view>
-			  </view>
-			  <view>
-				<i class="iconfont icon-fengli" />
-				<view>
-				  <text>风力</text>
-				  <text>3级</text>
-				</view>
-			  </view>
-			  <view>
-				<i class="iconfont icon-shidu" />
-				<view>
-				  <text>湿度</text>
-				  <text>50%</text>
-				</view>
-			  </view>
 			</view>
-		  </view>
 	  </view>
 	  <!--下半部分-->
 	  <view class="wetherBottom">
@@ -53,18 +53,18 @@
 	  <uni-drawer :visible="showRigth" mode="right" @close="closeDrawer">
 		  <view class="demo-container">
 			  <view class="gengduoAdd">
-				<i class="iconfont icon-zuojiantou iLeft" @click="hide"></i>
-				<i class="iconfont icon-jia iRight" @click="citySelector"></i>
+					<i class="iconfont icon-zuojiantou iLeft" @click="hide"></i>
+					<i class="iconfont icon-jia iRight" @click="citySelector"></i>
 			  </view>
 			  <view class="gengduoContent">
-				<ul>
-				  <li v-for="(item,index) in cityList" :key="index">
-				  <i class="iconfont icon-dizhidingwei"></i>
-					<span>{{item.cityName}}</span>
-					<span class="fr">{{item.wd}}</span>
-				  </li>
-				  <div style="clear:both;"></div>
-				</ul>
+					<ul>
+						<li v-for="(item,index) in cityList" :key="index">
+							<i class="iconfont icon-dizhidingwei"></i>
+							<span class="cityName">{{item.cityName}}</span>
+							<span>{{item.wd}}</span>
+						</li>
+						<div style="clear:both;"></div>
+					</ul>
 			  </view>
 		  </view>
 	  </uni-drawer>

@@ -1,0 +1,2 @@
+<import src="/components/common/uni-indexed-list.vue.axml"/><template name="23dd1122"><view class="_view citySelector {{ h[ 0 ].rcl }}"><view class="_view citySearch"><input class="_input" placeholder="搜索城市名称"></input><button class="_button primary">搜索</button></view><view class="_view dwCity"><text class="_text dw">定位城市</text><text class="_text citys"><view class="_i iconfont icon-dizhidingwei"></view>成都</text></view><template is="6efaa466" data="{{ ...$root[ cp + 0 ], $root, _t: _t || '' }}" /></view></template>
+<template is="23dd1122" data="{{ ...$root['0'], $root }}"/>
