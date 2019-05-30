@@ -155,8 +155,23 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\
 //
 //
 //
-var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var _default = { data: function data() {return { gengduoCT: false, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onLoad: function onLoad(options) {//动态设置标题
-    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } });}, methods: { gengduoFun: function gengduoFun() {this.showRigth = true;}, closeDrawer: function closeDrawer() {
+var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var _default = { data: function data() {return { gengduoCT: false, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {console.log(JSON.stringify(btn));this.gengduoFun();}, onLoad: function onLoad(options) {//动态设置标题
+    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } }); //获取当前位置
+    uni.getLocation({ type: 'wgs84', //默认为 wgs84 返回 gps 坐标，gcj02 返回国测局坐标
+      success: function success(res) {
+        console.log('当前位置的经度：' + res.longitude);
+        console.log('当前位置的纬度：' + res.latitude);
+      },
+      fail: function fail(err) {
+        console.log(err);
+      } });
+
+  },
+  methods: {
+    gengduoFun: function gengduoFun() {
+      this.showRigth = true;
+    },
+    closeDrawer: function closeDrawer() {
       this.showRigth = false;
     },
     hide: function hide() {

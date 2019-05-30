@@ -12,7 +12,22 @@
         },{
             "path" : "pages/find/find"
         },{
-            "path" : "views/wetherForecast"
+            "path" : "views/wetherForecast",
+			"style": {
+                "app-plus": {
+                    "bounce": "none",
+                    "titleNView": {
+                        "buttons": [ 
+                            {
+								"text": "\ue664",  
+                                "float": "right",
+								"fontSrc": "/static/font/iconfont.ttf",  
+								"fontSize": "22px"  
+                            }
+                        ]
+                    }
+                }
+            }
         },{
             "path" : "views/citySelector",
 			"style": {

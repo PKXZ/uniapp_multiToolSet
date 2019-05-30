@@ -1,4 +1,15 @@
 {
+  "bounce": "none",
+  "titleNView": {
+    "buttons": [
+      {
+        "text": "",
+        "float": "right",
+        "fontSrc": "/static/font/iconfont.ttf",
+        "fontSize": "22px"
+      }
+    ]
+  },
   "usingComponents": {
     "uni-drawer": "/components/common/uni-drawer"
   }

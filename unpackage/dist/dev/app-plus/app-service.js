@@ -1272,7 +1272,7 @@ var m7=function(e,s,r,gg){
 var z=gz$gwx_8()
 cs.push("./views/wetherForecast.wxml:view:1:1")
 var o6=_mz(z,'view',['bind:__l',0,'class',1],[],e,s,gg)
-cs.push("./views/wetherForecast.wxml:uni-drawer:1:1166")
+cs.push("./views/wetherForecast.wxml:uni-drawer:1:1047")
 var f7=_mz(z,'uni-drawer',['bind:close',2,'data-event-opts',1,'mode',2,'visible',3,'vueSlots',4],[],e,s,gg)
 cs.pop()
 _(o6,f7)
@@ -1325,7 +1325,7 @@ __wxAppCode__['pages/myself/myself.wxml']=$gwx('./pages/myself/myself.wxml');
 __wxAppCode__['views/citySelector.json']={"navigationBarTitleText":"选择城市","usingComponents":{"uni-indexed-list":"/components/common/uni-indexed-list"}};
 __wxAppCode__['views/citySelector.wxml']=$gwx('./views/citySelector.wxml');
 
-__wxAppCode__['views/wetherForecast.json']={"usingComponents":{"uni-drawer":"/components/common/uni-drawer"}};
+__wxAppCode__['views/wetherForecast.json']={"bounce":"none","titleNView":{"buttons":[{"text":"","float":"right","fontSrc":"/static/font/iconfont.ttf","fontSize":"22px"}]},"usingComponents":{"uni-drawer":"/components/common/uni-drawer"}};
 __wxAppCode__['views/wetherForecast.wxml']=$gwx('./views/wetherForecast.wxml');
 
 
@@ -2174,7 +2174,7 @@ function getData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -8248,7 +8248,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8269,14 +8269,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8345,7 +8345,7 @@ var patch = function(oldVnode, vnode) {
         });
         var diffData = diff(data, mpData);
         if (Object.keys(diffData).length) {
-            if (Object({"VUE_APP_PLATFORM":"app-plus","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+            if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"app-plus","BASE_URL":"/"}).VUE_APP_DEBUG) {
                 console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
                     ']差量更新',
                     JSON.stringify(diffData));
@@ -10573,8 +10573,23 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\
 //
 //
 //
-var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var _default = { data: function data() {return { gengduoCT: false, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onLoad: function onLoad(options) {//动态设置标题
-    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } });}, methods: { gengduoFun: function gengduoFun() {this.showRigth = true;}, closeDrawer: function closeDrawer() {
+var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var _default = { data: function data() {return { gengduoCT: false, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {console.log(JSON.stringify(btn), " at views\\wetherForecast.vue:130");this.gengduoFun();}, onLoad: function onLoad(options) {//动态设置标题
+    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } }); //获取当前位置
+    uni.getLocation({ type: 'wgs84', //默认为 wgs84 返回 gps 坐标，gcj02 返回国测局坐标
+      success: function success(res) {
+        console.log('当前位置的经度：' + res.longitude, " at views\\wetherForecast.vue:152");
+        console.log('当前位置的纬度：' + res.latitude, " at views\\wetherForecast.vue:153");
+      },
+      fail: function fail(err) {
+        console.log(err, " at views\\wetherForecast.vue:156");
+      } });
+
+  },
+  methods: {
+    gengduoFun: function gengduoFun() {
+      this.showRigth = true;
+    },
+    closeDrawer: function closeDrawer() {
       this.showRigth = false;
     },
     hide: function hide() {

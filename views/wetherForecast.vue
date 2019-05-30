@@ -3,10 +3,10 @@
 	  <!--上半部分-->
 	  <view class="wetherTop">
 		  <!--更多按钮-->
-		  <view class='wetherGengduo' @click='gengduoFun'>
+		  <view class='wetherGengduo'>
 				<i class="iconfont icon-dizhidingwei fl"></i>
 				<span class="fl">{{currentCity}}</span>
-				<i class='iconfont icon-gengduo fr'></i>
+				<!-- <i class='iconfont icon-gengduo fr'></i> -->
 		  </view>
 		  <view class="wetherInfo">
 				<i class="iconfont currentIcon" :class="currentIcon"></i>
@@ -123,8 +123,12 @@
 						wd: '10~20℃'
 					  }
 				],
-				showRigth: false,
+				showRigth: false
 			}
+		},
+		onNavigationBarButtonTap(btn){
+			console.log(JSON.stringify(btn))
+			this.gengduoFun();
 		},
 		 onLoad(options) {
 			//动态设置标题
@@ -141,6 +145,17 @@
 				timingFunc: 'easeIn'
 			  }
 			})
+			//获取当前位置
+			uni.getLocation({
+				type: 'wgs84',//默认为 wgs84 返回 gps 坐标，gcj02 返回国测局坐标
+				success: function (res) {
+					console.log('当前位置的经度：' + res.longitude);
+					console.log('当前位置的纬度：' + res.latitude);
+				},
+				fail: function (err) {
+					console.log(err);
+				}
+			});
 		},
 		methods:{
 			gengduoFun(){

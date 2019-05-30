@@ -29,7 +29,7 @@
   padding-top: 40rpx;
 }
 .wetherInfo .currentIcon{
-  font-size: 200rpx;
+  font-size: 150rpx;
   color: #fff;
   display: block;
   text-align:center;
@@ -89,7 +89,7 @@
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 0 20rpx;
+  margin: 0 15rpx;
 }
 .wetherInfo .tag view view{
   display: -webkit-box;
@@ -127,6 +127,15 @@
   border-right: 1rpx solid #ededed;
   height: 100%;
   width: 19.6%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
 }
 .wetherBottom ._ul ._li:hover{
   background: #eee;
@@ -134,14 +143,14 @@
 .wetherBottom ._ul ._li:last-child{
   border-right: transparent;
 }
-.wetherBottom ._ul ._li .tag text{
+.wetherBottom text{
   display: block;
   color: #7a7a7a;
   margin: 45rpx 0;
   line-height: 1;
 	font-size: 30rpx;
 }
-.wetherBottom ._ul ._li .tag ._i{
+.wetherBottom ._ul ._li ._i{
   font-size: 70rpx;
   color: #7a7a7a;
   line-height: 2;
@@ -194,6 +203,15 @@
   height: 40rpx;
   line-height: 40rpx;
 	font-size: 30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
 }
 .gengduoContent ._ul:after{
   clear:both;
@@ -205,4 +223,10 @@
 }
 .gengduoContent ._ul ._li:hover{
   background: #eee;
+}
+.gengduoContent .cityName{
+	-webkit-box-flex: 2;
+	-webkit-flex: 2;
+	    -ms-flex: 2;
+	        flex: 2;
 }
