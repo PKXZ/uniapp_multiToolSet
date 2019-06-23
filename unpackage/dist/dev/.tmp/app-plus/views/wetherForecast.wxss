@@ -1,0 +1,232 @@
+.wetherContent{
+  height:100%;
+}
+.wetherTop{
+  width: 100%;
+  height: 45%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#6f86d6), to(#48c6ef));
+  background: -o-linear-gradient(bottom, #6f86d6, #48c6ef);
+  background: linear-gradient(to top, #6f86d6, #48c6ef);
+}
+.wetherGengduo{
+  text-align: right;
+}
+.wetherGengduo ._i{
+  font-size: 48rpx;
+  color: #fff;
+  margin: 0 30rpx;
+}
+.wetherGengduo ._span{
+  font-size: 36rpx;
+  color: #fff;
+  margin-left: -20rpx;
+}
+.wetherInfo{
+  width: 95%;
+  height: auto;
+  /* background-color: rgba(255,255,255,0.2); */
+  margin: 0 auto;
+  padding-top: 40rpx;
+}
+.wetherInfo .currentIcon{
+  font-size: 150rpx;
+  color: #fff;
+  display: block;
+  text-align:center;
+}
+.wetherInfo .currentType{
+  margin: 40rpx 0;
+}
+.wetherInfo text{
+  font-size: 40rpx;
+  color: #fff;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.wetherInfo .tag{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 20rpx;
+}
+.wetherInfo .tag text{
+  font-size: 30rpx;
+}
+.wetherInfo .tag view{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 15rpx;
+}
+.wetherInfo .tag view view{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.wetherInfo .tag view ._i{
+  font-size: 80rpx;
+  color: #fff;
+}
+/*下半部分*/
+.wetherBottom{
+  width: 100%;
+  height: 55%;
+}
+.wetherBottom ._ul{
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.wetherBottom ._ul:after{
+  clear:both;
+  display:block;
+  content:" ";
+}
+.wetherBottom ._ul ._li{
+  float:left;
+  text-align: center;
+  border-right: 1rpx solid #ededed;
+  height: 100%;
+  width: 19.6%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+}
+.wetherBottom ._ul ._li:hover{
+  background: #eee;
+}
+.wetherBottom ._ul ._li:last-child{
+  border-right: transparent;
+}
+.wetherBottom text{
+  display: block;
+  color: #7a7a7a;
+  margin: 45rpx 0;
+  line-height: 1;
+	font-size: 30rpx;
+}
+.wetherBottom ._ul ._li ._i{
+  font-size: 70rpx;
+  color: #7a7a7a;
+  line-height: 2;
+}
+.wetherBottom .wetherDate{
+  font-size: 35rpx;
+  margin-top: 60rpx;
+}
+/*侧边栏*/
+.gengduoDrawer .demo-container{
+  height: 100%;
+  width: 100%;
+}
+.gengduoDrawer .demo-container .gengduoContent{
+  padding: 20rpx;
+}
+.gengduoAdd{
+  width: 100%;
+  background: #fff;
+  height: 70rpx;
+	line-height: 70rpx;
+}
+.gengduoAdd .iLeft{
+	font-size: 46rpx;
+	float: left;
+}
+.gengduoAdd .iRight{
+  font-size: 70rpx;
+	float: right;
+}
+.gengduoAdd:after{
+  clear:both;
+  display:block;
+  content:" ";
+}
+.gengduoContent{
+  width: 100%;
+  height: calc(100% - 110rpx);
+}
+.gengduoContent ._ul{
+  width: 100%;
+  height: 100%;
+}
+.gengduoContent ._ul ._li{
+  width: 92%;
+  float:left;
+  padding: 20rpx 20rpx;
+  border-bottom:1px solid #EEEEEE;
+  color: #2b2b2b;
+  height: 40rpx;
+  line-height: 40rpx;
+	font-size: 30rpx;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: row;
+	    -ms-flex-direction: row;
+	        flex-direction: row;
+}
+.gengduoContent ._ul:after{
+  clear:both;
+  display:block;
+  content:" ";
+}
+.gengduoContent ._ul ._li .tag ._i{
+	font-size: 44rpx;
+}
+.gengduoContent ._ul ._li:hover{
+  background: #eee;
+}
+.gengduoContent .cityName{
+	-webkit-box-flex: 2;
+	-webkit-flex: 2;
+	    -ms-flex: 2;
+	        flex: 2;
+}

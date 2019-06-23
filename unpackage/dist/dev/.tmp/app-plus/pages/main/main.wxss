@@ -1,0 +1,45 @@
+/*轮播图*/
+.swiperView{
+  width: 100%;
+  height: 420rpx;
+}
+.swiper_image{
+  height: 100%; 
+  width: 100%;
+}
+/*工具栏*/
+.toolsView{
+	margin-bottom: 125rpx;
+}
+.toolsRows{
+		display: block;
+}
+.toolsCols{
+	width: calc(100% / 4);
+	float: left;
+	text-align: center;
+	margin: 10rpx 0;
+}
+.toolsRows:after{
+  clear:both;
+  display:block;
+  content:" ";
+}
+.toolSingel{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 8px auto 0 auto;
+  text-align: center;
+}
+.toolSingel ._i{
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  display: block;
+  padding-top: 8px;
+}
+.toolsCols text{
+  font-size: 12px;
+  color: #666;
+}
