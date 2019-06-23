@@ -24,12 +24,9 @@
 	</view>
 </template>
 <script>
-	//import uniIcon from '../uni-icon/uni-icon.vue';
+
 	export default {
 		name: 'UniIndexedList',
-		// components: {
-		// 	uniIcon
-		// },
 		props: {
 			options: {
 				type: Array,
@@ -40,6 +37,10 @@
 			showSelect: {
 				type: Boolean,
 				default: false
+			},
+			otherHeight:{
+				//其他高度
+				type: Number
 			}
 		},
 		data() {
@@ -53,23 +54,14 @@
 			};
 		},
 		created() {
-			let winHeight = uni.getSystemInfoSync().windowHeight;
+			let winHeight = uni.getSystemInfoSync().windowHeight - this.otherHeight;//1.减去外面的其他组件高度
 			this.itemHeight = winHeight / this.options.length;
 			this.winHeight = winHeight;
-
-			// if (!this.showSelect) {
-			// 	this.lists = this.options;
-			// 	return;
-			// }
-			// console.log(this.options)
 			this.lists = this.options.map(value => {
-				// console.log(value)
 				let items = value.data.map(item => {
 					let obj = {};
-					// for (let key in item) {
 					obj['key'] = value.letter;
 					obj['name'] = item
-					// }
 					obj.checked = item.checked ? item.checked : false;
 					return obj;
 				});
@@ -79,13 +71,13 @@
 					items: items
 				};
 			});
-			// console.log(this.lists)
 		},
 		methods: {
 			touchStart(e) {
 				this.touchmove = true;
 				let pageY = e.touches[0].pageY;
-				let index = Math.floor(pageY / this.itemHeight);
+				let index = Math.floor((e.target.offsetTop - this.otherHeight) / this.itemHeight);//2.减去外面的其他组件高度
+				//let index = Math.floor(pageY / this.itemHeight);
 				let item = this.lists[index];
 				if (item) {
 					this.scrollViewId = 'uni-indexed-list-' + item.key;
@@ -94,7 +86,8 @@
 			},
 			touchMove(e) {
 				let pageY = e.touches[0].pageY;
-				let index = Math.floor(pageY / this.itemHeight);
+				//let index = Math.floor(pageY / this.itemHeight);
+				let index = Math.floor((e.target.offsetTop - this.otherHeight) / this.itemHeight);//2.减去外面的其他组件高度
 				let item = this.lists[index];
 				if (item) {
 					this.scrollViewId = 'uni-indexed-list-' + item.key;

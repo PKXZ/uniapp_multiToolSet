@@ -9,6 +9,9 @@
 }
 
 /*工具栏*/
+.toolsView{
+	margin-bottom: 125upx;
+}
 .toolsRows{
 		display: block;
 }
