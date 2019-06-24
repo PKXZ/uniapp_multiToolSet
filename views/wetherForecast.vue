@@ -42,8 +42,16 @@
 			<li v-for="(item, index) in wetherList" :key="index">
 			  <text class="wetherDate">{{item.date}}</text>
 			  <text>{{item.xq}}</text>
+<<<<<<< HEAD
 			  <!-- <i class="iconfont" :class="item.icon"></i> -->
 			  <text>{{item.type}}</text>
+=======
+			</li>
+		  </ul>
+		  <chart_WeatherLine></chart_WeatherLine>
+		  <ul>
+			<li v-for="(item, index) in wetherList" :key="index">
+>>>>>>> ec78e039f62ba439737dbacac49199bef10b02b5
 			  <text>{{item.wd}}</text>
 			</li>
 		  </ul>
@@ -75,6 +83,7 @@
 <script>
 	import '../static/css/wetherForecast.css';
 	import uniDrawer from '@/components/common/uni-drawer';
+	import chart_WeatherLine from '@/components/general/chart_WeatherLine.vue'
 	export default {
 		data() {
 			return {
@@ -175,7 +184,8 @@
 			}
 		},
 		components:{
-			uniDrawer
+			uniDrawer,
+			chart_WeatherLine
 		}
 	}
 </script>
