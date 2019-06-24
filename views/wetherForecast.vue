@@ -42,20 +42,12 @@
 			<li v-for="(item, index) in wetherList" :key="index">
 			  <text class="wetherDate">{{item.date}}</text>
 			  <text>{{item.xq}}</text>
-<<<<<<< HEAD
-			  <!-- <i class="iconfont" :class="item.icon"></i> -->
-			  <text>{{item.type}}</text>
-=======
+			  <!-- <i class="iconfont" :class="item.icon"></i>
+			  <!-- <text>{{item.type}}</text> -->
+			  <text class="wd">{{item.wd}}</text>
 			</li>
 		  </ul>
-		  <chart_WeatherLine></chart_WeatherLine>
-		  <ul>
-			<li v-for="(item, index) in wetherList" :key="index">
->>>>>>> ec78e039f62ba439737dbacac49199bef10b02b5
-			  <text>{{item.wd}}</text>
-			</li>
-		  </ul>
-		  <canvas ref="canvasWether" class="canvasWether"></canvas>
+		  <chart_WeatherLine style="position: absolute;top:100px;"></chart_WeatherLine>
 	  </view>
 	  
 	  <!--抽屉-->

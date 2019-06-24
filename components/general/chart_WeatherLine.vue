@@ -7,18 +7,18 @@
 		name: 'chart_WeatherLine',
 		data() {
 			return {
-				 hightData: [25,24,23,26,42],//[55,53,51,57,92],//[25,24,23,26,42], //每天对应最高温
-				 lowData: [13,-20,11,16,18],//[27,-44,24,35,37],//[13,-20,11,16,18], //每天对应最低温
+				 hightData: [25,24,23,26,39],//[55,53,51,57,92],//[25,24,23,26,42], //每天对应最高温
+				 lowData: [13,10,11,16,18],//[27,-44,24,35,37],//[13,-20,11,16,18], //每天对应最低温
 				 numData: 5, //几天的数据
-				 maximum: 42, //最高温度
-				 minimum: -20, //最低温度
+				 maximum: 39, //最高温度
+				 minimum: 10, //最低温度
 				 distance: 0, //间隔
 				 item_width: 0, //左右间隔
 				 canvas: {},
 				 context: {}
 			}
 		},
-		mounted(){
+		created(){
 			const self = this;
 			self.$nextTick(function(){
 				self.initLine();
@@ -38,20 +38,15 @@
 				this.context = uni.createCanvasContext('weatherLineCanvas');
 				this.canvas.width = dynamicWidth;
 				this.canvas.height = dynamicHeight;
-				/* this.canvas.style.width = dynamicWidth + 'px';
-				this.canvas.style.height = dynamicHeight + 'px'; */
 				this.item_width = dynamicWidth / this.numData; //左右间距
 				const temperDifference = this.maximum - this.minimum; //温差
 				this.distance = dynamicHeight / 2 / temperDifference;
-				console.log(this.distance)
 				/*
 				* 画布的偏移量，item_width是画布x轴从左向右方向偏移。
 				* 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
 				* */
-				//uniapp这里不一样2：1px -> 除以 2.2upx 因此要和web里显示一致则需要乘以2.2并且四舍五入 Number.toFixed()
+				this.context.translate(this.item_width / 2, this.maximum * this.distance + 40);
 				//this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
-				this.context.translate(100, 100);
-				console.log(((dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2) * 2.2).toFixed(0))
 				//触发函数
 				this.drawLineFun(this.hightData,'#fcc370'); //高温线
 				this.drawLineFun(this.lowData,'#94ccf9'); //低温线
@@ -88,7 +83,6 @@
 					//保存线数据
 					new_high_x.push(circleXCoordinate);
 					new_high_y.push(-circleYCoordinate);
-					
 					//写文字
 					if(lineData === self.hightData){
 						self.context.beginPath();
@@ -106,17 +100,21 @@
 						self.context.closePath();
 					}
 				}
+				
 				//画线
-				for(let j = 0; j < 14; j++){
+				for(let j = 0; j < self.numData - 1; j++){
 					self.context.beginPath();
-					self.context.moveTo(Math.abs(new_high_x[j]), Math.abs(new_high_y[j]));
-					self.context.lineTo(Math.abs(new_high_x[j+1]), Math.abs(new_high_y[j+1]));
+					//uniapp这里不一样2：Y轴写为负数了 -Math.abs()，demo中是正数 Math.abs()
+					self.context.moveTo(Math.abs(new_high_x[j]), -Math.abs(new_high_y[j]));
+					self.context.lineTo(Math.abs(new_high_x[j+1]), -Math.abs(new_high_y[j+1]));
 					self.context.strokeStyle = lineColor;
 					self.context.lineWidth = 3;
 					self.context.stroke();
 					self.context.closePath();
 				}
-				self.context.draw();
+				
+				
+				self.context.draw(true); //uniapp这里不一样2：参数为true，则保留当前画布上的内容，本次调用drawCanvas绘制的内容覆盖在上面，默认 false
 			 }
 		 }
 	};
@@ -125,8 +123,9 @@
 <style>
 	.canvas{
 		width: 100%;
-		height: 200upx;
+		height: calc(100% / 2);
 		margin: 0;
 		padding: 0;
+		pointer-events: none;
 	}
 </style>
