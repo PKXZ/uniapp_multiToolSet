@@ -5,7 +5,8 @@
     "pages/message/message",
     "pages/find/find",
     "views/wetherForecast",
-    "views/citySelector"
+    "views/citySelector",
+    "views/xinhuaDictionary"
   ],
   "window": {
     "defaultTitle": "uni-app",

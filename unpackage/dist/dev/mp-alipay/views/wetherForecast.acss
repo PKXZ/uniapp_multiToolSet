@@ -5,6 +5,7 @@
   width: 100%;
   height: 45%;
   background: -webkit-gradient(linear, left bottom, left top, from(#6f86d6), to(#48c6ef));
+  background: -webkit-linear-gradient(bottom, #6f86d6, #48c6ef);
   background: -o-linear-gradient(bottom, #6f86d6, #48c6ef);
   background: linear-gradient(to top, #6f86d6, #48c6ef);
 }
@@ -110,12 +111,23 @@
 .wetherBottom{
   width: 100%;
   height: 55%;
+	position: relative;
 }
 .wetherBottom ._ul{
   width: 100%;
   height: 100%;
   text-align: center;
 }
+/* .wetherBottom .tqUl{
+  width: 100%;
+  height: 220upx;
+  text-align: center;
+}
+.wetherBottom .wdUl{
+  width: 100%;
+  height: 100upx;
+  text-align: center;
+} */
 .wetherBottom ._ul:after{
   clear:both;
   display:block;
@@ -143,21 +155,36 @@
 .wetherBottom ._ul ._li:last-child{
   border-right: transparent;
 }
-.wetherBottom text{
+.wetherBottom ._ul ._li text{
   display: block;
   color: #7a7a7a;
-  margin: 45rpx 0;
-  line-height: 1;
+  /* margin: 45upx 0; */
+	margin: 0;
+  line-height: 3.5;
 	font-size: 30rpx;
 }
-.wetherBottom ._ul ._li ._i{
-  font-size: 70rpx;
+/* .wetherBottom ul li i{
+  font-size: 70upx;
   color: #7a7a7a;
   line-height: 2;
+} */
+.wetherBottom .wd{
+  margin-top: 245% !important;
+}
+.chart_WeatherLine{
+	position: absolute;
+	top: 220rpx;
+	width: 100%;
+	height: -webkit-calc(100% / 2);
+	height: calc(100% / 2);
 }
 .wetherBottom .wetherDate{
   font-size: 35rpx;
-  margin-top: 60rpx;
+}
+.wetherBottom .canvasWether{
+	width: 100%;
+	height: -webkit-calc(100% / 3);
+	height: calc(100% / 3);
 }
 /*侧边栏*/
 .gengduoDrawer .demo-container{
@@ -188,6 +215,7 @@
 }
 .gengduoContent{
   width: 100%;
+  height: -webkit-calc(100% - 110rpx);
   height: calc(100% - 110rpx);
 }
 .gengduoContent ._ul{

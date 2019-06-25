@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createPage = createPage;exports.createComponent = createComponent;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/megalo/dist/megalo.mp.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createPage = createPage;exports.createComponent = createComponent;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/megalo/dist/megalo.mp.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance");}function _iterableToArrayLimit(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 var _toString = Object.prototype.toString;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -50,7 +50,7 @@ var camelize = cached(function (str) {
   return str.replace(camelizeRE, function (_, c) {return c ? c.toUpperCase() : '';});
 });
 
-var SYNC_API_RE = /subNVue|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$/;
+var SYNC_API_RE = /^\$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64/;
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
@@ -99,15 +99,17 @@ function promisify(name, api) {
         fail: reject })].concat(
       params));
       /* eslint-disable no-extend-native */
-      Promise.prototype.finally = function (callback) {
-        var promise = this.constructor;
-        return this.then(
-        function (value) {return promise.resolve(callback()).then(function () {return value;});},
-        function (reason) {return promise.resolve(callback()).then(function () {
-            throw reason;
-          });});
+      if (!Promise.prototype.finally) {
+        Promise.prototype.finally = function (callback) {
+          var promise = this.constructor;
+          return this.then(
+          function (value) {return promise.resolve(callback()).then(function () {return value;});},
+          function (reason) {return promise.resolve(callback()).then(function () {
+              throw reason;
+            });});
 
-      };
+        };
+      }
     }));
   };
 }
@@ -170,14 +172,6 @@ var todos = [
 'startAccelerometer',
 'startCompass',
 'addPhoneContact',
-'setTabBarItem',
-'setTabBarStyle',
-'hideTabBar',
-'showTabBar',
-'setTabBarBadge',
-'removeTabBarBadge',
-'showTabBarRedDot',
-'hideTabBarRedDot',
 'setBackgroundColor',
 'setBackgroundTextStyle',
 'createIntersectionObserver',
@@ -202,7 +196,15 @@ var todos = [
 
 // 存在兼容性的 API 列表
 var canIUses = [
-'startPullDownRefresh'];
+'startPullDownRefresh',
+'setTabBarItem',
+'setTabBarStyle',
+'hideTabBar',
+'showTabBar',
+'setTabBarBadge',
+'removeTabBarBadge',
+'showTabBarRedDot',
+'hideTabBarRedDot'];
 
 
 function _handleNetworkInfo(result) {
@@ -230,7 +232,7 @@ function _handleSystemInfo(result) {
 }
 
 var protocols = { // 需要做转换的 API 列表
-  returnValue: function returnValue(methodName, res) {// 通用 returnValue 解析
+  returnValue: function returnValue(methodName) {var res = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {}; // 通用 returnValue 解析
     if (res.error || res.errorMessage) {
       res.errMsg = "".concat(methodName, ":fail ").concat(res.errorMessage || res.error);
       delete res.error;
@@ -589,7 +591,11 @@ function wrapper(methodName, method) {
 
       arg1 = processArgs(methodName, arg1, options.args, options.returnValue);
 
-      var returnValue = my[options.name || methodName](arg1, arg2);
+      var args = [arg1];
+      if (typeof arg2 !== 'undefined') {
+        args.push(arg2);
+      }
+      var returnValue = my[options.name || methodName].apply(my, args);
       if (isSyncApi(methodName)) {// 同步 api
         return processReturnValue(methodName, returnValue, options.returnValue, isContextApi(methodName));
       }
@@ -660,6 +666,46 @@ var extraApi = /*#__PURE__*/Object.freeze({
   getProvider: getProvider });
 
 
+var getEmitter = function () {
+  if (typeof getUniEmitter === 'function') {
+    /* eslint-disable no-undef */
+    return getUniEmitter;
+  }
+  var Emitter;
+  return function getUniEmitter() {
+    if (!Emitter) {
+      Emitter = new _vue.default();
+    }
+    return Emitter;
+  };
+}();
+
+function apply(ctx, method, args) {
+  return ctx[method].apply(ctx, args);
+}
+
+function $on() {
+  return apply(getEmitter(), '$on', Array.prototype.slice.call(arguments));
+}
+function $off() {
+  return apply(getEmitter(), '$off', Array.prototype.slice.call(arguments));
+}
+function $once() {
+  return apply(getEmitter(), '$once', Array.prototype.slice.call(arguments));
+}
+function $emit() {
+  return apply(getEmitter(), '$emit', Array.prototype.slice.call(arguments));
+}
+
+
+
+var eventApi = /*#__PURE__*/Object.freeze({
+  $on: $on,
+  $off: $off,
+  $once: $once,
+  $emit: $emit });
+
+
 function setStorageSync(key, data) {
   return my.setStorageSync({
     key: key,
@@ -698,242 +744,18 @@ var api = /*#__PURE__*/Object.freeze({
   startGyroscope: startGyroscope });
 
 
-var isArray = Array.isArray;
-var keyList = Object.keys;
-
-function equal(a, b) {
-  if (a === b) return true;
-
-  if (a && b && typeof a === 'object' && typeof b === 'object') {
-    var arrA = isArray(a);
-    var arrB = isArray(b);
-    var i, length, key;
-    if (arrA && arrB) {
-      length = a.length;
-      if (length !== b.length) return false;
-      for (i = length; i-- !== 0;) {
-        if (!equal(a[i], b[i])) return false;
-      }
-      return true;
-    }
-    if (arrA !== arrB) return false;
-
-    var dateA = a instanceof Date;
-    var dateB = b instanceof Date;
-    if (dateA !== dateB) return false;
-    if (dateA && dateB) return a.getTime() === b.getTime();
-
-    var regexpA = a instanceof RegExp;
-    var regexpB = b instanceof RegExp;
-    if (regexpA !== regexpB) return false;
-    if (regexpA && regexpB) return a.toString() === b.toString();
-
-    var keys = keyList(a);
-    length = keys.length;
-    if (length !== keyList(b).length) {
-      return false;
-    }
-    for (i = length; i-- !== 0;) {
-      if (!hasOwn.call(b, keys[i])) return false;
-    }
-    for (i = length; i-- !== 0;) {
-      key = keys[i];
-      if (!equal(a[key], b[key])) return false;
-    }
-
-    return true;
-  }
-
-  return false;
-}
-
-var customizeRE = /:/g;
-
-var customize = cached(function (str) {
-  return camelize(str.replace(customizeRE, '-'));
-});
-
-var mocks = ['$id'];
-
-function handleRef(ref) {
-  if (!ref) {
-    return;
-  }
-  var refName = ref.props['data-ref'];
-  var refInForName = ref.props['data-ref-in-for'];
-  if (refName) {
-    this.$vm.$refs[refName] = ref.$vm || ref;
-  } else if (refInForName) {
-    this.$vm.$refs[refInForName] = [ref.$vm || ref];
-  }
-}
-
-function initPage(pageOptions, vueOptions) {var
-
-  lifetimes =
-
-  pageOptions.lifetimes,methods = pageOptions.methods;
-
-  pageOptions.onReady = lifetimes.ready;
-  pageOptions.onUnload = function () {
-    lifetimes.detached.call(this);
-    methods.onUnload.call(this);
-  };
-
-  Object.keys(methods).forEach(function (method) {
-    if (method !== 'onUnload') {
-      pageOptions[method] = methods[method];
-    }
-  });
-
-  pageOptions['__r'] = handleRef;
-
-  if (vueOptions.methods && vueOptions.methods.formReset) {
-    pageOptions['formReset'] = vueOptions.methods.formReset;
-  }
-
-  delete pageOptions.lifetimes;
-  delete pageOptions.methods;
-
-  return Page(pageOptions);
-}
-
-function triggerEvent(type, detail, options) {
-  var handler = this.props[customize('on-' + type)];
-  if (!handler) {
-    return;
-  }
-
-  var eventOpts = this.props['data-event-opts'];
-
-  var target = {
-    dataset: {
-      eventOpts: eventOpts } };
+var PAGE_EVENT_HOOKS = [
+'onPullDownRefresh',
+'onReachBottom',
+'onShareAppMessage',
+'onPageScroll',
+'onResize',
+'onTabItemTap'];
 
 
-
-  handler({
-    type: customize(type),
-    target: target,
-    currentTarget: target,
-    detail: detail });
-
-}
-
-var IGNORES = ['$slots', '$scopedSlots'];
-
-function createObserver(isDidUpdate) {
-  return function observe(props) {var _this = this;
-    var prevProps = isDidUpdate ? props : this.props;
-    var nextProps = isDidUpdate ? this.props : props;
-    if (equal(prevProps, nextProps)) {
-      return;
-    }
-    Object.keys(prevProps).forEach(function (name) {
-      if (IGNORES.indexOf(name) === -1) {
-        var prevValue = prevProps[name];
-        var nextValue = nextProps[name];
-        if (!isFn(prevValue) && !isFn(nextValue) && !equal(prevValue, nextValue)) {
-          _this.$vm[name] = nextProps[name];
-        }
-      }
-    });
-  };
-}
-
-function initComponent(componentOptions, vueOptions) {var
-
-  lifetimes =
-
-
-  componentOptions.lifetimes,properties = componentOptions.properties,behaviors = componentOptions.behaviors;
-
-  componentOptions.mixins = behaviors;
-
-  var props = {
-    onTriggerLink: function onTriggerLink() {} };
-
-
-  Object.keys(properties).forEach(function (key) {
-    if (key !== 'vueSlots') {
-      props[key] = properties[key].value;
-    }
-  });
-
-  componentOptions.props = props;
-
-  if (my.canIUse('component2')) {
-    componentOptions.onInit = lifetimes.attached;
-  }
-  componentOptions.didMount = lifetimes.ready;
-  componentOptions.didUnmount = lifetimes.detached;
-
-  if (my.canIUse('component2')) {
-    componentOptions.deriveDataFromProps = createObserver(); // nextProps
-  } else {
-    componentOptions.didUpdate = createObserver(true); // prevProps
-  }
-
-  if (!componentOptions.methods) {
-    componentOptions.methods = {};
-  }
-
-  if (vueOptions.methods && vueOptions.methods.formReset) {
-    componentOptions.methods['formReset'] = vueOptions.methods.formReset;
-  }
-
-  componentOptions.methods['__r'] = handleRef;
-  componentOptions.methods.triggerEvent = triggerEvent;
-
-  delete componentOptions.properties;
-  delete componentOptions.behaviors;
-  delete componentOptions.lifetimes;
-  delete componentOptions.pageLifetimes;
-
-  return my.createComponent(componentOptions);
-}
-
-function initBehavior(_ref5)
-
-{var properties = _ref5.properties;
-  var props = {};
-
-  Object.keys(properties).forEach(function (key) {
-    props[key] = properties[key].value;
-  });
-
-  return {
-    props: props };
-
-}
-
-function triggerLink(mpInstance, vueOptions) {
-  mpInstance.props.onTriggerLink(mpInstance.$vm || vueOptions);
-}
-
-function handleLink(detail) {
-  if (detail.$mp) {// vm
-    if (!detail.$parent) {
-      detail.$parent = this.$vm;
-      if (detail.$parent) {
-        detail.$parent.$children.push(detail);
-        detail.$root = this.$vm.$root;
-
-        if (!my.canIUse('component2')) {
-          handleRef.call(this, detail.$scope);
-        }
-      }
-    }
-  } else {// vueOptions
-    if (!detail.parent) {
-      detail.parent = this.$vm;
-    }
-  }
-}
-
-function initMocks(vm, mocks$$1) {
+function initMocks(vm, mocks) {
   var mpInstance = vm.$mp[vm.mpType];
-  mocks$$1.forEach(function (mock) {
+  mocks.forEach(function (mock) {
     if (hasOwn(mpInstance, mock)) {
       vm[mock] = mpInstance[mock];
     }
@@ -943,12 +765,36 @@ function initMocks(vm, mocks$$1) {
 function initHooks(mpOptions, hooks) {
   hooks.forEach(function (hook) {
     mpOptions[hook] = function (args) {
-      return this.$vm.__call_hook(hook, args);
+      return this.$vm && this.$vm.__call_hook(hook, args);
     };
   });
 }
 
-function getData(vueOptions, context) {
+function initVueComponent(Vue$$1, vueOptions) {
+  vueOptions = vueOptions.default || vueOptions;
+  var VueComponent;
+  if (isFn(vueOptions)) {
+    VueComponent = vueOptions;
+    vueOptions = VueComponent.extendOptions;
+  } else {
+    VueComponent = Vue$$1.extend(vueOptions);
+  }
+  return [VueComponent, vueOptions];
+}
+
+function initVueIds(vueIds, mpInstance) {
+  vueIds = (vueIds || '').split(',');
+  var len = vueIds.length;
+
+  if (len === 1) {
+    mpInstance._$vueId = vueIds[0];
+  } else if (len === 2) {
+    mpInstance._$vueId = vueIds[0];
+    mpInstance._$vuePid = vueIds[1];
+  }
+}
+
+function initData(vueOptions, context) {
   var data = vueOptions.data || {};
   var methods = vueOptions.methods || {};
 
@@ -956,7 +802,7 @@ function getData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"VUE_APP_PLATFORM":"mp-alipay","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-alipay","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -982,7 +828,7 @@ function getData(vueOptions, context) {
 
 var PROP_TYPES = [String, Number, Boolean, Object, Array, null];
 
-function createObserver$1(name) {
+function createObserver(name) {
   return function observer(newVal, oldVal) {
     if (this.$vm) {
       this.$vm[name] = newVal; // 为了触发其他非 render watcher
@@ -990,7 +836,7 @@ function createObserver$1(name) {
   };
 }
 
-function getBehaviors(vueOptions) {
+function initBehaviors(vueOptions, initBehavior) {
   var vueBehaviors = vueOptions['behaviors'];
   var vueExtends = vueOptions['extends'];
   var vueMixins = vueOptions['mixins'];
@@ -1019,7 +865,7 @@ function getBehaviors(vueOptions) {
   if (isPlainObject(vueExtends) && vueExtends.props) {
     behaviors.push(
     initBehavior({
-      properties: getProperties(vueExtends.props, true) }));
+      properties: initProperties(vueExtends.props, true) }));
 
 
   }
@@ -1028,7 +874,7 @@ function getBehaviors(vueOptions) {
       if (isPlainObject(vueMixin) && vueMixin.props) {
         behaviors.push(
         initBehavior({
-          properties: getProperties(vueMixin.props, true) }));
+          properties: initProperties(vueMixin.props, true) }));
 
 
       }
@@ -1045,9 +891,13 @@ function parsePropType(key, type, defaultValue, file) {
   return type;
 }
 
-function getProperties(props) {var isBehavior = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;var file = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+function initProperties(props) {var isBehavior = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;var file = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   var properties = {};
   if (!isBehavior) {
+    properties.vueId = {
+      type: String,
+      value: '' };
+
     properties.vueSlots = { // 小程序不能直接定义 $slots 的 props，所以通过 vueSlots 转换到 $slots
       type: null,
       value: [],
@@ -1066,7 +916,7 @@ function getProperties(props) {var isBehavior = arguments.length > 1 && argument
     props.forEach(function (key) {
       properties[key] = {
         type: null,
-        observer: createObserver$1(key) };
+        observer: createObserver(key) };
 
     });
   } else if (isPlainObject(props)) {// {title:{type:String,default:''},content:String}
@@ -1083,13 +933,13 @@ function getProperties(props) {var isBehavior = arguments.length > 1 && argument
         properties[key] = {
           type: PROP_TYPES.indexOf(opts.type) !== -1 ? opts.type : null,
           value: value,
-          observer: createObserver$1(key) };
+          observer: createObserver(key) };
 
       } else {// content:String
         var type = parsePropType(key, opts, null, file);
         properties[key] = {
           type: PROP_TYPES.indexOf(type) !== -1 ? type : null,
-          observer: createObserver$1(key) };
+          observer: createObserver(key) };
 
       }
     });
@@ -1247,7 +1097,18 @@ function processEventArgs(vm, event) {var args = arguments.length > 2 && argumen
 var ONCE = '~';
 var CUSTOM = '^';
 
-function handleEvent(event) {var _this2 = this;
+function isMatchEventType(eventType, optType) {
+  return eventType === optType ||
+
+  optType === 'regionchange' && (
+
+  eventType === 'begin' ||
+  eventType === 'end');
+
+
+}
+
+function handleEvent(event) {var _this = this;
   event = wrapper$1(event);
 
   // [['tap',[['handle',[1,2,a]],['handle1',[1,2,a]]]]]
@@ -1267,11 +1128,19 @@ function handleEvent(event) {var _this2 = this;
     var isOnce = type.charAt(0) === ONCE;
     type = isOnce ? type.slice(1) : type;
 
-    if (eventsArray && eventType === type) {
+    if (eventsArray && isMatchEventType(eventType, type)) {
       eventsArray.forEach(function (eventArray) {
         var methodName = eventArray[0];
         if (methodName) {
-          var handler = _this2.$vm[methodName];
+          var handlerCtx = _this.$vm;
+          if (
+          handlerCtx.$options.generic &&
+          handlerCtx.$parent &&
+          handlerCtx.$parent.$parent)
+          {// mp-weixin,mp-toutiao 抽象节点模拟 scoped slots
+            handlerCtx = handlerCtx.$parent.$parent;
+          }
+          var handler = handlerCtx[methodName];
           if (!isFn(handler)) {
             throw new Error(" _vm.".concat(methodName, " is not a function"));
           }
@@ -1281,8 +1150,8 @@ function handleEvent(event) {var _this2 = this;
             }
             handler.once = true;
           }
-          handler.apply(_this2.$vm, processEventArgs(
-          _this2.$vm,
+          handler.apply(handlerCtx, processEventArgs(
+          _this.$vm,
           event,
           eventArray[1],
           eventArray[2],
@@ -1296,44 +1165,17 @@ function handleEvent(event) {var _this2 = this;
 }
 
 var hooks = [
+'onShow',
 'onHide',
 'onError',
-'onPageNotFound',
-'onUniNViewMessage'];
+'onPageNotFound'];
 
 
-function initVm(vm) {
-  if (this.$vm) {// 百度竟然 onShow 在 onLaunch 之前？
-    return;
-  }
+function parseBaseApp(vm, _ref5)
 
-  this.$vm = vm;
 
-  this.$vm.$mp = {
-    app: this };
-
-}
-
-function createApp(vm) {
-  // 外部初始化时 Vue 还未初始化，放到 createApp 内部初始化 mixin
-  {
-    Object.defineProperty(_vue.default.prototype, '$slots', {
-      get: function get() {
-        return this.$scope && this.$scope.props.$slots;
-      },
-      set: function set() {
-
-      } });
-
-    Object.defineProperty(_vue.default.prototype, '$scopedSlots', {
-      get: function get() {
-        return this.$scope && this.$scope.props.$scopedSlots;
-      },
-      set: function set() {
-
-      } });
-
-  }
+{var mocks = _ref5.mocks,initRefs = _ref5.initRefs;
+  _vue.default.prototype.mpHost = "mp-alipay";
 
   _vue.default.mixin({
     beforeCreate: function beforeCreate() {
@@ -1354,124 +1196,390 @@ function createApp(vm) {
       delete this.$options.mpInstance;
 
       if (this.mpType !== 'app') {
+        initRefs(this);
         initMocks(this, mocks);
       }
-    },
-    created: function created() {// 处理 injections
-      this.__init_injections(this);
-      this.__init_provide(this);
     } });
 
 
   var appOptions = {
     onLaunch: function onLaunch(args) {
-      initVm.call(this, vm);
+
+      this.$vm = vm;
+
+      this.$vm.$mp = {
+        app: this };
+
+
+      this.$vm.$scope = this;
 
       this.$vm._isMounted = true;
-      this.$vm.__call_hook('mounted');
+      this.$vm.__call_hook('mounted', args);
 
       this.$vm.__call_hook('onLaunch', args);
-    },
-    onShow: function onShow(args) {
-      initVm.call(this, vm);
-
-      this.$vm.__call_hook('onShow', args);
     } };
 
 
   // 兼容旧版本 globalData
   appOptions.globalData = vm.$options.globalData || {};
 
-  initHooks(appOptions, hooks); // 延迟执行，因为 App 的注册在 main.js 之前，可能导致生命周期内 Vue 原型上开发者注册的属性无法访问
+  initHooks(appOptions, hooks);
 
-  App(appOptions);
+  return appOptions;
+}
 
+function findVmByVueId(vm, vuePid) {
+  var $children = vm.$children;
+  // 优先查找直属
+  var parentVm = $children.find(function (childVm) {return childVm.$scope._$vueId === vuePid;});
+  if (parentVm) {
+    return parentVm;
+  }
+  // 反向递归查找
+  for (var i = $children.length - 1; i >= 0; i--) {
+    parentVm = findVmByVueId($children[i], vuePid);
+    if (parentVm) {
+      return parentVm;
+    }
+  }
+}
+
+function handleLink(event) {var _ref6 =
+
+
+
+  event.detail || event.value,vuePid = _ref6.vuePid,vueOptions = _ref6.vueOptions; // detail 是微信,value 是百度(dipatch)
+
+  var parentVm;
+
+  if (vuePid) {
+    parentVm = findVmByVueId(this.$vm, vuePid);
+  }
+
+  if (!parentVm) {
+    parentVm = this.$vm;
+  }
+
+  vueOptions.parent = parentVm;
+}
+
+var isArray = Array.isArray;
+var keyList = Object.keys;
+
+function equal(a, b) {
+  if (a === b) return true;
+
+  if (a && b && typeof a === 'object' && typeof b === 'object') {
+    var arrA = isArray(a);
+    var arrB = isArray(b);
+    var i, length, key;
+    if (arrA && arrB) {
+      length = a.length;
+      if (length !== b.length) return false;
+      for (i = length; i-- !== 0;) {
+        if (!equal(a[i], b[i])) return false;
+      }
+      return true;
+    }
+    if (arrA !== arrB) return false;
+
+    var dateA = a instanceof Date;
+    var dateB = b instanceof Date;
+    if (dateA !== dateB) return false;
+    if (dateA && dateB) return a.getTime() === b.getTime();
+
+    var regexpA = a instanceof RegExp;
+    var regexpB = b instanceof RegExp;
+    if (regexpA !== regexpB) return false;
+    if (regexpA && regexpB) return a.toString() === b.toString();
+
+    var keys = keyList(a);
+    length = keys.length;
+    if (length !== keyList(b).length) {
+      return false;
+    }
+    for (i = length; i-- !== 0;) {
+      if (!hasOwn.call(b, keys[i])) return false;
+    }
+    for (i = length; i-- !== 0;) {
+      key = keys[i];
+      if (!equal(a[key], b[key])) return false;
+    }
+
+    return true;
+  }
+
+  return false;
+}
+
+var customizeRE = /:/g;
+
+var customize = cached(function (str) {
+  return camelize(str.replace(customizeRE, '-'));
+});
+
+var isComponent2 = my.canIUse('component2');
+
+var mocks$1 = ['$id'];
+
+function initRefs$1() {
+
+}
+
+function initBehavior$1(_ref7)
+
+{var properties = _ref7.properties;
+  var props = {};
+
+  Object.keys(properties).forEach(function (key) {
+    props[key] = properties[key].value;
+  });
+
+  return {
+    props: props };
+
+}
+
+function initRelation$1(detail) {
+  this.props.onVueInit(detail);
+}
+
+function initSpecialMethods(mpInstance) {
+  if (!mpInstance.$vm) {
+    return;
+  }
+  var path = mpInstance.is || mpInstance.route;
+  if (!path) {
+    return;
+  }
+  if (path.indexOf('/') === 0) {
+    path = path.substr(1);
+  }
+  var specialMethods = my.specialMethods && my.specialMethods[path];
+  if (specialMethods) {
+    specialMethods.forEach(function (method) {
+      if (isFn(mpInstance.$vm[method])) {
+        mpInstance[method] = function (event) {
+          // TODO normalizeEvent
+          mpInstance.$vm[method](event);
+        };
+      }
+    });
+  }
+}
+
+function initChildVues(mpInstance) {
+  // 此时需保证当前 mpInstance 已经存在 $vm
+  if (!mpInstance.$vm) {
+    return;
+  }
+  mpInstance._$childVues && mpInstance._$childVues.forEach(function (_ref8)
+
+
+
+
+  {var vuePid = _ref8.vuePid,vueOptions = _ref8.vueOptions,VueComponent = _ref8.VueComponent,childMPInstance = _ref8.mpInstance;
+    // 父子关系
+    handleLink.call(mpInstance, {
+      detail: {
+        vuePid: vuePid,
+        vueOptions: vueOptions } });
+
+
+
+    childMPInstance.$vm = new VueComponent(vueOptions);
+
+    initSpecialMethods(childMPInstance);
+
+    handleRef.call(vueOptions.parent.$scope, childMPInstance);
+
+    childMPInstance.$vm.$mount();
+
+    initChildVues(childMPInstance);
+
+    childMPInstance.$vm._isMounted = true;
+    childMPInstance.$vm.__call_hook('mounted');
+    childMPInstance.$vm.__call_hook('onReady');
+  });
+
+  delete mpInstance._$childVues;
+}
+
+function handleRef(ref) {
+  if (!ref) {
+    return;
+  }
+  var refName = ref.props['data-ref'];
+  var refInForName = ref.props['data-ref-in-for'];
+  if (refName) {
+    this.$vm.$refs[refName] = ref.$vm || ref;
+  } else if (refInForName) {
+    this.$vm.$refs[refInForName] = [ref.$vm || ref];
+  }
+}
+
+function triggerEvent(type, detail, options) {
+  var handler = this.props[customize('on-' + type)];
+  if (!handler) {
+    return;
+  }
+
+  var eventOpts = this.props['data-event-opts'];
+
+  var target = {
+    dataset: {
+      eventOpts: eventOpts } };
+
+
+
+  handler({
+    type: customize(type),
+    target: target,
+    currentTarget: target,
+    detail: detail });
+
+}
+
+var IGNORES = ['$slots', '$scopedSlots'];
+
+function createObserver$1(isDidUpdate) {
+  return function observe(props) {var _this2 = this;
+    var prevProps = isDidUpdate ? props : this.props;
+    var nextProps = isDidUpdate ? this.props : props;
+    if (equal(prevProps, nextProps)) {
+      return;
+    }
+    Object.keys(prevProps).forEach(function (name) {
+      if (IGNORES.indexOf(name) === -1) {
+        var prevValue = prevProps[name];
+        var nextValue = nextProps[name];
+        if (!isFn(prevValue) && !isFn(nextValue) && !equal(prevValue, nextValue)) {
+          _this2.$vm[name] = nextProps[name];
+        }
+      }
+    });
+  };
+}
+
+var handleLink$1 = function () {
+  if (isComponent2) {
+    return function handleLink$$1(detail) {
+      return handleLink.call(this, {
+        detail: detail });
+
+    };
+  }
+  return function handleLink$$1(detail) {
+    if (this.$vm && this.$vm._isMounted) {// 父已初始化
+      return handleLink.call(this, {
+        detail: {
+          vuePid: detail.vuePid,
+          vueOptions: detail.vueOptions } });
+
+
+    }
+    // 支付宝通过 didMount 来实现，先子后父，故等父 ready 之后，统一初始化
+    (this._$childVues || (this._$childVues = [])).unshift(detail);
+  };
+}();
+
+function parseApp(vm) {
+  Object.defineProperty(_vue.default.prototype, '$slots', {
+    get: function get() {
+      return this.$scope && this.$scope.props.$slots;
+    },
+    set: function set() {
+
+    } });
+
+  Object.defineProperty(_vue.default.prototype, '$scopedSlots', {
+    get: function get() {
+      return this.$scope && this.$scope.props.$scopedSlots;
+    },
+    set: function set() {
+
+    } });
+
+
+  return parseBaseApp(vm, {
+    mocks: mocks$1,
+    initRefs: initRefs$1 });
+
+}
+
+function createApp(vm) {
+  App(parseApp(vm));
   return vm;
 }
 
 var hooks$1 = [
 'onShow',
 'onHide',
-'onPullDownRefresh',
-'onReachBottom',
-'onShareAppMessage',
-'onPageScroll',
-'onResize',
-'onTabItemTap',
-'onBackPress',
-'onNavigationBarButtonTap',
-'onNavigationBarSearchInputChanged',
-'onNavigationBarSearchInputConfirmed',
-'onNavigationBarSearchInputClicked'];
+// mp-alipay 特有
+'onTitleClick',
+'onOptionMenuClick',
+'onPopMenuClick',
+'onPullIntercept'];
 
 
-function initVm$1(VueComponent) {// 百度的 onLoad 触发在 attached 之前
-  if (this.$vm) {
-    return;
-  }
+hooks$1.push.apply(hooks$1, PAGE_EVENT_HOOKS);
 
-  this.$vm = new VueComponent({
-    mpType: 'page',
-    mpInstance: this });
+function parsePage(vuePageOptions) {var _initVueComponent =
+  initVueComponent(_vue.default, vuePageOptions),_initVueComponent2 = _slicedToArray(_initVueComponent, 2),VueComponent = _initVueComponent2[0],vueOptions = _initVueComponent2[1];
 
-
-  this.$vm.__call_hook('created');
-  this.$vm.$mount();
-}
-
-function createPage(vueOptions) {
-  vueOptions = vueOptions.default || vueOptions;
-  var VueComponent;
-  if (isFn(vueOptions)) {
-    VueComponent = vueOptions;
-    vueOptions = VueComponent.extendOptions;
-  } else {
-    VueComponent = _vue.default.extend(vueOptions);
-  }
   var pageOptions = {
-    options: {
-      multipleSlots: true,
-      addGlobalClass: true },
+    mixins: initBehaviors(vueOptions, initBehavior$1),
+    data: initData(vueOptions, _vue.default.prototype),
+    onLoad: function onLoad(args) {
+      var properties = this.props;
 
-    data: getData(vueOptions, _vue.default.prototype),
-    lifetimes: { // 当页面作为组件时
-      attached: function attached() {
-        initVm$1.call(this, VueComponent);
-      },
-      ready: function ready() {
-        this.$vm.__call_hook('beforeMount');
-        this.$vm._isMounted = true;
-        this.$vm.__call_hook('mounted');
-        this.$vm.__call_hook('onReady');
-      },
-      detached: function detached() {
-        this.$vm.$destroy();
-      } },
-
-    methods: { // 作为页面时
-      onLoad: function onLoad(args) {
-        initVm$1.call(this, VueComponent);
-        this.$vm.$mp.query = args; // 又要兼容 mpvue
-        this.$vm.__call_hook('onLoad', args); // 开发者可能会在 onLoad 时赋值，提前到 mount 之前
-      },
-      onUnload: function onUnload() {
-        this.$vm.__call_hook('onUnload');
-      },
-      __e: handleEvent,
-      __l: handleLink } };
+      var options = {
+        mpType: 'page',
+        mpInstance: this,
+        propsData: properties };
 
 
+      // 初始化 vue 实例
+      this.$vm = new VueComponent(options);
 
-  initHooks(pageOptions.methods, hooks$1);
+      initSpecialMethods(this);
 
-  return initPage(pageOptions, vueOptions);
+      // 触发首次 setData
+      this.$vm.$mount();
+
+      this.$vm.$mp.query = args; // 兼容 mpvue
+      this.$vm.__call_hook('onLoad', args);
+    },
+    onReady: function onReady() {
+      initChildVues(this);
+      this.$vm._isMounted = true;
+      this.$vm.__call_hook('mounted');
+      this.$vm.__call_hook('onReady');
+    },
+    onUnload: function onUnload() {
+      this.$vm.__call_hook('onUnload');
+      this.$vm.$destroy();
+    },
+    __r: handleRef,
+    __e: handleEvent,
+    __l: handleLink$1 };
+
+
+  initHooks(pageOptions, hooks$1);
+
+  return pageOptions;
 }
 
-function initVm$2(VueComponent) {
+function createPage(vuePageOptions) {
+  {
+    return Page(parsePage(vuePageOptions));
+  }
+}
+
+function initVm(VueComponent) {
   if (this.$vm) {
     return;
   }
-
   var properties = this.props;
 
   var options = {
@@ -1479,83 +1587,103 @@ function initVm$2(VueComponent) {
     mpInstance: this,
     propsData: properties };
 
-  // 初始化 vue 实例
-  this.$vm = new VueComponent(options);
 
-  // 处理$slots,$scopedSlots（暂不支持动态变化$slots）
-  var vueSlots = properties.vueSlots;
-  if (Array.isArray(vueSlots) && vueSlots.length) {
-    var $slots = Object.create(null);
-    vueSlots.forEach(function (slotName) {
-      $slots[slotName] = true;
-    });
-    this.$vm.$scopedSlots = this.$vm.$slots = $slots;
+  initVueIds(properties.vueId, this);
+
+  if (isComponent2) {
+    // 处理父子关系
+    initRelation$1.call(this, {
+      vuePid: this._$vuePid,
+      vueOptions: options });
+
+
+    // 初始化 vue 实例
+    this.$vm = new VueComponent(options);
+
+    // 触发首次 setData
+    this.$vm.$mount();
+  } else {
+    // 处理父子关系
+    initRelation$1.call(this, {
+      vuePid: this._$vuePid,
+      vueOptions: options,
+      VueComponent: VueComponent,
+      mpInstance: this });
+
+
+    if (options.parent) {// 父组件已经初始化，直接初始化子，否则放到父组件的 didMount 中处理
+      // 初始化 vue 实例
+      this.$vm = new VueComponent(options);
+      handleRef.call(options.parent.$scope, this);
+      // 触发首次 setData
+      this.$vm.$mount();
+
+      initChildVues(this);
+
+      this.$vm._isMounted = true;
+      this.$vm.__call_hook('mounted');
+      this.$vm.__call_hook('onReady');
+    }
   }
-  // 性能优先，mount 提前到 attached 中，保证组件首次渲染数据被合并
-  // 导致与标准 Vue 的差异，data 和 computed 中不能使用$parent，provide等组件属性
-  this.$vm.$mount();
 }
 
-function createComponent(vueOptions) {
-  vueOptions = vueOptions.default || vueOptions;
+function parseComponent(vueComponentOptions) {var _initVueComponent3 =
+  initVueComponent(_vue.default, vueComponentOptions),_initVueComponent4 = _slicedToArray(_initVueComponent3, 2),VueComponent = _initVueComponent4[0],vueOptions = _initVueComponent4[1];
 
-  var VueComponent;
-  if (isFn(vueOptions)) {
-    VueComponent = vueOptions; // TODO form-field props.name,props.value
-    vueOptions = VueComponent.extendOptions;
-  } else {
-    VueComponent = _vue.default.extend(vueOptions);
-  }
+  var properties = initProperties(vueOptions.props, false, vueOptions.__file);
 
-  var behaviors = getBehaviors(vueOptions);
+  var props = {
+    onVueInit: function onVueInit() {} };
 
-  var properties = getProperties(vueOptions.props, false, vueOptions.__file);
+
+  Object.keys(properties).forEach(function (key) {
+    if (key !== 'vueSlots') {
+      props[key] = properties[key].value;
+    }
+  });
 
   var componentOptions = {
-    options: {
-      multipleSlots: true,
-      addGlobalClass: true },
+    mixins: initBehaviors(vueOptions, initBehavior$1),
+    data: initData(vueOptions, _vue.default.prototype),
+    props: props,
+    didMount: function didMount() {
+      initVm.call(this, VueComponent);
 
-    data: getData(vueOptions, _vue.default.prototype),
-    behaviors: behaviors,
-    properties: properties,
-    lifetimes: {
-      attached: function attached() {
-        initVm$2.call(this, VueComponent);
-      },
-      ready: function ready() {
-        initVm$2.call(this, VueComponent); // 目前发现部分情况小程序 attached 不触发
-        triggerLink(this); // 处理 parent,children
+      initSpecialMethods(this);
 
-        // 补充生命周期
-        this.$vm.__call_hook('created');
-        this.$vm.__call_hook('beforeMount');
+      if (isComponent2) {
         this.$vm._isMounted = true;
         this.$vm.__call_hook('mounted');
         this.$vm.__call_hook('onReady');
-      },
-      detached: function detached() {
-        this.$vm.$destroy();
-      } },
-
-    pageLifetimes: {
-      show: function show(args) {
-        this.$vm.__call_hook('onPageShow', args);
-      },
-      hide: function hide() {
-        this.$vm && this.$vm.__call_hook('onPageHide');
-      },
-      resize: function resize(size) {
-        this.$vm && this.$vm.__call_hook('onPageResize', size);
-      } },
-
+      }
+    },
+    didUnmount: function didUnmount() {
+      this.$vm.$destroy();
+    },
     methods: {
+      __r: handleRef,
       __e: handleEvent,
-      __l: handleLink } };
+      __l: handleLink$1,
+      triggerEvent: triggerEvent } };
 
 
 
-  return initComponent(componentOptions, vueOptions);
+  if (isComponent2) {
+    componentOptions.onInit = function onInit() {
+      initVm.call(this, VueComponent);
+    };
+    componentOptions.deriveDataFromProps = createObserver$1();
+  } else {
+    componentOptions.didUpdate = createObserver$1(true);
+  }
+
+  return componentOptions;
+}
+
+function createComponent(vueOptions) {
+  {
+    return my.defineComponent(parseComponent(vueOptions));
+  }
 }
 
 todos.forEach(function (todoApi) {
@@ -1563,7 +1691,8 @@ todos.forEach(function (todoApi) {
 });
 
 canIUses.forEach(function (canIUseApi) {
-  var apiName = protocols[canIUseApi] && protocols[canIUseApi].name ? protocols[canIUseApi].name : canIUseApi;
+  var apiName = protocols[canIUseApi] && protocols[canIUseApi].name ? protocols[canIUseApi].name :
+  canIUseApi;
   if (!my.canIUse(apiName)) {
     protocols[canIUseApi] = false;
   }
@@ -1588,6 +1717,9 @@ if (typeof Proxy !== 'undefined') {
           return promisify(name, todoApis[name]);
         }
       }
+      if (eventApi[name]) {
+        return eventApi[name];
+      }
       if (!hasOwn(my, name) && !hasOwn(protocols, name)) {
         return;
       }
@@ -1606,6 +1738,10 @@ if (typeof Proxy !== 'undefined') {
     });
   }
 
+  Object.keys(eventApi).forEach(function (name) {
+    uni[name] = eventApi[name];
+  });
+
   Object.keys(api).forEach(function (name) {
     uni[name] = promisify(name, api[name]);
   });
@@ -1616,6 +1752,10 @@ if (typeof Proxy !== 'undefined') {
     }
   });
 }
+
+my.createApp = createApp;
+my.createPage = createPage;
+my.createComponent = createComponent;
 
 var uni$1 = uni;var _default =
 
@@ -8837,6 +8977,249 @@ return Vue;
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=script&lang=js&":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--18-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+//
+//
+//
+//
+var _default =
+{
+  name: 'chart_WeatherLine',
+  data: function data() {
+    return {
+      hightData: [25, 24, 23, 26, 39], //[55,53,51,57,92],//[25,24,23,26,42], //每天对应最高温
+      lowData: [13, 10, 11, 16, 18], //[27,-44,24,35,37],//[13,-20,11,16,18], //每天对应最低温
+      numData: 5, //几天的数据
+      maximum: 39, //最高温度
+      minimum: 10, //最低温度
+      distance: 0, //间隔
+      item_width: 0, //左右间隔
+      canvas: {},
+      context: {} };
+
+  },
+  mounted: function mounted() {
+    var self = this;
+    self.$nextTick(function () {
+      self.initLine();
+    });
+    uni.onWindowResize(function (res) {
+      //此接口不支持支付宝小程序、百度小程序以及头条小程序
+      self.initLine();
+      uni.showToast({
+        title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
+        duration: 2000 });
+
+    });
+  },
+  methods: {
+    initLine: function initLine() {
+      var self = this;
+      var view = uni.createSelectorQuery().select(".canvas");
+      view.fields({
+        size: true,
+        context: true },
+      function (data) {
+        debugger;
+      }).exec();
+
+      // uni.createSelectorQuery().select('#weatherLineCanvas').fields({  
+      //                    size: true,  
+      // 	dataset: true 
+      //                }, (data) => {  
+      // 	console.log(data)
+      // 	 const dynamicWidth = data.width
+      // 	 const dynamicHeight = data.height;
+      // 	 
+      // 	 //绘制画布
+      // 	 self.canvas = self.$refs.weatherLineCanvas.$el;
+      // 	 //uniapp这里不一样1：canvas.getContext("2d");
+      // 	 self.context = uni.createCanvasContext('weatherLineCanvas',self);
+      // 	 self.canvas.width = dynamicWidth;
+      // 	 self.canvas.height = dynamicHeight;
+      // 	 self.item_width = dynamicWidth / self.numData; //左右间距
+      // 	 const temperDifference = self.maximum - self.minimum; //温差
+      // 	 self.distance = dynamicHeight / 2 / temperDifference;
+      // 	 /*
+      // 	 * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
+      // 	 * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
+      // 	 * */
+      // 	 self.context.translate(self.item_width / 2, self.maximum * self.distance + 40);
+      // 	 //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
+      // 	 //触发函数
+      // 	 self.drawLineFun(self.hightData,'#fcc370'); //高温线
+      // 	 self.drawLineFun(self.lowData,'#94ccf9'); //低温线
+      // 	
+      // }).exec();  
+      // if(this.$refs.weatherLineCanvas){
+      //  debugger
+      //  const dynamicWidth = this.$refs.weatherLineCanvas.$el.clientWidth;
+      //  const dynamicHeight = this.$refs.weatherLineCanvas.$el.clientHeight;
+      //  
+      //  //绘制画布
+      //  this.canvas = this.$refs.weatherLineCanvas.$el;
+      //  //uniapp这里不一样1：canvas.getContext("2d");
+      //  this.context = uni.createCanvasContext('weatherLineCanvas',this);
+      //  this.canvas.width = dynamicWidth;
+      //  this.canvas.height = dynamicHeight;
+      //  this.item_width = dynamicWidth / this.numData; //左右间距
+      //  const temperDifference = this.maximum - this.minimum; //温差
+      //  this.distance = dynamicHeight / 2 / temperDifference;
+      //  /*
+      //  * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
+      //  * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
+      //  * */
+      //  this.context.translate(this.item_width / 2, this.maximum * this.distance + 40);
+      //  //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
+      //  //触发函数
+      //  this.drawLineFun(this.hightData,'#fcc370'); //高温线
+      //  this.drawLineFun(this.lowData,'#94ccf9'); //低温线
+      // }else{
+      //  uni.showToast({
+      // 	title: '未获取到Canvas',
+      // 	duration: 2000
+      //  })
+      // }
+      var dynamicWidth = 300;
+      var dynamicHeight = 200;
+
+      //绘制画布
+      //this.canvas = this.$refs.weatherLineCanvas.$el;
+      //uniapp这里不一样1：canvas.getContext("2d");
+      this.context = uni.createCanvasContext('weatherLineCanvas', this);
+      // this.canvas.width = dynamicWidth;
+      // this.canvas.height = dynamicHeight;
+      this.item_width = dynamicWidth / this.numData; //左右间距
+      var temperDifference = this.maximum - this.minimum; //温差
+      this.distance = dynamicHeight / 2 / temperDifference;
+      /*
+                                                            * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
+                                                            * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
+                                                            * */
+      this.context.translate(this.item_width / 2, this.maximum * this.distance + 40);
+      //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
+      //触发函数
+      this.drawLineFun(this.hightData, '#fcc370'); //高温线
+      this.drawLineFun(this.lowData, '#94ccf9'); //低温线
+    },
+    drawLineFun: function drawLineFun(lineData, lineColor) {
+      var self = this;
+      var new_high_x = [];
+      var new_high_y = [];
+      //循环画线和画点
+      for (var i = 0; i < lineData.length; i++) {
+        //画点
+        var circleXCoordinate = i * self.item_width; //圆的中心的x坐标
+        var circleYCoordinate = parseInt(Number(lineData[i]) * self.distance); //圆的中心的y坐标
+
+        self.context.beginPath(); //起始一条路径，或重置当前路径
+        /*@arc() 方法创建弧/曲线（用于创建圆或部分圆）
+        *提示：如需通过 arc() 来创建圆，请把起始角设置为 0，结束角设置为 2*Math.PI。
+        * context.arc(
+        *        圆的中心的x坐标,
+        *        圆的中心的y坐标,
+        *        圆的半径,
+        *        起始角以弧度计;弧的圆形的三点钟位置是0度,
+        *        结束角;以弧度计,
+        *        可选;规定应该逆时针还是顺时针绘图;False=顺时针;true=逆时针
+        * );
+        * */
+        self.context.arc(circleXCoordinate, -circleYCoordinate, 3, 0, 2 * Math.PI, true);
+        self.context.strokeStyle = lineColor; //使用 strokeStyle 属性来绘制另一种颜色/渐变
+        self.context.stroke(); //stroke() 方法会实际地绘制出方法定义的路径
+        self.context.fillStyle = lineColor; //使用 fillStyle 属性来填充另一种颜色/渐变
+        self.context.fill(); //fill() 方法填充当前的图像（路径）。默认颜色是黑色
+        self.context.closePath(); //创建从当前点回到起始点的路径
+
+        //保存线数据
+        new_high_x.push(circleXCoordinate);
+        new_high_y.push(-circleYCoordinate);
+        //写文字
+        if (lineData === self.hightData) {
+          self.context.beginPath();
+          self.context.font = "18px 微软雅黑";
+          self.context.fillStyle = "#333";
+          self.context.fillText(lineData[i] + "°", circleXCoordinate - 10, -circleYCoordinate - 20, 50); //context.fillText(text,x,y,maxWidth);
+          self.context.stroke();
+          self.context.closePath();
+        } else {
+          self.context.beginPath();
+          self.context.font = "18px 微软雅黑";
+          self.context.fillStyle = "#333";
+          self.context.fillText(lineData[i] + "°", circleXCoordinate - 10, -circleYCoordinate + 30, 50); //context.fillText(text,x,y,maxWidth);
+          self.context.stroke();
+          self.context.closePath();
+        }
+      }
+
+      //画线
+      for (var j = 0; j < self.numData - 1; j++) {
+        self.context.beginPath();
+        //uniapp这里不一样2：Y轴写为负数了 -Math.abs()，demo中是正数 Math.abs()
+        self.context.moveTo(Math.abs(new_high_x[j]), -Math.abs(new_high_y[j]));
+        self.context.lineTo(Math.abs(new_high_x[j + 1]), -Math.abs(new_high_y[j + 1]));
+        self.context.strokeStyle = lineColor;
+        self.context.lineWidth = 3;
+        self.context.stroke();
+        self.context.closePath();
+      }
+      self.context.draw(true); //uniapp这里不一样2：参数为true，则保留当前画布上的内容，本次调用drawCanvas绘制的内容覆盖在上面，默认 false
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ "./node_modules/@dcloudio/uni-mp-alipay/dist/index.js")["default"]))
+
+/***/ }),
+
+/***/ "./node_modules/mini-css-extract-plugin/dist/loader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-1!./node_modules/css-loader??ref--6-oneOf-1-2!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=template&id=244677f8&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=template&id=244677f8& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("canvas", {
+    ref: "weatherLineCanvas",
+    staticClass: "canvas",
+    attrs: {
+      "canvas-id": "weatherLineCanvas",
+      id: "weatherLineCanvas",
+      _hid: 0
+    }
+  })
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -8971,6 +9354,96 @@ try {
 // easier to handle this case. if(!global) { ...}
 
 module.exports = g;
+
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue":
+/*!**********************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue ***!
+  \**********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./chart_WeatherLine.vue?vue&type=template&id=244677f8& */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=template&id=244677f8&");
+/* harmony import */ var _chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./chart_WeatherLine.vue?vue&type=script&lang=js& */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./chart_WeatherLine.vue?vue&type=style&index=0&lang=css& */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+  _chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--18-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!./chart_WeatherLine.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=script&lang=js&");
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_18_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=style&index=0&lang=css&":
+/*!*******************************************************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=style&index=0&lang=css& ***!
+  \*******************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-1!./node_modules/css-loader??ref--6-oneOf-1-2!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/vue-loader/lib??vue-loader-options!./chart_WeatherLine.vue?vue&type=style&index=0&lang=css& */ "./node_modules/mini-css-extract-plugin/dist/loader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=style&index=0&lang=css&");
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=template&id=244677f8&":
+/*!*****************************************************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=template&id=244677f8& ***!
+  \*****************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!./chart_WeatherLine.vue?vue&type=template&id=244677f8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=template&id=244677f8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),

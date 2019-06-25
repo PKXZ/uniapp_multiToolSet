@@ -9,7 +9,7 @@
 		"minified": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.4",
+	"libVersion": "2.7.0",
 	"appid": "wx511012a983ed2d89",
 	"projectname": "uniapp_multiToolSet",
 	"simulatorType": "wechat",

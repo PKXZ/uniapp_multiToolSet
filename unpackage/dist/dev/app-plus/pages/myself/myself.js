@@ -1,1 +1,2 @@
+setCssToHead([".",[1],"canvas{ width: 100%; height: -webkit-calc(100% / 2); height: calc(100% / 2); margin: 0; padding: 0; pointer-events: none; }\n",],undefined,{path:"./pages/myself/myself.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./pages/myself/myself.wxml') } }));

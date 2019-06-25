@@ -122,7 +122,13 @@
   line-height: 2;
 } */
 .wetherBottom .wd{
-  margin-top: 245%;
+  margin-top: 245% !important;
+}
+.chart_WeatherLine{
+	position: absolute;
+	top: 220upx;
+	width: 100%;
+	height: calc(100% / 2);
 }
 .wetherBottom .wetherDate{
   font-size: 35upx;

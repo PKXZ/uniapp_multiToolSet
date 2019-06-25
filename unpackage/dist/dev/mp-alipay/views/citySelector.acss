@@ -163,7 +163,8 @@
 	top: 50%;
 	margin-left: -80rpx;
 	margin-top: -80rpx;
-	border-radius: 80rpx;
+	-webkit-border-radius: 80rpx;
+	        border-radius: 80rpx;
 	text-align: center;
 	line-height: 160rpx;
 	font-size: 70rpx;

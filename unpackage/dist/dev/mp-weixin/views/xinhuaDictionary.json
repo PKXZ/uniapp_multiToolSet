@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "新华字典",
+  "usingComponents": {
+    "chart_-weather-line": "/components/general/chart_WeatherLine"
+  }
+}

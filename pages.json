@@ -33,6 +33,11 @@
 			"style": {
 				"navigationBarTitleText": "选择城市"
 			}
+        },{
+            "path" : "views/xinhuaDictionary",
+			"style": {
+				"navigationBarTitleText": "新华字典"
+			}
         }
     ],
 	"globalStyle": {

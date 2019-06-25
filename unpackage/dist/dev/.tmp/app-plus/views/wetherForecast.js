@@ -82,6 +82,7 @@
 
 
 
+
 __webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\wetherForecast.css"); //
 //
 //
@@ -155,15 +156,26 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\
 //
 //
 //
-var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var _default = { data: function data() {return { gengduoCT: false, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {console.log(JSON.stringify(btn), " at views\\wetherForecast.vue:130");this.gengduoFun();}, onLoad: function onLoad(options) {//动态设置标题
+//
+var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var chart_WeatherLine = function chart_WeatherLine() {return __webpack_require__.e(/*! import() | components/general/chart_WeatherLine */ "components/general/chart_WeatherLine").then(__webpack_require__.bind(null, /*! @/components/general/chart_WeatherLine.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue"));};var _default = { data: function data() {return { programGengduoBtn: true, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {console.log(JSON.stringify(btn), " at views\\wetherForecast.vue:132");this.gengduoFun();}, onLoad: function onLoad(options) {var _this = this; //动态设置标题
     if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } }); //获取当前位置
     uni.getLocation({ type: 'wgs84', //默认为 wgs84 返回 gps 坐标，gcj02 返回国测局坐标
       success: function success(res) {
-        console.log('当前位置的经度：' + res.longitude, " at views\\wetherForecast.vue:152");
-        console.log('当前位置的纬度：' + res.latitude, " at views\\wetherForecast.vue:153");
+        console.log('当前位置的经度：' + res.longitude, " at views\\wetherForecast.vue:154");
+        console.log('当前位置的纬度：' + res.latitude, " at views\\wetherForecast.vue:155");
       },
       fail: function fail(err) {
-        console.log(err, " at views\\wetherForecast.vue:156");
+        console.log(err, " at views\\wetherForecast.vue:158");
+      } });
+
+    uni.getSystemInfo({
+      success: function success(res) {
+        //安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
+        if (res.platform === "android" || res.platform === "ios") {
+          _this.programGengduoBtn = false;
+        } else {
+          _this.programGengduoBtn = true;
+        }
       } });
 
   },
@@ -184,7 +196,8 @@ var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() 
     } },
 
   components: {
-    uniDrawer: uniDrawer } };exports.default = _default;
+    uniDrawer: uniDrawer,
+    chart_WeatherLine: chart_WeatherLine } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
 /***/ }),

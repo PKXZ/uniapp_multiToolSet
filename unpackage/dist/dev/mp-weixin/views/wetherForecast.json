@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "uni-drawer": "/components/common/uni-drawer"
+    "uni-drawer": "/components/common/uni-drawer",
+    "chart_-weather-line": "/components/general/chart_WeatherLine"
   }
 }

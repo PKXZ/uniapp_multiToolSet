@@ -170,8 +170,10 @@ var _default =
 
 
 
+
 __webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\wetherForecast.css");
-var _uniDrawer = _interopRequireDefault(__webpack_require__(/*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+var _uniDrawer = _interopRequireDefault(__webpack_require__(/*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));
+var _chart_WeatherLine = _interopRequireDefault(__webpack_require__(/*! @/components/general/chart_WeatherLine.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
 //
 //
 //
@@ -244,8 +246,33 @@ var _uniDrawer = _interopRequireDefault(__webpack_require__(/*! @/components/com
 //
 //
 //
-var _default = { data: function data() {return { gengduoCT: false, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onLoad: function onLoad(options) {//动态设置标题
-    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } });}, methods: { gengduoFun: function gengduoFun() {this.showRigth = true;}, closeDrawer: function closeDrawer() {this.showRigth = false;
+//
+var _default = { data: function data() {return { programGengduoBtn: true, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {console.log(JSON.stringify(btn));this.gengduoFun();}, onLoad: function onLoad(options) {var _this = this; //动态设置标题
+    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } }); //获取当前位置
+    uni.getLocation({ type: 'wgs84', //默认为 wgs84 返回 gps 坐标，gcj02 返回国测局坐标
+      success: function success(res) {console.log('当前位置的经度：' + res.longitude);console.log('当前位置的纬度：' + res.latitude);
+      },
+      fail: function fail(err) {
+        console.log(err);
+      } });
+
+    uni.getSystemInfo({
+      success: function success(res) {
+        //安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
+        if (res.platform === "android" || res.platform === "ios") {
+          _this.programGengduoBtn = false;
+        } else {
+          _this.programGengduoBtn = true;
+        }
+      } });
+
+  },
+  methods: {
+    gengduoFun: function gengduoFun() {
+      this.showRigth = true;
+    },
+    closeDrawer: function closeDrawer() {
+      this.showRigth = false;
     },
     hide: function hide() {
       this.showRigth = false;
@@ -257,7 +284,8 @@ var _default = { data: function data() {return { gengduoCT: false, currentCity: 
     } },
 
   components: {
-    uniDrawer: _uniDrawer.default } };exports.default = _default;
+    uniDrawer: _uniDrawer.default,
+    chart_WeatherLine: _chart_WeatherLine.default } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-alipay/dist/index.js */ "./node_modules/@dcloudio/uni-mp-alipay/dist/index.js")["default"]))
 
 /***/ }),
@@ -373,11 +401,7 @@ var render = function() {
       _c("view", { staticClass: "wetherTop", attrs: { _hid: 1 } }, [
         _c(
           "view",
-          {
-            staticClass: "wetherGengduo",
-            attrs: { _hid: 2 },
-            on: { click: _vm.gengduoFun }
-          },
+          { staticClass: "wetherGengduo", attrs: { _hid: 2 } },
           [
             _c("i", {
               staticClass: "iconfont icon-dizhidingwei fl",
@@ -386,10 +410,13 @@ var render = function() {
             _c("span", { staticClass: "fl", attrs: { _hid: 4 } }, [
               _vm._v(_vm._s(_vm.currentCity), 5)
             ]),
-            _c("i", {
-              staticClass: "iconfont icon-gengduo fr",
-              attrs: { _hid: 6 }
-            })
+            _vm._ri(!!_vm.programGengduoBtn, 6)
+              ? _c("i", {
+                  staticClass: "iconfont icon-gengduo fr",
+                  attrs: { _hid: 6 },
+                  on: { click: _vm.gengduoFun }
+                })
+              : _vm._e()
           ],
           1
         ),
@@ -473,25 +500,22 @@ var render = function() {
                     _c("text", { attrs: { _hid: 38, _fid: _fid } }, [
                       _vm._v(_vm._s(item.xq), 39, _fid)
                     ]),
-                    _c("i", {
-                      staticClass: "iconfont",
-                      class: item.icon,
-                      attrs: { _hid: 40, _fid: _fid }
-                    }),
-                    _c("text", { attrs: { _hid: 41, _fid: _fid } }, [
-                      _vm._v(_vm._s(item.type), 42, _fid)
-                    ]),
-                    _c("text", { attrs: { _hid: 43, _fid: _fid } }, [
-                      _vm._v(_vm._s(item.wd), 44, _fid)
-                    ])
-                  ],
-                  1
+                    _c(
+                      "text",
+                      { staticClass: "wd", attrs: { _hid: 40, _fid: _fid } },
+                      [_vm._v(_vm._s(item.wd), 41, _fid)]
+                    )
+                  ]
                 )
               },
               35,
               _vm._self
             )
-          )
+          ),
+          _c("chart_WeatherLine", {
+            staticClass: "chart_WeatherLine",
+            attrs: { _hid: 42, _cid: 0 }
+          })
         ],
         1
       ),
@@ -501,26 +525,26 @@ var render = function() {
           attrs: {
             visible: _vm.showRigth,
             mode: "right",
-            _hid: 45,
+            _hid: 1044,
             _batrs: "visible",
-            _cid: 0
+            _cid: 1
           },
           on: { close: _vm.closeDrawer }
         },
         [
-          _c("view", { staticClass: "demo-container", attrs: { _hid: 1047 } }, [
+          _c("view", { staticClass: "demo-container", attrs: { _hid: 2046 } }, [
             _c(
               "view",
-              { staticClass: "gengduoAdd", attrs: { _hid: 1048 } },
+              { staticClass: "gengduoAdd", attrs: { _hid: 2047 } },
               [
                 _c("i", {
                   staticClass: "iconfont icon-zuojiantou iLeft",
-                  attrs: { _hid: 1049 },
+                  attrs: { _hid: 2048 },
                   on: { click: _vm.hide }
                 }),
                 _c("i", {
                   staticClass: "iconfont icon-jia iRight",
-                  attrs: { _hid: 1050 },
+                  attrs: { _hid: 2049 },
                   on: { click: _vm.citySelector }
                 })
               ],
@@ -528,11 +552,11 @@ var render = function() {
             ),
             _c(
               "view",
-              { staticClass: "gengduoContent", attrs: { _hid: 1051 } },
+              { staticClass: "gengduoContent", attrs: { _hid: 2050 } },
               [
                 _c(
                   "ul",
-                  { attrs: { _hid: 1052 } },
+                  { attrs: { _hid: 2051 } },
                   [
                     _vm._l(
                       _vm.cityList,
@@ -542,34 +566,34 @@ var render = function() {
                           "li",
                           {
                             key: index,
-                            attrs: { _hid: 1053, _fid: _fid, _fk: "index" }
+                            attrs: { _hid: 2052, _fid: _fid, _fk: "index" }
                           },
                           [
                             _c("i", {
                               staticClass: "iconfont icon-dizhidingwei",
-                              attrs: { _hid: 1054, _fid: _fid }
+                              attrs: { _hid: 2053, _fid: _fid }
                             }),
                             _c(
                               "span",
                               {
                                 staticClass: "cityName",
-                                attrs: { _hid: 1055, _fid: _fid }
+                                attrs: { _hid: 2054, _fid: _fid }
                               },
-                              [_vm._v(_vm._s(item.cityName), 1056, _fid)]
+                              [_vm._v(_vm._s(item.cityName), 2055, _fid)]
                             ),
-                            _c("span", { attrs: { _hid: 1057, _fid: _fid } }, [
-                              _vm._v(_vm._s(item.wd), 1058, _fid)
+                            _c("span", { attrs: { _hid: 2056, _fid: _fid } }, [
+                              _vm._v(_vm._s(item.wd), 2057, _fid)
                             ])
                           ],
                           1
                         )
                       },
-                      1053,
+                      2052,
                       _vm._self
                     ),
                     _c("div", {
                       staticStyle: { clear: "both" },
-                      attrs: { _hid: 1059 }
+                      attrs: { _hid: 2058 }
                     })
                   ],
                   1

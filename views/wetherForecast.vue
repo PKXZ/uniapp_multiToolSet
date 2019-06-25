@@ -6,7 +6,7 @@
 		  <view class='wetherGengduo'>
 				<i class="iconfont icon-dizhidingwei fl"></i>
 				<span class="fl">{{currentCity}}</span>
-				<!-- <i class='iconfont icon-gengduo fr'></i> -->
+				<i class='iconfont icon-gengduo fr' v-if="programGengduoBtn" @click="gengduoFun"></i>
 		  </view>
 		  <view class="wetherInfo">
 				<i class="iconfont currentIcon" :class="currentIcon"></i>
@@ -47,7 +47,7 @@
 			  <text class="wd">{{item.wd}}</text>
 			</li>
 		  </ul>
-		  <chart_WeatherLine style="position: absolute;top:100px;"></chart_WeatherLine>
+		  <chart_WeatherLine class="chart_WeatherLine"></chart_WeatherLine>
 	  </view>
 	  
 	  <!--抽屉-->
@@ -79,7 +79,7 @@
 	export default {
 		data() {
 			return {
-				gengduoCT: false,
+				programGengduoBtn: true,
 				currentCity: '成都',
 				currentType: '晴转多云',
 				currentIcon: 'icon-duoyun',
@@ -125,14 +125,14 @@
 						wd: '10~20℃'
 					  }
 				],
-				showRigth: false
+				showRigth: false,
 			}
 		},
 		onNavigationBarButtonTap(btn){
 			console.log(JSON.stringify(btn))
 			this.gengduoFun();
 		},
-		 onLoad(options) {
+		onLoad(options) {
 			//动态设置标题
 			if (options.label) {
 			  uni.setNavigationBarTitle({
@@ -158,6 +158,16 @@
 					console.log(err);
 				}
 			});
+			uni.getSystemInfo({
+				success: (res) => {
+					//安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
+					if(res.platform === "android" || res.platform === "ios"){
+						this.programGengduoBtn = false;
+					}else{
+						this.programGengduoBtn = true;
+					}
+				}
+			})
 		},
 		methods:{
 			gengduoFun(){

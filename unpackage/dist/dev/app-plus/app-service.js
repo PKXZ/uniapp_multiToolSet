@@ -1052,7 +1052,6 @@ if(typeof(global.defines)==='undefined')global.defines={};d_=global.defines;
 var f_={}
 if(typeof(global.modules)==='undefined')global.modules={};f_=global.modules || {};
 var p_={}
-var cs
 __WXML_GLOBAL__.ops_cached = __WXML_GLOBAL__.ops_cached || {}
 __WXML_GLOBAL__.ops_set = __WXML_GLOBAL__.ops_set || {};
 __WXML_GLOBAL__.ops_init = __WXML_GLOBAL__.ops_init || {};
@@ -1061,9 +1060,7 @@ function gz$gwx_1(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_1)return __WXML_GLOBAL__.ops_cached.$gwx_1
 __WXML_GLOBAL__.ops_cached.$gwx_1=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'__l'])
 Z([[7],[3,'visibleSync']])
-Z(z[0])
 Z([3,'__e'])
 Z([[4],[[5],[[5],[[5],[1,'uni-drawer']],[[2,'?:'],[[7],[3,'showDrawer']],[1,'uni-drawer--visible'],[1,'']]],[[2,'?:'],[[7],[3,'rightMode']],[1,'uni-drawer--right'],[1,'']]]])
 Z([[4],[[5],[[4],[[5],[[5],[1,'touchmove']],[[4],[[5],[[4],[[5],[[5],[1,'moveHandle']],[[4],[[5],[1,'$event']]]]]]]]]]])
@@ -1073,18 +1070,17 @@ function gz$gwx_2(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_2)return __WXML_GLOBAL__.ops_cached.$gwx_2
 __WXML_GLOBAL__.ops_cached.$gwx_2=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'__l'])
 Z([3,'uni-indexed'])
 Z([3,'idx'])
 Z([3,'list'])
 Z([[7],[3,'lists']])
-Z(z[2])
+Z(z[1])
 Z([[2,'&&'],[[6],[[7],[3,'list']],[3,'items']],[[2,'>'],[[6],[[6],[[7],[3,'list']],[3,'items']],[3,'length']],[1,0]]])
-Z(z[6])
+Z(z[5])
 Z([3,'index'])
 Z([3,'item'])
 Z([[6],[[7],[3,'list']],[3,'items']])
-Z(z[8])
+Z(z[7])
 Z([3,'__e'])
 Z([3,'uni-list-item__container'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'tap']],[[4],[[5],[[4],[[5],[[5],[1,'onClick']],[[4],[[5],[[5],[[7],[3,'idx']]],[[7],[3,'index']]]]]]]]]]]])
@@ -1120,13 +1116,6 @@ function gz$gwx_7(){
 if( __WXML_GLOBAL__.ops_cached.$gwx_7)return __WXML_GLOBAL__.ops_cached.$gwx_7
 __WXML_GLOBAL__.ops_cached.$gwx_7=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
-Z([3,'__l'])
-Z([3,'citySelector'])
-Z([3,'__e'])
-Z([[4],[[5],[[4],[[5],[[5],[1,'^click']],[[4],[[5],[[4],[[5],[1,'bindClick']]]]]]]]])
-Z([[7],[3,'list']])
-Z([1,140])
-Z([1,false])
 })(__WXML_GLOBAL__.ops_cached.$gwx_7);return __WXML_GLOBAL__.ops_cached.$gwx_7
 }
 function gz$gwx_8(){
@@ -1134,34 +1123,46 @@ if( __WXML_GLOBAL__.ops_cached.$gwx_8)return __WXML_GLOBAL__.ops_cached.$gwx_8
 __WXML_GLOBAL__.ops_cached.$gwx_8=[];
 (function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'__l'])
+Z([3,'__e'])
+Z([[4],[[5],[[4],[[5],[[5],[1,'^click']],[[4],[[5],[[4],[[5],[1,'bindClick']]]]]]]]])
+Z([[7],[3,'list']])
+Z([1,140])
+Z([1,false])
+Z([3,'1'])
+})(__WXML_GLOBAL__.ops_cached.$gwx_8);return __WXML_GLOBAL__.ops_cached.$gwx_8
+}
+function gz$gwx_9(){
+if( __WXML_GLOBAL__.ops_cached.$gwx_9)return __WXML_GLOBAL__.ops_cached.$gwx_9
+__WXML_GLOBAL__.ops_cached.$gwx_9=[];
+(function(z){var a=11;function Z(ops){z.push(ops)}
 Z([3,'wetherContent'])
+Z([[7],[3,'programGengduoBtn']])
+Z([3,'__l'])
+Z([3,'chart_WeatherLine'])
+Z([3,'1'])
+Z(z[2])
 Z([3,'__e'])
 Z([[4],[[5],[[4],[[5],[[5],[1,'^close']],[[4],[[5],[[4],[[5],[1,'closeDrawer']]]]]]]]])
 Z([3,'right'])
 Z([[7],[3,'showRigth']])
+Z([3,'2'])
 Z([[4],[[5],[1,'default']]])
-})(__WXML_GLOBAL__.ops_cached.$gwx_8);return __WXML_GLOBAL__.ops_cached.$gwx_8
+})(__WXML_GLOBAL__.ops_cached.$gwx_9);return __WXML_GLOBAL__.ops_cached.$gwx_9
 }
 __WXML_GLOBAL__.ops_set.$gwx=z;
 __WXML_GLOBAL__.ops_init.$gwx=true;
 var nv_require=function(){var nnm={};var nom={};return function(n){return function(){if(!nnm[n]) return undefined;try{if(!nom[n])nom[n]=nnm[n]();return nom[n];}catch(e){e.message=e.message.replace(/nv_/g,'');var tmp = e.stack.substring(0,e.stack.lastIndexOf(n));e.stack = tmp.substring(0,tmp.lastIndexOf('\n'));e.stack = e.stack.replace(/\snv_/g,' ');e.stack = $gstack(e.stack);e.stack += '\n    at ' + n.substring(2);console.error(e);}
 }}}()
-var x=['./components/common/uni-drawer.wxml','./components/common/uni-indexed-list.wxml','./pages/find/find.wxml','./pages/main/main.wxml','./pages/message/message.wxml','./pages/myself/myself.wxml','./views/citySelector.wxml','./views/wetherForecast.wxml'];d_[x[0]]={}
+var x=['./components/common/uni-drawer.wxml','./components/common/uni-indexed-list.wxml','./components/general/chart_WeatherLine.wxml','./pages/find/find.wxml','./pages/main/main.wxml','./pages/message/message.wxml','./pages/myself/myself.wxml','./views/citySelector.wxml','./views/wetherForecast.wxml'];d_[x[0]]={}
 var m0=function(e,s,r,gg){
 var z=gz$gwx_1()
 var oB=_v()
 _(r,oB)
-if(_oz(z,1,e,s,gg)){oB.wxVkey=1
-cs.push("./components/common/uni-drawer.wxml:block:1:1")
-cs.push("./components/common/uni-drawer.wxml:view:1:47")
-var xC=_mz(z,'view',['bind:__l',2,'catchtouchmove',1,'class',2,'data-event-opts',3],[],e,s,gg)
-cs.push("./components/common/uni-drawer.wxml:slot:1:396")
+if(_oz(z,0,e,s,gg)){oB.wxVkey=1
+var xC=_mz(z,'view',['catchtouchmove',1,'class',1,'data-event-opts',2],[],e,s,gg)
 var oD=_n('slot')
-cs.pop()
 _(xC,oD)
-cs.pop()
 _(oB,xC)
-cs.pop()
 }
 oB.wxXCkey=1
 return r
@@ -1170,61 +1171,44 @@ e_[x[0]]={f:m0,j:[],i:[],ti:[],ic:[]}
 d_[x[1]]={}
 var m1=function(e,s,r,gg){
 var z=gz$gwx_2()
-cs.push("./components/common/uni-indexed-list.wxml:view:1:1")
-var cF=_mz(z,'view',['bind:__l',0,'class',1],[],e,s,gg)
+var cF=_n('view')
+_rz(z,cF,'class',0,e,s,gg)
 var oH=_v()
 _(cF,oH)
-cs.push("./components/common/uni-indexed-list.wxml:block:1:169")
 var cI=function(lK,oJ,aL,gg){
-cs.push("./components/common/uni-indexed-list.wxml:block:1:246")
 var eN=_v()
 _(aL,eN)
-if(_oz(z,6,lK,oJ,gg)){eN.wxVkey=1
-cs.push("./components/common/uni-indexed-list.wxml:block:1:253")
-cs.pop()
+if(_oz(z,5,lK,oJ,gg)){eN.wxVkey=1
 }
 var bO=_v()
 _(aL,bO)
-if(_oz(z,7,lK,oJ,gg)){bO.wxVkey=1
-cs.push("./components/common/uni-indexed-list.wxml:block:1:407")
+if(_oz(z,6,lK,oJ,gg)){bO.wxVkey=1
 var oP=_v()
 _(bO,oP)
-cs.push("./components/common/uni-indexed-list.wxml:block:1:481")
 var xQ=function(fS,oR,cT,gg){
-cs.push("./components/common/uni-indexed-list.wxml:view:1:630")
-var oV=_mz(z,'view',['bindtap',12,'class',1,'data-event-opts',2],[],fS,oR,gg)
+var oV=_mz(z,'view',['bindtap',11,'class',1,'data-event-opts',2],[],fS,oR,gg)
 var cW=_v()
 _(oV,cW)
-if(_oz(z,15,fS,oR,gg)){cW.wxVkey=1
-cs.push("./components/common/uni-indexed-list.wxml:block:1:741")
-cs.pop()
+if(_oz(z,14,fS,oR,gg)){cW.wxVkey=1
 }
 cW.wxXCkey=1
-cs.pop()
 _(cT,oV)
 return cT
 }
 oP.wxXCkey=2
-_2z(z,10,xQ,lK,oJ,gg,oP,'item','index','index')
-cs.pop()
-cs.pop()
+_2z(z,9,xQ,lK,oJ,gg,oP,'item','index','index')
 }
 eN.wxXCkey=1
 bO.wxXCkey=1
-cs.pop()
 return aL
 }
 oH.wxXCkey=2
-_2z(z,4,cI,e,s,gg,oH,'list','idx','idx')
-cs.pop()
+_2z(z,3,cI,e,s,gg,oH,'list','idx','idx')
 var hG=_v()
 _(cF,hG)
-if(_oz(z,16,e,s,gg)){hG.wxVkey=1
-cs.push("./components/common/uni-indexed-list.wxml:block:1:1658")
-cs.pop()
+if(_oz(z,15,e,s,gg)){hG.wxVkey=1
 }
 hG.wxXCkey=1
-cs.pop()
 _(r,cF)
 return r
 }
@@ -1256,43 +1240,44 @@ e_[x[5]]={f:m5,j:[],i:[],ti:[],ic:[]}
 d_[x[6]]={}
 var m6=function(e,s,r,gg){
 var z=gz$gwx_7()
-cs.push("./views/citySelector.wxml:view:1:1")
-var b3=_mz(z,'view',['bind:__l',0,'class',1],[],e,s,gg)
-cs.push("./views/citySelector.wxml:uni-indexed-list:1:359")
-var o4=_mz(z,'uni-indexed-list',['bind:click',2,'data-event-opts',1,'options',2,'otherHeight',3,'showSelect',4],[],e,s,gg)
-cs.pop()
-_(b3,o4)
-cs.pop()
-_(r,b3)
 return r
 }
 e_[x[6]]={f:m6,j:[],i:[],ti:[],ic:[]}
 d_[x[7]]={}
 var m7=function(e,s,r,gg){
 var z=gz$gwx_8()
-cs.push("./views/wetherForecast.wxml:view:1:1")
-var o6=_mz(z,'view',['bind:__l',0,'class',1],[],e,s,gg)
-cs.push("./views/wetherForecast.wxml:uni-drawer:1:1047")
-var f7=_mz(z,'uni-drawer',['bind:close',2,'data-event-opts',1,'mode',2,'visible',3,'vueSlots',4],[],e,s,gg)
-cs.pop()
-_(o6,f7)
-cs.pop()
-_(r,o6)
+var o4=_mz(z,'uni-indexed-list',['bind:__l',0,'bind:click',1,'data-event-opts',1,'options',2,'otherHeight',3,'showSelect',4,'vueId',5],[],e,s,gg)
+_(r,o4)
 return r
 }
 e_[x[7]]={f:m7,j:[],i:[],ti:[],ic:[]}
+d_[x[8]]={}
+var m8=function(e,s,r,gg){
+var z=gz$gwx_9()
+var o6=_n('view')
+_rz(z,o6,'class',0,e,s,gg)
+var f7=_v()
+_(o6,f7)
+if(_oz(z,1,e,s,gg)){f7.wxVkey=1
+}
+var c8=_mz(z,'chart_-weather-line',['bind:__l',2,'class',1,'vueId',2],[],e,s,gg)
+_(o6,c8)
+var h9=_mz(z,'uni-drawer',['bind:__l',5,'bind:close',1,'data-event-opts',2,'mode',3,'visible',4,'vueId',5,'vueSlots',6],[],e,s,gg)
+_(o6,h9)
+f7.wxXCkey=1
+_(r,o6)
+return r
+}
+e_[x[8]]={f:m8,j:[],i:[],ti:[],ic:[]}
 if(path&&e_[path]){
 return function(env,dd,global){$gwxc=0;var root={"tag":"wx-page"};root.children=[]
 var main=e_[path].f
-cs=[]
 if (typeof global==="undefined")global={};global.f=$gdc(f_[path],"",1);
 try{
 main(env,{},root,global);
 _tsd(root)
 }catch(err){
-console.log(cs, env);
 console.log(err)
-throw err
 }
 return root;
 }
@@ -1301,7 +1286,7 @@ return root;
 
 
 
-__wxAppCode__['app.json']={"pages":["pages/main/main","pages/myself/myself","pages/message/message","pages/find/find","views/wetherForecast","views/citySelector"],"subPackages":[],"window":{"navigationBarTextStyle":"white","navigationBarTitleText":"uni-app","navigationBarBackgroundColor":"#63b4fe","backgroundColor":"#63b4fe"},"tabBar":{"color":"#7a7e83","selectedColor":"#0faeff","backgroundColor":"#ffffff","list":[{"pagePath":"pages/main/main","text":"首页","iconPath":"static/image/home.png","selectedIconPath":"static/image/home_selected.png"},{"pagePath":"pages/find/find","text":"查找","iconPath":"static/image/find.png","selectedIconPath":"static/image/find_selected.png"},{"pagePath":"pages/message/message","text":"消息","iconPath":"static/image/message.png","selectedIconPath":"static/image/message_selected.png"},{"pagePath":"pages/myself/myself","text":"我的","iconPath":"static/image/myself.png","selectedIconPath":"static/image/myself_selected.png"}]},"splashscreen":{"alwaysShowBeforeRender":true,"autoclose":false},"appname":"uniapp_multiToolSet","compilerVersion":"1.9.9","usingComponents":{}};
+__wxAppCode__['app.json']={"pages":["pages/main/main","pages/myself/myself","pages/message/message","pages/find/find","views/wetherForecast","views/citySelector"],"subPackages":[],"window":{"navigationBarTextStyle":"white","navigationBarTitleText":"uni-app","navigationBarBackgroundColor":"#63b4fe","backgroundColor":"#63b4fe"},"tabBar":{"color":"#7a7e83","selectedColor":"#0faeff","backgroundColor":"#ffffff","list":[{"pagePath":"pages/main/main","text":"首页","iconPath":"static/image/home.png","selectedIconPath":"static/image/home_selected.png"},{"pagePath":"pages/find/find","text":"查找","iconPath":"static/image/find.png","selectedIconPath":"static/image/find_selected.png"},{"pagePath":"pages/message/message","text":"消息","iconPath":"static/image/message.png","selectedIconPath":"static/image/message_selected.png"},{"pagePath":"pages/myself/myself","text":"我的","iconPath":"static/image/myself.png","selectedIconPath":"static/image/myself_selected.png"}]},"nvueCompiler":"weex","splashscreen":{"alwaysShowBeforeRender":true,"autoclose":false},"appname":"uniapp_multiToolSet","compilerVersion":"2.0.1","usingComponents":{}};
 __wxAppCode__['app.wxml']=$gwx('./app.wxml');
 
 __wxAppCode__['components/common/uni-drawer.json']={"usingComponents":{},"component":true};
@@ -1309,6 +1294,9 @@ __wxAppCode__['components/common/uni-drawer.wxml']=$gwx('./components/common/uni
 
 __wxAppCode__['components/common/uni-indexed-list.json']={"usingComponents":{},"component":true};
 __wxAppCode__['components/common/uni-indexed-list.wxml']=$gwx('./components/common/uni-indexed-list.wxml');
+
+__wxAppCode__['components/general/chart_WeatherLine.json']={"usingComponents":{},"component":true};
+__wxAppCode__['components/general/chart_WeatherLine.wxml']=$gwx('./components/general/chart_WeatherLine.wxml');
 
 __wxAppCode__['pages/find/find.json']={"usingComponents":{}};
 __wxAppCode__['pages/find/find.wxml']=$gwx('./pages/find/find.wxml');
@@ -1325,7 +1313,7 @@ __wxAppCode__['pages/myself/myself.wxml']=$gwx('./pages/myself/myself.wxml');
 __wxAppCode__['views/citySelector.json']={"navigationBarTitleText":"选择城市","usingComponents":{"uni-indexed-list":"/components/common/uni-indexed-list"}};
 __wxAppCode__['views/citySelector.wxml']=$gwx('./views/citySelector.wxml');
 
-__wxAppCode__['views/wetherForecast.json']={"bounce":"none","titleNView":{"buttons":[{"text":"","float":"right","fontSrc":"/static/font/iconfont.ttf","fontSize":"22px"}]},"usingComponents":{"uni-drawer":"/components/common/uni-drawer"}};
+__wxAppCode__['views/wetherForecast.json']={"bounce":"none","titleNView":{"buttons":[{"text":"","float":"right","fontSrc":"/static/font/iconfont.ttf","fontSize":"22px"}]},"usingComponents":{"uni-drawer":"/components/common/uni-drawer","chart_-weather-line":"/components/general/chart_WeatherLine"}};
 __wxAppCode__['views/wetherForecast.wxml']=$gwx('./views/wetherForecast.wxml');
 
 
@@ -1544,11 +1532,11 @@ define('common/runtime.js',function(require, module, exports, window, document, 
     /******/
     /******/
     /******/ // mini-css-extract-plugin CSS loading
-    /******/var cssChunks = { "components/common/uni-drawer": 1, "components/common/uni-indexed-list": 1 };
+    /******/var cssChunks = { "components/common/uni-drawer": 1, "components/general/chart_WeatherLine": 1, "components/common/uni-indexed-list": 1 };
     /******/if (installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
     /******/else if (installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
         /******/promises.push(installedCssChunks[chunkId] = new Promise(function (resolve, reject) {
-          /******/var href = "" + ({ "components/common/uni-drawer": "components/common/uni-drawer", "components/common/uni-indexed-list": "components/common/uni-indexed-list" }[chunkId] || chunkId) + ".wxss";
+          /******/var href = "" + ({ "components/common/uni-drawer": "components/common/uni-drawer", "components/general/chart_WeatherLine": "components/general/chart_WeatherLine", "components/common/uni-indexed-list": "components/common/uni-indexed-list" }[chunkId] || chunkId) + ".wxss";
           /******/var fullhref = __webpack_require__.p + href;
           /******/var existingLinkTags = document.getElementsByTagName("link");
           /******/for (var i = 0; i < existingLinkTags.length; i++) {
@@ -1716,7 +1704,7 @@ define('common/vendor.js',function(require, module, exports, window, document, f
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createPage = createPage;exports.createComponent = createComponent;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+/* WEBPACK VAR INJECTION */(function(global) {Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createPage = createPage;exports.createComponent = createComponent;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance");}function _iterableToArrayLimit(arr, i) {var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 var _toString = Object.prototype.toString;
 var hasOwnProperty = Object.prototype.hasOwnProperty;
@@ -1758,7 +1746,7 @@ var camelize = cached(function (str) {
   return str.replace(camelizeRE, function (_, c) {return c ? c.toUpperCase() : '';});
 });
 
-var SYNC_API_RE = /subNVue|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$/;
+var SYNC_API_RE = /^\$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64/;
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
@@ -1807,15 +1795,17 @@ function promisify(name, api) {
         fail: reject })].concat(
       params));
       /* eslint-disable no-extend-native */
-      Promise.prototype.finally = function (callback) {
-        var promise = this.constructor;
-        return this.then(
-        function (value) {return promise.resolve(callback()).then(function () {return value;});},
-        function (reason) {return promise.resolve(callback()).then(function () {
-            throw reason;
-          });});
+      if (!Promise.prototype.finally) {
+        Promise.prototype.finally = function (callback) {
+          var promise = this.constructor;
+          return this.then(
+          function (value) {return promise.resolve(callback()).then(function () {return value;});},
+          function (reason) {return promise.resolve(callback()).then(function () {
+              throw reason;
+            });});
 
-      };
+        };
+      }
     }));
   };
 }
@@ -1931,7 +1921,11 @@ function wrapper(methodName, method) {
 
       arg1 = processArgs(methodName, arg1, options.args, options.returnValue);
 
-      var returnValue = wx[options.name || methodName](arg1, arg2);
+      var args = [arg1];
+      if (typeof arg2 !== 'undefined') {
+        args.push(arg2);
+      }
+      var returnValue = wx[options.name || methodName].apply(wx, args);
       if (isSyncApi(methodName)) {// 同步 api
         return processReturnValue(methodName, returnValue, options.returnValue, isContextApi(methodName));
       }
@@ -1968,13 +1962,69 @@ TODOS.forEach(function (name) {
   todoApis[name] = createTodoApi(name);
 });
 
+var getEmitter = function () {
+  if (typeof getUniEmitter === 'function') {
+    /* eslint-disable no-undef */
+    return getUniEmitter;
+  }
+  var Emitter;
+  return function getUniEmitter() {
+    if (!Emitter) {
+      Emitter = new _vue.default();
+    }
+    return Emitter;
+  };
+}();
+
+function apply(ctx, method, args) {
+  return ctx[method].apply(ctx, args);
+}
+
+function $on() {
+  return apply(getEmitter(), '$on', Array.prototype.slice.call(arguments));
+}
+function $off() {
+  return apply(getEmitter(), '$off', Array.prototype.slice.call(arguments));
+}
+function $once() {
+  return apply(getEmitter(), '$once', Array.prototype.slice.call(arguments));
+}
+function $emit() {
+  return apply(getEmitter(), '$emit', Array.prototype.slice.call(arguments));
+}
+
+
+
+var eventApi = /*#__PURE__*/Object.freeze({
+  $on: $on,
+  $off: $off,
+  $once: $once,
+  $emit: $emit });
+
+
 function wrapper$1(webview) {
   webview.$processed = true;
+
+  webview.postMessage = function (data) {
+    plus.webview.postMessageToUniNView({
+      type: 'UniAppSubNVue',
+      data: data },
+    webview.id);
+  };
+  var callbacks = [];
+  webview.onMessage = function (callback) {
+    callbacks.push(callback);
+  };
+  webview.$consumeMessage = function (e) {
+    callbacks.forEach(function (callback) {return callback(e);});
+  };
+
   if (!webview.__uniapp_mask_id) {
     return;
   }
   var maskColor = webview.__uniapp_mask;
   var maskWebview = plus.webview.getWebviewById(webview.__uniapp_mask_id);
+  maskWebview = maskWebview.parent() || maskWebview; // 再次检测父
   var oldShow = webview.show;
   var oldHide = webview.hide;
   var oldClose = webview.close;
@@ -2002,33 +2052,15 @@ function wrapper$1(webview) {
     callbacks = [];for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {args[_key4] = arguments[_key4];}
     return oldClose.apply(webview, args);
   };
-  webview.postMessage = function (data) {
-    plus.webview.postMessageToUniNView({
-      type: 'UniAppSubNVue',
-      data: data,
-      options: {
-        id: webview.id } },
-
-    webview.id);
-  };
-  var callbacks = [];
-  webview.onMessage = function (callback) {
-    callbacks.push(callback);
-  };
-  webview.$consumeMessage = function (e) {
-    callbacks.forEach(function (callback) {return callback(e);});
-  };
 }
 
-var subNVue = {
-  getSubNVueById: function getSubNVueById(id) {
-    var webview = plus.webview.getWebviewById(id);
-    if (webview && !webview.$processed) {
-      wrapper$1(webview);
-    }
-    return webview;
-  } };
-
+function getSubNVueById(id) {
+  var webview = plus.webview.getWebviewById(id);
+  if (webview && !webview.$processed) {
+    wrapper$1(webview);
+  }
+  return webview;
+}
 
 function requireNativePlugin(pluginName) {
   /* eslint-disable no-undef */
@@ -2041,7 +2073,7 @@ function requireNativePlugin(pluginName) {
 
 var api = /*#__PURE__*/Object.freeze({
   requireNativePlugin: requireNativePlugin,
-  subNVue: subNVue });
+  getSubNVueById: getSubNVueById });
 
 
 var MPPage = Page;
@@ -2089,69 +2121,18 @@ Component = function Component() {var options = arguments.length > 0 && argument
   return MPComponent(options);
 };
 
-var mocks = ['__route__', '__wxExparserNodeId__', '__wxWebviewId__'];
+var PAGE_EVENT_HOOKS = [
+'onPullDownRefresh',
+'onReachBottom',
+'onShareAppMessage',
+'onPageScroll',
+'onResize',
+'onTabItemTap'];
 
-function initBehavior(options) {
-  return Behavior(options);
-}
-function initRefs(vm) {
-  var mpInstance = vm.$scope;
-  Object.defineProperty(vm, '$refs', {
-    get: function get() {
-      var $refs = {};
-      var components = mpInstance.selectAllComponents('.vue-ref');
-      components.forEach(function (component) {
-        var ref = component.dataset.ref;
-        $refs[ref] = component.$vm || component;
-      });
-      var forComponents = mpInstance.selectAllComponents('.vue-ref-in-for');
-      forComponents.forEach(function (component) {
-        var ref = component.dataset.ref;
-        if (!$refs[ref]) {
-          $refs[ref] = [];
-        }
-        $refs[ref].push(component.$vm || component);
-      });
-      return $refs;
-    } });
 
-}
-function triggerLink(mpInstance, vueOptions) {
-  mpInstance.triggerEvent('__l', mpInstance.$vm || vueOptions, {
-    bubbles: true,
-    composed: true });
-
-}
-
-function handleLink(event) {
-  if (event.detail.$mp) {// vm
-    if (!event.detail.$parent) {
-      event.detail.$parent = this.$vm;
-      event.detail.$parent.$children.push(event.detail);
-
-      event.detail.$root = this.$vm.$root;
-    }
-  } else {// vueOptions
-    if (!event.detail.parent) {
-      event.detail.parent = this.$vm;
-    }
-  }
-}
-
-function initPage$1(pageOptions) {
-  return initComponent$1(pageOptions);
-}
-
-function initComponent$1(componentOptions) {
-  componentOptions.methods.$getAppWebview = function () {
-    return plus.webview.getWebviewById("".concat(this.__wxWebviewId__));
-  };
-  return Component(componentOptions);
-}
-
-function initMocks(vm, mocks$$1) {
+function initMocks(vm, mocks) {
   var mpInstance = vm.$mp[vm.mpType];
-  mocks$$1.forEach(function (mock) {
+  mocks.forEach(function (mock) {
     if (hasOwn(mpInstance, mock)) {
       vm[mock] = mpInstance[mock];
     }
@@ -2161,12 +2142,46 @@ function initMocks(vm, mocks$$1) {
 function initHooks(mpOptions, hooks) {
   hooks.forEach(function (hook) {
     mpOptions[hook] = function (args) {
-      return this.$vm.__call_hook(hook, args);
+      return this.$vm && this.$vm.__call_hook(hook, args);
     };
   });
 }
 
-function getData(vueOptions, context) {
+function initVueComponent(Vue$$1, vueOptions) {
+  vueOptions = vueOptions.default || vueOptions;
+  var VueComponent;
+  if (isFn(vueOptions)) {
+    VueComponent = vueOptions;
+    vueOptions = VueComponent.extendOptions;
+  } else {
+    VueComponent = Vue$$1.extend(vueOptions);
+  }
+  return [VueComponent, vueOptions];
+}
+
+function initSlots(vm, vueSlots) {
+  if (Array.isArray(vueSlots) && vueSlots.length) {
+    var $slots = Object.create(null);
+    vueSlots.forEach(function (slotName) {
+      $slots[slotName] = true;
+    });
+    vm.$scopedSlots = vm.$slots = $slots;
+  }
+}
+
+function initVueIds(vueIds, mpInstance) {
+  vueIds = (vueIds || '').split(',');
+  var len = vueIds.length;
+
+  if (len === 1) {
+    mpInstance._$vueId = vueIds[0];
+  } else if (len === 2) {
+    mpInstance._$vueId = vueIds[0];
+    mpInstance._$vuePid = vueIds[1];
+  }
+}
+
+function initData(vueOptions, context) {
   var data = vueOptions.data || {};
   var methods = vueOptions.methods || {};
 
@@ -2208,7 +2223,7 @@ function createObserver(name) {
   };
 }
 
-function getBehaviors(vueOptions) {
+function initBehaviors(vueOptions, initBehavior) {
   var vueBehaviors = vueOptions['behaviors'];
   var vueExtends = vueOptions['extends'];
   var vueMixins = vueOptions['mixins'];
@@ -2237,7 +2252,7 @@ function getBehaviors(vueOptions) {
   if (isPlainObject(vueExtends) && vueExtends.props) {
     behaviors.push(
     initBehavior({
-      properties: getProperties(vueExtends.props, true) }));
+      properties: initProperties(vueExtends.props, true) }));
 
 
   }
@@ -2246,7 +2261,7 @@ function getBehaviors(vueOptions) {
       if (isPlainObject(vueMixin) && vueMixin.props) {
         behaviors.push(
         initBehavior({
-          properties: getProperties(vueMixin.props, true) }));
+          properties: initProperties(vueMixin.props, true) }));
 
 
       }
@@ -2263,9 +2278,13 @@ function parsePropType(key, type, defaultValue, file) {
   return type;
 }
 
-function getProperties(props) {var isBehavior = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;var file = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
+function initProperties(props) {var isBehavior = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;var file = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '';
   var properties = {};
   if (!isBehavior) {
+    properties.vueId = {
+      type: String,
+      value: '' };
+
     properties.vueSlots = { // 小程序不能直接定义 $slots 的 props，所以通过 vueSlots 转换到 $slots
       type: null,
       value: [],
@@ -2465,6 +2484,17 @@ function processEventArgs(vm, event) {var args = arguments.length > 2 && argumen
 var ONCE = '~';
 var CUSTOM = '^';
 
+function isMatchEventType(eventType, optType) {
+  return eventType === optType ||
+
+  optType === 'regionchange' && (
+
+  eventType === 'begin' ||
+  eventType === 'end');
+
+
+}
+
 function handleEvent(event) {var _this = this;
   event = wrapper$2(event);
 
@@ -2485,11 +2515,19 @@ function handleEvent(event) {var _this = this;
     var isOnce = type.charAt(0) === ONCE;
     type = isOnce ? type.slice(1) : type;
 
-    if (eventsArray && eventType === type) {
+    if (eventsArray && isMatchEventType(eventType, type)) {
       eventsArray.forEach(function (eventArray) {
         var methodName = eventArray[0];
         if (methodName) {
-          var handler = _this.$vm[methodName];
+          var handlerCtx = _this.$vm;
+          if (
+          handlerCtx.$options.generic &&
+          handlerCtx.$parent &&
+          handlerCtx.$parent.$parent)
+          {// mp-weixin,mp-toutiao 抽象节点模拟 scoped slots
+            handlerCtx = handlerCtx.$parent.$parent;
+          }
+          var handler = handlerCtx[methodName];
           if (!isFn(handler)) {
             throw new Error(" _vm.".concat(methodName, " is not a function"));
           }
@@ -2499,7 +2537,7 @@ function handleEvent(event) {var _this = this;
             }
             handler.once = true;
           }
-          handler.apply(_this.$vm, processEventArgs(
+          handler.apply(handlerCtx, processEventArgs(
           _this.$vm,
           event,
           eventArray[1],
@@ -2514,25 +2552,17 @@ function handleEvent(event) {var _this = this;
 }
 
 var hooks = [
+'onShow',
 'onHide',
 'onError',
-'onPageNotFound',
-'onUniNViewMessage'];
+'onPageNotFound'];
 
 
-function initVm(vm) {
-  if (this.$vm) {// 百度竟然 onShow 在 onLaunch 之前？
-    return;
-  }
+function parseBaseApp(vm, _ref2)
 
-  this.$vm = vm;
 
-  this.$vm.$mp = {
-    app: this };
-
-}
-
-function createApp(vm) {
+{var mocks = _ref2.mocks,initRefs = _ref2.initRefs;
+  _vue.default.prototype.mpHost = "app-plus";
 
   _vue.default.mixin({
     beforeCreate: function beforeCreate() {
@@ -2556,183 +2586,180 @@ function createApp(vm) {
         initRefs(this);
         initMocks(this, mocks);
       }
-    },
-    created: function created() {// 处理 injections
-      this.__init_injections(this);
-      this.__init_provide(this);
     } });
 
 
   var appOptions = {
     onLaunch: function onLaunch(args) {
-      initVm.call(this, vm);
+
+      this.$vm = vm;
+
+      this.$vm.$mp = {
+        app: this };
+
+
+      this.$vm.$scope = this;
 
       this.$vm._isMounted = true;
-      this.$vm.__call_hook('mounted');
+      this.$vm.__call_hook('mounted', args);
 
       this.$vm.__call_hook('onLaunch', args);
-    },
-    onShow: function onShow(args) {
-      initVm.call(this, vm);
-
-      this.$vm.__call_hook('onShow', args);
     } };
 
 
   // 兼容旧版本 globalData
   appOptions.globalData = vm.$options.globalData || {};
 
-  initHooks(appOptions, hooks); // 延迟执行，因为 App 的注册在 main.js 之前，可能导致生命周期内 Vue 原型上开发者注册的属性无法访问
+  initHooks(appOptions, hooks);
 
-  App(appOptions);
+  return appOptions;
+}
 
-  return vm;
+var mocks = ['__route__', '__wxExparserNodeId__', '__wxWebviewId__'];
+
+function findVmByVueId(vm, vuePid) {
+  var $children = vm.$children;
+  // 优先查找直属
+  var parentVm = $children.find(function (childVm) {return childVm.$scope._$vueId === vuePid;});
+  if (parentVm) {
+    return parentVm;
+  }
+  // 反向递归查找
+  for (var i = $children.length - 1; i >= 0; i--) {
+    parentVm = findVmByVueId($children[i], vuePid);
+    if (parentVm) {
+      return parentVm;
+    }
+  }
+}
+
+function initBehavior(options) {
+  return Behavior(options);
+}
+
+function isPage() {
+  return !!this.route;
+}
+
+function initRelation(detail) {
+  this.triggerEvent('__l', detail);
+}
+
+function initRefs(vm) {
+  var mpInstance = vm.$scope;
+  Object.defineProperty(vm, '$refs', {
+    get: function get() {
+      var $refs = {};
+      var components = mpInstance.selectAllComponents('.vue-ref');
+      components.forEach(function (component) {
+        var ref = component.dataset.ref;
+        $refs[ref] = component.$vm || component;
+      });
+      var forComponents = mpInstance.selectAllComponents('.vue-ref-in-for');
+      forComponents.forEach(function (component) {
+        var ref = component.dataset.ref;
+        if (!$refs[ref]) {
+          $refs[ref] = [];
+        }
+        $refs[ref].push(component.$vm || component);
+      });
+      return $refs;
+    } });
+
+}
+
+function handleLink(event) {var _ref3 =
+
+
+
+  event.detail || event.value,vuePid = _ref3.vuePid,vueOptions = _ref3.vueOptions; // detail 是微信,value 是百度(dipatch)
+
+  var parentVm;
+
+  if (vuePid) {
+    parentVm = findVmByVueId(this.$vm, vuePid);
+  }
+
+  if (!parentVm) {
+    parentVm = this.$vm;
+  }
+
+  vueOptions.parent = parentVm;
+}
+
+function parseApp(vm) {
+  return parseBaseApp(vm, {
+    mocks: mocks,
+    initRefs: initRefs });
+
 }
 
 var hooks$1 = [
-'onShow',
-'onHide',
-'onPullDownRefresh',
-'onReachBottom',
-'onShareAppMessage',
-'onPageScroll',
-'onResize',
-'onTabItemTap',
-'onBackPress',
-'onNavigationBarButtonTap',
-'onNavigationBarSearchInputChanged',
-'onNavigationBarSearchInputConfirmed',
-'onNavigationBarSearchInputClicked'];
+'onUniNViewMessage'];
 
 
-function initVm$1(VueComponent) {// 百度的 onLoad 触发在 attached 之前
-  if (this.$vm) {
-    return;
-  }
+function parseApp$1(vm) {
+  var appOptions = parseApp(vm);
 
-  this.$vm = new VueComponent({
-    mpType: 'page',
-    mpInstance: this });
+  initHooks(appOptions, hooks$1);
 
-
-  this.$vm.__call_hook('created');
-  this.$vm.$mount();
+  return appOptions;
 }
 
-function createPage(vueOptions) {
-  vueOptions = vueOptions.default || vueOptions;
-  var VueComponent;
-  if (isFn(vueOptions)) {
-    VueComponent = vueOptions;
-    vueOptions = VueComponent.extendOptions;
-  } else {
-    VueComponent = _vue.default.extend(vueOptions);
-  }
-  var pageOptions = {
-    options: {
-      multipleSlots: true,
-      addGlobalClass: true },
-
-    data: getData(vueOptions, _vue.default.prototype),
-    lifetimes: { // 当页面作为组件时
-      attached: function attached() {
-        initVm$1.call(this, VueComponent);
-      },
-      ready: function ready() {
-        this.$vm.__call_hook('beforeMount');
-        this.$vm._isMounted = true;
-        this.$vm.__call_hook('mounted');
-        this.$vm.__call_hook('onReady');
-      },
-      detached: function detached() {
-        this.$vm.$destroy();
-      } },
-
-    methods: { // 作为页面时
-      onLoad: function onLoad(args) {
-        initVm$1.call(this, VueComponent);
-        this.$vm.$mp.query = args; // 又要兼容 mpvue
-        this.$vm.__call_hook('onLoad', args); // 开发者可能会在 onLoad 时赋值，提前到 mount 之前
-      },
-      onUnload: function onUnload() {
-        this.$vm.__call_hook('onUnload');
-      },
-      __e: handleEvent,
-      __l: handleLink } };
-
-
-
-  initHooks(pageOptions.methods, hooks$1);
-
-  return initPage$1(pageOptions, vueOptions);
+function createApp(vm) {
+  App(parseApp$1(vm));
+  return vm;
 }
 
-function initVm$2(VueComponent) {
-  if (this.$vm) {
-    return;
-  }
+function parseBaseComponent(vueComponentOptions)
 
-  var properties = this.properties;
 
-  var options = {
-    mpType: 'component',
-    mpInstance: this,
-    propsData: properties };
-
-  // 初始化 vue 实例
-  this.$vm = new VueComponent(options);
-
-  // 处理$slots,$scopedSlots（暂不支持动态变化$slots）
-  var vueSlots = properties.vueSlots;
-  if (Array.isArray(vueSlots) && vueSlots.length) {
-    var $slots = Object.create(null);
-    vueSlots.forEach(function (slotName) {
-      $slots[slotName] = true;
-    });
-    this.$vm.$scopedSlots = this.$vm.$slots = $slots;
-  }
-  // 性能优先，mount 提前到 attached 中，保证组件首次渲染数据被合并
-  // 导致与标准 Vue 的差异，data 和 computed 中不能使用$parent，provide等组件属性
-  this.$vm.$mount();
-}
-
-function createComponent(vueOptions) {
-  vueOptions = vueOptions.default || vueOptions;
-
-  var VueComponent;
-  if (isFn(vueOptions)) {
-    VueComponent = vueOptions; // TODO form-field props.name,props.value
-    vueOptions = VueComponent.extendOptions;
-  } else {
-    VueComponent = _vue.default.extend(vueOptions);
-  }
-
-  var behaviors = getBehaviors(vueOptions);
-
-  var properties = getProperties(vueOptions.props, false, vueOptions.__file);
+{var _ref4 = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},isPage$$1 = _ref4.isPage,initRelation$$1 = _ref4.initRelation;var _initVueComponent =
+  initVueComponent(_vue.default, vueComponentOptions),_initVueComponent2 = _slicedToArray(_initVueComponent, 2),VueComponent = _initVueComponent2[0],vueOptions = _initVueComponent2[1];
 
   var componentOptions = {
     options: {
       multipleSlots: true,
       addGlobalClass: true },
 
-    data: getData(vueOptions, _vue.default.prototype),
-    behaviors: behaviors,
-    properties: properties,
+    data: initData(vueOptions, _vue.default.prototype),
+    behaviors: initBehaviors(vueOptions, initBehavior),
+    properties: initProperties(vueOptions.props, false, vueOptions.__file),
     lifetimes: {
       attached: function attached() {
-        initVm$2.call(this, VueComponent);
+        var properties = this.properties;
+
+        var options = {
+          mpType: isPage$$1.call(this) ? 'page' : 'component',
+          mpInstance: this,
+          propsData: properties };
+
+
+        initVueIds(properties.vueId, this);
+
+        // 处理父子关系
+        initRelation$$1.call(this, {
+          vuePid: this._$vuePid,
+          vueOptions: options });
+
+
+        // 初始化 vue 实例
+        this.$vm = new VueComponent(options);
+
+        // 处理$slots,$scopedSlots（暂不支持动态变化$slots）
+        initSlots(this.$vm, properties.vueSlots);
+
+        // 触发首次 setData
+        this.$vm.$mount();
       },
       ready: function ready() {
-        initVm$2.call(this, VueComponent); // 目前发现部分情况小程序 attached 不触发
-        triggerLink(this); // 处理 parent,children
-
-        // 补充生命周期
-        this.$vm.__call_hook('created');
-        this.$vm.__call_hook('beforeMount');
-        this.$vm._isMounted = true;
-        this.$vm.__call_hook('mounted');
-        this.$vm.__call_hook('onReady');
+        // 当组件 props 默认值为 true，初始化时传入 false 会导致 created,ready 触发, 但 attached 不触发
+        // https://developers.weixin.qq.com/community/develop/doc/00066ae2844cc0f8eb883e2a557800
+        if (this.$vm) {
+          this.$vm._isMounted = true;
+          this.$vm.__call_hook('mounted');
+          this.$vm.__call_hook('onReady');
+        }
       },
       detached: function detached() {
         this.$vm.$destroy();
@@ -2740,7 +2767,7 @@ function createComponent(vueOptions) {
 
     pageLifetimes: {
       show: function show(args) {
-        this.$vm.__call_hook('onPageShow', args);
+        this.$vm && this.$vm.__call_hook('onPageShow', args);
       },
       hide: function hide() {
         this.$vm && this.$vm.__call_hook('onPageHide');
@@ -2750,12 +2777,93 @@ function createComponent(vueOptions) {
       } },
 
     methods: {
-      __e: handleEvent,
-      __l: handleLink } };
+      __l: handleLink,
+      __e: handleEvent } };
 
 
 
-  return initComponent$1(componentOptions, vueOptions);
+  if (isPage$$1) {
+    return componentOptions;
+  }
+  return [componentOptions, VueComponent];
+}
+
+function parseComponent(vueComponentOptions) {
+  return parseBaseComponent(vueComponentOptions, {
+    isPage: isPage,
+    initRelation: initRelation });
+
+}
+
+function parseComponent$1(vueComponentOptions) {
+  var componentOptions = parseComponent(vueComponentOptions);
+
+  componentOptions.methods.$getAppWebview = function () {
+    return plus.webview.getWebviewById("".concat(this.__wxWebviewId__));
+  };
+  return componentOptions;
+}
+
+var hooks$2 = [
+'onShow',
+'onHide',
+'onUnload'];
+
+
+hooks$2.push.apply(hooks$2, PAGE_EVENT_HOOKS);
+
+function parseBasePage(vuePageOptions, _ref5)
+
+
+{var isPage = _ref5.isPage,initRelation = _ref5.initRelation;
+  var pageOptions = parseComponent$1(vuePageOptions, {
+    isPage: isPage,
+    initRelation: initRelation });
+
+
+  initHooks(pageOptions.methods, hooks$2);
+
+  pageOptions.methods.onLoad = function (args) {
+    this.$vm.$mp.query = args; // 兼容 mpvue
+    this.$vm.__call_hook('onLoad', args);
+  };
+
+  return pageOptions;
+}
+
+function parsePage(vuePageOptions) {
+  return parseBasePage(vuePageOptions, {
+    isPage: isPage,
+    initRelation: initRelation });
+
+}
+
+var hooks$3 = [
+'onBackPress',
+'onNavigationBarButtonTap',
+'onNavigationBarSearchInputChanged',
+'onNavigationBarSearchInputConfirmed',
+'onNavigationBarSearchInputClicked'];
+
+
+function parsePage$1(vuePageOptions) {
+  var pageOptions = parsePage(vuePageOptions);
+
+  initHooks(pageOptions.methods, hooks$3);
+
+  return pageOptions;
+}
+
+function createPage(vuePageOptions) {
+  {
+    return Component(parsePage$1(vuePageOptions));
+  }
+}
+
+function createComponent(vueOptions) {
+  {
+    return Component(parseComponent$1(vueOptions));
+  }
 }
 
 todos.forEach(function (todoApi) {
@@ -2763,7 +2871,8 @@ todos.forEach(function (todoApi) {
 });
 
 canIUses.forEach(function (canIUseApi) {
-  var apiName = protocols[canIUseApi] && protocols[canIUseApi].name ? protocols[canIUseApi].name : canIUseApi;
+  var apiName = protocols[canIUseApi] && protocols[canIUseApi].name ? protocols[canIUseApi].name :
+  canIUseApi;
   if (!wx.canIUse(apiName)) {
     protocols[canIUseApi] = false;
   }
@@ -2780,6 +2889,9 @@ if (typeof Proxy !== 'undefined') {
       if (api[name]) {
         return promisify(name, api[name]);
       }
+      if (eventApi[name]) {
+        return eventApi[name];
+      }
       if (!hasOwn(wx, name) && !hasOwn(protocols, name)) {
         return;
       }
@@ -2788,6 +2900,10 @@ if (typeof Proxy !== 'undefined') {
 
 } else {
   uni.upx2px = upx2px;
+
+  Object.keys(eventApi).forEach(function (name) {
+    uni[name] = eventApi[name];
+  });
 
   Object.keys(api).forEach(function (name) {
     uni[name] = promisify(name, api[name]);
@@ -2800,9 +2916,20 @@ if (typeof Proxy !== 'undefined') {
   });
 }
 
+{
+  if (typeof global !== 'undefined') {
+    global.UniEmitter = eventApi;
+  }
+}
+
+wx.createApp = createApp;
+wx.createPage = createPage;
+wx.createComponent = createComponent;
+
 var uni$1 = uni;var _default =
 
 uni$1;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ "./node_modules/webpack/buildin/global.js")))
 
 /***/ }),
 
@@ -7367,7 +7494,16 @@ function initProps (vm, propsOptions) {
       }
       defineReactive$$1(props, key, value, function () {
         if (!isRoot && !isUpdatingChildComponent) {
-          !vm._getFormData && warn(//fixed by xxxxxx uni://form-field 时不告警
+          {
+            if(vm.mpHost === 'mp-baidu'){//百度 observer 在 setData callback 之后触发，直接忽略该 warn
+                return
+            }
+            //fixed by xxxxxx __next_tick_pending,uni://form-field 时不告警
+            if(vm._getFormData || (vm.$parent && vm.$parent.__next_tick_pending)){
+              return
+            }
+          }
+          warn(
             "Avoid mutating a prop directly since the value will be " +
             "overwritten whenever the parent component re-renders. " +
             "Instead, use a data or computed property based on the prop's " +
@@ -7690,7 +7826,10 @@ function initMixin (Vue) {
     initEvents(vm);
     initRender(vm);
     callHook(vm, 'beforeCreate');
+    vm.mpHost !== 'mp-toutiao' && initInjections(vm); // resolve injections before data/props  
     initState(vm);
+    vm.mpHost !== 'mp-toutiao' && initProvide(vm); // resolve provide after data/props
+    vm.mpHost !== 'mp-toutiao' && callHook(vm, 'created');      
 
     /* istanbul ignore if */
     if ( true && config.performance && mark) {
@@ -8398,6 +8537,8 @@ function mountComponent$1(
       }
     }
   }
+  
+  vm.mpHost !== 'mp-toutiao' && callHook(vm, 'beforeMount');
 
   var updateComponent = function () {
     vm._update(vm._render(), hydrating);
@@ -8570,10 +8711,16 @@ function internalMixin(Vue) {
                 value = this._n(value);
             }
         }
+        if(!target){
+            target = this;
+        }
         target[key] = value;
     };
 
     Vue.prototype.__set_sync = function(target, key, value) {
+        if(!target){
+            target = this;
+        }
         target[key] = value;
     };
 
@@ -9140,6 +9287,7 @@ define('static/font/iconfont.js',function(require, module, exports, window, docu
 });
 
 define('app.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
+
 require('./common/runtime.js')
 require('./common/vendor.js')
 require('./common/main.js')
@@ -9651,6 +9799,325 @@ define('components/common/uni-indexed-list.js',function(require, module, exports
 [['components/common/uni-indexed-list-create-component']]]);
 });
 require('components/common/uni-indexed-list.js');
+__wxRoute = 'components/general/chart_WeatherLine';__wxRouteBegin = true;__wxAppCurrentFile__ = 'components/general/chart_WeatherLine.js';
+
+define('components/general/chart_WeatherLine.js',function(require, module, exports, window, document, frames, self, location, navigator, localStorage, history, Caches, screen, alert, confirm, prompt, fetch, XMLHttpRequest, WebSocket, webkit, WeixinJSCore, Reporter, print, WeixinJSBridge){
+"use strict";(global["webpackJsonp"] = global["webpackJsonp"] || []).push([["components/general/chart_WeatherLine"], {
+
+  /***/"./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=script&lang=js&":
+  /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+                                                                                                                                                                                                                                                                                                                                                                                       !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=script&lang=js& ***!
+                                                                                                                                                                                                                                                                                                                                                                                       \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+  /*! no static exports found */
+  /***/function node_modulesBabelLoaderLibIndexJsNode_modulesDcloudioVueCliPluginUniPackagesWebpackPreprocessLoaderIndexJsNode_modulesDcloudioWebpackUniMpLoaderLibScriptJsNode_modulesVueLoaderLibIndexJsCUsersDchainDesktopGithubProjectUniapp_multiToolSetComponentsGeneralChart_WeatherLineVueVueTypeScriptLangJs(module, exports, __webpack_require__) {
+
+    "use strict";
+    /* WEBPACK VAR INJECTION */(function (uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
+      //
+      //
+      //
+      var _default =
+      {
+        name: 'chart_WeatherLine',
+        data: function data() {
+          return {
+            hightData: [25, 24, 23, 26, 39], //[55,53,51,57,92],//[25,24,23,26,42], //每天对应最高温
+            lowData: [13, 10, 11, 16, 18], //[27,-44,24,35,37],//[13,-20,11,16,18], //每天对应最低温
+            numData: 5, //几天的数据
+            maximum: 39, //最高温度
+            minimum: 10, //最低温度
+            distance: 0, //间隔
+            item_width: 0, //左右间隔
+            canvas: {},
+            context: {} };
+
+        },
+        mounted: function mounted() {
+          var self = this;
+          self.$nextTick(function () {
+            self.initLine();
+          });
+          uni.onWindowResize(function (res) {
+            //此接口不支持支付宝小程序、百度小程序以及头条小程序
+            self.initLine();
+            uni.showToast({
+              title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
+              duration: 2000 });
+
+          });
+        },
+        methods: {
+          initLine: function initLine() {
+            var self = this;
+            // uni.createSelectorQuery().select('#weatherLineCanvas').fields({  
+            //                    size: true,  
+            // 	dataset: true 
+            //                }, (data) => {  
+            // 	console.log(data)
+            // 	 const dynamicWidth = data.width
+            // 	 const dynamicHeight = data.height;
+            // 	 
+            // 	 //绘制画布
+            // 	 self.canvas = self.$refs.weatherLineCanvas.$el;
+            // 	 //uniapp这里不一样1：canvas.getContext("2d");
+            // 	 self.context = uni.createCanvasContext('weatherLineCanvas',this);
+            // 	 self.canvas.width = dynamicWidth;
+            // 	 self.canvas.height = dynamicHeight;
+            // 	 self.item_width = dynamicWidth / self.numData; //左右间距
+            // 	 const temperDifference = self.maximum - self.minimum; //温差
+            // 	 self.distance = dynamicHeight / 2 / temperDifference;
+            // 	 /*
+            // 	 * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
+            // 	 * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
+            // 	 * */
+            // 	 self.context.translate(self.item_width / 2, self.maximum * self.distance + 40);
+            // 	 //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
+            // 	 //触发函数
+            // 	 self.drawLineFun(self.hightData,'#fcc370'); //高温线
+            // 	 self.drawLineFun(self.lowData,'#94ccf9'); //低温线
+            // 	
+            // }).exec();  
+            // if(this.$refs.weatherLineCanvas){
+            //  const dynamicWidth = this.$refs.weatherLineCanvas.$el.clientWidth;
+            //  const dynamicHeight = this.$refs.weatherLineCanvas.$el.clientHeight;
+            //  
+            //  //绘制画布
+            //  this.canvas = this.$refs.weatherLineCanvas.$el;
+            //  //uniapp这里不一样1：canvas.getContext("2d");
+            //  this.context = uni.createCanvasContext('weatherLineCanvas');
+            //  this.canvas.width = dynamicWidth;
+            //  this.canvas.height = dynamicHeight;
+            //  this.item_width = dynamicWidth / this.numData; //左右间距
+            //  const temperDifference = this.maximum - this.minimum; //温差
+            //  this.distance = dynamicHeight / 2 / temperDifference;
+            //  /*
+            //  * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
+            //  * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
+            //  * */
+            //  this.context.translate(this.item_width / 2, this.maximum * this.distance + 40);
+            //  //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
+            //  //触发函数
+            //  this.drawLineFun(this.hightData,'#fcc370'); //高温线
+            //  this.drawLineFun(this.lowData,'#94ccf9'); //低温线
+            // }else{
+            //  uni.showToast({
+            // 	title: '未获取到Canvas',
+            // 	duration: 2000
+            //  })
+            // }
+            debugger;
+            var ctx = wx.createCanvasContext('weatherLineCanvas');
+
+            ctx.setFillStyle('red');
+            ctx.fillRect(10, 10, 150, 100);
+            ctx.draw();
+            ctx.fillRect(50, 50, 150, 100);
+            ctx.draw(true);
+          },
+          drawLineFun: function drawLineFun(lineData, lineColor) {
+            var self = this;
+            var new_high_x = [];
+            var new_high_y = [];
+            //循环画线和画点
+            for (var i = 0; i < lineData.length; i++) {
+              //画点
+              var circleXCoordinate = i * self.item_width; //圆的中心的x坐标
+              var circleYCoordinate = parseInt(Number(lineData[i]) * self.distance); //圆的中心的y坐标
+
+              self.context.beginPath(); //起始一条路径，或重置当前路径
+              /*@arc() 方法创建弧/曲线（用于创建圆或部分圆）
+              *提示：如需通过 arc() 来创建圆，请把起始角设置为 0，结束角设置为 2*Math.PI。
+              * context.arc(
+              *        圆的中心的x坐标,
+              *        圆的中心的y坐标,
+              *        圆的半径,
+              *        起始角以弧度计;弧的圆形的三点钟位置是0度,
+              *        结束角;以弧度计,
+              *        可选;规定应该逆时针还是顺时针绘图;False=顺时针;true=逆时针
+              * );
+              * */
+              self.context.arc(circleXCoordinate, -circleYCoordinate, 3, 0, 2 * Math.PI, true);
+              self.context.strokeStyle = lineColor; //使用 strokeStyle 属性来绘制另一种颜色/渐变
+              self.context.stroke(); //stroke() 方法会实际地绘制出方法定义的路径
+              self.context.fillStyle = lineColor; //使用 fillStyle 属性来填充另一种颜色/渐变
+              self.context.fill(); //fill() 方法填充当前的图像（路径）。默认颜色是黑色
+              self.context.closePath(); //创建从当前点回到起始点的路径
+
+              //保存线数据
+              new_high_x.push(circleXCoordinate);
+              new_high_y.push(-circleYCoordinate);
+              //写文字
+              if (lineData === self.hightData) {
+                self.context.beginPath();
+                self.context.font = "18px 微软雅黑";
+                self.context.fillStyle = "#333";
+                //self.context.fillText(lineData[i]+"°", circleXCoordinate - 10, -circleYCoordinate - 20, 50);//context.fillText(text,x,y,maxWidth);
+                self.context.stroke();
+                self.context.closePath();
+              } else {
+                self.context.beginPath();
+                self.context.font = "18px 微软雅黑";
+                self.context.fillStyle = "#333";
+                //self.context.fillText(lineData[i]+"°", circleXCoordinate - 10, -circleYCoordinate + 30, 50);//context.fillText(text,x,y,maxWidth);
+                self.context.stroke();
+                self.context.closePath();
+              }
+            }
+
+            //画线
+            for (var j = 0; j < self.numData - 1; j++) {
+              self.context.beginPath();
+              //uniapp这里不一样2：Y轴写为负数了 -Math.abs()，demo中是正数 Math.abs()
+              self.context.moveTo(Math.abs(new_high_x[j]), -Math.abs(new_high_y[j]));
+              self.context.lineTo(Math.abs(new_high_x[j + 1]), -Math.abs(new_high_y[j + 1]));
+              self.context.strokeStyle = lineColor;
+              self.context.lineWidth = 3;
+              self.context.stroke();
+              self.context.closePath();
+            }
+
+
+            self.context.draw(true); //uniapp这里不一样2：参数为true，则保留当前画布上的内容，本次调用drawCanvas绘制的内容覆盖在上面，默认 false
+          } } };exports.default = _default;
+      /* WEBPACK VAR INJECTION */}).call(this, __webpack_require__( /*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */"./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]);
+
+    /***/},
+
+  /***/"./node_modules/mini-css-extract-plugin/dist/loader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=style&index=0&lang=css&":
+  /*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         !*** ./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-1!./node_modules/css-loader??ref--6-oneOf-1-2!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=style&index=0&lang=css& ***!
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+  /*! no static exports found */
+  /***/function node_modulesMiniCssExtractPluginDistLoaderJsNode_modulesDcloudioVueCliPluginUniPackagesWebpackPreprocessLoaderIndexJsNode_modulesCssLoaderIndexJsNode_modulesVueLoaderLibLoadersStylePostLoaderJsNode_modulesPostcssLoaderSrcIndexJsNode_modulesVueLoaderLibIndexJsCUsersDchainDesktopGithubProjectUniapp_multiToolSetComponentsGeneralChart_WeatherLineVueVueTypeStyleIndex0LangCss(module, exports, __webpack_require__) {
+
+    // extracted by mini-css-extract-plugin
+
+    /***/},
+
+  /***/"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=template&id=244677f8&":
+  /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+                                                                                                                                                                                                                                                                                                                                                                                                               !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=template&id=244677f8& ***!
+                                                                                                                                                                                                                                                                                                                                                                                                               \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+  /*! exports provided: render, staticRenderFns */
+  /***/function node_modulesVueLoaderLibLoadersTemplateLoaderJsNode_modulesDcloudioVueCliPluginUniPackagesWebpackPreprocessLoaderIndexJsNode_modulesDcloudioWebpackUniMpLoaderLibTemplateJsNode_modulesVueLoaderLibIndexJsCUsersDchainDesktopGithubProjectUniapp_multiToolSetComponentsGeneralChart_WeatherLineVueVueTypeTemplateId244677f8(module, __webpack_exports__, __webpack_require__) {
+
+    "use strict";
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony export (binding) */__webpack_require__.d(__webpack_exports__, "render", function () {return render;});
+    /* harmony export (binding) */__webpack_require__.d(__webpack_exports__, "staticRenderFns", function () {return staticRenderFns;});
+    var render = function render() {
+      var _vm = this;
+      var _h = _vm.$createElement;
+      var _c = _vm._self._c || _h;
+    };
+    var staticRenderFns = [];
+    render._withStripped = true;
+
+
+
+    /***/},
+
+  /***/"C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue":
+  /*!**********************************************************************************************************!*\
+                                                                                                                       !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue ***!
+                                                                                                                       \**********************************************************************************************************/
+  /*! no static exports found */
+  /***/function CUsersDchainDesktopGithubProjectUniapp_multiToolSetComponentsGeneralChart_WeatherLineVue(module, __webpack_exports__, __webpack_require__) {
+
+    "use strict";
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony import */var _chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__( /*! ./chart_WeatherLine.vue?vue&type=template&id=244677f8& */"C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=template&id=244677f8&");
+    /* harmony import */var _chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__( /*! ./chart_WeatherLine.vue?vue&type=script&lang=js& */"C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=script&lang=js&");
+    /* harmony reexport (unknown) */for (var __WEBPACK_IMPORT_KEY__ in _chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) {if (__WEBPACK_IMPORT_KEY__ !== 'default') (function (key) {__webpack_require__.d(__webpack_exports__, key, function () {return _chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key];});})(__WEBPACK_IMPORT_KEY__);}
+    /* harmony import */var _chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__( /*! ./chart_WeatherLine.vue?vue&type=style&index=0&lang=css& */"C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=style&index=0&lang=css&");
+    /* harmony import */var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__( /*! ./node_modules/vue-loader/lib/runtime/componentNormalizer.js */"./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+
+    /* normalize component */
+
+    var component = Object(_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
+    _chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+    _chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__["render"],
+    _chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+    false,
+    null,
+    null,
+    null);
+
+
+
+    /* hot reload */
+    if (false) {var api;}
+    component.options.__file = "C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue";
+    /* harmony default export */__webpack_exports__["default"] = component.exports;
+
+    /***/},
+
+  /***/"C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=script&lang=js&":
+  /*!***********************************************************************************************************************************!*\
+                                                                                                                                                !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=script&lang=js& ***!
+                                                                                                                                                \***********************************************************************************************************************************/
+  /*! no static exports found */
+  /***/function CUsersDchainDesktopGithubProjectUniapp_multiToolSetComponentsGeneralChart_WeatherLineVueVueTypeScriptLangJs(module, __webpack_exports__, __webpack_require__) {
+
+    "use strict";
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony import */var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__( /*! -!./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!./chart_WeatherLine.vue?vue&type=script&lang=js& */"./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=script&lang=js&");
+    /* harmony import */var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+    /* harmony reexport (unknown) */for (var __WEBPACK_IMPORT_KEY__ in _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) {if (__WEBPACK_IMPORT_KEY__ !== 'default') (function (key) {__webpack_require__.d(__webpack_exports__, key, function () {return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key];});})(__WEBPACK_IMPORT_KEY__);}
+    /* harmony default export */__webpack_exports__["default"] = _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a;
+
+    /***/},
+
+  /***/"C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=style&index=0&lang=css&":
+  /*!*******************************************************************************************************************************************!*\
+                                                                                                                                                        !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=style&index=0&lang=css& ***!
+                                                                                                                                                        \*******************************************************************************************************************************************/
+  /*! no static exports found */
+  /***/function CUsersDchainDesktopGithubProjectUniapp_multiToolSetComponentsGeneralChart_WeatherLineVueVueTypeStyleIndex0LangCss(module, __webpack_exports__, __webpack_require__) {
+
+    "use strict";
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony import */var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__( /*! -!./node_modules/mini-css-extract-plugin/dist/loader.js??ref--6-oneOf-1-0!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--6-oneOf-1-1!./node_modules/css-loader??ref--6-oneOf-1-2!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--6-oneOf-1-3!./node_modules/vue-loader/lib??vue-loader-options!./chart_WeatherLine.vue?vue&type=style&index=0&lang=css& */"./node_modules/mini-css-extract-plugin/dist/loader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/css-loader/index.js?!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=style&index=0&lang=css&");
+    /* harmony import */var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__);
+    /* harmony reexport (unknown) */for (var __WEBPACK_IMPORT_KEY__ in _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__) {if (__WEBPACK_IMPORT_KEY__ !== 'default') (function (key) {__webpack_require__.d(__webpack_exports__, key, function () {return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0__[key];});})(__WEBPACK_IMPORT_KEY__);}
+    /* harmony default export */__webpack_exports__["default"] = _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_mini_css_extract_plugin_dist_loader_js_ref_6_oneOf_1_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_6_oneOf_1_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_css_loader_index_js_ref_6_oneOf_1_2_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_stylePostLoader_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_postcss_loader_src_index_js_ref_6_oneOf_1_3_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_style_index_0_lang_css___WEBPACK_IMPORTED_MODULE_0___default.a;
+
+    /***/},
+
+  /***/"C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=template&id=244677f8&":
+  /*!*****************************************************************************************************************************************!*\
+                                                                                                                                                      !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue?vue&type=template&id=244677f8& ***!
+                                                                                                                                                      \*****************************************************************************************************************************************/
+  /*! exports provided: render, staticRenderFns */
+  /***/function CUsersDchainDesktopGithubProjectUniapp_multiToolSetComponentsGeneralChart_WeatherLineVueVueTypeTemplateId244677f8(module, __webpack_exports__, __webpack_require__) {
+
+    "use strict";
+    __webpack_require__.r(__webpack_exports__);
+    /* harmony import */var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__( /*! -!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!./chart_WeatherLine.vue?vue&type=template&id=244677f8& */"./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue?vue&type=template&id=244677f8&");
+    /* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__, "render", function () {return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__["render"];});
+
+    /* harmony reexport (safe) */__webpack_require__.d(__webpack_exports__, "staticRenderFns", function () {return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_chart_WeatherLine_vue_vue_type_template_id_244677f8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"];});
+
+
+
+    /***/} }]);
+
+
+;(global["webpackJsonp"] = global["webpackJsonp"] || []).push([
+'components/general/chart_WeatherLine-create-component',
+{
+  'components/general/chart_WeatherLine-create-component': function componentsGeneralChart_WeatherLineCreateComponent(module, exports, __webpack_require__) {
+    __webpack_require__('./node_modules/@dcloudio/uni-app-plus/dist/index.js')['createComponent'](__webpack_require__("C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue"));
+  } },
+
+[['components/general/chart_WeatherLine-create-component']]]);
+});
+require('components/general/chart_WeatherLine.js');
 
 __wxRoute = 'pages/main/main';__wxRouteBegin = true;__wxAppCurrentFile__ = 'pages/main/main.js';
 
@@ -10055,7 +10522,8 @@ var _default =
     return {};
 
 
-  } };exports.default = _default;
+  },
+  methods: {} };exports.default = _default;
 
 /***/ }),
 
@@ -10500,6 +10968,7 @@ define('views/wetherForecast.js',function(require, module, exports, window, docu
 
 
 
+
 __webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\wetherForecast.css"); //
 //
 //
@@ -10573,15 +11042,26 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\
 //
 //
 //
-var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var _default = { data: function data() {return { gengduoCT: false, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {console.log(JSON.stringify(btn), " at views\\wetherForecast.vue:130");this.gengduoFun();}, onLoad: function onLoad(options) {//动态设置标题
+//
+var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var chart_WeatherLine = function chart_WeatherLine() {return __webpack_require__.e(/*! import() | components/general/chart_WeatherLine */ "components/general/chart_WeatherLine").then(__webpack_require__.bind(null, /*! @/components/general/chart_WeatherLine.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue"));};var _default = { data: function data() {return { programGengduoBtn: true, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {console.log(JSON.stringify(btn), " at views\\wetherForecast.vue:132");this.gengduoFun();}, onLoad: function onLoad(options) {var _this = this; //动态设置标题
     if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } }); //获取当前位置
     uni.getLocation({ type: 'wgs84', //默认为 wgs84 返回 gps 坐标，gcj02 返回国测局坐标
       success: function success(res) {
-        console.log('当前位置的经度：' + res.longitude, " at views\\wetherForecast.vue:152");
-        console.log('当前位置的纬度：' + res.latitude, " at views\\wetherForecast.vue:153");
+        console.log('当前位置的经度：' + res.longitude, " at views\\wetherForecast.vue:154");
+        console.log('当前位置的纬度：' + res.latitude, " at views\\wetherForecast.vue:155");
       },
       fail: function fail(err) {
-        console.log(err, " at views\\wetherForecast.vue:156");
+        console.log(err, " at views\\wetherForecast.vue:158");
+      } });
+
+    uni.getSystemInfo({
+      success: function success(res) {
+        //安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
+        if (res.platform === "android" || res.platform === "ios") {
+          _this.programGengduoBtn = false;
+        } else {
+          _this.programGengduoBtn = true;
+        }
       } });
 
   },
@@ -10602,7 +11082,8 @@ var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() 
     } },
 
   components: {
-    uniDrawer: uniDrawer } };exports.default = _default;
+    uniDrawer: uniDrawer,
+    chart_WeatherLine: chart_WeatherLine } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 
 /***/ }),

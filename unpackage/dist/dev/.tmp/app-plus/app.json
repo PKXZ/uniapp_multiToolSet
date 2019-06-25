@@ -45,11 +45,12 @@
       }
     ]
   },
+  "nvueCompiler": "weex",
   "splashscreen": {
     "alwaysShowBeforeRender": true,
     "autoclose": false
   },
   "appname": "uniapp_multiToolSet",
-  "compilerVersion": "1.9.9",
+  "compilerVersion": "2.0.1",
   "usingComponents": {}
 }

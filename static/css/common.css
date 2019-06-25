@@ -8,6 +8,7 @@
 	html,body,.main,uni-page-body{
 		height: 100%;
 		width: 100%;
+		background: #fff;
 	}
 	.mt10{
 		margin-top: 20rpx;
