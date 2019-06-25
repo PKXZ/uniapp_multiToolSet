@@ -158,16 +158,15 @@
 					console.log(err);
 				}
 			});
-			uni.getSystemInfo({
-				success: (res) => {
-					//安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
-					if(res.platform === "android" || res.platform === "ios"){
-						this.programGengduoBtn = false;
-					}else{
-						this.programGengduoBtn = true;
-					}
-				}
-			})
+			//安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
+			//#ifdef MP
+				//所有的小程序
+				this.programGengduoBtn = true;
+			//#endif
+			//#ifdef H5 || APP-PLUS || APP-PLUS-NVUE
+				//app包括H5界面
+				this.programGengduoBtn = false;
+			//#endif
 		},
 		methods:{
 			gengduoFun(){

@@ -1,1 +1,1 @@
-<canvas class="canvas vue-ref" canvas-id="weatherLineCanvas" id="weatherLineCanvas" data-ref="weatherLineCanvas"></canvas>
+<canvas class="canvas" style="{{'width:'+(canvasWidth)+';'+('height:'+(canvasHeight)+';')}}" canvas-id="weatherLineCanvas" id="weatherLineCanvas"></canvas>

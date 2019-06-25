@@ -1,10 +1,1 @@
-
-.canvas{
-	width: 100%;
-	height: -webkit-calc(100% / 2);
-	height: calc(100% / 2);
-	margin: 0;
-	padding: 0;
-	pointer-events: none;
-}
-
+/* pages/myself/myself.wxss */
