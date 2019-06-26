@@ -46,6 +46,12 @@ var _default =
   methods: {
     initLine: function initLine() {
       var self = this;
+      // uni.createSelectorQuery().select('#weatherLineCanvas').fields({  
+      //    size: true,  
+      // context: true
+      // }, (data) => {  
+      //  debugger
+      // }).exec();
       var view = uni.createSelectorQuery().select(".canvas");
       view.fields({
         size: true,
