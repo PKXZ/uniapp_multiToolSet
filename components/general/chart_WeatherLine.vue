@@ -50,101 +50,6 @@
 		 },
 		 methods:{
 			 initLine(){
-<<<<<<< HEAD
-				 const self = this;
-				 // uni.createSelectorQuery().select('#weatherLineCanvas').fields({  
-				 //    size: true,  
-					// context: true
-				 // }, (data) => {  
-					//  debugger
-				 // }).exec();
-				 let view = uni.createSelectorQuery().select(".canvas");
-					view.fields({
-					  size: true,
-					context: true
-					}, data => {
-						debugger
-					}).exec();
-				 
-				 // uni.createSelectorQuery().select('#weatherLineCanvas').fields({  
-     //                    size: true,  
-					// 	dataset: true 
-     //                }, (data) => {  
-					// 	console.log(data)
-					// 	 const dynamicWidth = data.width
-					// 	 const dynamicHeight = data.height;
-					// 	 
-					// 	 //绘制画布
-					// 	 self.canvas = self.$refs.weatherLineCanvas.$el;
-					// 	 //uniapp这里不一样1：canvas.getContext("2d");
-					// 	 self.context = uni.createCanvasContext('weatherLineCanvas',self);
-					// 	 self.canvas.width = dynamicWidth;
-					// 	 self.canvas.height = dynamicHeight;
-					// 	 self.item_width = dynamicWidth / self.numData; //左右间距
-					// 	 const temperDifference = self.maximum - self.minimum; //温差
-					// 	 self.distance = dynamicHeight / 2 / temperDifference;
-					// 	 /*
-					// 	 * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
-					// 	 * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
-					// 	 * */
-					// 	 self.context.translate(self.item_width / 2, self.maximum * self.distance + 40);
-					// 	 //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
-					// 	 //触发函数
-					// 	 self.drawLineFun(self.hightData,'#fcc370'); //高温线
-					// 	 self.drawLineFun(self.lowData,'#94ccf9'); //低温线
-					// 	
-					// }).exec();  
-				 // if(this.$refs.weatherLineCanvas){
-					//  debugger
-					//  const dynamicWidth = this.$refs.weatherLineCanvas.$el.clientWidth;
-					//  const dynamicHeight = this.$refs.weatherLineCanvas.$el.clientHeight;
-					//  
-					//  //绘制画布
-					//  this.canvas = this.$refs.weatherLineCanvas.$el;
-					//  //uniapp这里不一样1：canvas.getContext("2d");
-					//  this.context = uni.createCanvasContext('weatherLineCanvas',this);
-					//  this.canvas.width = dynamicWidth;
-					//  this.canvas.height = dynamicHeight;
-					//  this.item_width = dynamicWidth / this.numData; //左右间距
-					//  const temperDifference = this.maximum - this.minimum; //温差
-					//  this.distance = dynamicHeight / 2 / temperDifference;
-					//  /*
-					//  * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
-					//  * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
-					//  * */
-					//  this.context.translate(this.item_width / 2, this.maximum * this.distance + 40);
-					//  //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
-					//  //触发函数
-					//  this.drawLineFun(this.hightData,'#fcc370'); //高温线
-					//  this.drawLineFun(this.lowData,'#94ccf9'); //低温线
-				 // }else{
-					//  uni.showToast({
-					// 	title: '未获取到Canvas',
-					// 	duration: 2000
-					//  })
-				 // }
-				 const dynamicWidth = 300;
-				 const dynamicHeight = 200;
-				 
-				 //绘制画布
-				 //this.canvas = this.$refs.weatherLineCanvas.$el;
-				 //uniapp这里不一样1：canvas.getContext("2d");
-				 this.context = uni.createCanvasContext('weatherLineCanvas',this);
-				 // this.canvas.width = dynamicWidth;
-				 // this.canvas.height = dynamicHeight;
-				 this.item_width = dynamicWidth / this.numData; //左右间距
-				 const temperDifference = this.maximum - this.minimum; //温差
-				 this.distance = dynamicHeight / 2 / temperDifference;
-				 /*
-				 * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
-				 * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
-				 * */
-				 this.context.translate(this.item_width / 2, this.maximum * this.distance + 40);
-				 //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
-				 //触发函数
-				 this.drawLineFun(this.hightData,'#fcc370'); //高温线
-				 this.drawLineFun(this.lowData,'#94ccf9'); //低温线
-=======
 				const self = this;
 				var query = uni.createSelectorQuery().in(this);//.in(this)是重点
 				query.select('.canvas').boundingClientRect()
@@ -168,7 +73,6 @@
 					 self.drawLineFun(self.hightData,'#fcc370'); //高温线
 					 self.drawLineFun(self.lowData,'#94ccf9'); //低温线
 				});
->>>>>>> 2b0368472798aaad0d03b8ed8179c65bfc9e2e51
 			},
 			 drawLineFun(lineData,lineColor){
 				const self = this;
