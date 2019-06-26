@@ -1,328 +1,5 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
 
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js":
-/*!******************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/App.vue"));
-__webpack_require__(/*! ./static/css/common.css */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/common.css");
-__webpack_require__(/*! ./static/font/iconfont.css */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/font/iconfont.css");function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-_vue.default.config.productionTip = false;
-
-_App.default.mpType = 'app';
-
-var app = new _vue.default(_objectSpread({},
-_App.default));
-
-createApp(app).$mount();
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createApp"]))
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"pages%2Ffind%2Ffind\"}":
-/*!*************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"pages%2Ffind%2Ffind"} ***!
-  \*************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _find = _interopRequireDefault(__webpack_require__(/*! ./pages/find/find.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages/find/find.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_find.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"pages%2Fmain%2Fmain\"}":
-/*!*************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"pages%2Fmain%2Fmain"} ***!
-  \*************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _main = _interopRequireDefault(__webpack_require__(/*! ./pages/main/main.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages/main/main.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_main.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"pages%2Fmessage%2Fmessage\"}":
-/*!*******************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"pages%2Fmessage%2Fmessage"} ***!
-  \*******************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _message = _interopRequireDefault(__webpack_require__(/*! ./pages/message/message.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages/message/message.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_message.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"pages%2Fmyself%2Fmyself\"}":
-/*!*****************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"pages%2Fmyself%2Fmyself"} ***!
-  \*****************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _myself = _interopRequireDefault(__webpack_require__(/*! ./pages/myself/myself.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages/myself/myself.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_myself.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"views%2FcitySelector\"}":
-/*!**************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"views%2FcitySelector"} ***!
-  \**************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _citySelector = _interopRequireDefault(__webpack_require__(/*! ./views/citySelector.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/citySelector.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_citySelector.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"views%2FwetherForecast\"}":
-/*!****************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"views%2FwetherForecast"} ***!
-  \****************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _wetherForecast = _interopRequireDefault(__webpack_require__(/*! ./views/wetherForecast.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_wetherForecast.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"views%2FxinhuaDictionary\"}":
-/*!******************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"views%2FxinhuaDictionary"} ***!
-  \******************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
-
-var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _xinhuaDictionary = _interopRequireDefault(__webpack_require__(/*! ./views/xinhuaDictionary.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/xinhuaDictionary.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-createPage(_xinhuaDictionary.default);
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json":
-/*!*********************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/common.css":
-/*!********************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/common.css ***!
-  \********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/main.css":
-/*!******************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/main.css ***!
-  \******************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/wetherForecast.css":
-/*!****************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/wetherForecast.css ***!
-  \****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/font/iconfont.css":
-/*!***********************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/font/iconfont.css ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/utils/airport.js":
-/*!***************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/utils/airport.js ***!
-  \***************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-module.exports = {
-  "list": [
-  {
-    "letter": "A",
-    "data": [
-    "阿坝", "阿拉善", "阿里", "安康", "安庆", "鞍山", "安顺", "安阳", "澳门"] },
-
-
-  {
-    "letter": "B",
-    "data": ["北京", "白银", "保定", "宝鸡", "保山", "包头", "巴中", "北海", "蚌埠", "本溪", "毕节", "滨州", "百色", "亳州"] },
-
-
-  {
-    "letter": "C",
-    "data": ["重庆", "成都", "长沙", "长春", "沧州", "常德", "昌都", "长治", "常州", "巢湖", "潮州", "承德", "郴州", "赤峰", "池州", "崇左", "楚雄", "滁州", "朝阳"] },
-
-
-  {
-    "letter": "D",
-    "data": ["大连", "东莞", "大理", "丹东", "大庆", "大同", "大兴安岭", "德宏", "德阳", "德州", "定西", "迪庆", "东营"] },
-
-
-  {
-    "letter": "E",
-    "data": ["鄂尔多斯", "恩施", "鄂州"] },
-
-  {
-    "letter": "F",
-    "data": ["福州", "防城港", "佛山", "抚顺", "抚州", "阜新", "阜阳"] },
-
-
-
-  {
-    "letter": "G",
-    "data": ["广州", "桂林", "贵阳", "甘南", "赣州", "甘孜", "广安", "广元", "贵港", "果洛"] },
-
-
-  {
-    "letter": "H",
-    "data": ["杭州", "哈尔滨", "合肥", "海口", "呼和浩特", "海北", "海东", "海南", "海西", "邯郸", "汉中", "鹤壁", "河池", "鹤岗", "黑河", "衡水", "衡阳", "河源", "贺州", "红河", "淮安", "淮北", "怀化", "淮南", "黄冈", "黄南", "黄山", "黄石", "惠州", "葫芦岛", "呼伦贝尔", "湖州", "菏泽"] },
-
-
-  {
-    "letter": "J",
-    "data": ["济南", "佳木斯", "吉安", "江门", "焦作", "嘉兴", "嘉峪关", "揭阳", "吉林", "金昌", "晋城", "景德镇", "荆门", "荆州", "金华", "济宁", "晋中", "锦州", "九江",
-    "酒泉"] },
-
-
-
-  {
-    "letter": "K",
-    "data": ["昆明", "开封"] },
-
-
-  {
-    "letter": "L",
-    "data": ["兰州", "拉萨", "来宾", "莱芜", "廊坊", "乐山", "凉山", "连云港", "聊城", "辽阳", "辽源", "丽江", "临沧", "临汾", "临夏", "临沂", "林芝", "丽水", "六安", "六盘水",
-    "柳州", "陇南", "龙岩", "娄底", "漯河", "洛阳", "泸州", "吕梁"] },
-
-
-
-  {
-    "letter": "M",
-    "data": ["马鞍山", "茂名", "眉山", "梅州", "绵阳", "牡丹江"] },
-
-
-  {
-    "letter": "N",
-    "data": ["南京", "南昌", "南宁", "宁波", "南充", "南平", "南通", "南阳", "那曲", "内江", "宁德", "怒江"] },
-
-
-  {
-    "letter": "P",
-    "data": ["盘锦", "攀枝花", "平顶山", "平凉", "萍乡", "莆田", "濮阳"] },
-
-
-  {
-    "letter": "Q",
-    "data": ["青岛", "黔东南", "黔南", "黔西南", "庆阳", "清远", "秦皇岛", "钦州", "齐齐哈尔", "泉州", "曲靖", "衢州"] },
-
-
-  {
-    "letter": "R",
-    "data": ["日喀则", "日照"] },
-
-  {
-    "letter": "S",
-    "data": ["上海", "深圳", "苏州", "沈阳", "石家庄", "三门峡", "三明", "三亚", "商洛", "商丘", "上饶", "山南", "汕头", "汕尾", "韶关", "绍兴", "邵阳", "十堰", "朔州", "四平", "绥化", "遂宁", "随州", "宿迁", "宿州"] },
-
-
-
-  {
-    "letter": "T",
-    "data": ["天津", "太原", "泰安", "泰州", "台州", "唐山", "天水", "铁岭", "铜川", "通化", "通辽", "铜陵", "铜仁", "台湾", "W", "武汉", "乌鲁木齐", "无锡", "威海", "潍坊", "文山", "温州", "乌海", "芜湖", "乌兰察布", "武威", "梧州"] },
-
-
-  {
-    "letter": "X",
-    "data": ["厦门", "西安", "西宁", "襄樊", "湘潭", "湘西", "咸宁", "咸阳", "孝感", "邢台", "新乡", "信阳", "新余", "忻州", "西双版纳", "宣城", "许昌", "徐州", "香港", "锡林郭勒", "兴安"] },
-
-
-
-  {
-    "letter": "Y",
-    "data": ["银川", "雅安", "延安", "延边", "盐城", "阳江", "阳泉", "扬州", "烟台", "宜宾", "宜昌", "宜春", "营口", "益阳", "永州", "岳阳", "榆林", "运城", "云浮", "玉树", "玉溪", "玉林"] },
-
-
-
-  {
-    "letter": "Z",
-    "data": ["杂多县", "赞皇县", "枣强县", "枣阳市", "枣庄", "泽库县", "增城市", "曾都区", "泽普县", "泽州县", "札达县", "扎赉特旗", "扎兰屯市", "扎鲁特旗", "扎囊县", "张北县", "张店区", "章贡区", "张家港", "张家界", "张家口", "漳平市", "漳浦县", "章丘市", "樟树市", "张湾区", "彰武县", "漳县", "张掖", "漳州", "长子县", "湛河区", "湛江", "站前区", "沾益县", "诏安县", "召陵区", "昭平县", "肇庆", "昭通", "赵县", "昭阳区", "招远市", "肇源县", "肇州县", "柞水县", "柘城县", "浙江", "镇安县", "振安区", "镇巴县", "正安县", "正定县", "正定新区", "正蓝旗", "正宁县", "蒸湘区", "正镶白旗", "正阳县", "郑州", "镇海区", "镇江", "浈江区", "镇康县", "镇赉县", "镇平县", "振兴区", "镇雄县", "镇原县", "志丹县", "治多县", "芝罘区", "枝江市", "芷江侗族自治县", "织金县", "中方县", "中江县", "钟楼区", "中牟县", "中宁县", "中山", "中山区", "钟山区", "钟山县", "中卫", "钟祥市", "中阳县", "中原区", "周村区", "周口", "周宁县", "舟曲县", "舟山", "周至县", "庄河市", "诸城市", "珠海", "珠晖区", "诸暨市", "驻马店", "准格尔旗", "涿鹿县", "卓尼", "涿州市", "卓资县", "珠山区", "竹山县", "竹溪县", "株洲", "株洲县", "淄博", "子长县", "淄川区", "自贡", "秭归县", "紫金县", "自流井区", "资溪县", "资兴市", "资阳"] }] };
-
-/***/ }),
-
 /***/ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js":
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
@@ -818,7 +495,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -6994,7 +6671,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7015,14 +6692,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7091,7 +6768,7 @@ var patch = function(oldVnode, vnode) {
         });
         var diffData = diff(data, mpData);
         if (Object.keys(diffData).length) {
-            if (Object({"NODE_ENV":"development","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+            if (Object({"VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
                 console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
                     ']差量更新',
                     JSON.stringify(diffData));
@@ -7578,6 +7255,318 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js":
+/*!*************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/main.js ***!
+  \*************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json");
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\App.vue"));
+__webpack_require__(/*! ./static/css/common.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\common.css");
+__webpack_require__(/*! ./static/font/iconfont.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\font\\iconfont.css");function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};var ownKeys = Object.keys(source);if (typeof Object.getOwnPropertySymbols === 'function') {ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {return Object.getOwnPropertyDescriptor(source, sym).enumerable;}));}ownKeys.forEach(function (key) {_defineProperty(target, key, source[key]);});}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+_vue.default.config.productionTip = false;
+
+_App.default.mpType = 'app';
+
+var app = new _vue.default(_objectSpread({},
+_App.default));
+
+createApp(app).$mount();
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createApp"]))
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js?{\"page\":\"pages%2Ffind%2Ffind\"}":
+/*!********************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/main.js?{"page":"pages%2Ffind%2Ffind"} ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _find = _interopRequireDefault(__webpack_require__(/*! ./pages/find/find.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages\\find\\find.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_find.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js?{\"page\":\"pages%2Fmain%2Fmain\"}":
+/*!********************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/main.js?{"page":"pages%2Fmain%2Fmain"} ***!
+  \********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _main = _interopRequireDefault(__webpack_require__(/*! ./pages/main/main.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages\\main\\main.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_main.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js?{\"page\":\"pages%2Fmessage%2Fmessage\"}":
+/*!**************************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/main.js?{"page":"pages%2Fmessage%2Fmessage"} ***!
+  \**************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _message = _interopRequireDefault(__webpack_require__(/*! ./pages/message/message.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages\\message\\message.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_message.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js?{\"page\":\"pages%2Fmyself%2Fmyself\"}":
+/*!************************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/main.js?{"page":"pages%2Fmyself%2Fmyself"} ***!
+  \************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _myself = _interopRequireDefault(__webpack_require__(/*! ./pages/myself/myself.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages\\myself\\myself.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_myself.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js?{\"page\":\"views%2FcitySelector\"}":
+/*!*********************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/main.js?{"page":"views%2FcitySelector"} ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _citySelector = _interopRequireDefault(__webpack_require__(/*! ./views/citySelector.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\citySelector.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_citySelector.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js?{\"page\":\"views%2FwetherForecast\"}":
+/*!***********************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/main.js?{"page":"views%2FwetherForecast"} ***!
+  \***********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _wetherForecast = _interopRequireDefault(__webpack_require__(/*! ./views/wetherForecast.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_wetherForecast.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js?{\"page\":\"views%2FxinhuaDictionary\"}":
+/*!*************************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/main.js?{"page":"views%2FxinhuaDictionary"} ***!
+  \*************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _xinhuaDictionary = _interopRequireDefault(__webpack_require__(/*! ./views/xinhuaDictionary.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\xinhuaDictionary.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_xinhuaDictionary.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\pages.json":
+/*!****************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/pages.json ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\common.css":
+/*!***************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/static/css/common.css ***!
+  \***************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\main.css":
+/*!*************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/static/css/main.css ***!
+  \*************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\font\\iconfont.css":
+/*!******************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/static/font/iconfont.css ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\utils\\airport.js":
+/*!**********************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/utils/airport.js ***!
+  \**********************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+module.exports = {
+  "list": [
+  {
+    "letter": "A",
+    "data": [
+    "阿坝", "阿拉善", "阿里", "安康", "安庆", "鞍山", "安顺", "安阳", "澳门"] },
+
+
+  {
+    "letter": "B",
+    "data": ["北京", "白银", "保定", "宝鸡", "保山", "包头", "巴中", "北海", "蚌埠", "本溪", "毕节", "滨州", "百色", "亳州"] },
+
+
+  {
+    "letter": "C",
+    "data": ["重庆", "成都", "长沙", "长春", "沧州", "常德", "昌都", "长治", "常州", "巢湖", "潮州", "承德", "郴州", "赤峰", "池州", "崇左", "楚雄", "滁州", "朝阳"] },
+
+
+  {
+    "letter": "D",
+    "data": ["大连", "东莞", "大理", "丹东", "大庆", "大同", "大兴安岭", "德宏", "德阳", "德州", "定西", "迪庆", "东营"] },
+
+
+  {
+    "letter": "E",
+    "data": ["鄂尔多斯", "恩施", "鄂州"] },
+
+  {
+    "letter": "F",
+    "data": ["福州", "防城港", "佛山", "抚顺", "抚州", "阜新", "阜阳"] },
+
+
+
+  {
+    "letter": "G",
+    "data": ["广州", "桂林", "贵阳", "甘南", "赣州", "甘孜", "广安", "广元", "贵港", "果洛"] },
+
+
+  {
+    "letter": "H",
+    "data": ["杭州", "哈尔滨", "合肥", "海口", "呼和浩特", "海北", "海东", "海南", "海西", "邯郸", "汉中", "鹤壁", "河池", "鹤岗", "黑河", "衡水", "衡阳", "河源", "贺州", "红河", "淮安", "淮北", "怀化", "淮南", "黄冈", "黄南", "黄山", "黄石", "惠州", "葫芦岛", "呼伦贝尔", "湖州", "菏泽"] },
+
+
+  {
+    "letter": "J",
+    "data": ["济南", "佳木斯", "吉安", "江门", "焦作", "嘉兴", "嘉峪关", "揭阳", "吉林", "金昌", "晋城", "景德镇", "荆门", "荆州", "金华", "济宁", "晋中", "锦州", "九江",
+    "酒泉"] },
+
+
+
+  {
+    "letter": "K",
+    "data": ["昆明", "开封"] },
+
+
+  {
+    "letter": "L",
+    "data": ["兰州", "拉萨", "来宾", "莱芜", "廊坊", "乐山", "凉山", "连云港", "聊城", "辽阳", "辽源", "丽江", "临沧", "临汾", "临夏", "临沂", "林芝", "丽水", "六安", "六盘水",
+    "柳州", "陇南", "龙岩", "娄底", "漯河", "洛阳", "泸州", "吕梁"] },
+
+
+
+  {
+    "letter": "M",
+    "data": ["马鞍山", "茂名", "眉山", "梅州", "绵阳", "牡丹江"] },
+
+
+  {
+    "letter": "N",
+    "data": ["南京", "南昌", "南宁", "宁波", "南充", "南平", "南通", "南阳", "那曲", "内江", "宁德", "怒江"] },
+
+
+  {
+    "letter": "P",
+    "data": ["盘锦", "攀枝花", "平顶山", "平凉", "萍乡", "莆田", "濮阳"] },
+
+
+  {
+    "letter": "Q",
+    "data": ["青岛", "黔东南", "黔南", "黔西南", "庆阳", "清远", "秦皇岛", "钦州", "齐齐哈尔", "泉州", "曲靖", "衢州"] },
+
+
+  {
+    "letter": "R",
+    "data": ["日喀则", "日照"] },
+
+  {
+    "letter": "S",
+    "data": ["上海", "深圳", "苏州", "沈阳", "石家庄", "三门峡", "三明", "三亚", "商洛", "商丘", "上饶", "山南", "汕头", "汕尾", "韶关", "绍兴", "邵阳", "十堰", "朔州", "四平", "绥化", "遂宁", "随州", "宿迁", "宿州"] },
+
+
+
+  {
+    "letter": "T",
+    "data": ["天津", "太原", "泰安", "泰州", "台州", "唐山", "天水", "铁岭", "铜川", "通化", "通辽", "铜陵", "铜仁", "台湾", "W", "武汉", "乌鲁木齐", "无锡", "威海", "潍坊", "文山", "温州", "乌海", "芜湖", "乌兰察布", "武威", "梧州"] },
+
+
+  {
+    "letter": "X",
+    "data": ["厦门", "西安", "西宁", "襄樊", "湘潭", "湘西", "咸宁", "咸阳", "孝感", "邢台", "新乡", "信阳", "新余", "忻州", "西双版纳", "宣城", "许昌", "徐州", "香港", "锡林郭勒", "兴安"] },
+
+
+
+  {
+    "letter": "Y",
+    "data": ["银川", "雅安", "延安", "延边", "盐城", "阳江", "阳泉", "扬州", "烟台", "宜宾", "宜昌", "宜春", "营口", "益阳", "永州", "岳阳", "榆林", "运城", "云浮", "玉树", "玉溪", "玉林"] },
+
+
+
+  {
+    "letter": "Z",
+    "data": ["杂多县", "赞皇县", "枣强县", "枣阳市", "枣庄", "泽库县", "增城市", "曾都区", "泽普县", "泽州县", "札达县", "扎赉特旗", "扎兰屯市", "扎鲁特旗", "扎囊县", "张北县", "张店区", "章贡区", "张家港", "张家界", "张家口", "漳平市", "漳浦县", "章丘市", "樟树市", "张湾区", "彰武县", "漳县", "张掖", "漳州", "长子县", "湛河区", "湛江", "站前区", "沾益县", "诏安县", "召陵区", "昭平县", "肇庆", "昭通", "赵县", "昭阳区", "招远市", "肇源县", "肇州县", "柞水县", "柘城县", "浙江", "镇安县", "振安区", "镇巴县", "正安县", "正定县", "正定新区", "正蓝旗", "正宁县", "蒸湘区", "正镶白旗", "正阳县", "郑州", "镇海区", "镇江", "浈江区", "镇康县", "镇赉县", "镇平县", "振兴区", "镇雄县", "镇原县", "志丹县", "治多县", "芝罘区", "枝江市", "芷江侗族自治县", "织金县", "中方县", "中江县", "钟楼区", "中牟县", "中宁县", "中山", "中山区", "钟山区", "钟山县", "中卫", "钟祥市", "中阳县", "中原区", "周村区", "周口", "周宁县", "舟曲县", "舟山", "周至县", "庄河市", "诸城市", "珠海", "珠晖区", "诸暨市", "驻马店", "准格尔旗", "涿鹿县", "卓尼", "涿州市", "卓资县", "珠山区", "竹山县", "竹溪县", "株洲", "株洲县", "淄博", "子长县", "淄川区", "自贡", "秭归县", "紫金县", "自流井区", "资溪县", "资兴市", "资阳"] }] };
 
 /***/ })
 

@@ -102,11 +102,11 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"components/common/uni-drawer":1,"components/general/chart_WeatherLine":1,"components/common/uni-indexed-list":1};
+/******/ 		var cssChunks = {"components/common/uni-indexed-list":1,"components/general/chart_WeatherLine":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
-/******/ 				var href = "" + ({"components/common/uni-drawer":"components/common/uni-drawer","components/general/chart_WeatherLine":"components/general/chart_WeatherLine","components/common/uni-indexed-list":"components/common/uni-indexed-list"}[chunkId]||chunkId) + ".wxss";
+/******/ 				var href = "" + ({"components/common/uni-indexed-list":"components/common/uni-indexed-list","components/general/chart_WeatherLine":"components/general/chart_WeatherLine"}[chunkId]||chunkId) + ".wxss";
 /******/ 				var fullhref = __webpack_require__.p + href;
 /******/ 				var existingLinkTags = document.getElementsByTagName("link");
 /******/ 				for(var i = 0; i < existingLinkTags.length; i++) {

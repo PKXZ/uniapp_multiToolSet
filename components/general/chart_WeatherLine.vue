@@ -10,19 +10,53 @@
 <script>
 	export default {
 		name: 'chart_WeatherLine',
+		props:{
+			canvasHightData:{
+				//每天对应最高温
+				type: Array
+			},
+			canvasLowData: {
+				//每天对应最低温
+				type: Array
+			},
+			canvasNumData:{
+				//几天的数据
+				type: Number
+			},
+			canvasMaximum:{
+				//最高温度
+				type: Number
+			},
+			canvasMinimum:{
+				//最低温度
+				type: Number
+			}
+		},
 		data() {
 			return {
-				 hightData: [25,24,23,26,39],//[55,53,51,57,92],//[25,24,23,26,42], //每天对应最高温
-				 lowData: [13,10,11,16,18],//[27,-44,24,35,37],//[13,-20,11,16,18], //每天对应最低温
-				 numData: 5, //几天的数据
-				 maximum: 39, //最高温度
-				 minimum: 10, //最低温度
+				 hightData: this.canvasHightData,
+				 lowData: this.canvasLowData,
+				 numData: this.canvasNumData,
+				 maximum: this.canvasMaximum,
+				 minimum: this.canvasMinimum,
 				 distance: 0, //间隔
 				 item_width: 0, //左右间隔
 				 canvas: {},
 				 context: {},
 				 canvasWidth: '100%',
 				 canvasHeight: ''
+			}
+		},
+		watch:{
+			canvasNumData(newDate,oldDate){
+				debugger
+				const self = this;
+				self.$nextTick(function(){
+				 debugger
+					if(newDate !== 0){
+						self.initLine();
+					}
+				});
 			}
 		},
 		mounted() {
@@ -37,15 +71,16 @@
 					//app包括H5界面
 					self.canvasHeight = 'calc(100% / 2)';
 				//#endif
-				self.initLine();
-			});
-			uni.onWindowResize((res) => {
-				//此接口不支持支付宝小程序、百度小程序以及头条小程序
-				self.initLine();
-				 uni.showToast({
-					title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
-					duration: 2000
-				 })
+				//self.initLine();
+				
+				uni.onWindowResize((res) => {
+					//此接口不支持支付宝小程序、百度小程序以及头条小程序
+					self.initLine();
+					 uni.showToast({
+						title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
+						duration: 2000
+					 })
+				});
 			});
 		 },
 		 methods:{
