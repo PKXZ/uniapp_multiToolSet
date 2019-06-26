@@ -1,6 +1,10 @@
 <template>
-	<canvas class="canvas" canvas-id="weatherLineCanvas" ref="weatherLineCanvas" id="weatherLineCanvas"></canvas>
-	<!-- <canvas canvas-id="Canva" style="width:100%;height:360px;"></canvas> -->
+	<canvas 
+		class="canvas" 
+		canvas-id="weatherLineCanvas" 
+		id="weatherLineCanvas" 
+		:style="{width:canvasWidth,height:canvasHeight}">
+	</canvas>
 </template>
 
 <script>
@@ -16,12 +20,23 @@
 				 distance: 0, //间隔
 				 item_width: 0, //左右间隔
 				 canvas: {},
-				 context: {}
+				 context: {},
+				 canvasWidth: '100%',
+				 canvasHeight: ''
 			}
 		},
 		mounted() {
 			const self = this;
 			self.$nextTick(function(){
+				//安卓、ios app和小程序因为canvas的高度不一样，因此单独处理,否则影响样式
+				//#ifdef MP
+					//所有的小程序
+					self.canvasHeight = '100%';
+				//#endif
+				//#ifdef H5 || APP-PLUS || APP-PLUS-NVUE
+					//app包括H5界面
+					self.canvasHeight = 'calc(100% / 2)';
+				//#endif
 				self.initLine();
 			});
 			uni.onWindowResize((res) => {
@@ -35,6 +50,7 @@
 		 },
 		 methods:{
 			 initLine(){
+<<<<<<< HEAD
 				 const self = this;
 				 // uni.createSelectorQuery().select('#weatherLineCanvas').fields({  
 				 //    size: true,  
@@ -128,6 +144,31 @@
 				 //触发函数
 				 this.drawLineFun(this.hightData,'#fcc370'); //高温线
 				 this.drawLineFun(this.lowData,'#94ccf9'); //低温线
+=======
+				const self = this;
+				var query = uni.createSelectorQuery().in(this);//.in(this)是重点
+				query.select('.canvas').boundingClientRect()
+				query.exec(function (res) { 
+					 const dynamicWidth = res[0].width;
+					 const dynamicHeight = res[0].height;
+					 
+					 //绘制画布
+					 //this.canvas = this.$refs.weatherLineCanvas.$el;
+					 //uniapp这里不一样1：canvas.getContext("2d");
+					 self.context = uni.createCanvasContext('weatherLineCanvas',self);
+					 self.item_width = dynamicWidth / self.numData; //左右间距
+					 const temperDifference = self.maximum - self.minimum; //温差
+					 self.distance = dynamicHeight / 2 / temperDifference;
+					 /*
+					 * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
+					 * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
+					 * */
+					 self.context.translate(self.item_width / 2, self.maximum * self.distance + 40);
+					 //触发函数
+					 self.drawLineFun(self.hightData,'#fcc370'); //高温线
+					 self.drawLineFun(self.lowData,'#94ccf9'); //低温线
+				});
+>>>>>>> 2b0368472798aaad0d03b8ed8179c65bfc9e2e51
 			},
 			 drawLineFun(lineData,lineColor){
 				const self = this;
@@ -198,8 +239,8 @@
 
 <style>
 	.canvas{
-		width: 100%;
-		height: 300upx;
+		/* width: 100%;
+		height: 300upx; */
 		margin: 0;
 		padding: 0;
 		pointer-events: none;
