@@ -25,11 +25,15 @@
   /* background-color: rgba(255,255,255,0.2); */
   margin: 0 auto;
   padding-top: 40upx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 .wetherInfo .currentIcon{
   font-size: 150upx;
   color: #fff;
   display: block;
+	text-align: center;
 }
 .wetherInfo .currentType{
   margin: 40upx 0;
@@ -112,20 +116,19 @@
   color: #7a7a7a;
   /* margin: 45upx 0; */
 	margin: 0;
-  line-height: 3.5;
+  line-height: 2.5;
 	font-size: 30upx;
 }
-/* .wetherBottom ul li i{
-  font-size: 70upx;
+.wetherBottom ul li i{
+  font-size: 50upx;
   color: #7a7a7a;
-  line-height: 2;
-} */
+}
 .wetherBottom .wd{
-  margin-top: 245% !important;
+  margin-top: 216% !important;
 }
 .chart_WeatherLine{
 	position: absolute;
-	top: 220upx;
+	top: 260upx;
 	width: 100%;
 	height: calc(100% / 2);
 }

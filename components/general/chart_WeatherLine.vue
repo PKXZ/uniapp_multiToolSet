@@ -3,7 +3,7 @@
 		class="canvas" 
 		canvas-id="weatherLineCanvas" 
 		id="weatherLineCanvas" 
-		:style="{width:canvasWidth,height:canvasHeight}">
+		:style="{height:canvasHeight,width:canvasWidth}">
 	</canvas>
 </template>
 
@@ -34,29 +34,29 @@
 		},
 		data() {
 			return {
-				 hightData: this.canvasHightData,
-				 lowData: this.canvasLowData,
-				 numData: this.canvasNumData,
-				 maximum: this.canvasMaximum,
-				 minimum: this.canvasMinimum,
+				 // hightData: this.canvasHightData,
+				 // lowData: this.canvasLowData,
+				 // numData: this.canvasNumData,
+				 // maximum: this.canvasMaximum,
+				 // minimum: this.canvasMinimum,
 				 distance: 0, //间隔
 				 item_width: 0, //左右间隔
-				 canvas: {},
 				 context: {},
 				 canvasWidth: '100%',
 				 canvasHeight: ''
 			}
 		},
 		watch:{
-			canvasNumData(newDate,oldDate){
-				debugger
+			canvasLowData(newDate,oldDate){
 				const self = this;
 				self.$nextTick(function(){
-				 debugger
-					if(newDate !== 0){
+					uni.showLoading({
+						title: '加载中'
+					});
+					if(newDate.length > 0){
 						self.initLine();
 					}
-				});
+				})
 			}
 		},
 		mounted() {
@@ -71,8 +71,6 @@
 					//app包括H5界面
 					self.canvasHeight = 'calc(100% / 2)';
 				//#endif
-				//self.initLine();
-				
 				uni.onWindowResize((res) => {
 					//此接口不支持支付宝小程序、百度小程序以及头条小程序
 					self.initLine();
@@ -92,21 +90,23 @@
 					 const dynamicWidth = res[0].width;
 					 const dynamicHeight = res[0].height;
 					 
+					 self.canvasHeight = dynamicHeight + 'upx';
 					 //绘制画布
 					 //this.canvas = this.$refs.weatherLineCanvas.$el;
 					 //uniapp这里不一样1：canvas.getContext("2d");
 					 self.context = uni.createCanvasContext('weatherLineCanvas',self);
-					 self.item_width = dynamicWidth / self.numData; //左右间距
-					 const temperDifference = self.maximum - self.minimum; //温差
+					 self.item_width = dynamicWidth / self.canvasNumData; //左右间距
+					 const temperDifference = self.canvasMaximum - self.canvasMinimum; //温差
 					 self.distance = dynamicHeight / 2 / temperDifference;
 					 /*
 					 * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
 					 * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
 					 * */
-					 self.context.translate(self.item_width / 2, self.maximum * self.distance + 40);
+					 self.context.translate(self.item_width / 2, self.canvasMaximum * self.distance + 40);
+					 
 					 //触发函数
-					 self.drawLineFun(self.hightData,'#fcc370'); //高温线
-					 self.drawLineFun(self.lowData,'#94ccf9'); //低温线
+					 self.drawLineFun(self.canvasHightData,'#fcc370'); //高温线
+					 self.drawLineFun(self.canvasLowData,'#94ccf9'); //低温线
 				});
 			},
 			 drawLineFun(lineData,lineColor){
@@ -142,16 +142,16 @@
 					new_high_x.push(circleXCoordinate);
 					new_high_y.push(-circleYCoordinate);
 					//写文字
-					if(lineData === self.hightData){
+					if(lineData === self.canvasHightData){
 						self.context.beginPath();
-						self.context.font = "18px 微软雅黑";
+						self.context.font = "14px 微软雅黑";
 						self.context.fillStyle = "#333";
 						self.context.fillText(lineData[i]+"°", circleXCoordinate - 10, -circleYCoordinate - 20, 50);//context.fillText(text,x,y,maxWidth);
 						self.context.stroke();
 						self.context.closePath();
 					}else{
 						self.context.beginPath();
-						self.context.font = "18px 微软雅黑";
+						self.context.font = "14x 微软雅黑";
 						self.context.fillStyle = "#333";
 						self.context.fillText(lineData[i]+"°", circleXCoordinate - 10, -circleYCoordinate + 30, 50);//context.fillText(text,x,y,maxWidth);
 						self.context.stroke();
@@ -160,7 +160,7 @@
 				}
 				
 				//画线
-				for(let j = 0; j < self.numData - 1; j++){
+				for(let j = 0; j < self.canvasNumData - 1; j++){
 					self.context.beginPath();
 					//uniapp这里不一样2：Y轴写为负数了 -Math.abs()，demo中是正数 Math.abs()
 					self.context.moveTo(Math.abs(new_high_x[j]), -Math.abs(new_high_y[j]));
@@ -171,6 +171,7 @@
 					self.context.closePath();
 				}
 				self.context.draw(true); //uniapp这里不一样2：参数为true，则保留当前画布上的内容，本次调用drawCanvas绘制的内容覆盖在上面，默认 false
+				uni.hideLoading();
 			 }
 		 }
 	};
@@ -178,8 +179,6 @@
 
 <style>
 	.canvas{
-		/* width: 100%;
-		height: 300upx; */
 		margin: 0;
 		padding: 0;
 		pointer-events: none;

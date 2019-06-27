@@ -12,103 +12,112 @@
 //
 //
 //
+//
+//
+//
+//
+//
 var _default =
 {
   name: 'chart_WeatherLine',
+  props: {
+    canvasHightData: {
+      //每天对应最高温
+      type: Array },
+
+    canvasLowData: {
+      //每天对应最低温
+      type: Array },
+
+    canvasNumData: {
+      //几天的数据
+      type: Number },
+
+    canvasMaximum: {
+      //最高温度
+      type: Number },
+
+    canvasMinimum: {
+      //最低温度
+      type: Number } },
+
+
   data: function data() {
     return {
-      hightData: [25, 24, 23, 26, 39], //[55,53,51,57,92],//[25,24,23,26,42], //每天对应最高温
-      lowData: [13, 10, 11, 16, 18], //[27,-44,24,35,37],//[13,-20,11,16,18], //每天对应最低温
-      numData: 5, //几天的数据
-      maximum: 39, //最高温度
-      minimum: 10, //最低温度
+      // hightData: this.canvasHightData,
+      // lowData: this.canvasLowData,
+      // numData: this.canvasNumData,
+      // maximum: this.canvasMaximum,
+      // minimum: this.canvasMinimum,
       distance: 0, //间隔
       item_width: 0, //左右间隔
-      canvas: {},
-      context: {} };
+      context: {},
+      canvasWidth: '100%',
+      canvasHeight: '' };
 
   },
+  watch: {
+    canvasLowData: function canvasLowData(newDate, oldDate) {
+      var self = this;
+      self.$nextTick(function () {
+        uni.showLoading({
+          title: '加载中' });
+
+        if (newDate.length > 0) {
+          self.initLine();
+        }
+      });
+    } },
+
   mounted: function mounted() {
     var self = this;
     self.$nextTick(function () {
-      self.initLine();
-    });
-    uni.onWindowResize(function (res) {
-      //此接口不支持支付宝小程序、百度小程序以及头条小程序
-      self.initLine();
-      uni.showToast({
-        title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
-        duration: 2000 });
+      //安卓、ios app和小程序因为canvas的高度不一样，因此单独处理,否则影响样式
 
+
+
+
+
+      //app包括H5界面
+      self.canvasHeight = 'calc(100% / 2)';
+
+      uni.onWindowResize(function (res) {
+        //此接口不支持支付宝小程序、百度小程序以及头条小程序
+        self.initLine();
+        uni.showToast({
+          title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
+          duration: 2000 });
+
+      });
     });
   },
   methods: {
     initLine: function initLine() {
       var self = this;
-      // uni.createSelectorQuery().select('#weatherLineCanvas').fields({  
-      //                    size: true,  
-      // 	dataset: true 
-      //                }, (data) => {  
-      // 	console.log(data)
-      // 	 const dynamicWidth = data.width
-      // 	 const dynamicHeight = data.height;
-      // 	 
-      // 	 //绘制画布
-      // 	 self.canvas = self.$refs.weatherLineCanvas.$el;
-      // 	 //uniapp这里不一样1：canvas.getContext("2d");
-      // 	 self.context = uni.createCanvasContext('weatherLineCanvas',this);
-      // 	 self.canvas.width = dynamicWidth;
-      // 	 self.canvas.height = dynamicHeight;
-      // 	 self.item_width = dynamicWidth / self.numData; //左右间距
-      // 	 const temperDifference = self.maximum - self.minimum; //温差
-      // 	 self.distance = dynamicHeight / 2 / temperDifference;
-      // 	 /*
-      // 	 * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
-      // 	 * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
-      // 	 * */
-      // 	 self.context.translate(self.item_width / 2, self.maximum * self.distance + 40);
-      // 	 //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
-      // 	 //触发函数
-      // 	 self.drawLineFun(self.hightData,'#fcc370'); //高温线
-      // 	 self.drawLineFun(self.lowData,'#94ccf9'); //低温线
-      // 	
-      // }).exec();  
-      // if(this.$refs.weatherLineCanvas){
-      //  const dynamicWidth = this.$refs.weatherLineCanvas.$el.clientWidth;
-      //  const dynamicHeight = this.$refs.weatherLineCanvas.$el.clientHeight;
-      //  
-      //  //绘制画布
-      //  this.canvas = this.$refs.weatherLineCanvas.$el;
-      //  //uniapp这里不一样1：canvas.getContext("2d");
-      //  this.context = uni.createCanvasContext('weatherLineCanvas');
-      //  this.canvas.width = dynamicWidth;
-      //  this.canvas.height = dynamicHeight;
-      //  this.item_width = dynamicWidth / this.numData; //左右间距
-      //  const temperDifference = this.maximum - this.minimum; //温差
-      //  this.distance = dynamicHeight / 2 / temperDifference;
-      //  /*
-      //  * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
-      //  * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
-      //  * */
-      //  this.context.translate(this.item_width / 2, this.maximum * this.distance + 40);
-      //  //this.context.translate(this.item_width / 2, dynamicHeight / 2 + this.maximum *  this.distance - 20 * 2);
-      //  //触发函数
-      //  this.drawLineFun(this.hightData,'#fcc370'); //高温线
-      //  this.drawLineFun(this.lowData,'#94ccf9'); //低温线
-      // }else{
-      //  uni.showToast({
-      // 	title: '未获取到Canvas',
-      // 	duration: 2000
-      //  })
-      // }
-      debugger;
-      var ctx = wx.createCanvasContext('weatherLineCanvas');
+      var query = uni.createSelectorQuery().in(this); //.in(this)是重点
+      query.select('.canvas').boundingClientRect();
+      query.exec(function (res) {
+        var dynamicWidth = res[0].width;
+        var dynamicHeight = res[0].height;
 
-      ctx.setFillStyle('red');
-      ctx.fillRect(10, 10, 150, 100);
-      ctx.draw();
-      ctx.fillRect(50, 50, 150, 100);
-      ctx.draw(true);
+        self.canvasHeight = dynamicHeight + 'upx';
+        //绘制画布
+        //this.canvas = this.$refs.weatherLineCanvas.$el;
+        //uniapp这里不一样1：canvas.getContext("2d");
+        self.context = uni.createCanvasContext('weatherLineCanvas', self);
+        self.item_width = dynamicWidth / self.canvasNumData; //左右间距
+        var temperDifference = self.canvasMaximum - self.canvasMinimum; //温差
+        self.distance = dynamicHeight / 2 / temperDifference;
+        /*
+                                                              * 画布的偏移量，item_width是画布x轴从左向右方向偏移。
+                                                              * 后面的值是y轴 按照高度的一半 + 最大数乘以间距 - 上下文字间隔数
+                                                              * */
+        self.context.translate(self.item_width / 2, self.canvasMaximum * self.distance + 40);
+
+        //触发函数
+        self.drawLineFun(self.canvasHightData, '#fcc370'); //高温线
+        self.drawLineFun(self.canvasLowData, '#94ccf9'); //低温线
+      });
     },
     drawLineFun: function drawLineFun(lineData, lineColor) {
       var self = this;
@@ -143,25 +152,25 @@ var _default =
         new_high_x.push(circleXCoordinate);
         new_high_y.push(-circleYCoordinate);
         //写文字
-        if (lineData === self.hightData) {
+        if (lineData === self.canvasHightData) {
           self.context.beginPath();
-          self.context.font = "18px 微软雅黑";
+          self.context.font = "14px 微软雅黑";
           self.context.fillStyle = "#333";
-          //self.context.fillText(lineData[i]+"°", circleXCoordinate - 10, -circleYCoordinate - 20, 50);//context.fillText(text,x,y,maxWidth);
+          self.context.fillText(lineData[i] + "°", circleXCoordinate - 10, -circleYCoordinate - 20, 50); //context.fillText(text,x,y,maxWidth);
           self.context.stroke();
           self.context.closePath();
         } else {
           self.context.beginPath();
-          self.context.font = "18px 微软雅黑";
+          self.context.font = "14x 微软雅黑";
           self.context.fillStyle = "#333";
-          //self.context.fillText(lineData[i]+"°", circleXCoordinate - 10, -circleYCoordinate + 30, 50);//context.fillText(text,x,y,maxWidth);
+          self.context.fillText(lineData[i] + "°", circleXCoordinate - 10, -circleYCoordinate + 30, 50); //context.fillText(text,x,y,maxWidth);
           self.context.stroke();
           self.context.closePath();
         }
       }
 
       //画线
-      for (var j = 0; j < self.numData - 1; j++) {
+      for (var j = 0; j < self.canvasNumData - 1; j++) {
         self.context.beginPath();
         //uniapp这里不一样2：Y轴写为负数了 -Math.abs()，demo中是正数 Math.abs()
         self.context.moveTo(Math.abs(new_high_x[j]), -Math.abs(new_high_y[j]));
@@ -171,9 +180,8 @@ var _default =
         self.context.stroke();
         self.context.closePath();
       }
-
-
       self.context.draw(true); //uniapp这里不一样2：参数为true，则保留当前画布上的内容，本次调用drawCanvas绘制的内容覆盖在上面，默认 false
+      uni.hideLoading();
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-app-plus/dist/index.js */ "./node_modules/@dcloudio/uni-app-plus/dist/index.js")["default"]))
 

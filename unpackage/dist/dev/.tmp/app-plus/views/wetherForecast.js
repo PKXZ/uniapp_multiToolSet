@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js"));
 
 
 
@@ -83,102 +83,111 @@
 
 
 
-__webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\wetherForecast.css"); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var chart_WeatherLine = function chart_WeatherLine() {return __webpack_require__.e(/*! import() | components/general/chart_WeatherLine */ "components/general/chart_WeatherLine").then(__webpack_require__.bind(null, /*! @/components/general/chart_WeatherLine.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue"));};var _default = { data: function data() {return { programGengduoBtn: true, currentCity: '成都', currentType: '晴转多云', currentIcon: 'icon-duoyun', wetherList: [{ date: '05-17', xq: '周五', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '今天', xq: '周六', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-19', xq: '周日', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-20', xq: '周天', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }, { date: '05-21', xq: '周一', icon: 'icon-xiaoxue', type: '晴', wd: '18~25℃' }], cityList: [{ cityName: '成都', wd: '10~20℃' }, { cityName: '成都', wd: '10~20℃' }], showRigth: false };}, onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {console.log(JSON.stringify(btn), " at views\\wetherForecast.vue:132");this.gengduoFun();}, onLoad: function onLoad(options) {var _this = this; //动态设置标题
-    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#48c6ef', animation: { duration: 400, timingFunc: 'easeIn' } }); //获取当前位置
-    uni.getLocation({ type: 'wgs84', //默认为 wgs84 返回 gps 坐标，gcj02 返回国测局坐标
-      success: function success(res) {
-        console.log('当前位置的经度：' + res.longitude, " at views\\wetherForecast.vue:154");
-        console.log('当前位置的纬度：' + res.latitude, " at views\\wetherForecast.vue:155");
-      },
-      fail: function fail(err) {
-        console.log(err, " at views\\wetherForecast.vue:158");
-      } });
-
-    uni.getSystemInfo({
-      success: function success(res) {
-        //安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
-        if (res.platform === "android" || res.platform === "ios") {
-          _this.programGengduoBtn = false;
-        } else {
-          _this.programGengduoBtn = true;
-        }
-      } });
+
+
+
+
+
+
+
+__webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\wetherForecast.css");function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var chart_WeatherLine = function chart_WeatherLine() {return __webpack_require__.e(/*! import() | components/general/chart_WeatherLine */ "components/general/chart_WeatherLine").then(__webpack_require__.bind(null, /*! @/components/general/chart_WeatherLine.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue"));};var _default =
+
+
+{
+  data: function data() {
+    return {
+      wd: 0,
+      fl: 0,
+      sd: 0,
+      programGengduoBtn: true,
+      currentCity: '',
+      currentType: '',
+      currentIcon: '',
+      wetherList: [],
+      /* {
+                      	date: '05-17',
+                      	xq: '周五',
+                      	icon: 'icon-xiaoxue',
+                      	type: '晴',
+                      	wd: '18~25℃',
+                        }, {
+                      	date: '今天',
+                      	xq: '周六',
+                      	icon: 'icon-xiaoxue',
+                      	type: '晴',
+                      	wd: '18~25℃'
+                        }, {
+                      	date: '05-19',
+                      	xq: '周日',
+                      	icon: 'icon-xiaoxue',
+                      	type: '晴',
+                      	wd: '18~25℃'
+                        }, {
+                      	date: '05-20',
+                      	xq: '周天',
+                      	icon: 'icon-xiaoxue',
+                      	type: '晴',
+                      	wd: '18~25℃'
+                        }, {
+                      	date: '05-21',
+                      	xq: '周一',
+                      	icon: 'icon-xiaoxue',
+                      	type: '晴',
+                      	wd: '18~25℃'
+                        } */
+      cityList: [],
+      /* {
+                    	cityName: '成都',
+                    	wd: '10~20℃'
+                      }, {
+                    	cityName: '成都',
+                    	wd: '10~20℃'
+                      } */
+      showRigth: false,
+      //canvas的数据
+      canvasHightData: [],
+      canvasLowData: [],
+      canvasNumData: 0,
+      canvasMaximum: 0,
+      canvasMinimum: 0 };
 
   },
+  onNavigationBarButtonTap: function onNavigationBarButtonTap(btn) {
+    console.log(JSON.stringify(btn), " at views\\wetherForecast.vue:146");
+    this.gengduoFun();
+  },
+  onLoad: function onLoad(options) {
+    //动态设置标题
+    if (options.label) {
+      uni.setNavigationBarTitle({
+        title: options.label });
+
+    }
+    uni.setNavigationBarColor({
+      frontColor: '#ffffff',
+      backgroundColor: '#48c6ef',
+      animation: {
+        duration: 400,
+        timingFunc: 'easeIn' } });
+
+
+    //获取当前位置
+    this.loadInfo();
+    //安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
+
+
+
+
+
+    //app包括H5界面
+    this.programGengduoBtn = false;
+
+  },
+  watch: {
+    currentCity: function currentCity(newData, oldData) {
+      this.getWether(newData);
+    } },
+
   methods: {
     gengduoFun: function gengduoFun() {
       this.showRigth = true;
@@ -193,6 +202,158 @@ var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() 
       uni.navigateTo({
         url: '/views/citySelector' });
 
+    },
+    loadInfo: function loadInfo() {
+      //获取当前位置的经纬度
+      var self = this;
+      uni.getLocation({
+        type: 'wgs84', //默认为 wgs84 返回 gps 坐标，gcj02 返回国测局坐标
+        success: function success(res) {
+          var longitude = res.longitude; //经度
+          var latitude = res.latitude; //维度
+          self.loadCity(latitude, longitude);
+        },
+        fail: function fail(err) {
+          console.log('定位失败，默认查询成都', " at views\\wetherForecast.vue:207");
+          self.currentCity = '成都';
+          self.loadCity(30.64242, 104.04311);
+        } });
+
+    },
+    loadCity: function loadCity(latitude, longitude) {
+      //把当前位置的经纬度传给高德地图，调用高德API获取当前地理位置
+      var self = this;
+      var amapFile = __webpack_require__(/*! ../utils/amap-wx.js */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\utils\\amap-wx.js");
+      var markersData = {
+        latitude: '', //纬度
+        longitude: '', //经度
+        key: "c0e9d71cc639c613da5e2c5804b99a9d" //申请的高德地图key
+      };
+      var myAmapFun = new amapFile.AMapWX({ key: markersData.key });
+      myAmapFun.getRegeo({
+        success: function success(data) {
+          //获取当前城市
+          self.currentCity = data[0].regeocodeData.addressComponent.city;
+        },
+        fail: function fail(info) {
+          console.log(info, " at views\\wetherForecast.vue:229");
+        } });
+
+    },
+    getWether: function getWether(city) {
+      //获取天气情况
+      var self = this;
+      if (city.indexOf('市') > 0) {
+        city = city.split('市')[0];
+      }
+      uni.showLoading({
+        title: '加载中' });
+
+      uni.request({
+        url: 'http://apis.juhe.cn/simpleWeather/query',
+        method: 'GET',
+        dataType: 'json',
+        header: {
+          'Content-type': 'application/json' },
+
+        data: {
+          city: city,
+          key: 'c9635a6433c99e58484af6aaffbbbd59' },
+
+        success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(res) {var data, returnWZ, arr, currentWd, canvasHightData, canvasLowData, i, dateS, today, resultWZMore, obj, wd;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                    data = res.data.result;
+                    self.wd = data.realtime.temperature; //当前温度
+                    self.fl = data.realtime.power; //当前风力
+                    self.sd = data.realtime.humidity; //当前湿度
+                    self.currentType = data.realtime.info; //当前天气情况
+                    _context.next = 7;return self.getWZ(data.realtime.info);case 7:returnWZ = _context.sent;
+                    self.currentIcon = 'icon-' + returnWZ; //当前天气状态
+                    arr = []; //处理近五天的数据
+                    currentWd = ''; //当前温度
+                    canvasHightData = []; //每天对应最高温度
+                    canvasLowData = []; //每天对应最低温度
+                    self.canvasNumData = data.future.length; //有几天的天气数据
+                    i = 0;case 15:if (!(i < data.future.length)) {_context.next = 29;break;}
+                    dateS = data.future[i].date.split('-');
+                    today = '';
+                    if (new Date(data.future[i].date).toDateString() === new Date().toDateString()) {
+                      //判断是否为今天
+                      today = '今天';
+                      currentWd = data.future[i].temperature.replace('/', '~');
+                    } else {
+                      today = dateS[1] + '-' + dateS[2];
+                    }_context.next = 21;return (
+
+                      self.getWZ(data.future[i].weather));case 21:resultWZMore = _context.sent;
+                    obj = {
+                      date: today,
+                      xq: self.getWeek(data.future[i].date),
+                      icon: 'icon-' + resultWZMore,
+                      type: data.future[i].weather,
+                      wd: data.future[i].temperature.replace('/', '~') };
+
+
+                    //判断哪个是一天中的低温和高温
+                    wd = data.future[i].temperature.split('/');
+                    if (parseInt(wd[0]) > parseInt(wd[1])) {
+                      canvasHightData.push(parseInt(wd[0]));
+                      canvasLowData.push(parseInt(wd[1]));
+                    } else {
+                      canvasHightData.push(parseInt(wd[1]));
+                      canvasLowData.push(parseInt(wd[0]));
+                    }
+                    arr.push(obj);case 26:i++;_context.next = 15;break;case 29:
+
+                    //一个数组赋值给另外一个数组
+                    self.wetherList = self.wetherList.concat(arr);
+                    self.canvasHightData = self.canvasHightData.concat(canvasHightData);
+                    self.canvasLowData = self.canvasLowData.concat(canvasLowData);
+                    //判断数组中最大的数字和最小的数字
+                    self.canvasMaximum = Math.max.apply(null, canvasHightData);
+                    self.canvasMinimum = Math.min.apply(null, canvasLowData);
+
+                    uni.hideLoading(); //结束加载动画
+                  case 35:case "end":return _context.stop();}}}, _callee, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}(),
+        fail: function fail(error) {
+          uni.hideLoading(); //结束加载动画
+          console.log(error, " at views\\wetherForecast.vue:309");
+        } });
+
+    },
+    getWeek: function getWeek(dateString) {
+      //根据xxxx-xx-xx查询周几
+      var date;
+      if (dateString === '') {
+        date = new Date();
+      } else {
+        var dateArray = dateString.split("-");
+        date = new Date(dateArray[0], parseInt(dateArray[1] - 1), dateArray[2]);
+      }
+      return "周" + "日一二三四五六".charAt(date.getDay());
+    },
+    getWZ: function getWZ(wz) {
+      return new Promise(function (resolve, reject) {
+        uni.request({
+          url: 'https://helloacm.com/api/pinyin',
+          method: 'GET',
+          dataType: 'json',
+          header: {
+            'Content-type': 'application/json' },
+
+          data: {
+            s: wz },
+
+          success: function success(res) {
+            //数组转字符串
+            var str = res.data.result.join('');
+            resolve(str);
+          },
+          fail: function fail(error) {
+            console.log(error, " at views\\wetherForecast.vue:342");
+            reject(error);
+          } });
+
+      });
     } },
 
   components: {

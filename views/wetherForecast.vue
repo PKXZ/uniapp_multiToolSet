@@ -42,8 +42,8 @@
 			<li v-for="(item, index) in wetherList" :key="index">
 			  <text class="wetherDate">{{item.date}}</text>
 			  <text>{{item.xq}}</text>
-			  <!-- <i class="iconfont" :class="item.icon"></i>
-			  <!-- <text>{{item.type}}</text> -->
+			  <i class="iconfont" :class="item.icon"></i>
+			  <text>{{item.type}}</text>
 			  <text class="wd">{{item.wd}}</text>
 			</li>
 		  </ul>
@@ -93,48 +93,46 @@
 				currentCity: '',
 				currentType: '',
 				currentIcon: '',
-				wetherList: [
-					/* {
-						date: '05-17',
-						xq: '周五',
-						icon: 'icon-xiaoxue',
-						type: '晴',
-						wd: '18~25℃',
-					  }, {
-						date: '今天',
-						xq: '周六',
-						icon: 'icon-xiaoxue',
-						type: '晴',
-						wd: '18~25℃'
-					  }, {
-						date: '05-19',
-						xq: '周日',
-						icon: 'icon-xiaoxue',
-						type: '晴',
-						wd: '18~25℃'
-					  }, {
-						date: '05-20',
-						xq: '周天',
-						icon: 'icon-xiaoxue',
-						type: '晴',
-						wd: '18~25℃'
-					  }, {
-						date: '05-21',
-						xq: '周一',
-						icon: 'icon-xiaoxue',
-						type: '晴',
-						wd: '18~25℃'
-					  } */
-				],
-				cityList: [
-					// {
-					// 	cityName: '成都',
-					// 	wd: '10~20℃'
-					//   }, {
-					// 	cityName: '成都',
-					// 	wd: '10~20℃'
-					//   }
-				],
+				wetherList: [],
+				/* {
+					date: '05-17',
+					xq: '周五',
+					icon: 'icon-xiaoxue',
+					type: '晴',
+					wd: '18~25℃',
+				  }, {
+					date: '今天',
+					xq: '周六',
+					icon: 'icon-xiaoxue',
+					type: '晴',
+					wd: '18~25℃'
+				  }, {
+					date: '05-19',
+					xq: '周日',
+					icon: 'icon-xiaoxue',
+					type: '晴',
+					wd: '18~25℃'
+				  }, {
+					date: '05-20',
+					xq: '周天',
+					icon: 'icon-xiaoxue',
+					type: '晴',
+					wd: '18~25℃'
+				  }, {
+					date: '05-21',
+					xq: '周一',
+					icon: 'icon-xiaoxue',
+					type: '晴',
+					wd: '18~25℃'
+				  } */
+				cityList: [],
+				/* {
+					cityName: '成都',
+					wd: '10~20℃'
+				  }, {
+					cityName: '成都',
+					wd: '10~20℃'
+				  } */
 				showRigth: false,
 				//canvas的数据
 				canvasHightData: [],
@@ -232,7 +230,7 @@
 				   }
 				})
 			},
-			async getWether(city){
+			getWether(city){
 				//获取天气情况
 				const self = this;
 				if(city.indexOf('市') > 0){
@@ -252,14 +250,14 @@
 						city: city,
 						key: 'c9635a6433c99e58484af6aaffbbbd59'
 					},
-					success: (res) => {
+					success: async (res) => {
 						const data = res.data.result;
 						self.wd =  data.realtime.temperature; //当前温度
 						self.fl =  data.realtime.power; //当前风力
 						self.sd =  data.realtime.humidity; //当前湿度
 						self.currentType = data.realtime.info; //当前天气情况
-						let d = await self.getWZ(data.realtime.info);
-						self.currentIcon = 'iconfont-' + d;//当前天气状态
+						let returnWZ = await self.getWZ(data.realtime.info);
+						self.currentIcon = 'icon-' + returnWZ;//当前天气状态
 						let arr = [];//处理近五天的数据
 						let currentWd = '';//当前温度
 						let canvasHightData = [];//每天对应最高温度
@@ -276,11 +274,11 @@
 								today = dateS[1] + '-' + dateS[2];
 							}
 							
-							let da = await self.getWZ(data.future[i].weather);
+							let resultWZMore = await self.getWZ(data.future[i].weather);
 							let obj = {
 								date: today,
 								xq: self.getWeek(data.future[i].date),
-								icon: 'icon-' + da,
+								icon: 'icon-' + resultWZMore,
 								type: data.future[i].weather,
 								wd: data.future[i].temperature.replace('/','~')
 							};
@@ -300,9 +298,6 @@
 						self.wetherList = self.wetherList.concat(arr);
 						self.canvasHightData = self.canvasHightData.concat(canvasHightData);
 						self.canvasLowData = self.canvasLowData.concat(canvasLowData);
-						console.log(self.wetherList)
-						console.log(self.canvasHightData)
-						console.log(self.canvasLowData)
 						//判断数组中最大的数字和最小的数字
 						self.canvasMaximum = Math.max.apply(null, canvasHightData);
 						self.canvasMinimum = Math.min.apply(null, canvasLowData);
@@ -327,31 +322,28 @@
 				return "周" + "日一二三四五六".charAt(date.getDay());
 			},
 			getWZ(wz){
-				//在线中文转不带音调的拼音
-				uni.request({
-					url: 'https://helloacm.com/api/pinyin',
-					method: 'GET',
-					dataType: 'json',
-					header: {
-						'Content-type': 'application/json'
-					},
-					data: {
-						s: wz
-					},
-					success: (res) => {
-						debugger
-						//数组转字符串
-						// debugger
-						// const str = res.data.result.join('');
-						// console.log('结果');
-						// console.log(str);
-						// return str;
-					},
-					fail: (error) => {
-						debugger
-						console.log(error)
-					}
-				})
+				return new Promise((resolve,reject) => {
+					uni.request({
+						url: 'https://helloacm.com/api/pinyin',
+						method: 'GET',
+						dataType: 'json',
+						header: {
+							'Content-type': 'application/json'
+						},
+						data: {
+							s: wz
+						},
+						success: (res) => {
+							//数组转字符串
+							 const str = res.data.result.join('');
+							 resolve(str);
+						},
+						fail: (error) => {
+							console.log(error)
+							reject(error)
+						}
+					})
+				});
 			}
 		},
 		components:{
