@@ -131,6 +131,7 @@
 	top: 260upx;
 	width: 100%;
 	height: calc(100% / 2);
+	z-index: 0;
 }
 .wetherBottom .wetherDate{
   font-size: 35upx;
@@ -141,12 +142,9 @@
 }
 
 /*侧边栏*/
-.gengduoDrawer .demo-container{
+.demo-container{
   height: 100%;
   width: 100%;
-}
-.gengduoDrawer .demo-container .gengduoContent{
-  padding: 20upx;
 }
 .gengduoAdd{
   width: 100%;
@@ -169,7 +167,11 @@
 }
 .gengduoContent{
   width: 100%;
-  height: calc(100% - 110upx);
+  height: calc(100% - 70upx);
+	overflow: auto;
+}
+.scroll-Y {
+	height: 100%;
 }
 .gengduoContent ul{
   width: 100%;

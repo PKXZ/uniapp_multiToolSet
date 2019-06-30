@@ -1,0 +1,174 @@
+.todayHeadlineContent{
+	width: 100%;
+	height:100%;
+}
+.todayHeadlineTop {
+    width: 100%;
+    height: 500rpx;
+    -webkit-transform: translate(0, 0);
+        -ms-transform: translate(0, 0);
+            transform: translate(0, 0);
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 143, 250,1)),to(rgba(40, 157, 224,0.8)));
+    background: -webkit-linear-gradient(top, rgba(32, 143, 250,1),rgba(40, 157, 224,0.8));
+    background: -o-linear-gradient(top, rgba(32, 143, 250,1),rgba(40, 157, 224,0.8));
+    background: linear-gradient(to bottom, rgba(32, 143, 250,1),rgba(40, 157, 224,0.8));
+}
+.todayDiv{
+	width: 100%;
+	height: -webkit-calc(100% - 90rpx);
+	height: calc(100% - 90rpx);
+}
+/*波浪*/
+.waves {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: -60rpx;
+  margin-top: -70rpx;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+}
+.wave, .waves:before, .waves:after {
+  position: absolute;
+  background: white;
+  width: 120rpx;
+  height: 120rpx;
+  content: "";
+  display: block;
+  -webkit-border-radius: 50%;
+          border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+  border: none;
+}
+.waves:before {
+  -webkit-animation: wave-animate 14s infinite ease-out;
+          animation: wave-animate 14s infinite ease-out;
+}
+.waves:after {
+  opacity: 0;
+  -webkit-animation: wave-animate 14s 8s infinite ease-out;
+          animation: wave-animate 14s 8s infinite ease-out;
+}
+.waves ._span{
+	font-size: 80rpx;
+	color: #fff;
+	position: absolute;
+	top: 0rpx;
+	left: -50rpx;
+}
+@-webkit-keyframes wave-animate {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+  }
+  100% {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+    opacity: 0;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+  }
+}
+@keyframes wave-animate {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    opacity: 1;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+  }
+  100% {
+    -webkit-transform: scale(3);
+            transform: scale(3);
+    opacity: 0;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+  }
+}
+/*水波纹*/
+.ellipseDiv{
+	width: 100%;
+	height: 90rpx;
+	position: relative;
+	overflow: hidden;
+}
+.ellipse{
+    width: 60%;
+    height: 250%;
+    background: rgba(255, 255, 255, 0.8);
+    -webkit-border-radius: 55%;
+            border-radius: 55%;
+}
+.ellipseOne {
+   position: absolute;
+   left: -40%;
+   margin-top: 30rpx;
+}
+.ellipseTwo {
+   position: absolute;
+   left: 0;
+}
+.ellipseThree {
+   position: absolute;
+   left: 10%;
+   margin-top: 30rpx;
+}
+.ellipseFour{
+   position: absolute;
+   left: 55%;
+   margin-top: 30rpx;
+}
+.ellipseFive{
+   position: absolute;
+   left: 40%;
+}
+/*下半部*/
+.todayHeadlineBottom{
+	width: 100%;
+	height: -webkit-calc(100% - 500rpx);
+	height: calc(100% - 500rpx);
+}
+.todayHeadlineBottom .iconBottom{
+	text-align: center;
+}
+.todayScroll{
+	width: 100%;
+    height: -webkit-calc(100% - 130rpx);
+    height: calc(100% - 130rpx);
+	margin: 20rpx auto auto auto;
+}
+.todayListUl{
+	width: 85%;
+	height: 100%;
+	margin: 0 auto;
+}
+.todayListUl ._li{
+	padding: 26rpx 26rpx;
+	border-bottom: 1rpx solid #eee;
+}
+.fixedIcon{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+.iconBottomF{
+	margin-top: 200rpx;
+}
+.iconBottom ._i{
+	font-size: 90rpx;
+	color: #fff;
+	cursor: pointer;
+	-webkit-border-radius: 50%;
+	        border-radius: 50%;
+	background: #279ce2;
+	margin: 0 auto;
+	text-align: center;
+	-webkit-box-shadow: 12rpx 12rpx 10rpx #888888;
+	        box-shadow: 12rpx 12rpx 10rpx #888888;
+}

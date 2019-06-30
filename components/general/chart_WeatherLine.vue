@@ -1,10 +1,13 @@
 <template>
-	<canvas 
-		class="canvas" 
-		canvas-id="weatherLineCanvas" 
-		id="weatherLineCanvas" 
-		:style="{height:canvasHeight,width:canvasWidth}">
-	</canvas>
+	<view 
+		:style="{zIndex: -99,height:canvasHeight,width:canvasWidth}">
+		<canvas
+			class="canvas" 
+			canvas-id="weatherLineCanvas" 
+			id="weatherLineCanvas" 
+			:style="{height:canvasHeight,width:canvasWidth}">
+		</canvas>
+	</view>
 </template>
 
 <script>
@@ -47,16 +50,19 @@
 			}
 		},
 		watch:{
-			canvasLowData(newDate,oldDate){
-				const self = this;
-				self.$nextTick(function(){
-					uni.showLoading({
-						title: '加载中'
-					});
-					if(newDate.length > 0){
-						self.initLine();
-					}
-				})
+			canvasLowData: {
+				handler(newDate, oldDate) {
+				  const self = this;
+				  self.$nextTick(function(){
+				  	uni.showLoading({
+				  		title: '加载中'
+				  	});
+				  	if(newDate.length > 0){
+				  		self.initLine();
+				  	}
+				  })
+				},
+				deep: true
 			}
 		},
 		mounted() {
@@ -89,7 +95,7 @@
 				query.exec(function (res) { 
 					 const dynamicWidth = res[0].width;
 					 const dynamicHeight = res[0].height;
-					 
+					 self.context.clearRect(0,dynamicWidth,dynamicWidth,dynamicHeight);//重绘清理
 					 self.canvasHeight = dynamicHeight + 'upx';
 					 //绘制画布
 					 //this.canvas = this.$refs.weatherLineCanvas.$el;

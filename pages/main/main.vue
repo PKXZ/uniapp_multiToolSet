@@ -61,6 +61,13 @@ export default {
 				  "#2481b4", "#87c6ea"
 				]
 			  }, {
+				label: '设置闹钟',
+				type: 'todayHeadline',
+				icon: 'icon-xinwen',
+				color: [
+				  "#49bff3", "#9df8f7"
+				]
+			  }, {
 				label: '新华字典',
 				type: 'xinhuaDictionary',
 				icon: 'icon-xinhuazidian',
@@ -116,14 +123,7 @@ export default {
 				color: [
 				  "#58a0fd", "#c8c6ff"
 				]
-			  }, {
-				label: '设置闹钟',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#49bff3", "#9df8f7"
-				]
-			  }, {
+			  },{
 				label: '语音读报',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',

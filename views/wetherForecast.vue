@@ -58,21 +58,23 @@
 	  </view>
 	  
 	  <!--抽屉-->
-	  <uni-drawer :visible="showRigth" mode="right" @close="closeDrawer">
+	  <uni-drawer :visible="showRigth" mode="right" @close="closeDrawer" class="drawerDiv">
 		  <view class="demo-container">
 			  <view class="gengduoAdd">
 					<i class="iconfont icon-zuojiantou iLeft" @click="hide"></i>
 					<i class="iconfont icon-jia iRight" @click="citySelector"></i>
 			  </view>
 			  <view class="gengduoContent">
+				  <scroll-view scroll-y="true" class="scroll-Y">
 					<ul>
-						<li v-for="(item,index) in cityList" :key="index">
+						<li v-for="(item,index) in cityList" :key="index" @click="itemFun(item)">
 							<i class="iconfont icon-dizhidingwei"></i>
 							<span class="cityName">{{item.cityName}}</span>
 							<span>{{item.wd}}</span>
 						</li>
 						<div style="clear:both;"></div>
 					</ul>
+					</scroll-view>
 			  </view>
 		  </view>
 	  </uni-drawer>
@@ -143,7 +145,6 @@
 			}
 		},
 		onNavigationBarButtonTap(btn){
-			console.log(JSON.stringify(btn))
 			this.gengduoFun();
 		},
 		onLoad(options) {
@@ -160,9 +161,13 @@
 				duration: 400,
 				timingFunc: 'easeIn'
 			  }
-			})
-			//获取当前位置
-			this.loadInfo();
+			});
+			if(!options.cityName){
+				//获取当前位置
+				this.loadInfo();
+			}else{
+				this.currentCity = options.cityName;
+			}
 			//安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
 			//#ifdef MP
 				//所有的小程序
@@ -204,7 +209,9 @@
 						self.loadCity(latitude, longitude);
 					},
 					fail: function (err) {
-						console.log('定位失败，默认查询成都');
+						uni.showToast({
+							title: '定位失败，默认查询成都'
+						});
 						self.currentCity = '成都';
 						self.loadCity(30.64242,104.04311);
 					}
@@ -251,58 +258,105 @@
 						key: 'c9635a6433c99e58484af6aaffbbbd59'
 					},
 					success: async (res) => {
-						const data = res.data.result;
-						self.wd =  data.realtime.temperature; //当前温度
-						self.fl =  data.realtime.power; //当前风力
-						self.sd =  data.realtime.humidity; //当前湿度
-						self.currentType = data.realtime.info; //当前天气情况
-						let returnWZ = await self.getWZ(data.realtime.info);
-						self.currentIcon = 'icon-' + returnWZ;//当前天气状态
-						let arr = [];//处理近五天的数据
-						let currentWd = '';//当前温度
-						let canvasHightData = [];//每天对应最高温度
-						let canvasLowData = [];//每天对应最低温度
-						self.canvasNumData = data.future.length;//有几天的天气数据
-						for(let i = 0; i < data.future.length; i++){
-							const dateS = data.future[i].date.split('-');
-							let today = '';
-							if(new Date(data.future[i].date).toDateString() === new Date().toDateString()){
-								//判断是否为今天
-								today = '今天';
-								currentWd = data.future[i].temperature.replace('/','~');
-							}else{
-								today = dateS[1] + '-' + dateS[2];
+						const code = res.data.resultcode;
+						if(code === '112' || code === '207301'){
+							//超过今日请求数字了
+							uni.hideLoading();
+							uni.showToast({
+								title: res.data.reason,
+								duration: 2000
+							});
+						}else{
+							const data = res.data.result;
+							self.wd =  data.realtime.temperature; //当前温度
+							self.fl =  data.realtime.power; //当前风力
+							self.sd =  data.realtime.humidity; //当前湿度
+							const info = data.realtime.info.split('转')[1] ? data.realtime.info.split('转')[1] : data.realtime.info.split('转')[0];//暂时为了不去找更多icon，先去掉xxx转XXX的天气，直接截取后面的
+							self.currentType = info; //当前天气情况
+							let returnWZ = await self.getWZ(info);
+							self.currentIcon = 'icon-' + returnWZ;//当前天气状态
+							let arr = [];//处理近五天的数据
+							let currentWd = '';//当前温度
+							let canvasHightData = [];//每天对应最高温度
+							let canvasLowData = [];//每天对应最低温度
+							self.canvasNumData = data.future.length;//有几天的天气数据
+							for(let i = 0; i < data.future.length; i++){
+								const dateS = data.future[i].date.split('-');
+								let today = '';
+								if(new Date(data.future[i].date).toDateString() === new Date().toDateString()){
+									//判断是否为今天
+									today = '今天';
+									currentWd = data.future[i].temperature.replace('/','~');
+								}else{
+									today = dateS[1] + '-' + dateS[2];
+								}
+								let infoWeather = data.future[i].weather.split('转')[1] ? data.future[i].weather.split('转')[1] : data.future[i].weather.split('转')[0];//暂时为了不去找更多icon，先去掉xxx转XXX的天气，直接截取后面的
+								let resultWZMore = await self.getWZ(infoWeather);
+								let obj = {
+									date: today,
+									xq: self.getWeek(data.future[i].date),
+									icon: 'icon-' + resultWZMore,
+									type: infoWeather,
+									wd: data.future[i].temperature.replace('/','~')
+								};
+								
+								//判断哪个是一天中的低温和高温
+								const wd = data.future[i].temperature.split('/');
+								if(parseInt(wd[0]) > parseInt(wd[1])){
+									canvasHightData.push(parseInt(wd[0]));
+									canvasLowData.push(parseInt(wd[1]));
+								}else{
+									canvasHightData.push(parseInt(wd[1]));
+									canvasLowData.push(parseInt(wd[0]));
+								}
+								arr.push(obj);
 							}
+							//一个数组赋值给另外一个数组
+							self.wetherList = [];
+							self.wetherList = self.wetherList.concat(arr);
+							self.canvasHightData = self.canvasHightData.concat(canvasHightData);
+							self.canvasLowData = self.canvasLowData.concat(canvasLowData);
+							//判断数组中最大的数字和最小的数字
+							self.canvasMaximum = Math.max.apply(null, canvasHightData);
+							self.canvasMinimum = Math.min.apply(null, canvasLowData);
 							
-							let resultWZMore = await self.getWZ(data.future[i].weather);
-							let obj = {
-								date: today,
-								xq: self.getWeek(data.future[i].date),
-								icon: 'icon-' + resultWZMore,
-								type: data.future[i].weather,
-								wd: data.future[i].temperature.replace('/','~')
+							//存储抽屉内数据
+							const cityData = {
+								cityName: self.currentCity,
+								wd: currentWd
 							};
-							
-							//判断哪个是一天中的低温和高温
-							const wd = data.future[i].temperature.split('/');
-							if(parseInt(wd[0]) > parseInt(wd[1])){
-								canvasHightData.push(parseInt(wd[0]));
-								canvasLowData.push(parseInt(wd[1]));
+							const value = uni.getStorageSync('chooseCitySelector');
+							if (value) {
+								//已存在
+								let jsons = value;
+								let currentCity = self.currentCity;
+								currentCity = currentCity.indexOf('市') === -1 ? currentCity.split('市')[0] : currentCity;
+								const jsonsData = JSON.parse(jsons);
+								if(jsons && jsons.indexOf(currentCity) === -1){
+									jsonsData.push(cityData);
+									self.cityList = self.cityList.concat(jsonsData);
+									uni.setStorage({
+										key: 'chooseCitySelector',
+										data: JSON.stringify(jsonsData)
+									});
+								}else{
+									self.cityList = self.cityList.concat(jsonsData);
+									uni.setStorage({
+										key: 'chooseCitySelector',
+										data: JSON.stringify(jsonsData)
+									});
+								}
 							}else{
-								canvasHightData.push(parseInt(wd[1]));
-								canvasLowData.push(parseInt(wd[0]));
+								//未存在
+								self.cityList.push(cityData);
+								uni.setStorage({
+									key: 'chooseCitySelector',
+									data: JSON.stringify(self.cityList)
+								});
+								self.cityList = self.cityList.concat(cityData);
 							}
-							arr.push(obj);
+							uni.hideLoading();//结束加载动画
 						}
-						//一个数组赋值给另外一个数组
-						self.wetherList = self.wetherList.concat(arr);
-						self.canvasHightData = self.canvasHightData.concat(canvasHightData);
-						self.canvasLowData = self.canvasLowData.concat(canvasLowData);
-						//判断数组中最大的数字和最小的数字
-						self.canvasMaximum = Math.max.apply(null, canvasHightData);
-						self.canvasMinimum = Math.min.apply(null, canvasLowData);
-						
-						uni.hideLoading();//结束加载动画
 					},
 					fail: (error) => {
 						uni.hideLoading();//结束加载动画
@@ -344,6 +398,11 @@
 						}
 					})
 				});
+			},
+			itemFun(item){
+				//单击报错的城市
+				this.currentCity = item.cityName;
+				this.showRigth = false;
 			}
 		},
 		components:{

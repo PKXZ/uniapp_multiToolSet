@@ -1,1 +1,0 @@
-<canvas class="canvas" style="{{'height:'+(canvasHeight)+';'+('width:'+(canvasWidth)+';')}}" canvas-id="weatherLineCanvas" id="weatherLineCanvas"></canvas>
