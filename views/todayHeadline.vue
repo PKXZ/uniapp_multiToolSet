@@ -20,7 +20,22 @@
 			<scroll-view scroll-y="true" :class="ulList.length > 0 ? 'todayScroll' : ''">
 				<ul class="todayListUl">
 					<li v-for="(item,index) in ulList" :key="index">
-						{{item.name}}
+						<div class="clockDiv">
+							<span>{{item.time}}</span>
+							<p>{{item.pointTime}}</p>
+						</div>
+						<div class="periodDiv">
+							<ul>
+								<li>日</li>
+								<li>一</li>
+								<li>二</li>
+								<li>三</li>
+								<li>四</li>
+								<li>五</li>
+								<li>六</li>
+							</ul>
+							<switch color="#FFCC33" style="transform:scale(0.7)"></switch>
+						</div>
 					</li>
 				</ul>
 			</scroll-view>
@@ -39,21 +54,11 @@
 				nowTime: (new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()) + ':' + (new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes()),
 				ulList: [
 					{
-						name: 'aaaa'
+						time: '09:00',
+						pointTime: '上午'
 					},{
-						name: 'aaaa'
-					},{
-						name: 'aaaa'
-					},{
-						name: 'aaaa'
-					},{
-						name: 'aaaa'
-					},{
-						name: 'aaaa'
-					},{
-						name: 'aaaa'
-					},{
-						name: 'aaaa'
+						time: '18:00',
+						pointTime: '下午'
 					}
 				]
 			}
