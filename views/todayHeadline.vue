@@ -20,22 +20,25 @@
 			<scroll-view scroll-y="true" :class="ulList.length > 0 ? 'todayScroll' : ''">
 				<ul class="todayListUl">
 					<li v-for="(item,index) in ulList" :key="index">
-						<div class="clockDiv">
-							<span>{{item.time}}</span>
-							<p>{{item.pointTime}}</p>
-						</div>
-						<div class="periodDiv">
-							<ul>
-								<li>日</li>
-								<li>一</li>
-								<li>二</li>
-								<li>三</li>
-								<li>四</li>
-								<li>五</li>
-								<li>六</li>
-							</ul>
-							<switch color="#FFCC33" style="transform:scale(0.7)"></switch>
-						</div>
+						<uniSwipeAction :options="opt" @click="bindClick">
+							<div class="clockDiv">
+								<div>
+									<span>{{item.time}}</span>
+									<p>{{item.pointTime}}</p>
+								</div>
+								<switch color="#20e6b8"></switch>
+							</div>
+							<div class="periodDiv">
+								<ul>
+									<li 
+										v-for="(week,indx) in weekList" 
+										:key="indx" 
+										:class="item.interval.indexOf(week) != -1 ? 'usedLi' : ''">
+										{{week}}
+									</li>
+								</ul>
+							</div>
+						</uniSwipeAction>
 					</li>
 				</ul>
 			</scroll-view>
@@ -48,19 +51,37 @@
 
 <script>
 	import '../static/css/todayHeadline.css';
+	import uniSwipeAction from '@/components/common/uni-swipe-action';
 	export default {
 		data() {
 			return {
 				nowTime: (new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()) + ':' + (new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes()),
+				weekList: ['日','一','二','三','四','五','六'],
 				ulList: [
 					{
 						time: '09:00',
-						pointTime: '上午'
+						pointTime: '上午',
+						interval: ['一','二','三','四','五']
 					},{
 						time: '18:00',
-						pointTime: '下午'
+						pointTime: '下午',
+						interval: ['一','二','三','四','五']
+					},{
+						time: '07:00',
+						pointTime: '上午',
+						interval: ['一','二','三','四','五']
+					},{
+						time: '13:14',
+						pointTime: '下午',
+						interval: ['日','六']
 					}
-				]
+				],
+				opt: [{
+					text: '删除',
+					style: {
+						backgroundColor: 'rgb(255,58,49)'
+					}
+				}],
 			}
 		},
 		onLoad(options) {
@@ -85,8 +106,19 @@
 		methods:{
 			addAlarm(){
 				//添加闹钟
-				//this.ulList
-			}
+				uni.navigateTo({
+					url: '/views/pages/setAlarm',
+				});
+			},
+			bindClick(value) {
+				uni.showToast({
+					title: `点击了${value.text}按钮`,
+					icon: 'none'
+				})
+			},
+		},
+		components:{
+			uniSwipeAction
 		}
 	}
 </script>

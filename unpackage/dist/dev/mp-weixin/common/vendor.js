@@ -93,10 +93,10 @@ createPage(_myself.default);
 
 /***/ }),
 
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"views%2FcitySelector\"}":
-/*!**************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"views%2FcitySelector"} ***!
-  \**************************************************************************************************************************/
+/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"views%2Fpages%2FcitySelector\"}":
+/*!**********************************************************************************************************************************!*\
+  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"views%2Fpages%2FcitySelector"} ***!
+  \**********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -104,8 +104,25 @@ createPage(_myself.default);
 /* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
 
 var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
-var _citySelector = _interopRequireDefault(__webpack_require__(/*! ./views/citySelector.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/citySelector.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var _citySelector = _interopRequireDefault(__webpack_require__(/*! ./views/pages/citySelector.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/pages/citySelector.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 createPage(_citySelector.default);
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
+
+/***/ }),
+
+/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"views%2Fpages%2FsetAlarm\"}":
+/*!******************************************************************************************************************************!*\
+  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{"page":"views%2Fpages%2FsetAlarm"} ***!
+  \******************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(createPage) {__webpack_require__(/*! uni-pages */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/pages.json");
+
+var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ "./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js"));
+var _setAlarm = _interopRequireDefault(__webpack_require__(/*! ./views/pages/setAlarm.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/pages/setAlarm.vue"));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+createPage(_setAlarm.default);
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["createPage"]))
 
 /***/ }),

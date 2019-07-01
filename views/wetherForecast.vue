@@ -68,9 +68,13 @@
 				  <scroll-view scroll-y="true" class="scroll-Y">
 					<ul>
 						<li v-for="(item,index) in cityList" :key="index" @click="itemFun(item)">
-							<i class="iconfont icon-dizhidingwei"></i>
-							<span class="cityName">{{item.cityName}}</span>
-							<span>{{item.wd}}</span>
+							<uniSwipeAction :options="opt" @click="bindClick">
+								<div class="cxt">
+									<i class="iconfont icon-dizhidingwei"></i>
+									<span class="cityName">{{item.cityName}}</span>
+									<span>{{item.wd}}</span>
+								</div>
+							</uniSwipeAction>
 						</li>
 						<div style="clear:both;"></div>
 					</ul>
@@ -84,7 +88,8 @@
 <script>
 	import '../static/css/wetherForecast.css';
 	import uniDrawer from '@/components/common/uni-drawer';
-	import chart_WeatherLine from '@/components/general/chart_WeatherLine.vue'
+	import chart_WeatherLine from '@/components/general/chart_WeatherLine.vue';
+	import uniSwipeAction from '@/components/common/uni-swipe-action';
 	export default {
 		data() {
 			return {
@@ -141,7 +146,14 @@
 				canvasLowData: [],
 				canvasNumData: 0,
 				canvasMaximum: 0,
-				canvasMinimum: 0
+				canvasMinimum: 0,
+				opt: [{
+					text: '删除',
+					style: {
+						backgroundColor: 'rgb(255,58,49)'
+					}
+				}],
+				slipRightLoad: false,//右滑加载
 			}
 		},
 		onNavigationBarButtonTap(btn){
@@ -162,6 +174,7 @@
 				timingFunc: 'easeIn'
 			  }
 			});
+			
 			if(!options.cityName){
 				//获取当前位置
 				this.loadInfo();
@@ -185,7 +198,7 @@
 		},
 		methods:{
 			gengduoFun(){
-				this.showRigth = true
+				this.showRigth = true;
 			},
 			closeDrawer() {
 				this.showRigth = false
@@ -195,7 +208,7 @@
 			},
 			citySelector(){
 				uni.navigateTo({
-					url: '/views/citySelector',
+					url: '/views/pages/citySelector',
 				})
 			},
 		    loadInfo() {
@@ -258,8 +271,9 @@
 						key: 'c9635a6433c99e58484af6aaffbbbd59'
 					},
 					success: async (res) => {
-						const code = res.data.resultcode;
-						if(code === '112' || code === '207301'){
+						debugger
+						const code = res.data.error_code;
+						if(code === 112 || code === 207301){
 							//超过今日请求数字了
 							uni.hideLoading();
 							uni.showToast({
@@ -401,13 +415,22 @@
 			},
 			itemFun(item){
 				//单击报错的城市
+				debugger
 				this.currentCity = item.cityName;
 				this.showRigth = false;
-			}
+			},
+			bindClick(value) {
+				debugger
+				uni.showToast({
+					title: `点击了${value.text}按钮`,
+					icon: 'none'
+				})
+			},
 		},
 		components:{
 			uniDrawer,
-			chart_WeatherLine
+			chart_WeatherLine,
+			uniSwipeAction
 		}
 	}
 </script>

@@ -5,8 +5,9 @@
     "pages/message/message",
     "pages/find/find",
     "views/wetherForecast",
-    "views/citySelector",
+    "views/pages/citySelector",
     "views/todayHeadline",
+    "views/pages/setAlarm",
     "views/xinhuaDictionary"
   ],
   "subPackages": [],

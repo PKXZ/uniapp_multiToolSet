@@ -195,7 +195,7 @@ var _default =
       query.exec(function (res) {
         var dynamicWidth = res[0].width;
         var dynamicHeight = res[0].height;
-        self.context.clearRect(0, dynamicWidth, dynamicWidth, dynamicHeight); //重绘清理
+        //self.context.clearRect(0,dynamicWidth,dynamicWidth,dynamicHeight);//重绘清理
         self.canvasHeight = dynamicHeight + 'upx';
         //绘制画布
         //this.canvas = this.$refs.weatherLineCanvas.$el;

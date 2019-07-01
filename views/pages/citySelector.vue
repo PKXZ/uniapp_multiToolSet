@@ -71,7 +71,7 @@
 			loadCity(latitude, longitude) {
 				//把当前位置的经纬度传给高德地图，调用高德API获取当前地理位置
 				const self = this;
-				const amapFile = require('../utils/amap-wx.js');
+				const amapFile = require('../../utils/amap-wx.js');
 				const markersData = {
 				  latitude: '',//纬度
 				  longitude: '',//经度

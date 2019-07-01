@@ -114,6 +114,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 __webpack_require__(/*! ../static/css/todayHeadline.css */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/todayHeadline.css"); //
 //
 //
@@ -147,23 +165,42 @@ __webpack_require__(/*! ../static/css/todayHeadline.css */ "../../../companyLear
 //
 //
 //
-var _default = { data: function data() {return { nowTime: (new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()) + ':' + (new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes()), ulList: [{ name: 'aaaa' }, { name: 'aaaa' }, { name: 'aaaa' }, { name: 'aaaa' }, { name: 'aaaa' }, { name: 'aaaa' }, { name: 'aaaa' }, { name: 'aaaa' }] };}, onLoad: function onLoad(options) {//动态设置标题
-    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff',
-      backgroundColor: '#208ffa',
-      animation: {
-        duration: 400,
-        timingFunc: 'easeIn' } });
-
-
-  },
-  mounted: function mounted() {
-
-  },
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var uniSwipeAction = function uniSwipeAction() {return __webpack_require__.e(/*! import() | components/common/uni-swipe-action */ "components/common/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/components/common/uni-swipe-action */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/components/common/uni-swipe-action.vue"));};var _default = { data: function data() {return { nowTime: (new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()) + ':' + (new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes()), weekList: ['日', '一', '二', '三', '四', '五', '六'], ulList: [{ time: '09:00', pointTime: '上午', interval: ['一', '二', '三', '四', '五'] }, { time: '18:00', pointTime: '下午', interval: ['一', '二', '三', '四', '五'] }, { time: '07:00', pointTime: '上午', interval: ['一', '二', '三', '四', '五'] }, { time: '13:14', pointTime: '下午', interval: ['日', '六'] }], opt: [{ text: '删除', style: { backgroundColor: 'rgb(255,58,49)' } }] };}, onLoad: function onLoad(options) {//动态设置标题
+    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#208ffa', animation: { duration: 400, timingFunc: 'easeIn' } });}, mounted: function mounted() {},
   methods: {
     addAlarm: function addAlarm() {
       //添加闹钟
-      //this.ulList
-    } } };exports.default = _default;
+      uni.navigateTo({
+        url: '/views/pages/setAlarm' });
+
+    },
+    bindClick: function bindClick(value) {
+      uni.showToast({
+        title: "\u70B9\u51FB\u4E86".concat(value.text, "\u6309\u94AE"),
+        icon: 'none' });
+
+    } },
+
+  components: {
+    uniSwipeAction: uniSwipeAction } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 
 /***/ }),
@@ -183,6 +220,27 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
+  var l1 = _vm.ulList.map(function(item, index) {
+    var l0 = _vm.weekList.map(function(week, indx) {
+      var g0 = item.interval.indexOf(week)
+      return {
+        $orig: _vm.__get_orig(week),
+        g0: g0
+      }
+    })
+    return {
+      $orig: _vm.__get_orig(item),
+      l0: l0
+    }
+  })
+  _vm.$mp.data = Object.assign(
+    {},
+    {
+      $root: {
+        l1: l1
+      }
+    }
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
