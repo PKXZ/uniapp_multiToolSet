@@ -4,7 +4,9 @@
 		<view class="todayHeadlineTop">
 			<view class="todayDiv">
 				<view class="waves">
-					<span>{{nowTime}}</span>
+					<span class="hours">{{hours}}</span>
+					<span class="mh">:</span>
+					<span>{{minutes}}</span>
 				</view>
 			</view>
 			<view class="ellipseDiv">
@@ -26,7 +28,7 @@
 									<span>{{item.time}}</span>
 									<p>{{item.pointTime}}</p>
 								</div>
-								<switch color="#20e6b8"></switch>
+								<switch color="#20e6b8" @change="alarmSwitch($event,index)"></switch>
 							</div>
 							<div class="periodDiv">
 								<ul>
@@ -55,7 +57,8 @@
 	export default {
 		data() {
 			return {
-				nowTime: (new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours()) + ':' + (new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes()),
+				hours: new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours(),
+				minutes: new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes(),
 				weekList: ['日','一','二','三','四','五','六'],
 				ulList: [
 					{
@@ -116,6 +119,11 @@
 					icon: 'none'
 				})
 			},
+			alarmSwitch(e,index){
+				//闹钟开关
+				console.log(e.target.value);
+				console.log(index);
+			}
 		},
 		components:{
 			uniSwipeAction

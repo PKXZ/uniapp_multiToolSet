@@ -15,17 +15,15 @@
 /*波浪*/
 .waves {
   position: relative;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  width: 120upx;
-  height: 120upx;
   margin-left: -60upx;
   margin-top: -70upx;
   border-radius: 50%;
   -webkit-backface-visibility: hidden;
+  display: flex;
 }
-
-.wave, .waves:before, .waves:after {
+ .waves:before, .waves:after {
   position: absolute;
   background: white;
   width: 120upx;
@@ -36,6 +34,18 @@
   -webkit-backface-visibility: hidden;
   border: none;
 }
+.waves .hours{
+	margin-left: -45upx;
+}
+.waves .mh{
+	margin: 0 10upx;
+	animation: mhmove 1s ease infinite;
+	font: bold 80upx Arial, Helvetica, sans-serif;
+}
+.waves span{
+	font-size: 80upx;
+	color: #fff;
+}
 .waves:before {
   animation: wave-animate 14s infinite ease-out;
 }
@@ -43,12 +53,19 @@
   opacity: 0;
   animation: wave-animate 14s 8s infinite ease-out;
 }
-.waves span{
-	font-size: 80upx;
-	color: #fff;
-	position: absolute;
-	top: 0upx;
-	left: -50upx;
+@keyframes mhmove{
+	0% {
+		opacity: 1.0;
+		text-shadow: 0 0 40upx #00c6ff;
+	}
+	50% {
+		opacity: 0;
+		text-shadow: none;
+	}
+	100% {
+		opacity: 1.0;
+		text-shadow: 0 0 40upx #00c6ff;
+	}
 }
 @keyframes wave-animate {
   0% {
