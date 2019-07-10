@@ -20,13 +20,59 @@
 		float: right;
 	}
 	.primary{
+		background: #409eff;
 		color: #fff;
+	}
+	.primary,.default{
 		height: 70upx;
 		line-height: 70upx;
 		padding: 0 26upx;
 		font-size: 34upx;
-		background: #409eff;
 	}
 	.primary:hover{
 		background: #66b1ff;
 	}
+	
+	/*行列*/
+	.uniRowView{
+		background: #fff;
+		margin: 20upx 0;
+		position: relative;
+	}
+	.uniRowList{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		padding: 20upx 0upx 20upx 20upx;
+		box-sizing: border-box;
+		width: 100%;
+	}
+	.uniRowListRIcon::after{
+		font-family: 'iconfont' !important;
+		content: '\e6e0';
+		position: absolute;
+		right: 10upx;
+		top: 50%;
+		color: #bbb;
+		font-size: 34upx;
+		-webkit-transform: translateY(-50%);
+		-ms-transform: translateY(-50%);
+		transform: translateY(-50%);
+	}
+	.uniRowList span{
+		font-size: 34upx;
+	}
+	.uniRowList switch{
+		transform:scale(0.8);
+	}
+	.uniCloList{
+		display: flex;
+		flex-direction: column;
+	}
+	.uniCloList p{
+		font-size: 34upx;
+	}
+	
+	/*按钮*/
+	

@@ -20,12 +20,14 @@
 		float: right;
 	}
 	.primary{
+		background: #409eff;
 		color: #fff;
+	}
+	.primary,.default{
 		height: 70upx;
 		line-height: 70upx;
 		padding: 0 26upx;
 		font-size: 34upx;
-		background: #409eff;
 	}
 	.primary:hover{
 		background: #66b1ff;
@@ -71,3 +73,6 @@
 	.uniCloList p{
 		font-size: 34upx;
 	}
+	
+	/*按钮*/
+	

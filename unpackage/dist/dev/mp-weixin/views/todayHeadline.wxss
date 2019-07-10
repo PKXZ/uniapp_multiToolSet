@@ -19,17 +19,19 @@
 /*波浪*/
 .waves {
   position: relative;
-  top: 50%;
+  top: 40%;
   left: 50%;
-  width: 120rpx;
-  height: 120rpx;
   margin-left: -60rpx;
   margin-top: -70rpx;
   -webkit-border-radius: 50%;
           border-radius: 50%;
   -webkit-backface-visibility: hidden;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
-.wave, .waves:before, .waves:after {
+.waves:before, .waves:after {
   position: absolute;
   background: white;
   width: 120rpx;
@@ -41,6 +43,19 @@
   -webkit-backface-visibility: hidden;
   border: none;
 }
+.waves .hours{
+	margin-left: -45rpx;
+}
+.waves .mh{
+	margin: 0 10rpx;
+	-webkit-animation: mhmove 1s ease infinite;
+	        animation: mhmove 1s ease infinite;
+	font: bold 80rpx Arial, Helvetica, sans-serif;
+}
+.waves ._span{
+	font-size: 80rpx;
+	color: #fff;
+}
 .waves:before {
   -webkit-animation: wave-animate 14s infinite ease-out;
           animation: wave-animate 14s infinite ease-out;
@@ -50,12 +65,33 @@
   -webkit-animation: wave-animate 14s 8s infinite ease-out;
           animation: wave-animate 14s 8s infinite ease-out;
 }
-.waves ._span{
-	font-size: 80rpx;
-	color: #fff;
-	position: absolute;
-	top: 0rpx;
-	left: -50rpx;
+@-webkit-keyframes mhmove{
+	0% {
+		opacity: 1.0;
+		text-shadow: 0 0 40rpx #00c6ff;
+	}
+	50% {
+		opacity: 0;
+		text-shadow: none;
+	}
+	100% {
+		opacity: 1.0;
+		text-shadow: 0 0 40rpx #00c6ff;
+	}
+}
+@keyframes mhmove{
+	0% {
+		opacity: 1.0;
+		text-shadow: 0 0 40rpx #00c6ff;
+	}
+	50% {
+		opacity: 0;
+		text-shadow: none;
+	}
+	100% {
+		opacity: 1.0;
+		text-shadow: 0 0 40rpx #00c6ff;
+	}
 }
 @-webkit-keyframes wave-animate {
   0% {
@@ -163,7 +199,6 @@
 	width: 100rpx;
 	height: 100rpx;
 	color: #fff;
-	cursor: pointer;
 	-webkit-border-radius: 50%;
 	        border-radius: 50%;
 	background: #279ce2;

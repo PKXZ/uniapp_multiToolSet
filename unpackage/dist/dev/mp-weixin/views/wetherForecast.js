@@ -1,81 +1,9 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["views/wetherForecast"],{
 
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue":
-/*!***********************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue ***!
-  \***********************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _wetherForecast_vue_vue_type_template_id_9fd83d24___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./wetherForecast.vue?vue&type=template&id=9fd83d24& */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=template&id=9fd83d24&");
-/* harmony import */ var _wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./wetherForecast.vue?vue&type=script&lang=js& */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
-
-
-
-
-
-/* normalize component */
-
-var component = Object(_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
-  _wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _wetherForecast_vue_vue_type_template_id_9fd83d24___WEBPACK_IMPORTED_MODULE_0__["render"],
-  _wetherForecast_vue_vue_type_template_id_9fd83d24___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
-  false,
-  null,
-  null,
-  null
-  
-)
-
-/* hot reload */
-if (false) { var api; }
-component.options.__file = "companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue"
-/* harmony default export */ __webpack_exports__["default"] = (component.exports);
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=script&lang=js&":
-/*!************************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=script&lang=js& ***!
-  \************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/babel-loader/lib!../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib??vue-loader-options!./wetherForecast.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=script&lang=js&");
-/* harmony import */ var _HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
- /* harmony default export */ __webpack_exports__["default"] = (_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
-
-/***/ }),
-
-/***/ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=template&id=9fd83d24&":
-/*!******************************************************************************************************************************************!*\
-  !*** D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=template&id=9fd83d24& ***!
-  \******************************************************************************************************************************************/
-/*! exports provided: render, staticRenderFns */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_template_id_9fd83d24___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/vue-loader/lib??vue-loader-options!./wetherForecast.vue?vue&type=template&id=9fd83d24& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=template&id=9fd83d24&");
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_template_id_9fd83d24___WEBPACK_IMPORTED_MODULE_0__["render"]; });
-
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_template_id_9fd83d24___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
-
-
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=script&lang=js&":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=script&lang=js& ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue?vue&type=script&lang=js&":
+/*!************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=script&lang=js& ***!
+  \************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -168,7 +96,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-__webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/static/css/wetherForecast.css");function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/components/common/uni-drawer.vue"));};var chart_WeatherLine = function chart_WeatherLine() {return __webpack_require__.e(/*! import() | components/general/chart_WeatherLine */ "components/general/chart_WeatherLine").then(__webpack_require__.bind(null, /*! @/components/general/chart_WeatherLine.vue */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/components/general/chart_WeatherLine.vue"));};var uniSwipeAction = function uniSwipeAction() {return __webpack_require__.e(/*! import() | components/common/uni-swipe-action */ "components/common/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/components/common/uni-swipe-action */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/components/common/uni-swipe-action.vue"));};var _default =
+__webpack_require__(/*! ../static/css/wetherForecast.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\wetherForecast.css");function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniDrawer = function uniDrawer() {return __webpack_require__.e(/*! import() | components/common/uni-drawer */ "components/common/uni-drawer").then(__webpack_require__.bind(null, /*! @/components/common/uni-drawer */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-drawer.vue"));};var chart_WeatherLine = function chart_WeatherLine() {return __webpack_require__.e(/*! import() | components/general/chart_WeatherLine */ "components/general/chart_WeatherLine").then(__webpack_require__.bind(null, /*! @/components/general/chart_WeatherLine.vue */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\general\\chart_WeatherLine.vue"));};var uniSwipeAction = function uniSwipeAction() {return __webpack_require__.e(/*! import() | components/common/uni-swipe-action */ "components/common/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/components/common/uni-swipe-action */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-swipe-action.vue"));};var _default =
 
 
 
@@ -315,7 +243,7 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLea
     loadCity: function loadCity(latitude, longitude) {
       //把当前位置的经纬度传给高德地图，调用高德API获取当前地理位置
       var self = this;
-      var amapFile = __webpack_require__(/*! ../utils/amap-wx.js */ "../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/utils/amap-wx.js");
+      var amapFile = __webpack_require__(/*! ../utils/amap-wx.js */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\utils\\amap-wx.js");
       var markersData = {
         latitude: '', //纬度
         longitude: '', //经度
@@ -353,14 +281,13 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLea
           key: 'c9635a6433c99e58484af6aaffbbbd59' },
 
         success: function () {var _success = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(res) {var code, data, info, returnWZ, arr, currentWd, canvasHightData, canvasLowData, i, dateS, today, infoWeather, resultWZMore, obj, wd, cityData, value, jsons, currentCity, jsonsData;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                    debugger;
                     code = res.data.error_code;if (!(
-                    code === 112 || code === 207301)) {_context.next = 7;break;}
+                    code === 112 || code === 207301)) {_context.next = 6;break;}
                     //超过今日请求数字了
                     uni.hideLoading();
                     uni.showToast({
                       title: res.data.reason,
-                      duration: 2000 });_context.next = 48;break;case 7:
+                      duration: 2000 });_context.next = 47;break;case 6:
 
 
                     data = res.data.result;
@@ -369,14 +296,14 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLea
                     self.sd = data.realtime.humidity; //当前湿度
                     info = data.realtime.info.split('转')[1] ? data.realtime.info.split('转')[1] : data.realtime.info.split('转')[0]; //暂时为了不去找更多icon，先去掉xxx转XXX的天气，直接截取后面的
                     self.currentType = info; //当前天气情况
-                    _context.next = 15;return self.getWZ(info);case 15:returnWZ = _context.sent;
+                    _context.next = 14;return self.getWZ(info);case 14:returnWZ = _context.sent;
                     self.currentIcon = 'icon-' + returnWZ; //当前天气状态
                     arr = []; //处理近五天的数据
                     currentWd = ''; //当前温度
                     canvasHightData = []; //每天对应最高温度
                     canvasLowData = []; //每天对应最低温度
                     self.canvasNumData = data.future.length; //有几天的天气数据
-                    i = 0;case 23:if (!(i < data.future.length)) {_context.next = 38;break;}
+                    i = 0;case 22:if (!(i < data.future.length)) {_context.next = 37;break;}
                     dateS = data.future[i].date.split('-');
                     today = '';
                     if (new Date(data.future[i].date).toDateString() === new Date().toDateString()) {
@@ -387,7 +314,7 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLea
                       today = dateS[1] + '-' + dateS[2];
                     }
                     infoWeather = data.future[i].weather.split('转')[1] ? data.future[i].weather.split('转')[1] : data.future[i].weather.split('转')[0]; //暂时为了不去找更多icon，先去掉xxx转XXX的天气，直接截取后面的
-                    _context.next = 30;return self.getWZ(infoWeather);case 30:resultWZMore = _context.sent;
+                    _context.next = 29;return self.getWZ(infoWeather);case 29:resultWZMore = _context.sent;
                     obj = {
                       date: today,
                       xq: self.getWeek(data.future[i].date),
@@ -405,7 +332,7 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLea
                       canvasHightData.push(parseInt(wd[1]));
                       canvasLowData.push(parseInt(wd[0]));
                     }
-                    arr.push(obj);case 35:i++;_context.next = 23;break;case 38:
+                    arr.push(obj);case 34:i++;_context.next = 22;break;case 37:
 
                     //一个数组赋值给另外一个数组
                     self.wetherList = [];
@@ -452,7 +379,7 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLea
                       self.cityList = self.cityList.concat(cityData);
                     }
                     uni.hideLoading(); //结束加载动画
-                  case 48:case "end":return _context.stop();}}}, _callee, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}(),
+                  case 47:case "end":return _context.stop();}}}, _callee, this);}));function success(_x) {return _success.apply(this, arguments);}return success;}(),
 
         fail: function fail(error) {
           uni.hideLoading(); //结束加载动画
@@ -497,12 +424,10 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLea
     },
     itemFun: function itemFun(item) {
       //单击报错的城市
-      debugger;
       this.currentCity = item.cityName;
       this.showRigth = false;
     },
     bindClick: function bindClick(value) {
-      debugger;
       uni.showToast({
         title: "\u70B9\u51FB\u4E86".concat(value.text, "\u6309\u94AE"),
         icon: 'none' });
@@ -517,10 +442,10 @@ __webpack_require__(/*! ../static/css/wetherForecast.css */ "../../../companyLea
 
 /***/ }),
 
-/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=template&id=9fd83d24&":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!D:/companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=template&id=9fd83d24& ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue?vue&type=template&id=7d8c12e8&":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=template&id=7d8c12e8& ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -538,7 +463,79 @@ render._withStripped = true
 
 
 
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue":
+/*!******************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/views/wetherForecast.vue ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wetherForecast_vue_vue_type_template_id_7d8c12e8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./wetherForecast.vue?vue&type=template&id=7d8c12e8& */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue?vue&type=template&id=7d8c12e8&");
+/* harmony import */ var _wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./wetherForecast.vue?vue&type=script&lang=js& */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue?vue&type=script&lang=js&");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _wetherForecast_vue_vue_type_template_id_7d8c12e8___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _wetherForecast_vue_vue_type_template_id_7d8c12e8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/views/wetherForecast.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib??vue-loader-options!./wetherForecast.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue?vue&type=script&lang=js&");
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_babel_loader_lib_index_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_12_1_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_script_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue?vue&type=template&id=7d8c12e8&":
+/*!*************************************************************************************************************************!*\
+  !*** C:/Users/dchain/Desktop/githubProject/uniapp_multiToolSet/views/wetherForecast.vue?vue&type=template&id=7d8c12e8& ***!
+  \*************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_template_id_7d8c12e8___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--17-0!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib??vue-loader-options!./wetherForecast.vue?vue&type=template&id=7d8c12e8& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader/index.js?!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/template.js!./node_modules/vue-loader/lib/index.js?!C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\views\\wetherForecast.vue?vue&type=template&id=7d8c12e8&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_template_id_7d8c12e8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_vue_cli_plugin_uni_packages_webpack_preprocess_loader_index_js_ref_17_0_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_dcloudio_webpack_uni_mp_loader_lib_template_js_D_rl41_Tool_HBuilderX_1_8_1_20190330_HBuilderX_plugins_uniapp_cli_node_modules_vue_loader_lib_index_js_vue_loader_options_wetherForecast_vue_vue_type_template_id_7d8c12e8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
 /***/ })
 
-},[["../../../companyLearn/A_JAVALearn/Project/16.myGithubProject/uniapp_multiToolSet/main.js?{\"page\":\"views%2FwetherForecast\"}","common/runtime","common/vendor"]]]);
+},[["C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\main.js?{\"page\":\"views%2FwetherForecast\"}","common/runtime","common/vendor"]]]);
 //# sourceMappingURL=../../.sourcemap/mp-weixin/views/wetherForecast.js.map

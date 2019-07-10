@@ -21,14 +21,14 @@
 		<view class="todayHeadlineBottom">
 			<scroll-view scroll-y="true" :class="ulList.length > 0 ? 'todayScroll' : ''">
 				<ul class="todayListUl">
-					<li v-for="(item,index) in ulList" :key="index">
-						<uniSwipeAction :options="opt" @click="bindClick">
+					<li v-for="(item,index) in ulList" :key="index" @click="goEcho(index,item)">
+						<uniSwipeAction :options="opt" @click="removeClick">
 							<div class="clockDiv">
 								<div>
 									<span>{{item.time}}</span>
 									<p>{{item.pointTime}}</p>
 								</div>
-								<switch color="#20e6b8" @change="alarmSwitch($event,index)"></switch>
+								<switch color="#20e6b8" :checked="item.enable" @change="alarmSwitch($event,index)"></switch>
 							</div>
 							<div class="periodDiv">
 								<ul>
@@ -60,25 +60,7 @@
 				hours: new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours(),
 				minutes: new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes(),
 				weekList: ['日','一','二','三','四','五','六'],
-				ulList: [
-					{
-						time: '09:00',
-						pointTime: '上午',
-						interval: ['一','二','三','四','五']
-					},{
-						time: '18:00',
-						pointTime: '下午',
-						interval: ['一','二','三','四','五']
-					},{
-						time: '07:00',
-						pointTime: '上午',
-						interval: ['一','二','三','四','五']
-					},{
-						time: '13:14',
-						pointTime: '下午',
-						interval: ['日','六']
-					}
-				],
+				ulList: [],
 				opt: [{
 					text: '删除',
 					style: {
@@ -104,7 +86,25 @@
 			})
 		},
 		mounted(){
-			
+			//回显数据
+			const self = this;
+			uni.getStorage({
+				key: 'selAlarm',
+				success: function (res) {
+					const selAlarm = res.data;
+					if(selAlarm){
+						self.ulList = JSON.parse(selAlarm);
+					}
+				}
+			});
+		},
+		watch:{
+			ulList(newData,oldData){
+				uni.setStorage({
+					key: 'selAlarm',
+					data: JSON.stringify(newData)
+				});
+			}
 		},
 		methods:{
 			addAlarm(){
@@ -113,16 +113,26 @@
 					url: '/views/pages/setAlarm',
 				});
 			},
-			bindClick(value) {
-				uni.showToast({
-					title: `点击了${value.text}按钮`,
-					icon: 'none'
-				})
+			removeClick(value) {
+				this.ulList.splice(value.index,1);
 			},
 			alarmSwitch(e,index){
-				//闹钟开关
-				console.log(e.target.value);
-				console.log(index);
+				//闹钟开关;
+				let obj = this.ulList[index];
+				obj['enable'] = e.target.value;
+				this.$set(this.ulList,index, obj);
+			},
+			goEcho(index,item){
+				//回显数据
+				uni.navigateTo({
+					url: '/views/pages/setAlarm?echo=true',
+				});
+				let obj = item;
+				obj['index'] = index;
+				uni.setStorage({
+					key: 'echoSelAlarm',
+					data: JSON.stringify(obj)
+				});
 			}
 		},
 		components:{

@@ -271,7 +271,6 @@
 						key: 'c9635a6433c99e58484af6aaffbbbd59'
 					},
 					success: async (res) => {
-						debugger
 						const code = res.data.error_code;
 						if(code === 112 || code === 207301){
 							//超过今日请求数字了
@@ -415,12 +414,10 @@
 			},
 			itemFun(item){
 				//单击报错的城市
-				debugger
 				this.currentCity = item.cityName;
 				this.showRigth = false;
 			},
 			bindClick(value) {
-				debugger
 				uni.showToast({
 					title: `点击了${value.text}按钮`,
 					icon: 'none'
