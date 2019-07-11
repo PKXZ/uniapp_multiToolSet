@@ -79,7 +79,35 @@ __webpack_require__(/*! ../../static/css/main.css */ "C:\\Users\\dchain\\Desktop
 //
 //
 //
-var _default = { data: function data() {return { picList: ['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg'], indicatorColor: '#fff', indicatorActiveColor: '#00a2e9', indicatorDots: true, autoplay: true, interval: 5000, duration: 1000, toolData: [{ label: '天气预报', type: 'wetherForecast', icon: 'icon-yun', color: ["#2481b4", "#87c6ea"] }, { label: '设置闹钟', type: 'todayHeadline', icon: 'icon-xinwen', color: ["#49bff3", "#9df8f7"] }, { label: '新华字典', type: 'xinhuaDictionary',
+var _default = { data: function data() {return { picList: ['https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg', 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1554565147883&di=94652bd7f8e89e9c512971544994cbc2&imgtype=0&src=http%3A%2F%2Fimg.zcool.cn%2Fcommunity%2F0192e658b8d8aea801219c77111f0a.png%40900w_1l_2o_100sh.jpg'], indicatorColor: '#fff', indicatorActiveColor: '#00a2e9', indicatorDots: true, autoplay: true, interval: 5000, duration: 1000, toolData: [{ label: '天气预报', type: 'wetherForecast', icon: 'icon-yun', color: ["#2481b4", "#87c6ea"] }, { label: '设置闹钟', type: 'todayHeadline', icon: 'icon-xinwen', color: ["#49bff3", "#9df8f7"] }, { label: '扫一扫', type: 'scan',
+        icon: 'icon-xinwen',
+        color: [
+        "#f57936", "#ffdb35"] },
+
+      {
+        label: '二维码生成',
+        type: 'qrCode',
+        icon: 'icon-xinwen',
+        color: [
+        "#5fd8c6", "#61e6e0"] },
+
+      {
+        label: '支付',
+        type: 'pay',
+        icon: 'icon-xinwen',
+        color: [
+        "#fd798d", "#ffb3a6"] },
+
+      {
+        label: '推送',
+        type: 'todayHeadline',
+        icon: 'icon-xinwen',
+        color: [
+        "#a294f7", "#9cb1f7"] },
+
+      {
+        label: '新华字典',
+        type: 'xinhuaDictionary',
         icon: 'icon-xinhuazidian',
         color: [
         "#4facfe", "#00f2fe"] },
@@ -139,34 +167,6 @@ var _default = { data: function data() {return { picList: ['https://timgsa.baidu
         icon: 'icon-xinwen',
         color: [
         "#577ff3", "#abb1f6"] },
-
-      {
-        label: 'xxx',
-        type: 'todayHeadline',
-        icon: 'icon-xinwen',
-        color: [
-        "#f57936", "#ffdb35"] },
-
-      {
-        label: 'xxx',
-        type: 'todayHeadline',
-        icon: 'icon-xinwen',
-        color: [
-        "#fd798d", "#ffb3a6"] },
-
-      {
-        label: 'xxx',
-        type: 'todayHeadline',
-        icon: 'icon-xinwen',
-        color: [
-        "#5fd8c6", "#61e6e0"] },
-
-      {
-        label: 'xxx',
-        type: 'todayHeadline',
-        icon: 'icon-xinwen',
-        color: [
-        "#a294f7", "#9cb1f7"] },
 
       {
         label: 'xxx',

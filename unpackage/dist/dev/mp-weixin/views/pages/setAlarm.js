@@ -127,15 +127,33 @@ __webpack_require__(/*! ../../static/css/setAlarm.css */ "C:\\Users\\dchain\\Des
 //
 //
 //
-var _default = { data: function data() {return { weekList: ['日', '一', '二', '三', '四', '五', '六'], selWeekList: [], bellStr: '无', vibrationStr: '无', bell: false, vibration: false, bellArry: [{ name: 'BixBy 闹钟(BixBy)' }, { name: 'BixBy 闹钟(BixBy)2' }, { name: 'BixBy 闹钟(BixBy)3' }], bellIndex: 0, echo: 'false', //默认不是回显
-      hours: [], minutes: [], time: '', visible: true, indicatorStyle: "height: ".concat(Math.round(uni.getSystemInfoSync().screenWidth / (750 / 100)), "px;"), value: [] };}, mounted: function mounted() {//拼凑结构
+var _default = { data: function data() {return { weekList: ['日', '一', '二', '三', '四', '五', '六'], selWeekList: [], bellStr: '无', bell: false, vibration: false, bellArry: [{ name: 'BixBy 闹钟(BixBy)' }, { name: 'BixBy 闹钟(BixBy)2' }, { name: 'BixBy 闹钟(BixBy)3' }], bellIndex: 0, echo: 'false', //默认不是回显
+      echoIndex: -1, hours: [], minutes: [], time: '', visible: true, indicatorStyle: "height: ".concat(Math.round(uni.getSystemInfoSync().screenWidth / (750 / 100)), "px;"), value: [] };}, mounted: function mounted() {//拼凑结构
     this.getTimeNumber(1, 24, 'hours');this.getTimeNumber(0, 60, 'minutes'); //获取参数
-    this.echo = location.href.split('echo=')[1]; //是否回显
+    var echoVal = location.href.split('echo=')[1];if (echoVal) {this.echo = location.href.split('echo=')[1];} //是否回显
     if (this.echo === 'true') {//回显数据
-      uni.getStorage({ key: 'echoSelAlarm', success: function success(res) {debugger; //写到了这里！！！！！！回显数据
-          var echoSelAlarm = res.data;if (echoSelAlarm) {var obj = JSON.parse(echoSelAlarm);}} });} else {//当前时间
-      var nowHours = new Date().getHours();var nowMinutes = new Date().getMinutes();this.value.push(nowHours - 1);this.value.push(nowMinutes);this.time = (nowHours > 10 ? nowHours : '0' + nowHours) + ':' + (nowMinutes > 10 ? nowMinutes : '0' + nowMinutes);}}, methods: { getTimeNumber: function getTimeNumber(minSize, maxSize, type) {//获取小时数字
-      var arr = [];for (var i = minSize; i < maxSize; i++) {if (i < 10) {arr.push('0' + i);} else {arr.push(i);}}if (type === 'hours') {this.hours = this.hours.concat(arr);} else if (type === 'minutes') {this.minutes = this.minutes.concat(arr);}},
+      var self = this;uni.getStorage({ key: 'echoSelAlarm', success: function success(res) {var echoSelAlarm = res.data;if (echoSelAlarm) {var obj = JSON.parse(echoSelAlarm);self.selWeekList = obj.interval;self.bell = obj.bell;self.bellStr = obj.bellStr;self.vibration = obj.vibration;var time = obj.time.split(':');self.value.push(parseInt(time[0]) - 1);self.value.push(parseInt(time[1]) - 1);self.time = obj.time;self.echoIndex = obj.echoIndex;for (var i = 0; i < self.bellArry.length; i++) {if (self.bellArry[i].name === self.bellStr) {self.bellIndex = i;break;}}}} });} else {//当前时间
+      var nowHours = new Date().getHours();var nowMinutes = new Date().getMinutes();this.value.push(nowHours - 1);this.value.push(nowMinutes);
+      this.time = (nowHours >= 10 ? nowHours : '0' + nowHours) + ':' + (nowMinutes >= 10 ? nowMinutes : '0' + nowMinutes);
+    }
+  },
+  methods: {
+    getTimeNumber: function getTimeNumber(minSize, maxSize, type) {
+      //获取小时数字
+      var arr = [];
+      for (var i = minSize; i < maxSize; i++) {
+        if (i < 10) {
+          arr.push('0' + i);
+        } else {
+          arr.push(i);
+        }
+      }
+      if (type === 'hours') {
+        this.hours = this.hours.concat(arr);
+      } else if (type === 'minutes') {
+        this.minutes = this.minutes.concat(arr);
+      }
+    },
     repeatWeek: function repeatWeek(item) {
       var num = this.selWeekList.indexOf(item);
       if (num === -1) {
@@ -199,13 +217,38 @@ var _default = { data: function data() {return { weekList: ['日', '一', '二',
           data: JSON.stringify(arr) });
 
       }
-
       uni.navigateTo({
         url: '/views/todayHeadline?label=设置闹钟' });
 
     },
     editor: function editor() {
       //修改
+      var pointTime;
+      if (parseInt(this.time.split(':')[0]) <= 12) {
+        pointTime = '上午';
+      } else {
+        pointTime = '下午';
+      }
+      var obj = {
+        bell: this.bell, //是否响铃
+        bellStr: this.bellStr, //响铃名称
+        vibration: this.vibration, //是否震动
+        interval: this.selWeekList, //重复日期
+        time: this.time, //时间
+        pointTime: pointTime, //上下午
+        enable: true //是否启用
+      };
+      var arr = [];
+      var selAlarm = uni.getStorageSync('selAlarm');
+      selAlarm = JSON.parse(selAlarm);
+      selAlarm[this.echoIndex] = obj;
+      uni.setStorage({
+        key: 'selAlarm',
+        data: JSON.stringify(selAlarm) });
+
+      uni.navigateTo({
+        url: '/views/todayHeadline?label=设置闹钟' });
+
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ "./node_modules/@dcloudio/uni-mp-weixin/dist/index.js")["default"]))
 

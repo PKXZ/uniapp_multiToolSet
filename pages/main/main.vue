@@ -67,7 +67,35 @@ export default {
 				color: [
 				  "#49bff3", "#9df8f7"
 				]
-			  }, {
+			  },  {
+				label: '扫一扫',
+				type: 'scan',
+				icon: 'icon-xinwen',
+				color: [
+				  "#f57936", "#ffdb35"
+				]
+			  },{
+				label: '二维码生成',
+				type: 'qrCode',
+				icon: 'icon-xinwen',
+				color: [
+				  "#5fd8c6", "#61e6e0"
+				]
+			  },  {
+				label: '支付',
+				type: 'pay',
+				icon: 'icon-xinwen',
+				color: [
+				  "#fd798d", "#ffb3a6"
+				]
+			  },{
+				label: '推送',
+				type: 'todayHeadline',
+				icon: 'icon-xinwen',
+				color: [
+				  "#a294f7", "#9cb1f7"
+				]
+			  },  {
 				label: '新华字典',
 				type: 'xinhuaDictionary',
 				icon: 'icon-xinhuazidian',
@@ -130,35 +158,7 @@ export default {
 				color: [
 				  "#577ff3", "#abb1f6"
 				]
-			  }, {
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#f57936", "#ffdb35"
-				]
-			  }, {
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#fd798d", "#ffb3a6"
-				]
-			  }, {
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#5fd8c6", "#61e6e0"
-				]
-			  }, {
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#a294f7", "#9cb1f7"
-				]
-			  }, {
+			  },{
 				label: 'xxx',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',

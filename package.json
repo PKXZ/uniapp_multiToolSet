@@ -11,6 +11,9 @@
   "description": "",
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "@babel/preset-env": "^7.4.5"
+    "@babel/preset-env": "^7.4.5",
+    "jq": "^1.7.2",
+    "qrcode": "^1.4.0",
+    "qrcodejs2": "0.0.2"
   }
 }

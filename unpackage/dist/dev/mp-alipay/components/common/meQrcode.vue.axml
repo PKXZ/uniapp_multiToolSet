@@ -1,0 +1,1 @@
+<template name="1e5390f5"><view class="_view tki-qrcode {{ h[ 0 ].rcl }}"><canvas class="_canvas tki-qrcode-canvas" style="{{ h[ 1 ].st }}" canvas-id="{{ h[ 1 ][ 'canvas-id' ] }}"></canvas><image hidden="{{ h[ 2 ].vs }}" class="_image" style="{{ h[ 2 ].st }}" src="{{ h[ 2 ][ 'src' ] }}"></image></view></template>

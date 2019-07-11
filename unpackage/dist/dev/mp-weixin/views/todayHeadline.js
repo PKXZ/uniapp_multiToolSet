@@ -138,7 +138,7 @@ var uniSwipeAction = function uniSwipeAction() {return __webpack_require__.e(/*!
         url: '/views/pages/setAlarm?echo=true' });
 
       var obj = item;
-      obj['index'] = index;
+      obj['echoIndex'] = index;
       uni.setStorage({
         key: 'echoSelAlarm',
         data: JSON.stringify(obj) });

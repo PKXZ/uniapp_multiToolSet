@@ -21,16 +21,16 @@
 		<view class="todayHeadlineBottom">
 			<scroll-view scroll-y="true" :class="ulList.length > 0 ? 'todayScroll' : ''">
 				<ul class="todayListUl">
-					<li v-for="(item,index) in ulList" :key="index" @click="goEcho(index,item)">
+					<li v-for="(item,index) in ulList" :key="index">
 						<uniSwipeAction :options="opt" @click="removeClick">
 							<div class="clockDiv">
-								<div>
+								<div @click="goEcho(index,item)">
 									<span>{{item.time}}</span>
 									<p>{{item.pointTime}}</p>
 								</div>
 								<switch color="#20e6b8" :checked="item.enable" @change="alarmSwitch($event,index)"></switch>
 							</div>
-							<div class="periodDiv">
+							<div class="periodDiv" @click="goEcho(index,item)">
 								<ul>
 									<li 
 										v-for="(week,indx) in weekList" 
@@ -128,7 +128,7 @@
 					url: '/views/pages/setAlarm?echo=true',
 				});
 				let obj = item;
-				obj['index'] = index;
+				obj['echoIndex'] = index;
 				uni.setStorage({
 					key: 'echoSelAlarm',
 					data: JSON.stringify(obj)
