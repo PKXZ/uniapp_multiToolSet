@@ -5,10 +5,23 @@
 	ul{
 		list-style: none;
 	}
-	html,body,.main,uni-page-body{
+	html,body,uni-page-body{
 		height: 100%;
 		width: 100%;
-		background: #fff;
+	}
+	.main{
+		height: 100%;
+		width: 100%;
+	}
+	.grayBg{
+		background: #F4F5F6; 
+	}
+	uni-app{
+		overflow: hidden;
+	}
+	uni-page-wrapper{
+		overflow-x: hidden;
+		overflow-y: auto;
 	}
 	.mt10{
 		margin-top: 20rpx;
@@ -20,7 +33,7 @@
 		float: right;
 	}
 	.primary{
-		background: #409eff;
+		background: #409eff !important;
 		color: #fff;
 	}
 	.primary,.default{
@@ -32,7 +45,6 @@
 	.primary:hover{
 		background: #66b1ff;
 	}
-	
 	/*行列*/
 	.uniRowView{
 		background: #fff;
@@ -46,7 +58,6 @@
 		align-items: center;
 		padding: 20upx 0upx 20upx 20upx;
 		box-sizing: border-box;
-		width: 100%;
 	}
 	.uniRowListRIcon::after{
 		font-family: 'iconfont' !important;
@@ -67,6 +78,7 @@
 		transform:scale(0.8);
 	}
 	.uniCloList{
+		width: 95%;
 		display: flex;
 		flex-direction: column;
 	}
@@ -74,5 +86,65 @@
 		font-size: 34upx;
 	}
 	
-	/*按钮*/
+	/*上传图片样式*/
+	.upView{
+		margin-top: 25upx;
+	}
+	.upImgView:after{
+		clear: both;
+		content: '';
+		display: block;
+	}
+	.upImgView li{
+		float: left;
+		width: 90upx;
+		height: 90upx;
+		margin: 0 25upx 25upx 0;
+		text-align: center;
+		position: relative;
+	}
+	.upImgView li uni-image{
+		width: 100%;
+		height: 100%;
+	}
+	.upImgView li span{
+		width: 35upx;
+		height: 35upx;
+		line-height: 35upx;
+		border-radius: 50%;
+		background: red;
+		position: absolute;
+		top: -16upx;
+		right: -16upx;
+	}
+	.upImgView li span i{
+		color: #fff;
+		font-size: 36upx;
+		font-weight: bold;
+	}
+	.upIconView{
+		width: 90upx;
+		height: 90upx;
+		border: 5upx dotted #E3E3E3;
+		text-align: center;
+	}
+	.upIconView i{
+		font-size: 70upx;
+		text-align: center;
+		line-height: 90upx;
+		display: block;
+		z-index: -1;
+		color: #E3E3E3;
+	}
 	
+	/*滑动条*/
+	uni-slider{
+		width: auto !important;
+	}
+	.sliders{
+		width: auto;
+	}
+	/*选择时间*/
+	/* picker-view-column{
+		width: 100%;
+	} */

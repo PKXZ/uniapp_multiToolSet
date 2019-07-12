@@ -78,11 +78,7 @@
 			}
 			uni.setNavigationBarColor({
 			  frontColor: '#ffffff',
-			  backgroundColor: '#208ffa',
-			  animation: {
-				duration: 400,
-				timingFunc: 'easeIn'
-			  }
+			  backgroundColor: '#2995f7'
 			})
 		},
 		mounted(){

@@ -68,6 +68,20 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 __webpack_require__(/*! ../../static/css/setAlarm.css */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\static\\css\\setAlarm.css"); //
 //
 //
@@ -127,22 +141,28 @@ __webpack_require__(/*! ../../static/css/setAlarm.css */ "C:\\Users\\dchain\\Des
 //
 //
 //
-var _default = { data: function data() {return { weekList: ['日', '一', '二', '三', '四', '五', '六'], selWeekList: [], bellStr: '无', bell: false, vibration: false, bellArry: [{ name: 'BixBy 闹钟(BixBy)' }, { name: 'BixBy 闹钟(BixBy)2' }, { name: 'BixBy 闹钟(BixBy)3' }], bellIndex: 0, echo: 'false', //默认不是回显
-      echoIndex: -1, hours: [], minutes: [], time: '', visible: true, indicatorStyle: "height: ".concat(Math.round(uni.getSystemInfoSync().screenWidth / (750 / 100)), "px;"), value: [] };}, mounted: function mounted() {//拼凑结构
-    this.getTimeNumber(1, 24, 'hours');this.getTimeNumber(0, 60, 'minutes'); //获取参数
-    var echoVal = location.href.split('echo=')[1];if (echoVal) {this.echo = location.href.split('echo=')[1];} //是否回显
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { onLoad: function onLoad(option) {//获取参数
+    debugger;var echoVal;if (option.length > 0) {echoVal = option.echo;}if (echoVal) {this.echo = echoVal;} //是否回显
     if (this.echo === 'true') {//回显数据
       var self = this;uni.getStorage({ key: 'echoSelAlarm', success: function success(res) {var echoSelAlarm = res.data;if (echoSelAlarm) {var obj = JSON.parse(echoSelAlarm);self.selWeekList = obj.interval;self.bell = obj.bell;self.bellStr = obj.bellStr;self.vibration = obj.vibration;var time = obj.time.split(':');self.value.push(parseInt(time[0]) - 1);self.value.push(parseInt(time[1]) - 1);self.time = obj.time;self.echoIndex = obj.echoIndex;for (var i = 0; i < self.bellArry.length; i++) {if (self.bellArry[i].name === self.bellStr) {self.bellIndex = i;break;}}}} });} else {//当前时间
-      var nowHours = new Date().getHours();var nowMinutes = new Date().getMinutes();this.value.push(nowHours - 1);this.value.push(nowMinutes);
-      this.time = (nowHours >= 10 ? nowHours : '0' + nowHours) + ':' + (nowMinutes >= 10 ? nowMinutes : '0' + nowMinutes);
-    }
-  },
-  methods: {
-    getTimeNumber: function getTimeNumber(minSize, maxSize, type) {
-      //获取小时数字
-      var arr = [];
-      for (var i = minSize; i < maxSize; i++) {
-        if (i < 10) {
+      var nowHours = new Date().getHours();var nowMinutes = new Date().getMinutes();this.value.push(nowHours - 1);this.value.push(nowMinutes);this.time = (nowHours >= 10 ? nowHours : '0' + nowHours) + ':' + (nowMinutes >= 10 ? nowMinutes : '0' + nowMinutes);}}, data: function data() {return { weekList: ['日', '一', '二', '三', '四', '五', '六'], selWeekList: [], bellStr: '无', bell: false, vibration: false, bellArry: [{ name: 'BixBy 闹钟(BixBy)' }, { name: 'BixBy 闹钟(BixBy)2' }, { name: 'BixBy 闹钟(BixBy)3' }], bellIndex: 0, echo: 'false', //默认不是回显
+      echoIndex: -1, hours: [], minutes: [], time: '', visible: true, indicatorStyle: "height: ".concat(Math.round(uni.getSystemInfoSync().screenWidth / (750 / 100)), "px;"), value: [] };}, created: function created() {//拼凑结构
+    this.getTimeNumber(1, 24, 'hours');this.getTimeNumber(0, 60, 'minutes');}, methods: { getTimeNumber: function getTimeNumber(minSize, maxSize, type) {//获取小时数字
+      var arr = [];for (var i = minSize; i < maxSize; i++) {if (i < 10) {
           arr.push('0' + i);
         } else {
           arr.push(i);

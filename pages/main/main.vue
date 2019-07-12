@@ -56,42 +56,42 @@ export default {
 			  {
 				label: '天气预报',
 				type: 'wetherForecast',
-				icon: 'icon-yun',
+				icon: 'icon-swticontianqi',
 				color: [
 				  "#2481b4", "#87c6ea"
 				]
 			  }, {
 				label: '设置闹钟',
 				type: 'todayHeadline',
-				icon: 'icon-xinwen',
+				icon: 'icon-naozhong',
 				color: [
 				  "#49bff3", "#9df8f7"
 				]
 			  },  {
 				label: '扫一扫',
 				type: 'scan',
-				icon: 'icon-xinwen',
+				icon: 'icon-saoyisao',
 				color: [
 				  "#f57936", "#ffdb35"
 				]
 			  },{
 				label: '二维码生成',
 				type: 'qrCode',
-				icon: 'icon-xinwen',
+				icon: 'icon-erweima',
 				color: [
 				  "#5fd8c6", "#61e6e0"
 				]
 			  },  {
 				label: '支付',
 				type: 'pay',
-				icon: 'icon-xinwen',
+				icon: 'icon-ic_paid',
 				color: [
 				  "#fd798d", "#ffb3a6"
 				]
 			  },{
 				label: '推送',
 				type: 'todayHeadline',
-				icon: 'icon-xinwen',
+				icon: 'icon-fasongxinxi',
 				color: [
 				  "#a294f7", "#9cb1f7"
 				]

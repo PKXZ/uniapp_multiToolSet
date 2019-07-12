@@ -1,6 +1,6 @@
 <template>
 	<view class="main">
-		<!--  #ifndef  H5 -->
+		<!-- #ifndef H5 -->
 		<view>
 			<label>条码内容：</label>
 			<span>{{result}}</span>
@@ -9,7 +9,7 @@
 			<label>条码类型：</label>
 			<span>{{scanType}}</span>
 		</view>
-		<!--  #endif -->
+		<!-- #endif -->
 		<!-- #ifdef H5 -->
 		<view class="scan">
 			<view id="bcid">
@@ -21,29 +21,31 @@
 			  <button @click="cancelScan">取消</button>
 			</footer>
 		  </view>
-		<!--  #endif -->
+		<!-- #endif -->
 	</view>
 </template>
 
 <script>
+	// #ifdef H5
 	 let scan = null;
-  //点手机虚拟返回键
-     document.addEventListener("plusready", function() {
-        // 注册返回按键事件
-        plus.key.addEventListener('backbutton', function() {
-            // 事件处理
-            scan.close();//关闭条码识别控件
-            window.history.back();
-        }, false);
-    });
+	 //点手机虚拟返回键
+	 document.addEventListener("plusready", function() {
+			// 注册返回按键事件
+			plus.key.addEventListener('backbutton', function() {
+					// 事件处理
+					scan.close();//关闭条码识别控件
+					window.history.back();
+			}, false);
+	});
+	// #endif
   export default {
     data() {
       return {
         result: '',
-		scanType: '',
-		
-		 codeUrl: '',
-          isShow:true
+				scanType: '',
+				
+				codeUrl: '',
+        isShow:true
       }
     },
 	onLoad(options) {
@@ -55,16 +57,12 @@
 		}
 		uni.setNavigationBarColor({
 		  frontColor: '#ffffff',
-		  backgroundColor: '#208ffa',
-		  animation: {
-			duration: 400,
-			timingFunc: 'easeIn'
-		  }
+		  backgroundColor: '#63b4fe'
 		})
 		
 		const self = this;
 		//uni.scanCodeAPI暂时不支持h5，所以用别的方式
-		//#ifndef H5
+		// #ifndef H5
 			uni.scanCode({
 				success: function (res) {
 					self.result = res.result;
@@ -79,14 +77,14 @@
 					console.log(error)
 				}
 			});
-		//#endif
-		//#ifdef H5
+		// #endif
+		// #ifdef H5
 			// uni.showToast({
 			// 	title: '该API扫一扫功能暂时不支持h5'
 			// })
 			self.startRecognize();
 			self.startScan();
-		//#endif
+		// #endif
 	},
     methods: {
      //创建扫描控件

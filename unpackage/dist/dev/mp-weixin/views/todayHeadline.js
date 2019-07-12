@@ -116,13 +116,9 @@ __webpack_require__(/*! ../static/css/todayHeadline.css */ "C:\\Users\\dchain\\D
 //
 //
 var uniSwipeAction = function uniSwipeAction() {return __webpack_require__.e(/*! import() | components/common/uni-swipe-action */ "components/common/uni-swipe-action").then(__webpack_require__.bind(null, /*! @/components/common/uni-swipe-action */ "C:\\Users\\dchain\\Desktop\\githubProject\\uniapp_multiToolSet\\components\\common\\uni-swipe-action.vue"));};var _default = { data: function data() {return { hours: new Date().getHours() < 10 ? '0' + new Date().getHours() : new Date().getHours(), minutes: new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes(), weekList: ['日', '一', '二', '三', '四', '五', '六'], ulList: [], opt: [{ text: '删除', style: { backgroundColor: 'rgb(255,58,49)' } }] };}, onLoad: function onLoad(options) {//动态设置标题
-    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#208ffa', animation: { duration: 400, timingFunc: 'easeIn' } });}, mounted: function mounted() {//回显数据
-    var self = this;uni.getStorage({ key: 'selAlarm', success: function success(res) {var selAlarm = res.data;if (selAlarm) {self.ulList = JSON.parse(selAlarm);}} });}, watch: { ulList: function ulList(newData, oldData) {uni.setStorage({ key: 'selAlarm', data: JSON.stringify(newData) });} }, methods: { addAlarm: function addAlarm() {
-      //添加闹钟
-      uni.navigateTo({
-        url: '/views/pages/setAlarm' });
-
-    },
+    if (options.label) {uni.setNavigationBarTitle({ title: options.label });}uni.setNavigationBarColor({ frontColor: '#ffffff', backgroundColor: '#2995f7' });}, mounted: function mounted() {//回显数据
+    var self = this;uni.getStorage({ key: 'selAlarm', success: function success(res) {var selAlarm = res.data;if (selAlarm) {self.ulList = JSON.parse(selAlarm);}} });}, watch: { ulList: function ulList(newData, oldData) {uni.setStorage({ key: 'selAlarm', data: JSON.stringify(newData) });} }, methods: { addAlarm: function addAlarm() {//添加闹钟
+      uni.navigateTo({ url: '/views/pages/setAlarm' });},
     removeClick: function removeClick(value) {
       this.ulList.splice(value.index, 1);
     },

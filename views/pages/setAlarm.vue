@@ -1,13 +1,28 @@
 <template>
 	<!--设置闹钟-->
-	<view class="main" style="background: #F4F5F6;">
+	<view class="main grayBg">
 		<view class="alarmView">
-			<picker-view class="alarmView" v-if="visible" :indicator-style="indicatorStyle" :value="value" @change="bindChange">
+			<picker-view 
+				class="alarmView" 
+				v-if="visible" 
+				:indicator-style="indicatorStyle" 
+				:value="value" 
+				@change="bindChange">
 			    <picker-view-column>
-			        <view class="item" v-for="(item,index) in hours" :key="index">{{item}}时</view>
+			        <view 
+						class="item" 
+						v-for="(item,index) in hours" 
+						:key="index">
+						{{item}}时
+					</view>
 			    </picker-view-column>
 			    <picker-view-column>
-			        <view class="item" v-for="(item,index) in minutes" :key="index">{{item}}分</view>
+			        <view 
+						class="item" 
+						v-for="(item,index) in minutes" 
+						:key="index">
+						{{item}}分
+					</view>
 			    </picker-view-column>
 			</picker-view>
 		</view>
@@ -42,7 +57,6 @@
 				<switch color="#20e6b8" :checked="vibration"  @change="vibrationSwitchChange"></switch>
 			</view>
 		</view>
-		
 		<view class="footerBtn">
 			<view class="btnVuewOne">
 				<button class="default" size="small" @click="goPage">取消</button>
@@ -60,35 +74,15 @@
 <script>
 	import '../../static/css/setAlarm.css';
 	export default {
-		data() {
-			return {
-				weekList: ['日','一','二','三','四','五','六'],
-				selWeekList: [],
-				bellStr: '无',
-				bell: false,
-				vibration: false,
-				bellArry: [{name:'BixBy 闹钟(BixBy)'},{name: 'BixBy 闹钟(BixBy)2'}, {name:'BixBy 闹钟(BixBy)3'}],
-				bellIndex: 0,
-				
-				echo: 'false',//默认不是回显
-				echoIndex: -1,
-				
-				hours: [],
-				minutes: [],
-				time: '',
-                visible: true,
-				indicatorStyle: `height: ${Math.round(uni.getSystemInfoSync().screenWidth/(750/100))}px;`,
-				value: []
-			}
-		},
-		mounted(){
-			//拼凑结构
-			this.getTimeNumber(1,24,'hours');
-			this.getTimeNumber(0,60,'minutes');
+		onLoad: function (option) {
 			//获取参数
-			const echoVal = location.href.split('echo=')[1];
+			debugger
+			let echoVal;
+			if(option.length > 0){
+				echoVal = option.echo;
+			}
 			if(echoVal){
-				this.echo = location.href.split('echo=')[1];
+				this.echo = echoVal;
 			}
 			//是否回显
 			if(this.echo === 'true'){	
@@ -126,6 +120,32 @@
 				this.value.push(nowMinutes);
 				this.time = (nowHours >= 10 ? nowHours : '0' + nowHours) + ':' + (nowMinutes >= 10 ? nowMinutes : '0' + nowMinutes);
 			}
+		},
+		data() {
+			return {
+				weekList: ['日','一','二','三','四','五','六'],
+				selWeekList: [],
+				bellStr: '无',
+				bell: false,
+				vibration: false,
+				bellArry: [{name:'BixBy 闹钟(BixBy)'},{name: 'BixBy 闹钟(BixBy)2'}, {name:'BixBy 闹钟(BixBy)3'}],
+				bellIndex: 0,
+				
+				echo: 'false',//默认不是回显
+				echoIndex: -1,
+				
+				hours: [],
+				minutes: [],
+				time: '',
+                visible: true,
+				indicatorStyle: `height: ${Math.round(uni.getSystemInfoSync().screenWidth/(750/100))}px;`,
+				value: []
+			}
+		},
+		created(){
+			//拼凑结构
+			this.getTimeNumber(1,24,'hours');
+			this.getTimeNumber(0,60,'minutes');
 		},
 		methods:{
 			getTimeNumber(minSize,maxSize,type){

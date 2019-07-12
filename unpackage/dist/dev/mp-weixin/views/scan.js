@@ -35,17 +35,19 @@
 //
 //
 //
+var _default =
 
-var scan = null;
-//点手机虚拟返回键
-document.addEventListener("plusready", function () {
-  // 注册返回按键事件
-  plus.key.addEventListener('backbutton', function () {
-    // 事件处理
-    scan.close(); //关闭条码识别控件
-    window.history.back();
-  }, false);
-});var _default =
+
+
+
+
+
+
+
+
+
+
+
 {
   data: function data() {
     return {
@@ -65,11 +67,7 @@ document.addEventListener("plusready", function () {
     }
     uni.setNavigationBarColor({
       frontColor: '#ffffff',
-      backgroundColor: '#208ffa',
-      animation: {
-        duration: 400,
-        timingFunc: 'easeIn' } });
-
+      backgroundColor: '#63b4fe' });
 
 
     var self = this;

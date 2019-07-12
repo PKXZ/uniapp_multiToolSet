@@ -23,7 +23,8 @@ var _qrcode = _interopRequireDefault(__webpack_require__(/*! ../../utils/qrcode.
 //
 //
 //
-var _default = { name: "meQrcode", props: { cid: { type: String, default: 'tki-qrcode-canvas' },
+var qrcode;var _default = { name: "meQrcode", props: { cid: { type: String, default: 'tki-qrcode-canvas' },
+
     size: {
       type: Number,
       default: 200 },
@@ -87,7 +88,6 @@ var _default = { name: "meQrcode", props: { cid: { type: String, default: 'tki-q
 
   data: function data() {
     return {
-      qrcode: {},
       result: '' };
 
   },
@@ -95,7 +95,7 @@ var _default = { name: "meQrcode", props: { cid: { type: String, default: 'tki-q
     _makeCode: function _makeCode() {
       var that = this;
       if (!this._empty(this.val)) {
-        that.qrcode = new _qrcode.default({
+        qrcode = new _qrcode.default({
           context: that, // 上下文环境
           canvasId: that.cid, // canvas-id
           usingComponents: that.usingComponents, // 是否是自定义组件
@@ -123,7 +123,7 @@ var _default = { name: "meQrcode", props: { cid: { type: String, default: 'tki-q
     },
     _clearCode: function _clearCode() {
       this._result('');
-      this.qrcode.clear();
+      qrcode.clear();
     },
     _saveCode: function _saveCode() {
       var that = this;
