@@ -146,8 +146,7 @@
 		width: 35rpx;
 		height: 35rpx;
 		line-height: 35rpx;
-		-webkit-border-radius: 50%;
-		        border-radius: 50%;
+		border-radius: 50%;
 		background: red;
 		position: absolute;
 		top: -16rpx;

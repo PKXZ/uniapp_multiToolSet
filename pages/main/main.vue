@@ -95,7 +95,14 @@ export default {
 				color: [
 				  "#a294f7", "#9cb1f7"
 				]
-			  },  {
+			  }, {
+				label: '拨打电话',
+				type: 'todayHeadline',
+				icon: 'icon-xinwen',
+				color: [
+				  "#c477d2", "#dd87cd"
+				]
+			  }, {
 				label: '新华字典',
 				type: 'xinhuaDictionary',
 				icon: 'icon-xinhuazidian',
@@ -157,13 +164,6 @@ export default {
 				icon: 'icon-xinwen',
 				color: [
 				  "#577ff3", "#abb1f6"
-				]
-			  },{
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#c477d2", "#dd87cd"
 				]
 			  }, {
 				label: 'xxx',

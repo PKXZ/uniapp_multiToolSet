@@ -47,7 +47,11 @@
             },
             "ios" : {},
             /* ios打包配置 */
-            "sdkConfigs" : {}
+            "sdkConfigs" : {
+                "push" : {
+                    "unipush" : {}
+                }
+            }
         }
     },
     /* SDK配置 */

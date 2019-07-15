@@ -15,7 +15,6 @@
 		display: block;
 }
 .toolsCols{
-	width: -webkit-calc(100% / 4);
 	width: calc(100% / 4);
 	float: left;
 	text-align: center;
@@ -29,8 +28,7 @@
 .toolSingel{
   width: 40px;
   height: 40px;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   margin: 8px auto 0 auto;
   text-align: center;
 }
