@@ -13,6 +13,8 @@
 		},
 		methods: {
 			
+		},
+		mounted() {
 		}
 	}
 </script>
