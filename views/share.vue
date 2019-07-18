@@ -11,6 +11,14 @@
 		<view class="uniRowView">
 			<view class="uniRowList">
 				<view class="uniCloList">
+					<span>分享链接</span>
+					<input type="text" placeholder="请输入将要分享的链接" v-model="shareHref"/>
+				</view>
+			</view>
+		</view>
+		<view class="uniRowView">
+			<view class="uniRowList">
+				<view class="uniCloList">
 					<span>分享图片</span>
 					<view class="upView">
 						<ul class="upImgView" v-if="picBase.length > 0">
@@ -39,12 +47,19 @@
 			</view>
 		</view>
 		
+		<view class="uniRowView">
+			<view class="uniRowList">
+				<view class="uniCloList">
+					<span style="color: red;">该功能目前主要支持APP,不支持H5，并且小程序表现形式为‘转发’</span>
+				</view>
+			</view>
+		</view>
 		<!--仿模态框动效-->
 		<view class="shareModel" v-if="shareModel"  @click="cancelShare"></view>
 		<view class="shareBox" :class="shareModel ? '' : 'showShareBox'">
 			<view class="sharePanel">
-				<view @click="shareTo(item.scene)" v-for="(item,index) in shareTemplate" :key="index">
-					<i :class="[item.icon,item.bg]"></i>
+				<view @click="shareTo(item.scene,item.provider)" v-for="(item,index) in shareTemplate" :key="index">
+					<view :class="item.bg"><i :class="[item.icon]"></i></view>
 					<span>{{item.text}}</span>
 				</view>
 			</view>
@@ -69,6 +84,7 @@
 				shareModel: false,
 				shareText: '',
 				picBase: [],
+				shareHref: '',
 				shareTemplate: [
 					{
 						text: '微信好友',
@@ -84,16 +100,28 @@
 						provider: 'weixin'
 					},{
 						text: '微信收藏',
-						icon: 'iconfont icon-weixinpengyouquan',
+						icon: 'iconfont icon-favorite',
 						bg: 'weixinBg',
 						scene: 'WXSceneFavorite',
 						provider: 'weixin'
 					},{
-						text: '微信收藏',
+						text: 'QQ好友',
 						icon: 'iconfont icon-qq',
 						bg: 'qqBg',
 						scene: '',
 						provider: 'qq'
+					},{
+						text: 'QQ空间',
+						icon: 'iconfont icon-qqkongjian',
+						bg: 'qqBg',
+						scene: '',
+						provider: 'qq'
+					},{
+						text: '复制链接',
+						icon: 'iconfont icon-lianjie',
+						bg: 'linkBg',
+						scene: '',
+						provider: 'link'
 					}
 				]
 			}
@@ -119,8 +147,52 @@
 			removeIcon(){
 				this.picBase = [];
 			},
-			shareTo(scene){
-				console.log(scene);
+			shareTo(scene,provider){
+				const self = this;
+				if(provider === 'link'){
+					uni.showToast({
+						title:'将要实现剪切板的功能'
+					})
+				}else{
+					//该Api仅仅支持App平台
+					// #ifdef APP-PLUS
+					uni.share({
+						provider: provider,//分享服务提供商
+						scene: scene,//场景
+						type: 0,//分享类型 0默认图文（微信，微博） 1纯文字 2纯图片 3音乐（微信，QQ） 4视频（微信，微博）5小程序（微信）
+						href: self.shareHref,//跳转链接
+						title: self.shareText,//标题
+						summary: "我正在使用HBuilderX开发uni-app，赶紧跟我一起来体验！",//摘要
+						imageUrl:self.picBase[0],//图片地址 type为0时，图片大小于20KB
+						success: function (res) {
+							console.log("success:" + JSON.stringify(res));
+						},
+						fail: function (err) {
+							console.log("fail:" + JSON.stringify(err));
+						}
+					});
+					//#endif
+					
+					//微信小程序 显示转发按钮
+					//#ifdef MP-WEIXIN
+					wx.showShareMenu({
+					  withShareTicket: true,
+					  success: function(res){
+						  console.log(res)
+					  },
+					  fail: function(error){
+						  console.log(error)
+					  }
+					})
+					//#endif
+					
+					//H5暂不支持此功能
+					//#ifdef H5
+					uni.showToast({
+						title:'H5暂不支持此功能'
+					})
+					//#endif
+				}
 			}
 		}
 	}

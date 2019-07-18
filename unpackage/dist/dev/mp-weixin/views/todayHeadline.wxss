@@ -1,7 +1,3 @@
-.todayHeadlineContent{
-	width: 100%;
-	height:100%;
-}
 .todayHeadlineTop {
     width: 100%;
     height: 500rpx;

@@ -102,8 +102,15 @@ export default {
 				color: [
 				  "#61c566", "#a9e28b"
 				]
-			  },  {
-				label: '拨打电话',
+			  }, {
+				label: '发送模板消息',
+				type: 'todayHeadline',
+				icon: 'icon-message',
+				color: [
+				  "#ef9a3c", "#f8c568"
+				]
+			  }, {
+				label: '通讯录',
 				type: 'callPhone',
 				icon: 'icon-shoujidadianhua',
 				color: [
@@ -178,13 +185,6 @@ export default {
 				icon: 'icon-xinwen',
 				color: [
 				  "#577ff3", "#abb1f6"
-				]
-			  },{
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#ef9a3c", "#f8c568"
 				]
 			  }, {
 				label: 'xxx',

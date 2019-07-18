@@ -100,17 +100,38 @@ var _default = { data: function data() {return { picList: ['https://timgsa.baidu
 
       {
         label: '推送',
-        type: 'todayHeadline',
+        type: 'push',
         icon: 'icon-fasongxinxi',
         color: [
         "#a294f7", "#9cb1f7"] },
 
       {
-        label: '拨打电话',
+        label: '分享',
+        type: 'share',
+        icon: 'icon-fenxiang',
+        color: [
+        "#61c566", "#a9e28b"] },
+
+      {
+        label: '发送模板消息',
         type: 'todayHeadline',
-        icon: 'icon-xinwen',
+        icon: 'icon-message',
+        color: [
+        "#ef9a3c", "#f8c568"] },
+
+      {
+        label: '通讯录',
+        type: 'callPhone',
+        icon: 'icon-shoujidadianhua',
         color: [
         "#c477d2", "#dd87cd"] },
+
+      {
+        label: '地图定位',
+        type: 'todayHeadline',
+        icon: 'icon-dituguanli',
+        color: [
+        "#5eb8f1", "#6fd1ef"] },
 
       {
         label: '新华字典',
@@ -180,28 +201,7 @@ var _default = { data: function data() {return { picList: ['https://timgsa.baidu
         type: 'todayHeadline',
         icon: 'icon-xinwen',
         color: [
-        "#5eb8f1", "#6fd1ef"] },
-
-      {
-        label: 'xxx',
-        type: 'todayHeadline',
-        icon: 'icon-xinwen',
-        color: [
-        "#ef9a3c", "#f8c568"] },
-
-      {
-        label: 'xxx',
-        type: 'todayHeadline',
-        icon: 'icon-xinwen',
-        color: [
         "#e858a2", "#ec8fc3"] },
-
-      {
-        label: 'xxx',
-        type: 'todayHeadline',
-        icon: 'icon-xinwen',
-        color: [
-        "#61c566", "#a9e28b"] },
 
       {
         label: 'xxx',

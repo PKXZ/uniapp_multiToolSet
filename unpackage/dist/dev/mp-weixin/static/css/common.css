@@ -5,7 +5,11 @@
 	ul{
 		list-style: none;
 	}
-	html,body,uni-page-body{
+	html,body{
+		height: 100%;
+		width: 100%;
+	}
+	uni-page-body{
 		height: 100%;
 		width: 100%;
 	}
@@ -22,6 +26,8 @@
 	uni-page-wrapper{
 		overflow-x: hidden;
 		overflow-y: auto;
+		width: 100%;
+		position: initial;
 	}
 	.mt10{
 		margin-top: 20rpx;
@@ -48,8 +54,7 @@
 	/*行列*/
 	.uniRowView{
 		background: #fff;
-		margin: 20upx 0;
-		position: relative;
+		margin: 0 0 20upx 0;
 	}
 	.uniRowList{
 		display: flex;
@@ -104,6 +109,10 @@
 		position: relative;
 	}
 	.upImgView li uni-image{
+		width: 100%;
+		height: 100%;
+	}
+	.upImgView img, .upImgView image{
 		width: 100%;
 		height: 100%;
 	}

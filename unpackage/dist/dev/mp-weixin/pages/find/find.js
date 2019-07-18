@@ -21,7 +21,11 @@ var _default =
 
 
   },
-  methods: {} };exports.default = _default;
+  methods: {},
+
+
+  mounted: function mounted() {
+  } };exports.default = _default;
 
 /***/ }),
 
