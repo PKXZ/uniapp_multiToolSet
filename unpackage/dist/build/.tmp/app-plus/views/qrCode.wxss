@@ -1,4 +1,15 @@
-
+.qrCodeView{
+	text-align: center;
+	padding: 20rpx 0;
+}
+.qrCodeBtn{
+	padding: 40rpx;
+	background: #F4F5F6; 
+}
+.upImgView ._img, .upImgView image{
+	width: 90rpx !important;
+	height: 90rpx !important;
+}
 
 .container {
 	display: -webkit-box;

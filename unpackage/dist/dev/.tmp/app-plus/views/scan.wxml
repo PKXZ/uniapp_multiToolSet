@@ -1,0 +1,1 @@
+<view class="main"><view><label>条码内容：</label><label class="_span">{{result}}</label></view><view><label>条码类型：</label><label class="_span">{{scanType}}</label></view></view>

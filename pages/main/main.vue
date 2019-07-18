@@ -90,17 +90,31 @@ export default {
 				]
 			  },{
 				label: '推送',
-				type: 'todayHeadline',
+				type: 'push',
 				icon: 'icon-fasongxinxi',
 				color: [
 				  "#a294f7", "#9cb1f7"
 				]
-			  }, {
+			  },{
+				label: '分享',
+				type: 'share',
+				icon: 'icon-fenxiang',
+				color: [
+				  "#61c566", "#a9e28b"
+				]
+			  },  {
 				label: '拨打电话',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
+				type: 'callPhone',
+				icon: 'icon-shoujidadianhua',
 				color: [
 				  "#c477d2", "#dd87cd"
+				]
+			  },  {
+				label: '地图定位',
+				type: 'todayHeadline',
+				icon: 'icon-dituguanli',
+				color: [
+				  "#5eb8f1", "#6fd1ef"
 				]
 			  }, {
 				label: '新华字典',
@@ -165,14 +179,7 @@ export default {
 				color: [
 				  "#577ff3", "#abb1f6"
 				]
-			  }, {
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#5eb8f1", "#6fd1ef"
-				]
-			  }, {
+			  },{
 				label: 'xxx',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',
@@ -185,13 +192,6 @@ export default {
 				icon: 'icon-xinwen',
 				color: [
 				  "#e858a2", "#ec8fc3"
-				]
-			  }, {
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#61c566", "#a9e28b"
 				]
 			  }, {
 				label: 'xxx',

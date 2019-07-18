@@ -76,7 +76,6 @@
 	export default {
 		onLoad: function (option) {
 			//获取参数
-			debugger
 			let echoVal;
 			if(option.length > 0){
 				echoVal = option.echo;

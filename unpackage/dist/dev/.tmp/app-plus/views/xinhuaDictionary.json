@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "chart_-weather-line": "/components/general/chart_WeatherLine"
+  }
+}

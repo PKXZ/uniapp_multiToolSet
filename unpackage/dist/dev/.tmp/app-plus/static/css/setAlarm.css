@@ -1,0 +1,52 @@
+.alarmView{
+	width: 100%;
+	height: 400upx;
+	padding: 40upx 0;
+	overflow: hidden;
+	background: #fff;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+}
+.uni-picker-view-wrapper{
+	width: 100%;
+}
+.uni-picker-view-mask{
+	background-size: 100% 72px !important;
+}
+.repeatView{
+	background: #fff;
+	margin: 20upx 0;
+	display: flex;
+	flex-direction: column;
+	padding: 20upx 60upx 20upx 20upx;
+}
+.repeatView ul {
+	display: flex;
+	margin-top: 20upx;
+}
+.repeatView ul li{
+	float: left;
+	width: 80upx;
+	height: 80upx;
+	line-height: 80upx;
+	background: #dedede;    
+	color: #fff;
+    text-align: center;
+	font-size: 34upx;
+	border-radius: 50%;
+	margin-right: 20upx;
+}
+.usedLi{
+	background: #31a2e0 !important;
+}
+.footerBtn{
+	display: flex;
+	justify-content: space-around;
+}
+.footerBtn .btnVuewOne,.footerBtn .btnVuewTwo{
+	width: 40%;
+}
+

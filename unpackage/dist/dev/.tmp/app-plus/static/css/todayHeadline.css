@@ -1,0 +1,208 @@
+.todayHeadlineContent{
+	width: 100%;
+	height:100%;
+}
+.todayHeadlineTop {
+    width: 100%;
+    height: 500upx;
+    background: linear-gradient(to bottom, rgba(32, 143, 250,1),rgba(40, 157, 224,0.8));
+}
+.todayDiv{
+	width: 100%;
+	height: calc(100% - 90upx);
+}
+/*波浪*/
+.waves {
+  position: relative;
+  top: 40%;
+  left: 50%;
+  margin-left: -60upx;
+  margin-top: -70upx;
+  border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+}
+ .waves:before, .waves:after {
+  position: absolute;
+  background: white;
+  width: 120upx;
+  height: 120upx;
+  content: "";
+  display: block;
+  border-radius: 50%;
+  -webkit-backface-visibility: hidden;
+  border: none;
+}
+.waves .hours{
+	margin-left: -45upx;
+}
+.waves .mh{
+	margin: 0 10upx;
+	animation: mhmove 1s ease infinite;
+	font: bold 80upx Arial, Helvetica, sans-serif;
+}
+.waves span{
+	font-size: 80upx;
+	color: #fff;
+}
+.waves:before {
+  animation: wave-animate 14s infinite ease-out;
+}
+.waves:after {
+  opacity: 0;
+  animation: wave-animate 14s 8s infinite ease-out;
+}
+@keyframes mhmove{
+	0% {
+		opacity: 1.0;
+		text-shadow: 0 0 40upx #00c6ff;
+	}
+	50% {
+		opacity: 0;
+		text-shadow: none;
+	}
+	100% {
+		opacity: 1.0;
+		text-shadow: 0 0 40upx #00c6ff;
+	}
+}
+@keyframes wave-animate {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+    transform-origin: center;
+  }
+  100% {
+    transform: scale(3);
+    opacity: 0;
+    transform-origin: center;
+  }
+}
+
+/*水波纹*/
+.ellipseDiv{
+	width: 100%;
+	height: 90upx;
+	position: relative;
+	overflow: hidden;
+}
+.ellipse{
+    width: 60%;
+    height: 250%;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 55%;
+}
+.ellipseOne {
+   position: absolute;
+   left: -40%;
+   margin-top: 30upx;
+}
+.ellipseTwo {
+   position: absolute;
+   left: 0;
+}
+
+.ellipseThree {
+   position: absolute;
+   left: 10%;
+   margin-top: 30upx;
+}
+.ellipseFour{
+   position: absolute;
+   left: 55%;
+   margin-top: 30upx;
+}
+.ellipseFive{
+   position: absolute;
+   left: 40%;
+}
+
+
+/*下半部*/
+.todayHeadlineBottom{
+	width: 100%;
+	height: calc(100% - 500upx);
+}
+.todayHeadlineBottom .iconBottom{
+	text-align: center;
+}
+.todayScroll{
+	width: 100%;
+    height: calc(100% - 200upx);
+	margin: 20upx auto auto auto;
+}
+.todayListUl{
+	width: 90%;
+	height: 100%;
+	margin: 0 auto;
+}
+.todayListUl > li{
+	padding: 26upx 26upx;
+	border-bottom: 1upx solid #eee;
+}
+.fixedIcon{
+	position: absolute;
+	bottom: 60upx;
+	width: 100%;
+}
+.iconBottomF{
+	margin-top: 200upx;
+}
+.iconBottom i{
+	font-size: 90upx;
+	width: 100upx;
+	height: 100upx;
+	color: #fff;
+	border-radius: 50%;
+	background: #279ce2;
+	margin: 0 auto;
+	text-align: center;
+	box-shadow: 12upx 12upx 10upx #888888;
+}
+
+.clockDiv{
+	display: flex;
+	justify-content:space-between;
+}
+.clockDiv div{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+.clockDiv div span{
+	font-size: 60upx;
+	font-weight: bold;
+}
+.clockDiv div p{
+	color: #999;
+	font-size: 34upx;
+	margin-left: 20upx;
+	margin-top: 20upx;
+}
+.clockDiv switch{
+	float: right;
+	transform:scale(0.8);
+}
+.periodDiv{
+	display: flex;
+	flex-direction: row;
+}
+.periodDiv ul{
+	display: flex;
+}
+.periodDiv ul li{
+	width: 65upx;
+	height: 65upx;
+	line-height: 65upx;
+	border-radius: 50%;
+	background: #dedede;
+	color: #fff;
+	text-align: center;
+	float: left;
+	margin-right: 20upx;
+	margin-top: 5upx;
+	font-size: 34upx;
+}
+.usedLi{
+	background: #31a2e0 !important;
+}

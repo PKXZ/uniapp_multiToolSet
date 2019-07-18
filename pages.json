@@ -46,6 +46,14 @@
             "path" : "views/scan"
         },{
             "path" : "views/qrCode"
+        },{
+            "path" : "views/push"
+        },{
+            "path" : "views/pay"
+        },{
+            "path" : "views/share"
+        },{
+            "path" : "views/callPhone"
         }
     ],
 	"globalStyle": {

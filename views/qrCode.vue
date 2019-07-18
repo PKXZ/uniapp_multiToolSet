@@ -137,10 +137,6 @@
 				title: options.label
 			  })
 			}
-			uni.setNavigationBarColor({
-			  frontColor: '#ffffff',
-			  backgroundColor: '#63b4fe'
-			})
 		},
 		mounted(){
 			uni.showToast({

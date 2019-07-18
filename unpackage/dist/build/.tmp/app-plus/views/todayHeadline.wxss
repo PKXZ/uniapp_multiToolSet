@@ -1,19 +1,12 @@
-.todayHeadlineContent{
-	width: 100%;
-	height:100%;
-	margin-top: 70rpx;
-}
 .todayHeadlineTop {
     width: 100%;
     height: 500rpx;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(32, 143, 250,1)),to(rgba(40, 157, 224,0.8)));
-    background: -webkit-linear-gradient(top, rgba(32, 143, 250,1),rgba(40, 157, 224,0.8));
     background: -o-linear-gradient(top, rgba(32, 143, 250,1),rgba(40, 157, 224,0.8));
     background: linear-gradient(to bottom, rgba(32, 143, 250,1),rgba(40, 157, 224,0.8));
 }
 .todayDiv{
 	width: 100%;
-	height: -webkit-calc(100% - 90rpx);
 	height: calc(100% - 90rpx);
 }
 /*波浪*/
@@ -23,8 +16,7 @@
   left: 50%;
   margin-left: -60rpx;
   margin-top: -70rpx;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   -webkit-backface-visibility: hidden;
   display: -webkit-box;
   display: -webkit-flex;
@@ -38,8 +30,7 @@
   height: 120rpx;
   content: "";
   display: block;
-  -webkit-border-radius: 50%;
-          border-radius: 50%;
+  border-radius: 50%;
   -webkit-backface-visibility: hidden;
   border: none;
 }
@@ -136,8 +127,7 @@
     width: 60%;
     height: 250%;
     background: rgba(255, 255, 255, 0.8);
-    -webkit-border-radius: 55%;
-            border-radius: 55%;
+    border-radius: 55%;
 }
 .ellipseOne {
    position: absolute;
@@ -165,7 +155,6 @@
 /*下半部*/
 .todayHeadlineBottom{
 	width: 100%;
-	height: -webkit-calc(100% - 500rpx);
 	height: calc(100% - 500rpx);
 }
 .todayHeadlineBottom .iconBottom{
@@ -173,7 +162,6 @@
 }
 .todayScroll{
 	width: 100%;
-    height: -webkit-calc(100% - 200rpx);
     height: calc(100% - 200rpx);
 	margin: 20rpx auto auto auto;
 }
@@ -199,8 +187,7 @@
 	width: 100rpx;
 	height: 100rpx;
 	color: #fff;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	background: #279ce2;
 	margin: 0 auto;
 	text-align: center;
@@ -269,8 +256,7 @@
 	width: 65rpx;
 	height: 65rpx;
 	line-height: 65rpx;
-	-webkit-border-radius: 50%;
-	        border-radius: 50%;
+	border-radius: 50%;
 	background: #dedede;
 	color: #fff;
 	text-align: center;

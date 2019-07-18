@@ -10,7 +10,11 @@
     "views/pages/setAlarm",
     "views/xinhuaDictionary",
     "views/scan",
-    "views/qrCode"
+    "views/qrCode",
+    "views/push",
+    "views/pay",
+    "views/share",
+    "views/callPhone"
   ],
   "subPackages": [],
   "window": {
@@ -56,6 +60,6 @@
     "autoclose": false
   },
   "appname": "uniapp_multiToolSet",
-  "compilerVersion": "2.0.1",
+  "compilerVersion": "2.1.1",
   "usingComponents": {}
 }

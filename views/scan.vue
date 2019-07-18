@@ -55,10 +55,6 @@
 			title: options.label
 		  })
 		}
-		uni.setNavigationBarColor({
-		  frontColor: '#ffffff',
-		  backgroundColor: '#63b4fe'
-		})
 		
 		const self = this;
 		//uni.scanCodeAPI暂时不支持h5，所以用别的方式

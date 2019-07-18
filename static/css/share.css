@@ -1,0 +1,61 @@
+.sharePanel{
+	display: flex;
+}
+.sharePanel view{
+	width: 25%;
+	padding: 20upx 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	float: left;
+}
+.weixinBg{
+	background: #30ce39;
+}
+.qqBg{
+	background: #2ab6fa;
+}
+.sharePanel i{
+	width: 80upx;
+	height: 80upx;
+	line-height: 80upx;
+	text-align: center;
+	border-radius: 10upx;
+	color: #fff;
+	font-size: 44upx;
+}
+.sharePanel span{
+	font-size: 26upx;
+	margin-top: 10upx;
+}
+.shareModel{
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.3);
+}
+.shareBox{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fafafa;
+    z-index: 101;
+    transition: all 0.3s;
+    transform: translateY(0);
+}
+.shareCancle{
+    line-height: 80upx;
+    background: white;
+    text-align: center;
+    letter-spacing: 20upx;
+    font-size: 38upx;
+    color: #2c9dfe;
+    margin-bottom: 0;
+}
+.showShareBox{
+	transform: translateY(100%);
+}

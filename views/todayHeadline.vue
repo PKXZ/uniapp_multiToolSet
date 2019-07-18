@@ -1,5 +1,5 @@
 <template>
-	<view class="todayHeadlineContent">
+	<view class="main">
 		<!--上半部-->
 		<view class="todayHeadlineTop">
 			<view class="todayDiv">
