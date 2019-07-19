@@ -150,9 +150,12 @@
 			shareTo(scene,provider){
 				const self = this;
 				if(provider === 'link'){
-					uni.showToast({
-						title:'将要实现剪切板的功能'
-					})
+					uni.setClipboardData({
+						data: self.shareHref,
+						success: function () {
+							console.log('success');
+						}
+					});
 				}else{
 					//该Api仅仅支持App平台
 					// #ifdef APP-PLUS

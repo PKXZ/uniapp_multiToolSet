@@ -102,19 +102,26 @@ export default {
 				color: [
 				  "#61c566", "#a9e28b"
 				]
-			  }, {
-				label: '发送模板消息',
-				type: 'todayHeadline',
-				icon: 'icon-message',
+			  },{
+				label: '驾考宝典',
+				type: 'drivingExamination',
+				icon: 'icon-jiazhaodengji',
 				color: [
-				  "#ef9a3c", "#f8c568"
+				  "#00b9a3", "#00cc9a"
 				]
-			  }, {
+			  },{
 				label: '通讯录',
 				type: 'callPhone',
 				icon: 'icon-shoujidadianhua',
 				color: [
 				  "#c477d2", "#dd87cd"
+				]
+			  },   {
+				label: '笑话大全',
+				type: 'todayHeadline',
+				icon: 'icon-message',
+				color: [
+				  "#ef9a3c", "#f8c568"
 				]
 			  },  {
 				label: '地图定位',
@@ -136,13 +143,6 @@ export default {
 				icon: 'icon-chengyucidian',
 				color: [
 				  "#43e97b", "#38f9d7"
-				]
-			  }, {
-				label: '驾照题库',
-				type: 'driverTest',
-				icon: 'icon-jiazhaodengji',
-				color: [
-				  "#00b9a3", "#00cc9a"
 				]
 			  }, {
 				label: '历史今天',

@@ -14,7 +14,8 @@
     "views/push",
     "views/pay",
     "views/share",
-    "views/callPhone"
+    "views/callPhone",
+    "views/drivingExamination"
   ],
   "subPackages": [],
   "window": {

@@ -54,6 +54,23 @@
             "path" : "views/share"
         },{
             "path" : "views/callPhone"
+        },{
+            "path" : "views/drivingExamination",
+			"style": {
+			    "app-plus": {
+			        "bounce": "none",
+			        "titleNView": {
+			            "buttons": [ 
+			                {
+								"text": "\ue664",  
+			                    "float": "right",
+								"fontSrc": "/static/font/iconfont.ttf",  
+								"fontSize": "22px"  
+			                }
+			            ]
+			        }
+			    }
+			}
         }
     ],
 	"globalStyle": {

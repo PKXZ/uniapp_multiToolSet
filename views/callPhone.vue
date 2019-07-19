@@ -34,7 +34,6 @@
 <script>
 	import '../static/css/callPhone.css';
 	import pinyin from '@/utils/pinyin3.js'
-	var platform = uni.getSystemInfoSync().platform;
 	export default{
 		onLoad(options) {
 			//动态设置标题
@@ -50,7 +49,7 @@
 			this.initContacts()
 		},
 		onReady() {
-			var that = this
+			const that = this
 			uni.createSelectorQuery().select('.indexBar-box').boundingClientRect(function(e) {
 				if (e != null) {
 					that.boxTop = e.top
@@ -70,7 +69,8 @@
 				contacts: [],
 				contactItems: [],
 				isSearch: false,
-				isShow: false
+				isShow: false,
+				platform: uni.getSystemInfoSync().platform
 			}
 		},
 		methods: {
@@ -86,11 +86,11 @@
 				this.letter = e.target.id
 			},
 			tMove(e) {
-				var y = e.touches[0].clientY
-				var offsettop = this.boxTop
+				const y = e.touches[0].clientY
+				const offsettop = this.boxTop
 				//判断选择区域,只有在选择区才会生效
 				if (y > offsettop) {
-					var num = Math.floor((y - offsettop) / this.barHeight);
+					const num = Math.floor((y - offsettop) / this.barHeight);
 					if (num < this.contacts.length) {
 						this.letter = this.contacts[num].letter
 						this.scrollViewId = this.letter
@@ -107,41 +107,38 @@
 			 * 初始化通讯录
 			 */
 			initContacts: function() {
-				if(window.plus){
-					//获取手机通讯录
-					plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, (addressbook) => {
-						// 可通过addressbook进行通讯录操作
-						addressbook.find(["displayName", "phoneNumbers"], (contacts) => {
-							var items = [];
-							uni.showToast({
-								title: JSON.stringify(contacts)
-							})
-							
-							for (var i = 0; i < contacts.length; i++) {
-								if (contacts[i].phoneNumbers.length > 0) {
-									var contact = {
-										'name': contacts[i].displayName,
-										'phone': contacts[i].phoneNumbers[0].value
-									};
-									items.push(contact);
-								}
+				//获取手机通讯录
+				// #ifdef APP-PLUS
+				plus.contacts.getAddressBook(plus.contacts.ADDRESSBOOK_PHONE, (addressbook) => {
+					// 可通过addressbook进行通讯录操作
+					addressbook.find(["displayName", "phoneNumbers"], (contacts) => {
+						let items = [];
+						for (let i = 0; i < contacts.length; i++) {
+							if (contacts[i].phoneNumbers.length > 0) {
+								let contact = {
+									'name': contacts[i].displayName,
+									'phone': contacts[i].phoneNumbers[0].value
+								};
+								items.push(contact);
 							}
-							this.contacts = pinyin.paixu(items)
-							this.contacts.sort(function(o1, o2) {
-								return o1.letter.charCodeAt(0) - o2.letter.charCodeAt(0)
-							})
-							this.contactItems = JSON.parse(JSON.stringify(this.contacts))
-						}, (e) => {
-							this.onAddressBookSetting()
-						});
+						}
+						this.contacts = pinyin.paixu(items)
+						this.contacts.sort(function(o1, o2) {
+							return o1.letter.charCodeAt(0) - o2.letter.charCodeAt(0)
+						})
+						this.contactItems = JSON.parse(JSON.stringify(this.contacts))
 					}, (e) => {
 						this.onAddressBookSetting()
 					});
-				}else{
-					uni.showToast({
-						title: '请于APP中打开'
-					})
-				}
+				}, (e) => {
+					this.onAddressBookSetting()
+				});
+				//#endif
+				//#ifdef H5 || MP
+				uni.showToast({
+					title: '请于APP中打开'
+				})
+				//#endif
 			},
 			/*
 			 * 权限设置
@@ -157,26 +154,26 @@
 					success(res) {
 						if (res.confirm) {
 							if (platform == 'ios') {
-								var UIApplication = plus.ios.import("UIApplication");
-								var NSURL2 = plus.ios.import("NSURL");
-								var setting2 = NSURL2.URLWithString("app-settings:");
-								var application2 = UIApplication.sharedApplication();
+								let UIApplication = plus.ios.import("UIApplication");
+								let NSURL2 = plus.ios.import("NSURL");
+								let setting2 = NSURL2.URLWithString("app-settings:");
+								let application2 = UIApplication.sharedApplication();
 								application2.openURL(setting2);
 								plus.ios.deleteObject(setting2);
 								plus.ios.deleteObject(NSURL2);
 								plus.ios.deleteObject(application2);
 							} else {
-								var main = plus.android.runtimeMainActivity();
-								var bulid = plus.android.importClass("android.os.Build");
-								var Intent = plus.android.importClass('android.content.Intent');
+								let main = plus.android.runtimeMainActivity();
+								let bulid = plus.android.importClass("android.os.Build");
+								let Intent = plus.android.importClass('android.content.Intent');
 								if (bulid.VERSION.SDK_INT >= 9) {
-									var intent = new Intent('android.settings.APPLICATION_DETAILS_SETTINGS');
-									var Uri = plus.android.importClass('android.net.Uri');
-									var uri = Uri.fromParts("package", main.getPackageName(), null)
+									let intent = new Intent('android.settings.APPLICATION_DETAILS_SETTINGS');
+									let Uri = plus.android.importClass('android.net.Uri');
+									let uri = Uri.fromParts("package", main.getPackageName(), null)
 									intent.setData(uri);
 									intent.putExtra('android.content.Intent.setFlags', Intent.FLAG_ACTIVITY_NEW_TASK);
 								} else if (bulid.VERSION.SDK_INT <= 8) {
-									var intent = new Intent(Intent.ACTION_VIEW);
+									let intent = new Intent(Intent.ACTION_VIEW);
 									intent.setClassName("com.android.settings", "com.android.settings.InstalledAppDetails");
 									intent.putExtra("com.android.settings.ApplicationPkgName", main.getPackageName());
 									intent.putExtra('android.content.Intent.setFlags', Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -197,7 +194,7 @@
 			 */
 			onSelectClick: function(contact) {
 				uni.showActionSheet({
-					itemList: ['电话联系'],
+					itemList: ['拨打电话'],
 					success: (e) => {
 						if (e.tapIndex == 0) {
 							uni.makePhoneCall({
@@ -211,21 +208,21 @@
 			 * 搜索
 			 */
 			onSearchInput: function(e) {
-				var searchVal = e.detail.value
+				let searchVal = e.detail.value
 				this.isSearch = true
 				if (searchVal == '') {
 					this.contacts = JSON.parse(JSON.stringify(this.contactItems))
 					this.isSearch = false
 				} else {
-					var showList = []
-					var list = []
+					let showList = []
+					let list = []
 					list = JSON.parse(JSON.stringify(this.contactItems))
 					list.forEach((item, index1) => {
-						var contacts = []
+						let contacts = []
 						item.contacts.forEach((contact, index2) => {
-							for (var i = 0; i < searchVal.length; i++) {
+							for (let i = 0; i < searchVal.length; i++) {
 								if (contact.name.indexOf(searchVal[i]) != -1) {
-									var contain = false;
+									let contain = false;
 									contacts.find(function(val) {
 										if (val.phone == contact.phone) {
 											contain = true;
@@ -238,7 +235,7 @@
 							}
 						})
 						if (contacts.length > 0) {
-							var contacts = {
+							let contacts = {
 								letter: item.letter,
 								contacts: contacts
 							}

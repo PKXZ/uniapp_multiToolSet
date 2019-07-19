@@ -1,0 +1,9 @@
+.drivingMain{
+	width: 100%;
+	height: calc(100% - 120upx);
+	overflow: auto;
+}
+.drivingMain > view{
+	width: 100%;
+	height: 100%;
+}
