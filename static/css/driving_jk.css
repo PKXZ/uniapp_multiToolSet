@@ -1,6 +1,5 @@
 .jk_TabTitle{
 	width: 100%;
-	padding-top: 10upx;
 	display: flex;
 	align-items: center;
 	border-top: 2upx solid #efefef;
@@ -10,20 +9,38 @@
 	flex: 1;
 	color: #999;
 	text-align: center;
-	font-size: 34upx;
+	font-size: 30upx;
 }
 .jk_TabTitle > view span{
-	margin: 20upx 0;
+	margin: 10upx 0;
+	display: block;
 }
 .jk_TabTitle > view p{
 	text-align: center;
-	width: 50%;
-	height: 12upx;
+	width: 45%;
+	height: 10upx;
 	background: #333;
-	margin-left: 25%;
+	margin-left: 27%;
     border-top-left-radius: 10upx;
     border-top-right-radius: 10upx;
+	opacity: 0;  
+	 /*宽度变化效果*/
+	/* transition: width 1s;
+	-moz-transition: width 1s;
+	-webkit-transition: width 1s;
+	-o-transition: width 1s; 
+	 transition:1s ease; */
+	 transition:all 1s ease;
 }
 .jk_TabTitleActive{
 	color: #333;
+}
+.jk_TabTitleActiveP{
+	width: 60% !important;
+	opacity: 1 !important;
+	margin-left: 20% !important;
+}
+.jk_TabMain{
+	height: calc(100% - 70upx);
+	overflow: auto;
 }
