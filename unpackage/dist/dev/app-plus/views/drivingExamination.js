@@ -1,1 +1,2 @@
+setCssToHead([".",[1],"drivingMain{ width: 100%; height: calc(100% - ",[0,120],"); overflow: auto; }\n.",[1],"drivingMain \x3e wx-view{ width: 100%; height: 100%; }\n",],undefined,{path:"./views/drivingExamination.wxss"})();
 document.dispatchEvent(new CustomEvent("generateFuncReady", { detail: { generateFunc: $gwx('./views/drivingExamination.wxml') } }));

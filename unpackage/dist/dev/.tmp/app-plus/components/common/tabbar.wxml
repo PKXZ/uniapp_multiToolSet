@@ -1,1 +1,1 @@
-<view>1231231</view>
+<view class="tabbarBox"><block wx:for="{{tabbar}}" wx:for-item="item" wx:for-index="index" wx:key="index"><view data-event-opts="{{[['tap',[['clickTabbar',['$0',index],[[['tabbar','',index]]]]]]]}}" class="{{['tabbarCol',actived===index?'tabbarColActived':'']}}" bindtap="__e"><view class="{{['iconfont _i',item.icon]}}"></view><label class="_span">{{item.text}}</label></view></block></view>

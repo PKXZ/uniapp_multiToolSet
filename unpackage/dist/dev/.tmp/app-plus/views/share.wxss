@@ -37,6 +37,9 @@
 .linkBg{
 	background: #45ccd0;
 }
+.moreBg{
+	background: #f5c340;
+}
 .sharePanel > view > view ._i{
 	color: #fff;
 	font-size: 44rpx;

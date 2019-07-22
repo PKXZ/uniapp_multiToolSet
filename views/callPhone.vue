@@ -136,7 +136,8 @@
 				//#endif
 				//#ifdef H5 || MP
 				uni.showToast({
-					title: '请于APP中打开'
+					title: '请于APP中打开',
+					icon: 'none',
 				})
 				//#endif
 			},

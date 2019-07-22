@@ -38,6 +38,7 @@
                     "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
                     "<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
                     "<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
                     "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
                     "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
                     "<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
@@ -47,6 +48,7 @@
                     "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
                     "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
                 ]
             },
@@ -61,8 +63,8 @@
                         "appid" : "101728058"
                     },
                     "weixin" : {
-                        "appid" : "wx3133c25032e8bcbd",
-                        "appsecret" : "001ed3ffcc201324124d18c1dfafcd92"
+                        "appid" : "wx6cf73b7c483408f8",
+                        "appsecret" : "40ddf215b6fdbd93f9dd1285c64d9cfb"
                     }
                 },
                 "share" : {
@@ -70,8 +72,8 @@
                         "appid" : "101728058"
                     },
                     "weixin" : {
-                        "appid" : "wx3133c25032e8bcbd",
-                        "appsecret" : "001ed3ffcc201324124d18c1dfafcd92"
+                        "appid" : "wx6cf73b7c483408f8",
+                        "appsecret" : "40ddf215b6fdbd93f9dd1285c64d9cfb"
                     }
                 }
             },

@@ -49,7 +49,8 @@
 		// #endif
 		//#ifdef H5
 			uni.showToast({
-				title: '暂不支持H5页面，请于APP或小程序中打开'
+				title: '暂不支持H5页面，请于APP或小程序中打开',
+				icon: 'none',
 			})
 		//#endif
 	},

@@ -61,7 +61,8 @@
 					},
 					fail: function (err) {
 						uni.showToast({
-							title: '定位失败，默认查询成都'
+							title: '定位失败，默认查询成都',
+							icon: 'none',
 						});
 						self.currentCitys = '成都';
 						self.loadCity(30.64242,104.04311);

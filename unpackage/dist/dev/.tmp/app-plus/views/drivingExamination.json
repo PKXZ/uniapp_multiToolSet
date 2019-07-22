@@ -11,6 +11,10 @@
     ]
   },
   "usingComponents": {
-    "tabbar": "/components/common/tabbar"
+    "tabbar": "/components/common/tabbar",
+    "dring-jk": "/views/pages/driving_jk",
+    "dring-fx": "/views/pages/driving_fx",
+    "dring-mc": "/views/pages/driving_mc",
+    "dring-wd": "/views/pages/driving_wd"
   }
 }

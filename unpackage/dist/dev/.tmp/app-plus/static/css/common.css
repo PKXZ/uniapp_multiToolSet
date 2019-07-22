@@ -90,6 +90,10 @@
 	.uniCloList p{
 		font-size: 34upx;
 	}
+	.uniCloList .mandatory:before {
+        content: '* ';
+        color: red;
+	}
 	
 	/*上传图片样式*/
 	.upView{

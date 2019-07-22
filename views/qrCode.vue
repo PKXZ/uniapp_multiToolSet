@@ -140,7 +140,8 @@
 		},
 		mounted(){
 			uni.showToast({
-				title: '修改自动触发生成二维码'
+				title: '修改自动触发生成二维码',
+				icon: 'none',
 			})
 		},
 		watch:{
@@ -151,7 +152,8 @@
 				const reg = "^#([0-9a-fA-F]{6}|[0-9a-fA-F]{3})$";
 				if(newData.match(reg) === null){
 					uni.showToast({
-						title: '请正确输入十六进制颜色值'
+						title: '请正确输入十六进制颜色值',
+						icon: 'none',
 					});
 					return;
 				}else{

@@ -82,7 +82,7 @@
 					self.initLine();
 					 uni.showToast({
 						title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
-						duration: 2000
+						icon: 'none',
 					 })
 				});
 			});
