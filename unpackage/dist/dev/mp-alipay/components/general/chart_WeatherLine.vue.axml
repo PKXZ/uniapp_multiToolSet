@@ -1,1 +1,0 @@
-<template name="38de6c2a"><view class="_view {{ h[ 0 ].rcl }}" style="{{ h[ 0 ].st }}"><canvas class="_canvas canvas" style="{{ h[ 1 ].st }}" canvas-id="weatherLineCanvas" id="weatherLineCanvas"></canvas></view></template>

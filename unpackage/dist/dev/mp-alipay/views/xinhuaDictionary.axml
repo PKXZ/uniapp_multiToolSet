@@ -1,2 +1,0 @@
-<import src="/components/general/chart_WeatherLine.vue.axml"/><template name="3d148eb2"><template is="38de6c2a" data="{{ ...$root[ cp + 0 ], $root, _t: _t || '' }}" /></template>
-<template is="3d148eb2" data="{{ ...$root['0'], $root }}"/>

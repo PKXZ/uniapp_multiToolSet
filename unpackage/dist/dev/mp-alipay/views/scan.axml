@@ -1,2 +1,0 @@
-<template name="3a46bc82"><view class="_view main {{ h[ 0 ].rcl }}"><view class="_view"><label class="_label">条码内容：</label><label class="_span">{{ h[ 5 ].t }}</label></view><view class="_view"><label class="_label">条码类型：</label><label class="_span">{{ h[ 10 ].t }}</label></view></view></template>
-<template is="3a46bc82" data="{{ ...$root['0'], $root }}"/>
