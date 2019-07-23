@@ -47,14 +47,15 @@
 			  <text class="wd">{{item.wd}}</text>
 			</li>
 		  </ul>
-		  <chart_WeatherLine 
+		  <!-- <chart_WeatherLine 
 			class="chart_WeatherLine" 
 			:canvasHightData="canvasHightData" 
 			:canvasLowData="canvasLowData" 
 			:canvasNumData="canvasNumData"
 			:canvasMaximum="canvasMaximum"
 			:canvasMinimum="canvasMinimum">
-			</chart_WeatherLine>
+			</chart_WeatherLine> -->
+			<weactherLine class="chart_WeatherLine"></weactherLine>
 	  </view>
 	  
 	  <!--抽屉-->
@@ -88,7 +89,8 @@
 <script>
 	import '../static/css/wetherForecast.css';
 	import uniDrawer from '@/components/common/uni-drawer';
-	import chart_WeatherLine from '@/components/general/chart_WeatherLine.vue';
+	/* import chart_WeatherLine from '@/components/general/chart_WeatherLine.vue'; */
+	import weactherLine from '@/components/general/weactherLine.vue';
 	import uniSwipeAction from '@/components/common/uni-swipe-action';
 	export default {
 		data() {
@@ -424,7 +426,7 @@
 		},
 		components:{
 			uniDrawer,
-			chart_WeatherLine,
+			weactherLine,
 			uniSwipeAction
 		}
 	}

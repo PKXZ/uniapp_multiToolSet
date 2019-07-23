@@ -181,7 +181,6 @@
 				@
 				type: (String 类型 )分享消息的类型
 					微信分享平台，可取值：
-
 						"web"-分享网页类型，title（必填）、content（必填）、thumbs（必填）、href（网页url，必填）属性值有效；
 						"text"-分享文字类型，content（必填）属性值有效；
 						"image"-分享图片类型，pictures（必填）属性值有效；
@@ -224,15 +223,18 @@
 				  //2、分享
 				  shareType.send(
 					{
-					  type: 'text',
-					  content : "hcoder.net 为了更好的开发！",
-					  title: self.shareText,
-					  href  : self.shareHref,
-					  thumbs  : [self.picBase[0]],
-					  extra   : {scene : scene}
+					  title: self.shareText,//分享消息的标题
+					  content : self.shareSummary,//分享消息的文字内容,相当于uni.share的摘要
+					  href  : self.shareHref,//分享独立的链接
+					  thumbs  : [self.picBase[0]],//分享消息的缩略图
+					  extra   : {scene : scene}//分享消息扩展参数
 					},
-					function(){plus.nativeUI.toast( "分享成功！"+ scene );},
-					function(e){plus.nativeUI.toast( "分享失败："+e.message );}
+					function(){
+						plus.nativeUI.toast( "分享成功！"+ scene );
+					},
+					function(e){
+						plus.nativeUI.toast( "分享失败："+e.message );
+					}
 				  );
 			},
 			shareTo(scene,provider){
@@ -291,7 +293,7 @@
 						uni.share({
 							provider: provider,//分享服务提供商
 							scene: scene,//场景
-							type: 0,//分享类型 0默认图文（微信，微博） 1纯文字（公用） 2纯图片（公用） 3音乐（微信，QQ） 4视频（微信，微博）5小程序（微信）
+							type: 2,//分享类型 0默认图文（微信，微博） 1纯文字（公用） 2纯图片（公用） 3音乐（微信，QQ） 4视频（微信，微博）5小程序（微信）
 							href: self.shareHref,//跳转链接
 							title: self.shareText,//标题
 							summary: self.shareSummary,//摘要

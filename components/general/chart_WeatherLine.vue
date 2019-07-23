@@ -77,14 +77,16 @@
 					//app包括H5界面
 					self.canvasHeight = 'calc(100% / 2)';
 				//#endif
-				uni.onWindowResize((res) => {
-					//此接口不支持支付宝小程序、百度小程序以及头条小程序
-					self.initLine();
-					 uni.showToast({
-						title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
-						icon: 'none',
-					 })
-				});
+				//#ifndef MP-ALIPAY || MP-BAIDU || MP-TOUTIAO
+					uni.onWindowResize((res) => {
+						//此接口不支持支付宝小程序、百度小程序以及头条小程序
+						self.initLine();
+						 uni.showToast({
+							title: '此接口不支持支付宝小程序、百度小程序以及头条小程序',
+							icon: 'none',
+						 })
+					});
+				//#endif
 			});
 		 },
 		 methods:{

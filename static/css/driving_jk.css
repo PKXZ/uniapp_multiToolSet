@@ -1,46 +1,48 @@
 .jk_TabTitle{
 	width: 100%;
-	display: flex;
-	align-items: center;
+	height: 68upx;
 	border-top: 2upx solid #efefef;
 	border-bottom: 2upx solid #efefef;
 }
-.jk_TabTitle > view{
-	flex: 1;
+.jk_TabTitle .navTab{
+	width: 100%;
+	height: 100%;
+}
+.jk_TabTitle .navTab .tabItem{
 	color: #999;
 	text-align: center;
 	font-size: 30upx;
+	width: 150upx;
+    display: inline-block;
 }
-.jk_TabTitle > view span{
+.jk_TabTitle .navTab .tabItem span{
 	margin: 10upx 0;
 	display: block;
 }
-.jk_TabTitle > view p{
+.jk_TabTitle .navTab p{
 	text-align: center;
-	width: 45%;
+	width: 80upx;
 	height: 10upx;
 	background: #333;
-	margin-left: 27%;
     border-top-left-radius: 10upx;
     border-top-right-radius: 10upx;
-	opacity: 0;  
 	 /*宽度变化效果*/
-	/* transition: width 1s;
+	 transition:all 1s ease;
+	/* 
+	opacity: 0;  
+	transition: width 1s;
 	-moz-transition: width 1s;
 	-webkit-transition: width 1s;
 	-o-transition: width 1s; 
 	 transition:1s ease; */
-	 transition:all 1s ease;
+	/* transition:all 1s ease; */
 }
 .jk_TabTitleActive{
 	color: #333;
 }
 .jk_TabTitleActiveP{
-	width: 60% !important;
-	opacity: 1 !important;
-	margin-left: 20% !important;
+	width: 100upx !important;
 }
 .jk_TabMain{
 	height: calc(100% - 70upx);
-	overflow: auto;
 }

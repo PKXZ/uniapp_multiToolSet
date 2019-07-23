@@ -1,30 +1,43 @@
 <template>
 	<view class="main">
-		<view class="jk_TabTitle">
-			<view 
-			v-for="(item,index) in tabTitle" 
-			:key="index" 
-			:class="index === activedTab ? 'jk_TabTitleActive' : ''"
-			@click="clickTab(item,index)">
-				<span>{{item.name}}</span>
-				<p :class="index === activedTab ? 'jk_TabTitleActiveP' : ''"></p>
+		<scroll-view 
+			:scroll-top="scrollTop" 
+			scroll-x="true" 
+			class="jk_TabTitle">
+			<view class="navTab">
+				<view 
+					v-for="(item,index) in tabTitle" 
+					:key="index" 
+					class="tabItem"
+					:class="index === activedTab ? 'jk_TabTitleActive' : ''"
+					@click="clickTab(item,index)">
+					<span>{{item.name}}</span>
+				</view>
+				<p :style="transformStyle"></p>
 			</view>
-		</view>
-		<view class="jk_TabMain" v-show="activedTab === 0">
-			科一
-		</view>
-		<view class="jk_TabMain" v-show="activedTab === 1">
-			科二
-		</view>
-		<view class="jk_TabMain" v-show="activedTab === 2">
-			科三
-		</view>
-		<view class="jk_TabMain" v-show="activedTab === 3">
-			科四
-		</view>
-		<view class="jk_TabMain" v-show="activedTab === 4">
-			拿本
-		</view>
+		</scroll-view>
+		<swiper 
+			class="jk_TabMain" 
+			:indicator-dots="indicatorDots" 
+			:autoplay="autoplay" 
+			:duration="duration"
+			@change="tabContFun">
+			<swiper-item>
+				<view class="swiper-item uni-bg-red">科一</view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-item uni-bg-green">科二</view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-item uni-bg-blue">科三</view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-item uni-bg-blue">科四</view>
+			</swiper-item>
+			<swiper-item>
+				<view class="swiper-item uni-bg-blue">拿本</view>
+			</swiper-item>
+		</swiper>
 	</view>
 </template>
 
@@ -50,7 +63,17 @@
 					name: '拿本',
 					type: 'take'
 				}],
-				activedItem: {}
+				activedItem: {},
+				tabOpt: ['33upx','189upx','336upx','493upx','640upx'],//15px  90px  160px  235px  305px
+				transformStyle: {
+					transform: 'translate(30upx, 0) translateZ(0)',
+				},
+				//标题的切换
+				 scrollTop: 0,
+				//内容的切换
+				indicatorDots: false,
+				autoplay: false,
+				duration: 500,
 			}
 		},
 		watch:{
@@ -59,12 +82,27 @@
 					this.activedItem = newData;
 				},
 				deep: true
+			},
+			transformStyle:{
+				handler(newData, oldData) {
+					this.transformStyle = newData;
+				},
+				deep: true
 			}
 		},
 		methods:{
 			clickTab(item,index){
 				this.activedTab = index;
 				this.activedItem = item;
+				let obj = {
+					transform: 'translate('+this.tabOpt[index]+', 0) translateZ(0)',
+				};
+				this.transformStyle = obj;
+			},
+			tabContFun(obj){
+				const index = obj.detail.current;
+				const item = this.tabTitle[index];
+				this.clickTab(item,index);
 			}
 		}
 	}
