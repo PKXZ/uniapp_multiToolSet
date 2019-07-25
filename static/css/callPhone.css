@@ -9,17 +9,17 @@
 
 	.search {
 		width: 80%;
-		height: 70upx;
+		height: 70rpx;
 		display: flex;
 		flex-flow: row nowrap;
 		justify-content: center;
 		align-content: center;
 		text-align: center;
-		font-size: 30upx;
+		font-size: 30rpx;
 		background-color: #f0f0f0;
-		border-radius: 15upx;
-		margin-top: 10upx;
-		margin-bottom: 10upx;
+		border-radius: 15rpx;
+		margin-top: 10rpx;
+		margin-bottom: 10rpx;
 	}
 
 	.contact-scroll {
@@ -28,7 +28,7 @@
 		justify-content: flex-start;
 		align-items: center;
 		width: 100vw;
-		height: calc(100vh - 90upx);
+		height: calc(100vh - 90rpx);
 	}
 
 	.box {
@@ -42,12 +42,12 @@
 	.divider {
 		width: 100%;
 		background-color: #F0F0F0;
-		padding: 5upx 0;
+		padding: 5rpx 0;
 		color: #000;
 	}
 	
 	.divider-text {
-		margin-left: 20upx;
+		margin-left: 20rpx;
 	}
 
 	.item {
@@ -61,12 +61,12 @@
 	}
 
 	.portrait {
-		width: 80upx;
-		height: 80upx;
-		padding: 15upx;
+		width: 80rpx;
+		height: 80rpx;
+		padding: 15rpx;
 	}
 	.name {
-		font-size: 35upx;
+		font-size: 35rpx;
 	}
 
 	.hover {
@@ -93,24 +93,24 @@
 	}
 
 	.indexBar .indexBar-box {
-		width: 60upx;
+		width: 60rpx;
 		height: auto;
 		background: #fff;
 		display: flex;
 		flex-direction: column;
-		box-shadow: 0 0 20upx rgba(0, 0, 0, 0.1);
-		border-radius: 10upx;
+		box-shadow: 0 0 20rpx rgba(0, 0, 0, 0.1);
+		border-radius: 10rpx;
 		z-index: 1004;
 	}
 
 	.indexBar-item {
 		flex: 1;
-		width: 60upx;
-		height: 60upx;
+		width: 60rpx;
+		height: 60rpx;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		font-size: 24upx;
+		font-size: 24rpx;
 		color: #888;
 		z-index: 1005;
 	}
@@ -118,24 +118,24 @@
 	.indexToast {
 		position: fixed;
 		top: 0;
-		right: 80upx;
+		right: 80rpx;
 		bottom: 0;
 		background: rgba(0, 0, 0, 0.5);
-		width: 100upx;
-		height: 100upx;
-		border-radius: 10upx;
+		width: 100rpx;
+		height: 100rpx;
+		border-radius: 10rpx;
 		margin: auto;
 		color: #fff;
-		line-height: 100upx;
+		line-height: 100rpx;
 		text-align: center;
-		font-size: 48upx;
+		font-size: 48rpx;
 	}
 
 	.no-contact {
 		position: fixed;
 		width: 100%;
-		margin-top: 300upx;
-		font-size: 35upx;
+		margin-top: 300rpx;
+		font-size: 35rpx;
 		color: #666666;
 		text-align: center;
 	}

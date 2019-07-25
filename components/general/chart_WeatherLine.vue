@@ -98,7 +98,7 @@
 					 const dynamicWidth = res[0].width;
 					 const dynamicHeight = res[0].height;
 					 //self.context.clearRect(0,dynamicWidth,dynamicWidth,dynamicHeight);//重绘清理
-					 self.canvasHeight = dynamicHeight + 'upx';
+					 self.canvasHeight = dynamicHeight + 'rpx';
 					 //绘制画布
 					 //this.canvas = this.$refs.weatherLineCanvas.$el;
 					 //uniapp这里不一样1：canvas.getContext("2d");

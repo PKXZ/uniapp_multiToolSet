@@ -1,22 +1,22 @@
 .sharePanel{
 	width: 100%;
-	height: 310upx;
+	height: 310rpx;
 	display: block;
 }
 .sharePanel > view{
 	width: 25%;
-	padding: 15upx 0;
+	padding: 15rpx 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	float: left;
 }
 .sharePanel > view > view{
-	width: 80upx;
-	height: 80upx;
-	line-height: 80upx;
+	width: 80rpx;
+	height: 80rpx;
+	line-height: 80rpx;
 	text-align: center;
-	border-radius: 10upx;
+	border-radius: 10rpx;
 }
 .weixinBg{
 	background: #30ce39;
@@ -32,11 +32,11 @@
 }
 .sharePanel > view > view i{
 	color: #fff;
-	font-size: 44upx;
+	font-size: 44rpx;
 }
 .sharePanel span{
-	font-size: 26upx;
-	margin-top: 10upx;
+	font-size: 26rpx;
+	margin-top: 10rpx;
 }
 .shareModel{
     position: fixed;
@@ -59,11 +59,11 @@
 }
 .shareCancle{
 	width: 100%;
-    line-height: 80upx;
+    line-height: 80rpx;
     background: white;
     text-align: center;
-    letter-spacing: 20upx;
-    font-size: 38upx;
+    letter-spacing: 20rpx;
+    font-size: 38rpx;
     color: #2c9dfe;
     margin-bottom: 0;
 }

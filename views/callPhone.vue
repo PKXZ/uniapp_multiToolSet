@@ -240,7 +240,7 @@
 								letter: item.letter,
 								contacts: contacts
 							}
-							showList = showList.concat(contacts)
+							showList = contacts;
 						}
 					})
 					setTimeout(() => {

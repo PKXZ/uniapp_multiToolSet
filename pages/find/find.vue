@@ -1,9 +1,7 @@
 <template>
-	<weactherLine></weactherLine>
 </template>
 
 <script>
-	import weactherLine from '@/components/general/weactherLine.vue';
 	export default {
 		data() {
 			return {
@@ -14,9 +12,6 @@
 			
 		},
 		mounted() {
-		},
-		components:{
-			weactherLine
 		}
 	}
 </script>

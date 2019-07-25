@@ -10,36 +10,36 @@
   text-align: right;
 }
 .wetherGengduo i{
-  font-size: 48upx;
+  font-size: 48rpx;
   color: #fff;
-  margin: 0 30upx;
+  margin: 0 30rpx;
 }
 .wetherGengduo span{
-  font-size: 36upx;
+  font-size: 36rpx;
   color: #fff;
-  margin-left: -20upx;
+  margin-left: -20rpx;
 }
 .wetherInfo{
   width: 95%;
   height: auto;
   /* background-color: rgba(255,255,255,0.2); */
   margin: 0 auto;
-  padding-top: 40upx;
+  padding-top: 40rpx;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 }
 .wetherInfo .currentIcon{
-  font-size: 150upx;
+  font-size: 150rpx;
   color: #fff;
   display: block;
 	text-align: center;
 }
 .wetherInfo .currentType{
-  margin: 40upx 0;
+  margin: 40rpx 0;
 }
 .wetherInfo text{
-  font-size: 40upx;
+  font-size: 40rpx;
   color: #fff;
   display: flex;
   align-items: center;
@@ -49,24 +49,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20upx;
+  margin-top: 20rpx;
 }
 .wetherInfo .tag text{
-  font-size: 30upx;
+  font-size: 30rpx;
 }
 .wetherInfo .tag view{
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin: 0 15upx;
+  margin: 0 15rpx;
 }
 .wetherInfo .tag view view{
   display: flex;
   flex-direction: column;
 }
 .wetherInfo .tag view i{
-  font-size: 80upx;
+  font-size: 80rpx;
   color: #fff;
 }
 
@@ -83,12 +83,12 @@
 }
 /* .wetherBottom .tqUl{
   width: 100%;
-  height: 220upx;
+  height: 220rpx;
   text-align: center;
 }
 .wetherBottom .wdUl{
   width: 100%;
-  height: 100upx;
+  height: 100rpx;
   text-align: center;
 } */
 .wetherBottom ul:after{
@@ -99,7 +99,7 @@
 .wetherBottom ul li{
   float:left;
   text-align: center;
-  border-right: 1upx solid #ededed;
+  border-right: 1rpx solid #ededed;
   height: 100%;
   width: 19.6%;
 	display: flex;
@@ -114,13 +114,13 @@
 .wetherBottom ul li text{
   display: block;
   color: #7a7a7a;
-  /* margin: 45upx 0; */
+  /* margin: 45rpx 0; */
 	margin: 0;
   line-height: 2.5;
-	font-size: 30upx;
+	font-size: 30rpx;
 }
 .wetherBottom ul li i{
-  font-size: 50upx;
+  font-size: 50rpx;
   color: #7a7a7a;
 }
 .wetherBottom .wd{
@@ -128,13 +128,13 @@
 }
 .chart_WeatherLine{
 	position: absolute;
-	top: 260upx;
+	top: 260rpx;
 	width: 100%;
 	height: calc(100% / 2);
 	z-index: 0;
 }
 .wetherBottom .wetherDate{
-  font-size: 35upx;
+  font-size: 35rpx;
 }
 .wetherBottom .canvasWether{
 	width: 100%;
@@ -149,15 +149,15 @@
 .gengduoAdd{
   width: 100%;
   background: #fff;
-  height: 70upx;
-	line-height: 70upx;
+  height: 70rpx;
+	line-height: 70rpx;
 }
 .gengduoAdd .iLeft{
-	font-size: 46upx;
+	font-size: 46rpx;
 	float: left;
 }
 .gengduoAdd .iRight{
-  font-size: 70upx;
+  font-size: 70rpx;
 	float: right;
 }
 .gengduoAdd:after{
@@ -167,7 +167,7 @@
 }
 .gengduoContent{
   width: 100%;
-  height: calc(100% - 70upx);
+  height: calc(100% - 70rpx);
 	overflow: auto;
 }
 .scroll-Y {
@@ -183,23 +183,23 @@
 .gengduoContent ul li .cxt{
   width: 92%;
   float:left;
-  padding: 20upx 20upx;
+  padding: 20rpx 20rpx;
   border-bottom:1px solid #EEEEEE;
   color: #2b2b2b;
-  height: 40upx;
-  line-height: 40upx;
-	font-size: 30upx;
+  height: 40rpx;
+  line-height: 40rpx;
+	font-size: 30rpx;
 	display: flex;
 	flex-direction: row;
 	
 	  width: 92%;
 	  float:left;
-	  padding: 20upx 20upx;
+	  padding: 20rpx 20rpx;
 	  border-bottom:1px solid #EEEEEE;
 	  color: #2b2b2b;
-	  height: 40upx;
-	  line-height: 40upx;
-		font-size: 30upx;
+	  height: 40rpx;
+	  line-height: 40rpx;
+		font-size: 30rpx;
 		display: flex;
 		flex-direction: row;
 }
@@ -209,7 +209,7 @@
   content:" ";
 }
 .gengduoContent ul li .tag i{
-	font-size: 44upx;
+	font-size: 44rpx;
 }
 .gengduoContent ul li:hover{
   background: #eee;

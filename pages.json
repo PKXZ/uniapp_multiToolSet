@@ -6,11 +6,11 @@
 				"navigationBarTitleText": "工具集"
 			}
 		},{
+		    "path" : "pages/find/find"
+		},{
             "path" : "pages/myself/myself"
         },{
             "path" : "pages/message/message"
-        },{
-            "path" : "pages/find/find"
         },{
             "path" : "views/wetherForecast",
 			"style": {

@@ -43,10 +43,10 @@
 		color: #fff;
 	}
 	.primary,.default{
-		height: 70upx;
-		line-height: 70upx;
-		padding: 0 26upx;
-		font-size: 34upx;
+		height: 70rpx;
+		line-height: 70rpx;
+		padding: 0 26rpx;
+		font-size: 34rpx;
 	}
 	.primary:hover{
 		background: #66b1ff;
@@ -54,30 +54,30 @@
 	/*行列*/
 	.uniRowView{
 		background: #fff;
-		margin: 0 0 20upx 0;
+		margin: 0 0 20rpx 0;
 	}
 	.uniRowList{
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
 		align-items: center;
-		padding: 20upx 0upx 20upx 20upx;
+		padding: 20rpx 0rpx 20rpx 20rpx;
 		box-sizing: border-box;
 	}
 	.uniRowListRIcon::after{
 		font-family: 'iconfont' !important;
 		content: '\e6e0';
 		position: absolute;
-		right: 10upx;
+		right: 10rpx;
 		top: 50%;
 		color: #bbb;
-		font-size: 34upx;
+		font-size: 34rpx;
 		-webkit-transform: translateY(-50%);
 		-ms-transform: translateY(-50%);
 		transform: translateY(-50%);
 	}
 	.uniRowList span{
-		font-size: 34upx;
+		font-size: 34rpx;
 	}
 	.uniRowList switch{
 		transform:scale(0.8);
@@ -88,7 +88,7 @@
 		flex-direction: column;
 	}
 	.uniCloList p{
-		font-size: 34upx;
+		font-size: 34rpx;
 	}
 	.uniCloList .mandatory:before {
         content: '* ';
@@ -97,7 +97,7 @@
 	
 	/*上传图片样式*/
 	.upView{
-		margin-top: 25upx;
+		margin-top: 25rpx;
 	}
 	.upImgView:after{
 		clear: both;
@@ -106,9 +106,9 @@
 	}
 	.upImgView li{
 		float: left;
-		width: 90upx;
-		height: 90upx;
-		margin: 0 25upx 25upx 0;
+		width: 90rpx;
+		height: 90rpx;
+		margin: 0 25rpx 25rpx 0;
 		text-align: center;
 		position: relative;
 	}
@@ -121,30 +121,30 @@
 		height: 100%;
 	}
 	.upImgView li span{
-		width: 35upx;
-		height: 35upx;
-		line-height: 35upx;
+		width: 35rpx;
+		height: 35rpx;
+		line-height: 35rpx;
 		border-radius: 50%;
 		background: red;
 		position: absolute;
-		top: -16upx;
-		right: -16upx;
+		top: -16rpx;
+		right: -16rpx;
 	}
 	.upImgView li span i{
 		color: #fff;
-		font-size: 36upx;
+		font-size: 36rpx;
 		font-weight: bold;
 	}
 	.upIconView{
-		width: 90upx;
-		height: 90upx;
-		border: 5upx dotted #E3E3E3;
+		width: 90rpx;
+		height: 90rpx;
+		border: 5rpx dotted #E3E3E3;
 		text-align: center;
 	}
 	.upIconView i{
-		font-size: 70upx;
+		font-size: 70rpx;
 		text-align: center;
-		line-height: 90upx;
+		line-height: 90rpx;
 		display: block;
 		z-index: -1;
 		color: #E3E3E3;

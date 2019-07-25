@@ -55,7 +55,12 @@
 			:canvasMaximum="canvasMaximum"
 			:canvasMinimum="canvasMinimum">
 			</chart_WeatherLine> -->
-			<weactherLine class="chart_WeatherLine"></weactherLine>
+			<weactherLine 
+			class="chart_WeatherLine"
+			:canvasHightData="canvasHightData" 
+			:canvasLowData="canvasLowData" 
+			:canvasNumData="canvasNumData">
+			</weactherLine>
 	  </view>
 	  
 	  <!--抽屉-->
@@ -79,7 +84,7 @@
 						</li>
 						<div style="clear:both;"></div>
 					</ul>
-					</scroll-view>
+				  </scroll-view>
 			  </view>
 		  </view>
 	  </uni-drawer>
@@ -103,37 +108,6 @@
 				currentType: '',
 				currentIcon: '',
 				wetherList: [],
-				/* {
-					date: '05-17',
-					xq: '周五',
-					icon: 'icon-xiaoxue',
-					type: '晴',
-					wd: '18~25℃',
-				  }, {
-					date: '今天',
-					xq: '周六',
-					icon: 'icon-xiaoxue',
-					type: '晴',
-					wd: '18~25℃'
-				  }, {
-					date: '05-19',
-					xq: '周日',
-					icon: 'icon-xiaoxue',
-					type: '晴',
-					wd: '18~25℃'
-				  }, {
-					date: '05-20',
-					xq: '周天',
-					icon: 'icon-xiaoxue',
-					type: '晴',
-					wd: '18~25℃'
-				  }, {
-					date: '05-21',
-					xq: '周一',
-					icon: 'icon-xiaoxue',
-					type: '晴',
-					wd: '18~25℃'
-				  } */
 				cityList: [],
 				/* {
 					cityName: '成都',
@@ -147,8 +121,8 @@
 				canvasHightData: [],
 				canvasLowData: [],
 				canvasNumData: 0,
-				canvasMaximum: 0,
-				canvasMinimum: 0,
+				/* canvasMaximum: 0,
+				canvasMinimum: 0, */
 				opt: [{
 					text: '删除',
 					style: {
@@ -173,11 +147,15 @@
 			  backgroundColor: '#48c6ef'
 			});
 			
+			uni.showLoading({
+				title: '加载中'
+			});
 			if(!options.cityName){
 				//获取当前位置
 				this.loadInfo();
 			}else{
 				this.currentCity = options.cityName;
+				this.showRigth = false;
 			}
 			//安卓、ios app和小程序因为右侧模块分布不同，因此更多的图标展示位置不同
 			//#ifdef MP
@@ -255,9 +233,6 @@
 				if(city.indexOf('市') > 0){
 					city = city.split('市')[0];
 				}
-				uni.showLoading({
-					title: '加载中'
-				});
 				uni.request({
 					url: 'http://apis.juhe.cn/simpleWeather/query',
 					method: 'GET',
@@ -276,7 +251,6 @@
 							uni.hideLoading();
 							uni.showToast({
 								title: res.data.reason,
-								duration: 2000,
 								icon: 'none',
 							});
 						}else{
@@ -326,54 +300,107 @@
 							}
 							//一个数组赋值给另外一个数组
 							self.wetherList = [];
-							self.wetherList = self.wetherList.concat(arr);
-							self.canvasHightData = self.canvasHightData.concat(canvasHightData);
-							self.canvasLowData = self.canvasLowData.concat(canvasLowData);
+							self.wetherList = arr;
+							self.canvasHightData = canvasHightData;
+							self.canvasLowData = canvasLowData;
 							//判断数组中最大的数字和最小的数字
-							self.canvasMaximum = Math.max.apply(null, canvasHightData);
-							self.canvasMinimum = Math.min.apply(null, canvasLowData);
+							/* self.canvasMaximum = Math.max.apply(null, canvasHightData);
+							self.canvasMinimum = Math.min.apply(null, canvasLowData); */
 							
 							//存储抽屉内数据
 							const cityData = {
 								cityName: self.currentCity,
 								wd: currentWd
 							};
-							const value = uni.getStorageSync('chooseCitySelector');
-							if (value) {
-								//已存在
-								let jsons = value;
-								let currentCity = self.currentCity;
-								currentCity = currentCity.indexOf('市') === -1 ? currentCity.split('市')[0] : currentCity;
-								const jsonsData = JSON.parse(jsons);
-								if(jsons && jsons.indexOf(currentCity) === -1){
-									jsonsData.push(cityData);
-									self.cityList = self.cityList.concat(jsonsData);
-									uni.setStorage({
-										key: 'chooseCitySelector',
-										data: JSON.stringify(jsonsData)
-									});
+							
+							//获取缓存的城市列表
+							try {
+								const value = uni.getStorageSync('chooseCitySelector');
+								if (value) {
+									//已存在
+									let jsons = value;
+									let currentCity = self.currentCity;
+									currentCity = currentCity.indexOf('市') < 0 ? currentCity: currentCity.split('市')[0];
+									const jsonsData = JSON.parse(jsons);
+									if(jsons && jsons.indexOf(currentCity) < 0){
+										//数组中没有匹配到缓存中城市
+										jsonsData.push(cityData);
+										self.cityList = jsonsData;
+										uni.setStorage({
+											key: 'chooseCitySelector',
+											data: JSON.stringify(jsonsData)
+										});
+									}else{
+										//数组中匹配到缓存中城市
+										if(self.cityList.length === 0){
+											self.cityList = jsonsData;
+										}
+									}
 								}else{
-									self.cityList = self.cityList.concat(jsonsData);
+									//未存在
+									self.cityList.push(cityData);
 									uni.setStorage({
 										key: 'chooseCitySelector',
-										data: JSON.stringify(jsonsData)
+										data: JSON.stringify(self.cityList)
 									});
+									self.cityList = cityData;
 								}
-							}else{
-								//未存在
-								self.cityList.push(cityData);
-								uni.setStorage({
-									key: 'chooseCitySelector',
-									data: JSON.stringify(self.cityList)
-								});
-								self.cityList = self.cityList.concat(cityData);
+							} catch (e) {
+								console.log(e);
 							}
-							uni.hideLoading();//结束加载动画
 						}
+						uni.hideLoading();//结束加载动画
 					},
 					fail: (error) => {
+						//暂时让H5也展示假数据-- 后期可删除
+						// #ifdef H5
+							console.log('H5由于浏览器问题,暂时展示的是假数据,其他端正常');
+							uni.showToast({
+								title: 'H5由于浏览器问题,暂时展示的是假数据,其他端正常',
+								icon: 'none',
+							});
+							self.wetherList = [{
+								date: '08-01',
+								xq: '周四',
+								icon: 'icon-yin',
+								type: '阴',
+								wd: '18~25℃',
+							  }, {
+								date: '今天',
+								xq: '周五',
+								icon: 'icon-yin',
+								type: '阴',
+								wd: '28~20℃'
+							  }, {
+								date: '08-02',
+								xq: '周六',
+								icon: 'icon-zhenyu',
+								type: '阵雨',
+								wd: '16~25℃'
+							  }, {
+								date: '08-03',
+								xq: '周日',
+								icon: 'icon-xiaoyu',
+								type: '小雨',
+								wd: '18~25℃'
+							  }, {
+								date: '08-04',
+								xq: '周一',
+								icon: 'icon-yin',
+								type: '阴',
+								wd: '30~37℃'
+							  }];
+							self.canvasHightData = [25,28,25,25,37];
+							self.canvasLowData = [18,20,16,18,30];
+							self.canvasNumData = 5;
+							self.wd = 28;
+							self.fl = '3级';
+							self.sd = 58;
+							self.currentType = '阴';
+							self.currentIcon = 'icon-yin';
+						//#endif
 						uni.hideLoading();//结束加载动画
-						console.log(error)
+						console.log(error);
 					}
 				});
 			},
@@ -413,9 +440,20 @@
 				});
 			},
 			itemFun(item){
-				//单击报错的城市
-				this.currentCity = item.cityName;
-				this.showRigth = false;
+				//单击保存的城市
+				if(item.cityName !== this.currentCity){
+					uni.showLoading({
+						title: '加载中'
+					});
+					//赋值
+					this.currentCity = item.cityName;
+					this.showRigth = false;
+				}else{
+					uni.showToast({
+						title: '选择城市已展示',
+						icon: 'none'
+					});
+				}
 			},
 			bindClick(value) {
 				uni.showToast({

@@ -158,9 +158,9 @@
 					}
 				}
 				if(type === 'hours'){
-					this.hours = this.hours.concat(arr);
+					this.hours = arr;
 				}else if(type === 'minutes'){
-					this.minutes = this.minutes.concat(arr);
+					this.minutes = arr;
 				}
 			},
 			repeatWeek(item){
@@ -213,7 +213,7 @@
 				let selAlarm = uni.getStorageSync('selAlarm');
 				if(selAlarm){
 					selAlarm = JSON.parse(selAlarm);
-					arr = arr.concat(selAlarm);
+					arr = selAlarm;
 					arr.push(obj);
 					uni.setStorage({
 						key: 'selAlarm',
