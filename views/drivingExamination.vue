@@ -21,10 +21,10 @@
 <script>
 	import '../static/css/drivingExamination.css'
 	import tabbar from '@/components/common/tabbar.vue'
-	import dringJk from './pages/driving_jk'
-	import dringFx from './pages/driving_fx'
-	import dringMc from './pages/driving_mc'
-	import dringWd from './pages/driving_wd'
+	import dringJk from './pages/driving/driving_jk'
+	import dringFx from './pages/driving/driving_fx'
+	import dringMc from './pages/driving/driving_mc'
+	import dringWd from './pages/driving/driving_wd'
 	export default{
 		onLoad(options) {
 			//动态设置标题

@@ -11,7 +11,7 @@
 .jk_TabTitle .navTab .tabItem{
 	color: #999;
 	text-align: center;
-	font-size: 30rpx;
+	font-size: 32rpx;
 	width: 150rpx;
     display: inline-block;
 }
@@ -44,5 +44,5 @@
 	width: 100rpx !important;
 }
 .jk_TabMain{
-	height: calc(100% - 70rpx);
+	height: calc(100% - 72rpx);
 }

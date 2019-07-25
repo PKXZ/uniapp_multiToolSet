@@ -129,12 +129,6 @@
 						scene: 'qq',
 						provider: 'qq'
 					},{
-						text: 'QQ空间',
-						icon: 'iconfont icon-qqkongjian',
-						bg: 'qqBg',
-						scene: 'qq',
-						provider: 'qq'
-					},{
 						text: '复制链接',
 						icon: 'iconfont icon-lianjie',
 						bg: 'linkBg',

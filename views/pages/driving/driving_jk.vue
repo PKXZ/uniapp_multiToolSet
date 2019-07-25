@@ -13,36 +13,52 @@
 					@click="clickTab(item,index)">
 					<span>{{item.name}}</span>
 				</view>
-				<p :style="transformStyle"></p>
+				<p :style="{transform: 'translate('+transformStyle+', 0) translateZ(0)'}"></p>
 			</view>
 		</scroll-view>
 		<swiper 
 			class="jk_TabMain" 
 			:indicator-dots="indicatorDots" 
+			:current="current"
 			:autoplay="autoplay" 
 			:duration="duration"
 			@change="tabContFun">
 			<swiper-item>
-				<view class="swiper-item uni-bg-red">科一</view>
+				<view class="swiper-item uni-bg-red">
+					<drivingJkSectionOne></drivingJkSectionOne>
+				</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item uni-bg-green">科二</view>
+				<view class="swiper-item uni-bg-green">
+					<drivingJkSectionTwo></drivingJkSectionTwo>
+				</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item uni-bg-blue">科三</view>
+				<view class="swiper-item uni-bg-blue">
+					<drivingJkSectionThree></drivingJkSectionThree>
+				</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item uni-bg-blue">科四</view>
+				<view class="swiper-item uni-bg-blue">
+					<drivingJkSectionFour></drivingJkSectionFour>
+				</view>
 			</swiper-item>
 			<swiper-item>
-				<view class="swiper-item uni-bg-blue">拿本</view>
+				<view class="swiper-item uni-bg-blue">
+					<drivingJkSectionTake></drivingJkSectionTake>
+				</view>
 			</swiper-item>
 		</swiper>
 	</view>
 </template>
 
 <script>
-	import '../../static/css/driving_jk.css'
+	import '@/static/css/driving_jk.css'
+	import drivingJkSectionOne from './driving_jk_SectionOne'
+	import drivingJkSectionTwo from './driving_jk_SectionTwo'
+	import drivingJkSectionThree from './driving_jk_SectionThree'
+	import drivingJkSectionFour from './driving_jk_SectionFour'
+	import drivingJkSectionTake from './driving_jk_SectionTake'
 	export default{
 		data(){
 			return{
@@ -64,13 +80,12 @@
 					type: 'take'
 				}],
 				activedItem: {},
-				tabOpt: ['33upx','189upx','336upx','493upx','640upx'],//15px  90px  160px  235px  305px
-				transformStyle: {
-					transform: 'translate(30upx, 0) translateZ(0)',
-				},
+				tabOpt: ['33rpx','189rpx','336rpx','493rpx','640rpx'],//15px  90px  160px  235px  305px
+				transformStyle: '30rpx',
 				//标题的切换
 				 scrollTop: 0,
 				//内容的切换
+				current: 0,
 				indicatorDots: false,
 				autoplay: false,
 				duration: 500,
@@ -94,17 +109,22 @@
 			clickTab(item,index){
 				this.activedTab = index;
 				this.activedItem = item;
-				let obj = {
-					transform: 'translate('+this.tabOpt[index]+', 0) translateZ(0)',
-				};
-				this.transformStyle = obj;
+				this.transformStyle = this.tabOpt[index];
+				this.current = index;
 			},
 			tabContFun(obj){
 				const index = obj.detail.current;
 				const item = this.tabTitle[index];
 				this.clickTab(item,index);
 			}
-		}
+		},
+		components: {
+			drivingJkSectionOne,
+			drivingJkSectionTwo,
+			drivingJkSectionThree,
+			drivingJkSectionFour,
+			drivingJkSectionTake
+		},
 	}
 </script>
 
