@@ -19,7 +19,7 @@
 		</view>
 		<!--下半部-->
 		<view class="todayHeadlineBottom">
-			<scroll-view scroll-y="true" :class="ulList.length > 0 ? 'todayScroll' : ''">
+			<scroll-view scroll-y="true" :class="scrollClass">
 				<ul class="todayListUl">
 					<li v-for="(item,index) in ulList" :key="index">
 						<uniSwipeAction :options="opt" @click="removeClick">
@@ -44,7 +44,7 @@
 					</li>
 				</ul>
 			</scroll-view>
-			<view class="iconBottom" :class="ulList.length > 0 ? 'fixedIcon' : 'iconBottomF'">
+			<view class="iconBottom" :class="btnClass">
 				<i class="iconfont icon-jia" @click="addAlarm"></i>
 			</view>
 		</view>
@@ -67,6 +67,8 @@
 						backgroundColor: 'rgb(255,58,49)'
 					}
 				}],
+				scrollClass: '',
+				btnClass: 'iconBottomF',
 			}
 		},
 		onLoad(options) {
@@ -95,11 +97,22 @@
 			});
 		},
 		watch:{
-			ulList(newData,oldData){
-				uni.setStorage({
-					key: 'selAlarm',
-					data: JSON.stringify(newData)
-				});
+			ulList:{
+				handler(newData,oldData){
+					this.ulList = newData;
+					uni.setStorage({
+						key: 'selAlarm',
+						data: JSON.stringify(newData)
+					});
+					if(this.ulList.length > 0){
+						this.btnClass = 'fixedIcon';
+						this.scrollClass = 'todayScroll';
+					}else{
+						this.btnClass = 'iconBottomF';
+						this.scrollClass = '';
+					}
+				},
+				deep: true
 			}
 		},
 		methods:{
@@ -110,7 +123,12 @@
 				});
 			},
 			removeClick(value) {
+				debugger
 				this.ulList.splice(value.index,1);
+				uni.setStorage({
+					key: 'echoSelAlarm',
+					data: JSON.stringify(this.ulList)
+				});
 			},
 			alarmSwitch(e,index){
 				//闹钟开关;

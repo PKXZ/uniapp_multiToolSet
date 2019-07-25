@@ -1,15 +1,28 @@
 .alarmView{
 	width: 100%;
 	height: 400rpx;
+	line-height: 1;
 	padding: 40rpx 0;
-	overflow: hidden;
-	background: #fff;
+	background: #fff; 
 	text-align: center;
-	display: flex;
+	/*避免了安卓手机显示不出的情况*/
+	/* display: flex;
 	justify-content: center;
 	align-items: center;
-	position: relative;
+	position: relative; */
 }
+
+/* #ifdef H5 */
+.item{
+	line-height: 1;
+}
+/* #endif */
+/* #ifndef H5 */
+.item{
+	line-height: 3;
+}
+/* #endif */
+
 .uni-picker-view-wrapper{
 	width: 100%;
 }

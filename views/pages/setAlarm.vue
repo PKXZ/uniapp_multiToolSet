@@ -76,12 +76,8 @@
 	export default {
 		onLoad: function (option) {
 			//获取参数
-			let echoVal;
-			if(option.length > 0){
-				echoVal = option.echo;
-			}
-			if(echoVal){
-				this.echo = echoVal;
+			if(JSON.stringify(option) !== '{}'){
+				this.echo = option.echo;
 			}
 			//是否回显
 			if(this.echo === 'true'){	
@@ -99,7 +95,7 @@
 							self.vibration = obj.vibration;
 							const time = obj.time.split(':');
 							self.value.push(parseInt(time[0]) - 1);
-							self.value.push(parseInt(time[1]) - 1);
+							self.value.push(parseInt(time[1]));
 							self.time = obj.time;
 							self.echoIndex = obj.echoIndex;
 							for(let i = 0; i < self.bellArry.length; i++){
