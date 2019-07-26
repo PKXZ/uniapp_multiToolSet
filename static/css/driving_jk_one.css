@@ -7,3 +7,78 @@
   height: 100%; 
   width: 100%;
 }
+.jkswiper_image img{
+  background-size: 100% 100%; 
+}
+
+/*模块*/
+.testModule{
+	display: flex;
+	flex-direction: row;
+}
+.testModuleOne,.testModuleThree{
+	width: 25%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 24rpx 0 54rpx 0;
+}
+.testModuleTwo{
+	width: 49%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 54rpx 0;
+}
+.testModuleOne .testModuleIcon,.testModuleThree .testModuleIcon{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.testModuleOne .testModuleIcon > view,.testModuleThree .testModuleIcon > view{
+	width: 95rpx;
+	height: 95rpx;
+	line-height: 95rpx;
+	border-radius: 40%;
+	text-align: center;
+	margin: 30rpx 0 10rpx 0;
+}
+.testModuleOne .testModuleIcon > view > i,.testModuleThree .testModuleIcon > view > i{
+	font-size: 60rpx;
+	color: #fff;
+}
+.testModuleOne .testModuleIcon > p,.testModuleThree .testModuleIcon > p{
+	font-size: 32rpx;
+}
+.specialPractice{
+	background: linear-gradient(top left,#afddf0,#0497ff);
+}
+.VIPCourse{
+	background: linear-gradient(top left,#feb470,#fa6156);
+}
+.drivingPlatform{
+	background: linear-gradient(top left,#bf9ef2,#816ee1);
+}
+.difficultiesOvercome{
+	background: linear-gradient(top left,#fe7c83,#e8323e);
+}
+.wrongTopic{
+	background: linear-gradient(top left,#a7ffe1,#11b8bf);
+}
+.randomPractice{
+	background: linear-gradient(top left,#f3e010,#eda106);
+}
+.skillIcons{
+	background: linear-gradient(top left,#65f2c3,#12b8bf);
+}
+.studentsBuy{
+	background: linear-gradient(top left,#58d2fc,#1496f3);
+}
+.testModuleTwo > view{
+	width: 220rpx;
+	height: 220rpx;
+	line-height: 220rpx;
+	text-align: center;
+	margin: 50rpx 0 50rpx 0;
+	border: 1rpx solid #000;
+}

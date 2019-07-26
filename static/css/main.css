@@ -13,7 +13,7 @@
 	margin-bottom: 125rpx;
 }
 .toolsRows{
-		display: block;
+	display: block;
 }
 .toolsCols{
 	width: calc(100% / 4);

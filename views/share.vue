@@ -138,7 +138,7 @@
 					// #ifdef APP-PLUS
 					{
 						text: '更多',
-						icon: 'iconfont icon-lianjie',
+						icon: 'iconfont icon-gengduoMore',
 						bg: 'moreBg',
 						scene: '',
 						provider: 'more'
