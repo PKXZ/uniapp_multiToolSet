@@ -7,6 +7,11 @@
 		margin: 0;
 		padding: 0;
 	}
+	ul:after{
+		display: block;
+		clear: none;
+		content: '';
+	}
 	html,body{
 		height: 100%;
 		width: 100%;
@@ -163,3 +168,10 @@
 	/* picker-view-column{
 		width: 100%;
 	} */
+	
+	/*翻图*/
+	.swiper-item{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}

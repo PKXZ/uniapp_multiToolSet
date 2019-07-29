@@ -1,6 +1,6 @@
 <template>
 	<view class="main">
-		<view class="drivingMain">
+		<view class="drivingMain grayBg">
 			<view v-if="actived == 0">
 				<frontZx></frontZx>
 			</view>
@@ -45,7 +45,7 @@
 						type: 'zx'
 					},{
 						text: '打卡',
-						icon: 'icon-qiandaoguiji',
+						icon: 'icon-yundanguiji',
 						type: 'dk'
 					},{
 						text: '阅读',

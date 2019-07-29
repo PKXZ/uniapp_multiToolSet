@@ -1,0 +1,56 @@
+.frontWdInfo{
+	width: 100%;
+	height: auto;
+	background: #fff;
+}
+.frontWdInfo .fonrtInfoBg{
+	width: 100%;
+	height: 272rpx;
+	line-height: 272rpx;
+	background: #63b4fe;
+    border-bottom-left-radius: 60%;
+    border-bottom-right-radius: 60%;
+}
+.frontWdInfo .fonrtInfoBg > view{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+.frontWdInfo .fonrtInfoBg > view img{
+	width: 120rpx;
+	height: 120rpx;
+	border-radius: 50%;
+	margin: 0 20rpx 0 42rpx;
+}
+.frontWdInfo .fonrtInfoBg > view span{
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	color: #fff;
+}
+
+
+.frontWdTool{
+	background: #fff;
+	margin-bottom: 20rpx;
+	display: flex;
+	flex-direction: row;
+}
+.frontWdTool > view{
+	width: 33%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding-top: 22rpx;
+	padding-bottom: 22rpx;
+}
+.frontWdTool > view i{
+	font-size: 55rpx;
+	color: #63b4fe;
+}
+.frontWdTool > view span{
+	font-size: 27rpx;
+	color: #9a9a9a;
+}

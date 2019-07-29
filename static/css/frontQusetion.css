@@ -1,6 +1,6 @@
 .drivingMain{
 	width: 100%;
-	height: calc(100% - 120rpx);
+	height: calc(100% - 110rpx);
 	overflow: auto;
 }
 .drivingMain > view{

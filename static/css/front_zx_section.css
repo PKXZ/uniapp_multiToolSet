@@ -1,3 +1,7 @@
+.frontScroll{
+	width: 100%;
+	height: 100%;
+}
 .front_ul{
 	width: 100%;
 	height: 100%;
@@ -9,11 +13,12 @@
 	content:" ";
 }
 .front_li{
+	margin-bottom: 22rpx;
 	padding: 10rpx;
 	font-size: 32rpx;
 	display: flex;
 	flex-direction: row;
-	border: 1rpx solid #000;
+	background: #fff;
 }
 .front_li .leftView{
 	text-align: center;
@@ -25,7 +30,6 @@
 
 .front_li .cotView{
 	flex: auto;
-	border: 1rpx solid #000;
 	padding: 16rpx;
 }
 .front_li .cotView .cotBt{
@@ -70,4 +74,27 @@
 .front_li .rightView i{
 	font-size: 34rpx;
 	padding: 0 6rpx;
+	color: #9a9a9a;
+}
+
+.html5Bg{
+	color: #e44c28;
+}
+.jsBg{
+	color: #f4ce20;
+}
+.nodejsBg{
+	color: #81be00;
+}
+.css3Bg{
+	color: #3b9adc;
+}
+.reactBg{
+	color: #60dbfb;
+}
+.angularBg{
+	color: #a6120d;
+}
+.vuejsBg{
+	color: #41b883;
 }

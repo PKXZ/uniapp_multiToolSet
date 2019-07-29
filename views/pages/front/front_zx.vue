@@ -23,29 +23,11 @@
 			:autoplay="autoplay" 
 			:duration="duration"
 			@change="tabContFun">
-			<swiper-item>
+			<swiper-item
+				v-for="(item,index) in tabTitle" 
+				:key="index">
 				<view class="swiper-item uni-bg-red">
-					<frontZxSectionOne></frontZxSectionOne>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item uni-bg-green">
-					<frontZxSectionTwo></frontZxSectionTwo>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item uni-bg-blue">
-					<frontZxSectionThree></frontZxSectionThree>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item uni-bg-blue">
-					<frontZxSectionFour></frontZxSectionFour>
-				</view>
-			</swiper-item>
-			<swiper-item>
-				<view class="swiper-item uni-bg-blue">
-					<frontZxSectionTake></frontZxSectionTake>
+					<frontZxSection :itemType='item.type'></frontZxSection>
 				</view>
 			</swiper-item>
 		</swiper>
@@ -54,11 +36,7 @@
 
 <script>
 	import '@/static/css/front_zx.css'
-	import frontZxSectionOne from './front_zx_SectionOne'
-	import frontZxSectionTwo from './front_zx_SectionTwo'
-	import frontZxSectionThree from './front_zx_SectionThree'
-	import frontZxSectionFour from './front_zx_SectionFour'
-	import frontZxSectionTake from './front_zx_SectionTake'
+	import frontZxSection from './front_zx_section'
 	export default{
 		data(){
 			return{
@@ -119,11 +97,7 @@
 			}
 		},
 		components: {
-			frontZxSectionOne,
-			frontZxSectionTwo,
-			frontZxSectionThree,
-			frontZxSectionFour,
-			frontZxSectionTake
+			frontZxSection
 		},
 	}
 </script>

@@ -8,7 +8,7 @@
     background-color: rgb(255, 255, 255);
 	display: flex;
     padding-bottom: env(safe-area-inset-bottom);
-    border-top: 2upx solid rgba(0, 0, 0, 0.33);
+    border-top: 2upx solid rgba(0, 0, 0, 0.1);
 }
 .tabbarCol{
 	display: flex;
