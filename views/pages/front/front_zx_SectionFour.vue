@@ -6,7 +6,7 @@
 
 <script>
 	export default{
-		name: 'drivingJkSectionFour',
+		name: 'frontZxSectionFour',
 		data(){
 			return{
 				

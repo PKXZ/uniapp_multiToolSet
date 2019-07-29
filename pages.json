@@ -55,6 +55,8 @@
         },{
             "path" : "views/callPhone"
         },{
+            "path" : "views/frontQuestion"
+        },{
             "path" : "views/drivingExamination",
 			"style": {
 			    "app-plus": {

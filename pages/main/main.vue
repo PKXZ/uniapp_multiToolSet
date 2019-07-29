@@ -116,6 +116,13 @@ export default {
 				color: [
 				  "#c477d2", "#dd87cd"
 				]
+			  }, {
+				label: '前端题库',
+				type: 'frontQuestion',
+				icon: 'icon-xinwen',
+				color: [
+				  "#e858a2", "#ec8fc3"
+				]
 			  },   {
 				label: '笑话大全',
 				type: 'todayHeadline',
@@ -187,21 +194,14 @@ export default {
 				  "#577ff3", "#abb1f6"
 				]
 			  }, {
-				label: 'xxx',
-				type: 'todayHeadline',
-				icon: 'icon-xinwen',
-				color: [
-				  "#e858a2", "#ec8fc3"
-				]
-			  }, {
-				label: 'xxx',
+				label: '在线Excel',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',
 				color: [
 				  "#2f6af8", "#51c0fa"
 				]
 			  }, {
-				label: 'xxx',
+				label: '在线Pdf',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',
 				color: [

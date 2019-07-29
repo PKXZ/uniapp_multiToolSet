@@ -1,12 +1,12 @@
 <template>
 	<view class="main">
-		我是科四
+		我是科二
 	</view>
 </template>
 
 <script>
 	export default{
-		name: 'drivingJkSectionFour',
+		name: 'frontZxSectionTwo',
 		data(){
 			return{
 				
