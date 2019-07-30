@@ -59,6 +59,8 @@
         },{
 			"path" : "views/pages/front/front_zx_onlineTest"
 		},{
+			"path" : "views/pages/front/front_zx_topicTotal"
+		},{
             "path" : "views/drivingExamination",
 			"style": {
 			    "app-plus": {

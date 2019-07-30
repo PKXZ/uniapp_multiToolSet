@@ -9,7 +9,11 @@
 			</span>
 		</view>
 		<scroll-view scroll-y="true" class="otScroll">
-			
+			   <pre>
+				   <code class="html">
+					   <div>aaa</div>
+					</code>
+				</pre>
 		</scroll-view>
 		<tabbar :tabbar="tabbar" :actived="actived" @emitActived="emitActived"></tabbar>
 	</view>
@@ -18,6 +22,8 @@
 <script>
 	import '@/static/css/front_zx_onlineTest.css'
 	import tabbar from '@/components/common/tabbar.vue'
+	import hljs from 'highlight.js' //导入代码高亮文件
+	import 'highlight.js/styles/monokai-sublime.css'  //导入代码高亮样式
 	export default{
 		onLoad(options) {
 			//动态设置标题
@@ -53,14 +59,23 @@
 				],
 			}
 		},
+		mounted(){
+			/* let blocks = el.querySelectorAll('pre code');
+			blocks.forEach((block)=>{
+				hljs.highlightBlock(block);
+			}) */
+			   initHighlightingOnLoad('html', 'css');
+		},
 		methods:{
 			emitActived(item){
 				this.actived = item.index;
-				if(this.actived.type === 'sc'){
+				if(item.type === 'sc'){
 					
-				}else if(this.actived.type === 'tk'){
-					
-				}else if(this.actived.type === 'zf'){
+				}else if(item.type === 'tk'){
+					uni.navigateTo({
+						url: '/views/pages/front/front_zx_topicTotal'
+					});
+				}else if(item.type === 'zf'){
 					
 				}
 			}

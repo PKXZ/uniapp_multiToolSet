@@ -7,12 +7,16 @@
 <script>
 	export default{
 		onLoad(options) {
-			//动态设置标题
-			if (options.label) {
-			  uni.setNavigationBarTitle({
-				title: options.label
-			  })
-			}
+			const self = this;
+			uni.getStorage({
+				key: 'zx_section',
+				success: function (res) {
+					self.itemList = JSON.parse(res.data);
+					 uni.setNavigationBarTitle({
+						title: self.itemList.bt
+					})
+				}
+			});
 		},
 		data(){
 			return{
