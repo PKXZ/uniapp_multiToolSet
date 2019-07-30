@@ -42,7 +42,7 @@
 					},{
 						bt: '2019《考研政治》快速提升营',
 						clockPerson: 20,
-						img: 'http://i0.hdslb.com/bfs/article/6fc1d96596fdfb4b2759e4de0e0e7b44105c8ff0.jpg'
+						img: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1565072336&di=7825dba9c7b273d6632b10de2d7564be&imgtype=jpg&er=1&src=http%3A%2F%2Fwww.itcast.cn%2Ffiles%2Fimage%2F201904%2F20190415162740253.jpg'
 					},{
 						bt: '2019《考研政治》快速提升营',
 						clockPerson: 20,

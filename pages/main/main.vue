@@ -1,35 +1,37 @@
 <template>
 	<view class="main">
-		<!--轮播图-->
-		<swiper 
-			class='swiperView'
-			:indicator-dots="indicatorDots"
-			:indicator-active-color="indicatorActiveColor"
-			:autoplay="autoplay"
-			:interval="interval"
-			:duration="duration"
-			:indicator-color="indicatorColor">
-			<block v-for="(list, index) in picList" :key="index">
-				<swiper-item>
-					<image :src="list" class="swiper_image"></image>
-				</swiper-item>
-			</block>
-		</swiper>
-		<!--工具栏-->
-		<view class="toolsView">
-			<ul class="toolsRows">
-				<li class="toolsCols" v-for="(item,index) in toolData" :key="index">
-					<view
-						class="toolSingel"
-						:style="'background: linear-gradient(to right,' + item.color[0] +','+ item.color[1] +')'"
-						@click="toTool"
-						:data-items="JSON.stringify(item)">
-						<i class="iconfont" :class="item.icon"></i>
-					</view>
-					<text>{{item.label}}</text>
-				</li>
-			</ul>
-		</view>
+		<scroll-view scroll-y="true" style="height: 100%;">
+			<!--轮播图-->
+			<swiper 
+				class='swiperView'
+				:indicator-dots="indicatorDots"
+				:indicator-active-color="indicatorActiveColor"
+				:autoplay="autoplay"
+				:interval="interval"
+				:duration="duration"
+				:indicator-color="indicatorColor">
+				<block v-for="(list, index) in picList" :key="index">
+					<swiper-item>
+						<image :src="list" class="swiper_image"></image>
+					</swiper-item>
+				</block>
+			</swiper>
+			<!--工具栏-->
+			<view class="toolsView">
+				<ul class="toolsRows">
+					<li class="toolsCols" v-for="(item,index) in toolData" :key="index">
+						<view
+							class="toolSingel"
+							:style="'background: linear-gradient(to right,' + item.color[0] +','+ item.color[1] +')'"
+							@click="toTool"
+							:data-items="JSON.stringify(item)">
+							<i class="iconfont" :class="item.icon"></i>
+						</view>
+						<text>{{item.label}}</text>
+					</li>
+				</ul>
+			</view>
+		</scroll-view>
 	</view>
 </template>
 

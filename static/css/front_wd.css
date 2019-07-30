@@ -17,13 +17,13 @@
     align-items: center;
 }
 .frontWdInfo .fonrtInfoBg > view img{
-	width: 120rpx;
-	height: 120rpx;
+	width: 122rpx;
+	height: 122rpx;
 	border-radius: 50%;
 	margin: 0 20rpx 0 42rpx;
 }
 .frontWdInfo .fonrtInfoBg > view span{
-    width: 100%;
+    width: calc(100% - 210rpx);
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

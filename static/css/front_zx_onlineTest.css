@@ -1,0 +1,26 @@
+.otBtView{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	border-bottom: 1rpx solid #ebebeb;
+	padding: 0 20rpx;
+	height: 94rpx;
+	color: #7a7a7a;
+	font-size: 30rpx;
+}
+.otBtView > span{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+.otCurrentPage{
+	font-size: 42rpx;
+	color: #63b4fe;
+}
+.otLine{
+	margin: 0 10rpx;
+}
+.otScroll{
+	height: calc(100% - 208rpx);
+}

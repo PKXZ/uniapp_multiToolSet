@@ -57,6 +57,8 @@
         },{
             "path" : "views/frontQuestion"
         },{
+			"path" : "views/pages/front/front_zx_onlineTest"
+		},{
             "path" : "views/drivingExamination",
 			"style": {
 			    "app-plus": {

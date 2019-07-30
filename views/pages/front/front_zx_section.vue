@@ -4,7 +4,7 @@
 			scroll-y="true" 
 			class="frontScroll">
 			<ul class="front_ul">
-				<li class="front_li" v-for="(item,index) in dataList" :key="index">
+				<li class="front_li" v-for="(item,index) in dataList" :key="index" @click="onlineTest(item)">
 					<view class="leftView">
 						<i class="iconfont" :class="['icon-'+item.type,item.bg]"></i>
 					</view>
@@ -17,7 +17,7 @@
 								color="#bbb"
 								:size="19"
 								:margin="3"
-								@change="onChangeStar">
+								:disabled="true">
 							</uni-rate>
 						</view>
 						<view class="cotCtx">
@@ -125,12 +125,18 @@
 		},
 		props:{
 			itemType: {
-				type: Object
+				type: String
 			}
 		},
 		methods: {
-			onChangeStar(e) {
-				console.log('rate发生改变:' + JSON.stringify(e))
+			onlineTest(item){
+				uni.navigateTo({
+					url: '/views/pages/front/front_zx_onlineTest',
+				});
+				uni.setStorage({
+					key: 'zx_section',
+					data: JSON.stringify(item)
+				});
 			}
 		},
 		components: {

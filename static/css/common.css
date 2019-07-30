@@ -31,8 +31,8 @@
 		overflow: hidden;
 	}
 	uni-page-wrapper{
-		overflow-x: hidden;
-		overflow-y: auto;
+		/* overflow-x: hidden;
+		overflow-y: auto; */
 		width: 100%;
 		position: initial;
 	}
@@ -101,7 +101,44 @@
         content: '* ';
         color: red;
 	}
-	
+	/*带图标行列*/
+	.uniRow{
+		background: #fff;
+		margin: 0 0 20rpx 0;
+		padding: 22rpx;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-content: center;
+	}
+	.uniRow > view{
+		display: flex;
+		flex-direction: row;
+		width: 90%; 
+		overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap
+	}
+	.uniRow > view i{
+		font-size: 44rpx;
+		margin-right: 20rpx;
+		color: #9a9a9a;
+	}
+	.uniRow > view span{
+		font-size: 34rpx;
+		width: calc(100% - 50rpx); 
+		overflow:hidden;
+        text-overflow:ellipsis;
+        white-space:nowrap;
+		color: #4e4e4e;
+	}
+	.uniRow i{
+		font-size: 34rpx;
+		margin-right: 10rpx;
+		display: flex;
+		flex-direction: column-reverse;
+		color: #cbcbcb;
+	}
 	/*上传图片样式*/
 	.upView{
 		margin-top: 25rpx;

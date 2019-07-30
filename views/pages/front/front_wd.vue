@@ -22,6 +22,27 @@
 				<span>练习历史</span>
 			</view>
 		</view>
+		<view class="uniRow">
+			<view class="uniRowLeft">
+				<i class="iconfont icon-ziliaoxiang"></i>
+				<span>资料包</span>
+			</view>
+			<i class="iconfont icon-youjiantou"></i>
+		</view>
+		<view class="uniRow">
+			<view class="uniRowLeft">
+				<i class="iconfont icon-yijianfankui"></i>
+				<span>意见反馈</span>
+			</view>
+			<i class="iconfont icon-youjiantou"></i>
+		</view>
+		<view class="uniRow">
+			<view class="uniRowLeft">
+				<i class="iconfont icon-shezhi"></i>
+				<span>设置</span>
+			</view>
+			<i class="iconfont icon-youjiantou"></i>
+		</view>
 	</view>
 </template>
 

@@ -123,7 +123,6 @@
 				});
 			},
 			removeClick(value) {
-				debugger
 				this.ulList.splice(value.index,1);
 				uni.setStorage({
 					key: 'echoSelAlarm',
