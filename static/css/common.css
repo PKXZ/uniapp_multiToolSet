@@ -217,3 +217,8 @@
 		width: 38rpx;
 		height: 38rpx;
 	}
+	
+	/*滚动条*/
+	.mainScrool{
+		height: 100%;
+	}

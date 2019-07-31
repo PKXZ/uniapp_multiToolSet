@@ -61,6 +61,11 @@
 		},{
 			"path" : "views/pages/front/front_zx_topicTotal"
 		},{
+            "path" : "views/pages/front/excleTurnJson",
+			"style": {
+				"navigationBarTitleText": "在线excel转json"
+			}
+		},{
             "path" : "views/drivingExamination",
 			"style": {
 			    "app-plus": {

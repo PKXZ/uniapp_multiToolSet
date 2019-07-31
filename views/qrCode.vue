@@ -1,108 +1,112 @@
 <template>
 	<!--二维码识别-->
 	<view class="main grayBg">
-		<view class="uniRowView qrCodeView">
-			<meQrcode 
-				v-if="ifShow" 
-				cid="qrcode1" 
-				ref="qrcode" 
-				:val="val" 
-				:size="size" 
-				:unit="unit" 
-				:background="background" 
-				:foreground="foreground" 
-				:pdground="pdground" 
-				:icon="icon" 
-				:iconSize="iconsize" 
-				:lv="lv" 
-				:onval="onval" 
-				:loadMake="loadMake" 
-				:usingComponents="true"
-				@result="qrR" />
-		</view>
-		<view class="uniRowView">
-			<view class="uniRowList">
-				<view class="uniCloList">
-					<span>生成二维码内容</span>
-					<input 
-						placeholder="请输入将要生成的二维码内容" 
-						type="text" 
-						v-model="val"/>
+		<scroll-view  
+			scroll-y="true" 
+			class="mainScrool">
+			<view class="uniRowView qrCodeView">
+				<meQrcode 
+					v-if="ifShow" 
+					cid="qrcode1" 
+					ref="qrcode" 
+					:val="val" 
+					:size="size" 
+					:unit="unit" 
+					:background="background" 
+					:foreground="foreground" 
+					:pdground="pdground" 
+					:icon="icon" 
+					:iconSize="iconsize" 
+					:lv="lv" 
+					:onval="onval" 
+					:loadMake="loadMake" 
+					:usingComponents="true"
+					@result="qrR" />
+			</view>
+			<view class="uniRowView">
+				<view class="uniRowList">
+					<view class="uniCloList">
+						<span>生成二维码内容</span>
+						<input 
+							placeholder="请输入将要生成的二维码内容" 
+							type="text" 
+							v-model="val"/>
+					</view>
 				</view>
 			</view>
-		</view>
-		<view class="uniRowView">
-			<view class="uniRowList">
-				<view class="uniCloList">
-					<span>设置二维码大小</span>
-					<slider 
-						class="sliders"
-						:value="size" 
-						@change="sliderchange" 
-						:min="sliderMin" 
-						:max="sliderMax"
-						show-value />
+			<view class="uniRowView">
+				<view class="uniRowList">
+					<view class="uniCloList">
+						<span>设置二维码大小</span>
+						<slider 
+							class="sliders"
+							:value="size" 
+							@change="sliderchange" 
+							:min="sliderMin" 
+							:max="sliderMax"
+							show-value />
+					</view>
 				</view>
 			</view>
-		</view>
-		<view class="uniRowView">
-			<view class="uniRowList">
-				<view class="uniCloList">
-					<span>二维码背景色</span>
-					<input 
-						placeholder="请输入二维码背景颜色" 
-						type="text" 
-						v-model="background"/>
+			<view class="uniRowView">
+				<view class="uniRowList">
+					<view class="uniCloList">
+						<span>二维码背景色</span>
+						<input 
+							placeholder="请输入二维码背景颜色" 
+							type="text" 
+							v-model="background"/>
+					</view>
 				</view>
 			</view>
-		</view>
-		<view class="uniRowView">
-			<view class="uniRowList">
-				<view class="uniCloList">
-					<span>二维码前景色</span>
-					<input 
-						placeholder="请输入二维码前景色" 
-						type="text" 
-						v-model="foreground"/>
+			<view class="uniRowView">
+				<view class="uniRowList">
+					<view class="uniCloList">
+						<span>二维码前景色</span>
+						<input 
+							placeholder="请输入二维码前景色" 
+							type="text" 
+							v-model="foreground"/>
+					</view>
 				</view>
 			</view>
-		</view>
-		<view class="uniRowView">
-			<view class="uniRowList">
-				<view class="uniCloList">
-					<span>二维码角标色</span>
-					<input 
-						placeholder="请输入二维码角标色" 
-						type="text" 
-						v-model="pdground"/>
+			<view class="uniRowView">
+				<view class="uniRowList">
+					<view class="uniCloList">
+						<span>二维码角标色</span>
+						<input 
+							placeholder="请输入二维码角标色" 
+							type="text" 
+							v-model="pdground"/>
+					</view>
 				</view>
 			</view>
-		</view>
-		<view class="uniRowView">
-			<view class="uniRowList">
-				<view class="uniCloList">
-					<span>二维码图标</span>
-					<view class="upView">
-						<ul class="upImgView" v-if="picBase.length > 0">
-							<li v-for="(item,index) in picBase" :key="index">
-								<image :src="item"></image>
-								<span @click="removeIcon"><i class="iconfont icon-jian"></i></span>
-							</li>
-						</ul>
-						<view class="upIconView" @tap="selectIcon" v-else>
-							<i class="iconfont icon-jia"></i>
+			<view class="uniRowView">
+				<view class="uniRowList">
+					<view class="uniCloList">
+						<span>二维码图标</span>
+						<view class="upView">
+							<ul class="upImgView" v-if="picBase.length > 0">
+								<li v-for="(item,index) in picBase" :key="index">
+									<image :src="item"></image>
+									<span @click="removeIcon"><i class="iconfont icon-jian"></i></span>
+								</li>
+							</ul>
+							<view class="upIconView" @tap="selectIcon" v-else>
+								<i class="iconfont icon-jia"></i>
+							</view>
 						</view>
 					</view>
 				</view>
 			</view>
-		</view>
-		
-		<!--目前H5和支付宝小程序不支持-->
-		<!-- #ifdef MP-WEIXIN || MP-BAIDU || MP-TOUTIAO || MP-QQ || APP-PLUS || APP-PLUS-NVUE-->
-		<view class="qrCodeBtn">
-			<button type="primary" class="primary" size="small" @tap="saveQrcode">保存到图库</button>
-		</view>
-		<!--  #endif -->
+			
+			<!--目前H5和支付宝小程序不支持-->
+			<!-- #ifdef MP-WEIXIN || MP-BAIDU || MP-TOUTIAO || MP-QQ || APP-PLUS || APP-PLUS-NVUE-->
+			<view class="qrCodeBtn">
+				<button type="primary" class="primary" size="small" @tap="saveQrcode">保存到图库</button>
+			</view>
+			<!--  #endif -->
+		</scroll-view>
 	</view>
 </template>
 

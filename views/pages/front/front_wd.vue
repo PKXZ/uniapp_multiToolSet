@@ -36,6 +36,13 @@
 			</view>
 			<i class="iconfont icon-youjiantou"></i>
 		</view>
+		<view class="uniRow" @click="goPage('tk')">
+			<view class="uniRowLeft">
+				<i class="iconfont icon-yijianfankui"></i>
+				<span>导入题库</span>
+			</view>
+			<i class="iconfont icon-youjiantou"></i>
+		</view>
 		<view class="uniRow">
 			<view class="uniRowLeft">
 				<i class="iconfont icon-shezhi"></i>
@@ -56,7 +63,16 @@
 					name: '皮卡是嫡猫'
 				}
 			}
-		}
+		},
+		methods: {
+			goPage(type) {
+				if(type === 'tk'){
+					uni.navigateTo({
+						url: '/views/pages/front/excleTurnJson'
+					})
+				}
+			}
+		},
 	}
 </script>
 
