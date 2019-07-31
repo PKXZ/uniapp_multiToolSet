@@ -1,0 +1,45 @@
+.topicTotal{
+	margin: 42rpx 0 42rpx 42rpx;
+}
+.topicTotal > span{
+	font-size: 34rpx;
+	height: 64rpx;
+	line-height: 64rpx;
+	display: flex;
+	flex-direction: row;
+	margin-bottom: 22rpx;
+}
+.topicTotal > span > p{
+	width: 8rpx;
+	height: 36rpx;
+    margin: auto 0;
+	margin-right: 16rpx;
+	background: #63b4fe;
+}
+.topicTotal ul:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.topicTotal > ul > li{
+	float: left;
+	width: 64rpx;
+	height: 64rpx;
+	border: 1px solid #ddd;
+	color: #63b4fe;
+	border-radius: 50%;
+	margin-right: 50rpx;
+	margin-top: 32rpx;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.currentTopic{
+	color: #fff !important;
+	background: #63b4fe !important;
+	border: 1px solid none !important;
+}
+.grayTopic{
+	color: #ddd !important;
+}

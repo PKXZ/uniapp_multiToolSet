@@ -1,3 +1,11 @@
+.otScroll{
+	height: calc(100% - 80rpx);
+}
+.otScroll ul:after{
+	display: block;
+	content: '';
+	clear: both;
+}
 .otBtView{
 	display: flex;
 	flex-direction: row;
@@ -21,6 +29,19 @@
 .otLine{
 	margin: 0 10rpx;
 }
-.otScroll{
-	height: calc(100% - 208rpx);
+.otScroll .topicUl{
+	margin: 22rpx;
+	font-size: 34rpx;
+} 
+.otScroll .topicUl > li{
+	margin-bottom: 22rpx;
+} 
+/*选项*/
+.choOptions > label{
+	display: flex;
+	flex-direction: row;
+	margin-top: 22rpx;
+}
+.labels{
+	margin-top: 22rpx;
 }
