@@ -559,7 +559,6 @@
 			}
 		},
 		mounted(){
-			
 		},
 		methods:{
 			emitActived(item){
@@ -590,7 +589,4 @@
 </script>
 
 <style>
-	.token.keyword.keyword-return, .token.keyword.keyword-if{
-		color: red;
-	}
 </style>
