@@ -8,7 +8,8 @@
     background-color: rgb(255, 255, 255);
 	display: flex;
     padding-bottom: env(safe-area-inset-bottom);
-    border-top: 2upx solid rgba(0, 0, 0, 0.1);
+    border-top: 2rpx solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0 0 6px 0 rgba(0,0,0,.2);
 }
 .tabbarCol{
 	display: flex;
@@ -23,12 +24,12 @@
 	color: #43b6f2 !important;
 }
 .tabbarCol i{
-	font-size: 50upx;
+	font-size: 50rpx;
     color: rgb(122, 126, 131);
-	margin-top: 12upx;
+	margin-top: 12rpx;
 }
 .tabbarCol span{
-	font-size: 26upx;
+	font-size: 26rpx;
     color: rgb(122, 126, 131);
-	margin-bottom: 12upx;
+	margin-bottom: 8rpx;
 }

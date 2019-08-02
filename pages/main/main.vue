@@ -83,20 +83,6 @@ export default {
 				color: [
 				  "#5fd8c6", "#61e6e0"
 				]
-			  },  {
-				label: '支付',
-				type: 'pay',
-				icon: 'icon-ic_paid',
-				color: [
-				  "#fd798d", "#ffb3a6"
-				]
-			  },{
-				label: '推送',
-				type: 'push',
-				icon: 'icon-fasongxinxi',
-				color: [
-				  "#a294f7", "#9cb1f7"
-				]
 			  },{
 				label: '分享',
 				type: 'share',
@@ -105,6 +91,34 @@ export default {
 				  "#61c566", "#a9e28b"
 				]
 			  },{
+				label: '通讯录',
+				type: 'callPhone',
+				icon: 'icon-shoujidadianhua',
+				color: [
+				  "#c477d2", "#dd87cd"
+				]
+			  },  {
+				label: '在线Excel',
+				type: 'onlineExcel',
+				icon: 'icon-excel',
+				color: [
+				  "#2f6af8", "#51c0fa"
+				]
+			  }, {
+				label: '在线Pdf',
+				type: 'onlinePdf',
+				icon: 'icon-pdf',
+				color: [
+				  "#eb5d43", "#ef9181"
+				]
+			  }, {
+				label: '前端题库',
+				type: 'frontQuestion',
+				icon: 'icon-tiku',
+				color: [
+				  "#e858a2", "#ec8fc3"
+				]
+			  }, {
 				label: '驾考宝典',
 				type: 'drivingExamination',
 				icon: 'icon-jiazhaodengji',
@@ -112,104 +126,90 @@ export default {
 				  "#00b9a3", "#00cc9a"
 				]
 			  },{
-				label: '通讯录',
-				type: 'callPhone',
-				icon: 'icon-shoujidadianhua',
-				color: [
-				  "#c477d2", "#dd87cd"
-				]
-			  }, {
-				label: '前端题库',
-				type: 'frontQuestion',
-				icon: 'icon-xinwen',
-				color: [
-				  "#e858a2", "#ec8fc3"
-				]
-			  },   {
-				label: '笑话大全',
-				type: 'todayHeadline',
-				icon: 'icon-message',
-				color: [
-				  "#ef9a3c", "#f8c568"
-				]
-			  },  {
 				label: '地图定位',
 				type: 'todayHeadline',
 				icon: 'icon-dituguanli',
 				color: [
 				  "#5eb8f1", "#6fd1ef"
 				]
+			  },{
+				label: '语音读报',
+				type: 'todayHeadline',
+				icon: 'icon-tubiaozhizuomoban',
+				color: [
+				  "#577ff3", "#abb1f6"
+				]
 			  }, {
-				label: '新华字典',
+				label: 'xxxx',//新华字典
 				type: 'xinhuaDictionary',
-				icon: 'icon-xinhuazidian',
+				icon: 'icon-xinwen',
 				color: [
 				  "#4facfe", "#00f2fe"
 				]
 			  }, {
-				label: '成语字典',
+				label: 'xxxx',//成语字典
 				type: 'idiomsDictionary',
-				icon: 'icon-chengyucidian',
+				icon: 'icon-xinwen',
 				color: [
 				  "#43e97b", "#38f9d7"
 				]
 			  }, {
-				label: '历史今天',
+				label: 'xxxx',//历史今天
 				type: 'historyToday',
-				icon: 'icon-lishi',
+				icon: 'icon-xinwen',
 				color: [
 				  "#4e95ff", "#54bdfa"
 				]
 			  }, {
-				label: '文字转换',
+				label: 'xxxx',//文字转换
 				type: 'textConversion',
-				icon: 'icon-zhuanhuan',
+				icon: 'icon-xinwen',
 				color: [
 				  "#87e3e4", "#59c4f1"
 				]
 			  }, {
-				label: '星座运势',
+				label: 'xxxx',//星座运势
 				type: 'constellationChart',
-				icon: 'icon-xingzuo',
+				icon: 'icon-xinwen',
 				color: [
 				  "#2af598", "#009efd"
 				]
 			  }, {
-				label: '周公解梦',
+				label: 'xxx',//周公解梦
 				type: 'zgInterprets',
-				icon: 'icon-zuomeng',
+				icon: 'icon-xinwen',
 				color: [
 				  "#18bcf4", "#ade4fd"
 				]
 			  }, {
-				label: '今日头条',
+				label: 'xxxx',//今日头条
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',
 				color: [
 				  "#58a0fd", "#c8c6ff"
 				]
 			  },{
-				label: '语音读报',
+				label: 'xxx',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',
 				color: [
-				  "#577ff3", "#abb1f6"
+				  "#a294f7", "#9cb1f7"
 				]
 			  }, {
-				label: '在线Excel',
+				label: 'xxx',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',
 				color: [
-				  "#2f6af8", "#51c0fa"
+				  "#fd798d", "#ffb3a6"
 				]
-			  }, {
-				label: '在线Pdf',
+			  },  {
+				label: 'xxx',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',
 				color: [
-				  "#eb5d43", "#ef9181"
+				  "#ef9a3c", "#f8c568"
 				]
-			  }, {
+			  },  {
 				label: 'xxx',
 				type: 'todayHeadline',
 				icon: 'icon-xinwen',

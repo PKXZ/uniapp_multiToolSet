@@ -132,6 +132,9 @@
     "h5" : {
         "router" : {
             "mode" : "hash"
+        },
+        "devServer" : {
+            "https" : true
         }
     },
     "mp-toutiao" : {

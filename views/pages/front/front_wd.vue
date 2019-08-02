@@ -68,7 +68,7 @@
 			goPage(type) {
 				if(type === 'tk'){
 					uni.navigateTo({
-						url: '/views/pages/front/excleTurnJson'
+						url: '/views/onlineExcel'
 					})
 				}
 			}

@@ -1,17 +1,16 @@
 <template>
 	<view class="main">
-		<!-- <input class="input-file" type="file" @change="exportData"  
-    accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
-		<button @click="btnClick">导入excel</button> -->
-		 <view ref="input" class="input"></view>
-		 <view>
-			 {{outData}}
-		 </view>
+		<view ref="input" class="input"></view>
+		<view>
+			{{outData}}
+		</view>
 	</view>
 </template>
 
 <script>
-	import XLSX from 'xlsx'
+	// #ifdef H5
+		import XLSX from 'xlsx'
+	// #endif
 	export default{
 		onLoad(options) {
 			//动态设置标题
@@ -20,17 +19,18 @@
 				title: options.label
 			  })
 			}
-			//#ifdef H5
+			// #ifdef H5
 			var input = document.createElement('input')  
-            input.type = 'file'  
+            input.type = 'file';
+			input.accept=".xlsl";
             input.onchange = (event) => {  
-               self.exportData(event);
+				self.exportData(event);
             }  
             const self = this;
-			 self.$nextTick(function(){
-				 self.$refs.input.$el.appendChild(input)
-			 })
-			//#endif
+			self.$nextTick(function(){
+				self.$refs.input.$el.appendChild(input)
+			})
+			// #endif
 		},
 		data(){
 			return{
@@ -38,13 +38,6 @@
 			}
 		},
 		methods: {
-			btnClick(){
-				uni.getSavedFileList({
-				  success: function (res) {
-					console.log(res.fileList);
-				  }
-				});
-			},
 			exportData(event) {
 			  if(!event.currentTarget.files.length) { 
 				return;
@@ -67,7 +60,7 @@
 				  for (var i = 0; i < length; i++) {
 					binary += String.fromCharCode(bytes[i]);
 				  }
-				 // 接下来就是xlsx了，具体可看api
+				  // 接下来就是xlsx了，具体可看api
 				  wb = XLSX.read(binary, {
 					type: "binary"
 				  });
@@ -79,7 +72,7 @@
 				reader.readAsArrayBuffer(f);
 			  };
 			  reader.readAsBinaryString(f);
-			},
+			}
 		},
 	}
 </script>

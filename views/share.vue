@@ -77,7 +77,6 @@
 </template>
 
 <script>
-	import '../static/css/share.css';
 	export default{
 		onLoad(options) {
 			//动态设置标题

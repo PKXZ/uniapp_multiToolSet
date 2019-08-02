@@ -8,7 +8,11 @@
 		},{
 		    "path" : "pages/find/find"
 		},{
-            "path" : "pages/myself/myself"
+            "path" : "pages/myself/myself",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"navigationStyle":"custom"
+			}
         },{
             "path" : "pages/message/message"
         },{
@@ -82,7 +86,11 @@
 			        }
 			    }
 			}
-        }
+        },{
+		    "path" : "views/onlinePdf"
+		},{
+		    "path" : "views/onlineExcel"
+		}
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

@@ -8,7 +8,7 @@
 				<frontDk></frontDk>
 			</view>
 			<view v-if="actived === 2">
-				<frontYd></frontYd>
+				<onlinePdf></onlinePdf>
 			</view>
 			<view v-if="actived === 3">
 				<frontWd></frontWd>
@@ -23,7 +23,7 @@
 	import tabbar from '@/components/common/tabbar.vue'
 	import frontZx from './pages/front/front_zx'
 	import frontDk from './pages/front/front_dk'
-	import frontYd from './pages/front/front_yd'
+	import onlinePdf from './onlinePdf'
 	import frontWd from './pages/front/front_wd'
 	export default{
 		onLoad(options) {
@@ -78,7 +78,7 @@
 			tabbar,
 			frontZx,
 			frontDk,
-			frontYd,
+			onlinePdf,
 			frontWd
 		}
 	}
