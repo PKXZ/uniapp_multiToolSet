@@ -64,12 +64,16 @@
 			"path" : "views/pages/front/front_zx_onlineTest"
 		},{
 			"path" : "views/pages/front/front_zx_topicTotal"
-		},{
+		},
+		// #ifdef H5
+		{
             "path" : "views/pages/front/excleTurnJson",
 			"style": {
 				"navigationBarTitleText": "在线excel转json"
 			}
-		},{
+		},
+		// #endif
+		{
             "path" : "views/drivingExamination",
 			"style": {
 			    "app-plus": {
@@ -86,11 +90,16 @@
 			        }
 			    }
 			}
-        },{
-		    "path" : "views/onlinePdf"
-		},{
+        },
+		// #ifdef H5
+		{
 		    "path" : "views/onlineExcel"
+		},
+		// #endif
+		{
+		    "path" : "views/onlinePdf"
 		}
+		
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",

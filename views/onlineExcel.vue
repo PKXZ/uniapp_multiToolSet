@@ -8,9 +8,9 @@
 </template>
 
 <script>
-	// #ifdef H5
+	//#ifdef H5
 		import XLSX from 'xlsx'
-	// #endif
+	//#endif
 	export default{
 		onLoad(options) {
 			//动态设置标题

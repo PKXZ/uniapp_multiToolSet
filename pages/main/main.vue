@@ -97,14 +97,18 @@ export default {
 				color: [
 				  "#c477d2", "#dd87cd"
 				]
-			  },  {
+			  },  
+			 // #ifdef H5
+			  {
 				label: '在线Excel',
 				type: 'onlineExcel',
 				icon: 'icon-excel',
 				color: [
 				  "#2f6af8", "#51c0fa"
 				]
-			  }, {
+			  }, 
+			 // #endif
+			  {
 				label: '在线Pdf',
 				type: 'onlinePdf',
 				icon: 'icon-pdf',
