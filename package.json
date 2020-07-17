@@ -15,7 +15,7 @@
     "echarts": "^4.2.1",
     "jq": "^1.7.2",
     "jweixin-module": "^1.4.1",
-    "lodash": "^4.17.14",
+    "lodash": "^4.17.19",
     "mockjs": "^1.0.1-beta3",
     "mpvue-echarts": "^0.3.1",
     "qrcode": "^1.4.0",
